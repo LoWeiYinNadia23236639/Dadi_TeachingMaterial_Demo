@@ -1,0 +1,160 @@
+/* ============================================
+   兒歌精選頁面 (根據 8.png)
+   ============================================ */
+
+.songs-page {
+    width: 100vw;
+    height: 100vh;
+    background: #66BB6A;
+    position: relative;
+    padding: 100px 60px 60px;
+}
+
+/* 黃色圓形按鈕 */
+.yellow-circle-btn {
+    width: 60px;
+    height: 60px;
+    background: #FFC107;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 100;
+}
+
+.btn-back-songs { top: 20px; left: 20px; }
+.btn-logo-songs { top: 20px; right: 20px; font-weight: bold; font-size: 32px; }
+
+/* 兒歌網格 */
+.songs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.song-box {
+    width: 160px;
+    height: 100px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+
+.song-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background: white;
+}
+
+.song-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.song-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ============================================
+   角色裝飾 - 兒歌頁面
+   ============================================ */
+
+/* 左下角角色8 */
+.song-char-left {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    width: 160px;
+    height: 200px;
+    z-index: 10;
+}
+
+.song-char-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 右下角角色9 */
+.song-char-right {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    width: 160px;
+    height: 200px;
+    z-index: 10;
+}
+
+.song-char-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .songs-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .song-char-left, .song-char-right {
+        width: 120px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .songs-page {
+        padding: 80px 30px 30px;
+    }
+    
+    .yellow-circle-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .btn-logo-songs {
+        font-size: 26px;
+    }
+    
+    .songs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .song-box {
+        border-radius: 15px;
+    }
+    
+    .song-icon {
+        font-size: 40px;
+    }
+    
+    .song-title {
+        font-size: 20px;
+    }
+    
+    .song-char-left, .song-char-right {
+        width: 100px;
+        height: 120px;
+    }
+}

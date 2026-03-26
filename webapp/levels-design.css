@@ -1,0 +1,137 @@
+/* ============================================
+   選擇程度頁面 (根據 4.png)
+   ============================================ */
+
+.levels-page {
+    width: 100vw;
+    height: 100vh;
+    background: #FFC107;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px 40px;
+}
+
+/* 綠色圓形按鈕 */
+.green-btn {
+    width: 60px;
+    height: 60px;
+    background: #8BC34A;
+    border: 3px solid white;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 100;
+}
+
+.btn-back { top: 20px; left: 20px; }
+.btn-logo { top: 20px; right: 20px; }
+
+/* 程度卡片容器 */
+.level-cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 程度卡片 */
+.level-card-new {
+    flex: 1;
+    max-width: 350px;
+    background: white;
+    border-radius: 50px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.level-card-new:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+.level-lion-img {
+    width: 200px;
+    height: 280px;
+    margin: 0 auto 20px;
+}
+
+.level-lion-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.level-name {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .level-cards-container {
+        gap: 25px;
+    }
+    
+    .level-card-new {
+        max-width: 280px;
+        padding: 30px 20px;
+        border-radius: 40px;
+    }
+    
+    .level-lion-img {
+        width: 160px;
+        height: 220px;
+    }
+    
+    .level-name {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .levels-page {
+        padding: 80px 20px 20px;
+    }
+    
+    .green-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .level-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .level-card-new {
+        max-width: 300px;
+        width: 100%;
+        padding: 25px 20px;
+        border-radius: 35px;
+    }
+    
+    .level-lion-img {
+        width: 140px;
+        height: 190px;
+    }
+    
+    .level-name {
+        font-size: 24px;
+    }
+}

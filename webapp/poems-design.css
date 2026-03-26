@@ -1,0 +1,189 @@
+/* ============================================
+   唐詩精選頁面 (根據 6.png)
+   ============================================ */
+
+.poems-page {
+    width: 100vw;
+    height: 100vh;
+    background: #81D4FA;
+    position: relative;
+    padding: 100px 60px 60px;
+}
+
+/* 藍色圓形按鈕 */
+.blue-circle-btn {
+    width: 60px;
+    height: 60px;
+    background: #29B6F6;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 100;
+}
+
+.btn-back-blue { top: 20px; left: 20px; }
+.btn-logo-blue { top: 20px; right: 20px; font-weight: bold; font-size: 32px; }
+
+/* 詩歌網格 */
+.poems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.poem-box {
+    width: 160px;
+    height: 100px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-decoration: none;
+    position: relative;
+}
+
+.poem-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+}
+
+.poem-box::after {
+    content: '▶';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    background: #FF0000;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.poem-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.poem-author {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ============================================
+   角色裝飾 - 唐詩頁面
+   ============================================ */
+
+/* 左下角獅子 */
+.poem-lion-left {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    width: 200px;
+    height: 250px;
+    z-index: 10;
+}
+
+.poem-lion-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 右下角角色5 */
+.poem-char-right {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 150px;
+    height: 200px;
+    z-index: 10;
+}
+
+.poem-char-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .poems-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .poem-lion-left {
+        width: 150px;
+        height: 180px;
+    }
+    
+    .poem-char-right {
+        width: 120px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .poems-page {
+        padding: 80px 30px 30px;
+    }
+    
+    .blue-circle-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .btn-logo-blue {
+        font-size: 26px;
+    }
+    
+    .poems-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .poem-box {
+        border-radius: 15px;
+    }
+    
+    .poem-title {
+        font-size: 22px;
+    }
+    
+    .poem-author {
+        font-size: 14px;
+    }
+    
+    .poem-lion-left {
+        width: 120px;
+        height: 150px;
+    }
+    
+    .poem-char-right {
+        width: 100px;
+        height: 120px;
+    }
+}
