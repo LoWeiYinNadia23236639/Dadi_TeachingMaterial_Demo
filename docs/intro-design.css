@@ -1,0 +1,166 @@
+/* ============================================
+   進入學習頁面 (根據 11.png)
+   ============================================ */
+
+.intro-page {
+    width: 100vw;
+    height: 100vh;
+    background: #FFC107;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 40px;
+}
+
+/* 粉紅色返回按鈕 */
+.pink-circle-btn {
+    width: 60px;
+    height: 60px;
+    background: #E91E63;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+/* 白色橢圓區域 */
+.intro-oval-area {
+    background: white;
+    border-radius: 50%;
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 1.4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* 角色圖片 */
+.intro-character {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.intro-character img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* 主題標題 */
+.intro-topic {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* 進入學習按鈕 */
+.enter-learning-btn {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    color: #333;
+    border: none;
+    padding: 20px 60px;
+    border-radius: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.enter-learning-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .intro-oval-area {
+        width: 85%;
+        padding: 40px;
+    }
+    
+    .intro-character {
+        width: 320px;
+        height: 240px;
+    }
+    
+    .intro-topic {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-page {
+        padding: 70px 20px 20px;
+    }
+    
+    .pink-circle-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        top: 15px;
+        left: 15px;
+    }
+    
+    .intro-oval-area {
+        width: 90%;
+        padding: 30px;
+        border-radius: 40px;
+    }
+    
+    .intro-character {
+        width: 250px;
+        height: 190px;
+        margin-bottom: 20px;
+    }
+    
+    .intro-topic {
+        font-size: 24px;
+    }
+    
+    .enter-learning-btn {
+        padding: 15px 40px;
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-oval-area {
+        border-radius: 30px;
+        padding: 25px;
+    }
+    
+    .intro-character {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .intro-topic {
+        font-size: 20px;
+    }
+    
+    .enter-learning-btn {
+        padding: 12px 35px;
+        font-size: 20px;
+    }
+}

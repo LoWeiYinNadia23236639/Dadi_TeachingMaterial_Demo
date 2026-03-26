@@ -1,0 +1,900 @@
+/* ============================================
+   全新設計 - 根據圖片精確還原
+   ============================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow: hidden;
+}
+
+/* Page System */
+.page {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.page.active { display: block; }
+
+/* ============================================
+   PAGE 1: 首頁 (根據 2.png)
+   ============================================ */
+.home-page-new {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.home-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 開始學習按鈕 */
+.start-learning-btn {
+    position: absolute;
+    top: 12%;
+    right: 18%;
+    z-index: 10;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.start-learning-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(232, 90, 156, 0.6);
+}
+
+.start-learning-btn:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-icon {
+    font-size: 32px;
+}
+
+/* 右下角Logo */
+.home-logo {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #8BC34A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+/* 舊版首頁樣式（保留以備用） */
+.home-page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(180deg, #9BCBE5 0%, #B8D8E8 50%, #C8E0EC 100%);
+    overflow: hidden;
+}
+
+/* 綠色圓形按鈕 */
+.green-circle-btn {
+    width: 60px;
+    height: 60px;
+    background: #8BC34A;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    z-index: 100;
+}
+
+.green-circle-btn:hover {
+    transform: scale(1.1);
+}
+
+.btn-play { top: 20px; left: 20px; }
+.btn-logo { top: 20px; right: 20px; font-weight: bold; font-size: 28px; }
+
+/* 雲朵 */
+.cloud {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.9;
+    animation: cloudMove 15s ease-in-out infinite;
+}
+
+.cloud-1 { top: 15%; right: 25%; animation-delay: 0s; }
+.cloud-2 { top: 25%; right: 5%; animation-delay: 5s; }
+.cloud-3 { top: 10%; left: 50%; animation-delay: 10s; }
+
+@keyframes cloudMove {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+}
+
+/* 招牌區域 */
+.sign-area {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    z-index: 10;
+}
+
+.sign-arc {
+    background: linear-gradient(135deg, #A0826D 0%, #7D6554 100%);
+    color: #FFF8E1;
+    padding: 12px 35px;
+    border-radius: 50px 50px 15px 15px;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid #5D4E37;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    margin-bottom: 8px;
+    transform: perspective(50px) rotateX(2deg);
+}
+
+.sign-rect {
+    background: linear-gradient(135deg, #A0826D 0%, #7D6554 100%);
+    color: #FFF8E1;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    border: 3px solid #5D4E37;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* 紅磚牆背景 */
+.brick-wall {
+    position: absolute;
+    left: 0;
+    top: 15%;
+    width: 25%;
+    height: 70%;
+    background: linear-gradient(90deg, #C44B4B 0%, #A83838 100%);
+    opacity: 0.9;
+}
+
+.brick-wall::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(335deg, rgba(0,0,0,0.1) 23px, transparent 23px),
+        linear-gradient(155deg, rgba(0,0,0,0.1) 23px, transparent 23px),
+        linear-gradient(335deg, rgba(0,0,0,0.1) 23px, transparent 23px),
+        linear-gradient(155deg, rgba(0,0,0,0.1) 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+}
+
+/* 城市天際線 - 右側 */
+.city-skyline {
+    position: absolute;
+    bottom: 25%;
+    right: 0;
+    width: 50%;
+    height: 35%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-right: 5%;
+    opacity: 0.7;
+}
+
+.building {
+    background: linear-gradient(180deg, #B0BEC5 0%, #78909C 100%);
+    border-radius: 3px 3px 0 0;
+}
+
+.b1 { width: 50px; height: 100px; }
+.b2 { width: 60px; height: 140px; }
+.b3 { width: 70px; height: 180px; background: linear-gradient(180deg, #90A4AE 0%, #607D8B 100%); }
+.b4 { width: 55px; height: 120px; }
+.b5 { width: 80px; height: 160px; border-radius: 40px 40px 0 0; background: linear-gradient(180deg, #B0BEC5 0%, #546E7A 100%); }
+
+/* 旗幟 */
+.flags {
+    position: absolute;
+    bottom: 28%;
+    right: 15%;
+    display: flex;
+    gap: 20px;
+    z-index: 8;
+}
+
+.flag {
+    width: 50px;
+    height: 35px;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+/* 大獅子 */
+.main-lion {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: 500px;
+    height: 500px;
+}
+
+.main-lion img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.25));
+}
+
+/* nǐ hǎo 氣泡 */
+.nihao-bubble {
+    position: absolute;
+    top: 18%;
+    right: 12%;
+    background: #FFC107;
+    color: white;
+    padding: 25px 45px;
+    border-radius: 25px;
+    font-size: 56px;
+    font-weight: bold;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    z-index: 100;
+    animation: bubblePop 2.5s ease-in-out infinite;
+    cursor: pointer;
+    transition: all 0.3s;
+    pointer-events: auto;
+}
+
+.nihao-bubble:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    background: #FFB300;
+}
+
+.nihao-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -25px;
+    left: 50px;
+    border: 15px solid transparent;
+    border-top-color: #FFC107;
+}
+
+@keyframes bubblePop {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+/* 水面 */
+.water {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 22%;
+    background: linear-gradient(180deg, #64B5F6 0%, #42A5F5 50%, #2196F3 100%);
+    z-index: 5;
+}
+
+/* 底部角色 */
+.bottom-characters {
+    position: absolute;
+    bottom: 18%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5px;
+    padding: 0 8%;
+    z-index: 15;
+}
+
+.b-char {
+    flex: 1;
+    max-width: 130px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.b-char img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.b-char:hover {
+    transform: translateY(-15px);
+}
+
+/* 兩側樹木 */
+.tree {
+    position: absolute;
+    bottom: 20%;
+    font-size: 100px;
+    z-index: 12;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+.tree-left { left: 1%; }
+.tree-right { right: 1%; }
+
+/* ============================================
+   PAGE 2: 角色選擇 (根據 3.png)
+   ============================================ */
+.char-page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(180deg, #87CEEB 0%, #B0D4E8 60%, #C8E0EC 100%);
+    overflow: hidden;
+}
+
+/* 輸入框 */
+.name-input-container {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.name-input {
+    width: 320px;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 35px;
+    font-size: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    outline: none;
+}
+
+.name-input::placeholder {
+    color: #aaa;
+}
+
+/* 語言選擇器 - 美化設計 */
+.language-selector {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    text-align: center;
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+    padding: 15px 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border: 3px solid #8BC34A;
+}
+
+.lang-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.lang-options {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.lang-btn {
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.lang-btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lang-btn.active {
+    background: linear-gradient(135deg, #8BC34A, #689F38);
+    color: white;
+    border-color: #8BC34A;
+    box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
+}
+
+.lang-btn::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ddd;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.lang-btn.active::before {
+    background: white;
+    box-shadow: inset 0 0 0 4px #4CAF50;
+}
+
+/* 草地 */
+.grass-ground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 18%;
+    background: linear-gradient(180deg, #AED581 0%, #9CCC65 100%);
+    z-index: 5;
+}
+
+.grass-ground::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        #81C784 0px,
+        #81C784 12px,
+        #66BB6A 12px,
+        #66BB6A 24px
+    );
+}
+
+/* 角色列 */
+.char-row {
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0 5%;
+    z-index: 10;
+}
+
+.char-item {
+    flex: 1;
+    max-width: 160px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.char-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.char-item:hover {
+    transform: translateY(-20px);
+}
+
+.char-item.selected {
+    transform: translateY(-30px);
+}
+
+.char-item.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* 確定按鈕 */
+.confirm-button {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    border-radius: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 30;
+}
+
+.confirm-button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ============================================
+   響應式設計
+   ============================================ */
+@media (max-width: 1024px) {
+    .main-lion { width: 400px; height: 400px; }
+    .nihao-bubble { font-size: 42px; padding: 20px 35px; }
+    .b-char { max-width: 110px; }
+    .char-item { max-width: 130px; }
+}
+
+@media (max-width: 768px) {
+    .green-circle-btn { width: 50px; height: 50px; font-size: 20px; }
+    .sign-arc { font-size: 18px; padding: 10px 25px; }
+    .sign-rect { font-size: 16px; padding: 8px 20px; }
+    .main-lion { width: 300px; height: 300px; left: 40%; }
+    .nihao-bubble { font-size: 32px; padding: 15px 25px; right: 5%; }
+    .b-char { max-width: 80px; }
+    .tree { font-size: 60px; }
+    .name-input { width: 260px; padding: 15px 25px; font-size: 18px; }
+    .char-item { max-width: 90px; }
+}
+
+@media (max-width: 480px) {
+    .green-circle-btn { width: 45px; height: 45px; font-size: 18px; }
+    .sign-arc { font-size: 14px; padding: 8px 18px; }
+    .sign-rect { font-size: 12px; padding: 6px 15px; }
+    .main-lion { width: 220px; height: 220px; }
+    .nihao-bubble { font-size: 24px; padding: 12px 20px; top: 12%; }
+    .b-char { max-width: 55px; }
+    .tree { font-size: 45px; bottom: 18%; }
+    .name-input { width: 220px; padding: 12px 20px; font-size: 16px; }
+    .char-item { max-width: 65px; }
+}
+
+
+/* ============================================
+   其他頁面基本樣式
+   ============================================ */
+
+/* 通用頁面容器 */
+.yellow-screen, .green-screen, .blue-screen, .pink-screen, .blue-light-screen, .green-light-screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 20px;
+}
+
+.yellow-screen {
+    background: linear-gradient(180deg, #FFD54F 0%, #FFE082 100%);
+}
+
+.green-screen {
+    background: linear-gradient(180deg, #66BB6A 0%, #81C784 100%);
+}
+
+.blue-screen {
+    background: linear-gradient(180deg, #29B6F6 0%, #81D4FA 100%);
+}
+
+.pink-screen {
+    background: linear-gradient(180deg, #F48FB1 0%, #F8BBD9 100%);
+}
+
+.blue-light-screen {
+    background: linear-gradient(180deg, #81D4FA 0%, #B3E5FC 100%);
+}
+
+.green-light-screen {
+    background: linear-gradient(180deg, #A5D6A7 0%, #C8E6C9 100%);
+}
+
+/* 返回按鈕 */
+.nav-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+/* Logo Corner */
+.logo-corner {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #7CB342;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+/* 標題 */
+.section-title {
+    font-size: 36px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* 卡片容器 */
+.level-cards, .cat-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.level-card, .cat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.level-card:hover, .cat-card:hover {
+    transform: translateY(-10px);
+}
+
+.level-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.level-badge {
+    background: #E91E63;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* ============================================
+   角色引導系統
+   ============================================ */
+.guide-character-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.guide-character-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.guide-character {
+    width: 140px;
+    height: 170px;
+    animation: guideBounce 2s ease-in-out infinite;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.guide-character img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+@keyframes guideBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.guide-speech-bubble {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 18px 24px;
+    margin-bottom: 15px;
+    max-width: 240px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 3px solid #8BC34A;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    animation: bubblePop 0.5s ease;
+}
+
+@keyframes bubblePop {
+    0% { transform: scale(0); opacity: 0; }
+    80% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.guide-speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    right: 55px;
+    border-width: 15px 15px 0;
+    border-style: solid;
+    border-color: #8BC34A transparent transparent;
+}
+
+.guide-speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 58px;
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+    z-index: 1;
+}
+
+.guide-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    display: block;
+}
+
+.guide-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #E85A9C;
+    color: white;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.guide-close:hover {
+    transform: scale(1.1);
+    background: #D81B60;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+    .guide-character-container {
+        bottom: 80px;
+        right: 15px;
+    }
+    
+    .guide-character {
+        width: 100px;
+        height: 120px;
+    }
+    
+    .guide-speech-bubble {
+        max-width: 180px;
+        padding: 12px 18px;
+    }
+    
+    .guide-text {
+        font-size: 14px;
+    }
+    
+    .start-learning-btn {
+        padding: 15px 30px;
+        font-size: 20px;
+        top: 30%;
+        right: 10%;
+    }
+    
+    .btn-icon {
+        font-size: 26px;
+    }
+    
+    .home-logo {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

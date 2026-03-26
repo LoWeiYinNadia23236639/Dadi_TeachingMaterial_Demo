@@ -1,0 +1,148 @@
+/* ============================================
+   課文學習頁面 (根據 10.png)
+   ============================================ */
+
+.chapters-page {
+    width: 100vw;
+    height: 100vh;
+    background: #E91E63;
+    position: relative;
+    padding: 80px 40px 40px;
+}
+
+/* 黃色返回按鈕 */
+.back-btn-yellow {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background: #FFC107;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+/* 標籤容器 */
+.volume-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.volume-tab {
+    background: white;
+    color: #E91E63;
+    padding: 15px 60px;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.volume-tab.active {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.volume-tab:not(.active) {
+    opacity: 0.7;
+}
+
+/* 章節網格 */
+.chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.chapter-box {
+    width: 140px;
+    height: 140px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    margin: 0 auto;
+}
+
+.chapter-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.chapter-num {
+    font-size: 32px;
+    font-weight: bold;
+    color: #E91E63;
+}
+
+.chapter-title {
+    font-size: 18px;
+    color: #333;
+    margin-top: 5px;
+}
+
+/* 隱藏的內容 */
+.volume-content {
+    display: none;
+}
+
+.volume-content.active {
+    display: block;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .chapters-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .chapters-page {
+        padding: 70px 20px 20px;
+    }
+    
+    .volume-tabs {
+        gap: 20px;
+    }
+    
+    .volume-tab {
+        padding: 12px 40px;
+        font-size: 20px;
+    }
+    
+    .chapters-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    
+    .chapter-box {
+        width: 100px;
+        height: 100px;
+        border-radius: 15px;
+    }
+    
+    .chapter-num {
+        font-size: 24px;
+    }
+    
+    .chapter-title {
+        font-size: 14px;
+    }
+}
