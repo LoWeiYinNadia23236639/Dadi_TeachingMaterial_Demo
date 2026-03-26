@@ -2016,3 +2016,52 @@ document.addEventListener('keydown', (e) => {
 });
 
 console.log('🦁 大地幼教学材已加载');
+
+
+// ============================================
+// POEMS PAGE - FORCE INTERCEPT ALL CLICKS
+// ============================================
+// 強制攔截所有詩歌卡片的點擊事件
+function initPoemBoxHandlers() {
+    const poemsGrid = document.querySelector('.poems-grid');
+    if (!poemsGrid) return;
+    
+    // 使用 capture phase 確保最先攔截事件
+    poemsGrid.addEventListener('click', function(e) {
+        const box = e.target.closest('.poem-box');
+        if (!box) return;
+        
+        // 完全阻止默認行為
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 獲取 onclick 屬性中的 URL
+        const onclickAttr = box.getAttribute('onclick');
+        if (onclickAttr) {
+            const match = onclickAttr.match(/showVideoModal\(['"](.+?)['"]\)/);
+            if (match && match[1]) {
+                showVideoModal(match[1]);
+            }
+        }
+        
+        return false;
+    }, true); // true = capture phase
+}
+
+// 頁面加載後初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPoemBoxHandlers);
+} else {
+    initPoemBoxHandlers();
+}
+
+// 頁面切換時也重新初始化
+const originalGoTo = window.goTo;
+if (originalGoTo) {
+    window.goTo = function(page) {
+        setTimeout(initPoemBoxHandlers, 100);
+        return originalGoTo.apply(this, arguments);
+    };
+}
+
+console.log('🦁 大地幼教学材已加载');
