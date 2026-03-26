@@ -929,12 +929,19 @@ function playStrokeAndSpeak() {
 // 顯示影片彈窗
 function showVideoModal(videoUrl) {
     // 將 YouTube 網址轉換為嵌入格式
+    console.log('Opening video:', videoUrl);
+    
+    // 將 YouTube 網址轉換為嵌入格式
     let embedUrl = videoUrl;
     
     // 處理不同格式的 YouTube 網址
     if (videoUrl.includes('youtube.com/shorts/')) {
         // Shorts 格式: https://www.youtube.com/shorts/VIDEO_ID
         const videoId = videoUrl.split('/shorts/')[1].split('?')[0];
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    } else if (videoUrl.includes('youtube.com/watch?v=')) {
+        // 標準格式: https://www.youtube.com/watch?v=VIDEO_ID
+        const videoId = videoUrl.split('v=')[1].split('&')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
     } else if (videoUrl.includes('youtu.be/')) {
         // youtu.be 格式: https://youtu.be/VIDEO_ID
@@ -1528,13 +1535,21 @@ function initLineMatchingGame() {
     AppState.gameScore = 0;
     updateGameScore();
     
-    // 洗牌右側文字
+    // 從左側獲取當前顯示的部位
+    const leftItems = document.querySelectorAll('.emoji-item');
+    const parts = Array.from(leftItems).map(item => item.dataset.part).sort(() => Math.random() - 0.5);
+    
+    // 洗牌右側文字（使用與左側相同的部位）
     const rightItems = document.querySelectorAll('.text-item');
-    const parts = ['eye', 'nose', 'ear', 'mouth'].sort(() => Math.random() - 0.5);
     rightItems.forEach((item, i) => {
         item.dataset.part = parts[i];
         item.textContent = bodyPartsData[parts[i]].text;
         item.classList.remove('matched');
+        // 重置樣式
+        item.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
+        item.style.borderColor = '#0066CC';
+        item.style.color = '#0066CC';
+        item.style.transform = 'scale(1)';
     });
     
     // 重置左側
@@ -1999,5 +2014,54 @@ document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') prevSection();
     }
 });
+
+console.log('🦁 大地幼教学材已加载');
+
+
+// ============================================
+// POEMS PAGE - FORCE INTERCEPT ALL CLICKS
+// ============================================
+// 強制攔截所有詩歌卡片的點擊事件
+function initPoemBoxHandlers() {
+    const poemsGrid = document.querySelector('.poems-grid');
+    if (!poemsGrid) return;
+    
+    // 使用 capture phase 確保最先攔截事件
+    poemsGrid.addEventListener('click', function(e) {
+        const box = e.target.closest('.poem-box');
+        if (!box) return;
+        
+        // 完全阻止默認行為
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // 獲取 onclick 屬性中的 URL
+        const onclickAttr = box.getAttribute('onclick');
+        if (onclickAttr) {
+            const match = onclickAttr.match(/showVideoModal\(['"](.+?)['"]\)/);
+            if (match && match[1]) {
+                showVideoModal(match[1]);
+            }
+        }
+        
+        return false;
+    }, true); // true = capture phase
+}
+
+// 頁面加載後初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPoemBoxHandlers);
+} else {
+    initPoemBoxHandlers();
+}
+
+// 頁面切換時也重新初始化
+const originalGoTo = window.goTo;
+if (originalGoTo) {
+    window.goTo = function(page) {
+        setTimeout(initPoemBoxHandlers, 100);
+        return originalGoTo.apply(this, arguments);
+    };
+}
 
 console.log('🦁 大地幼教学材已加载');
