@@ -927,7 +927,15 @@ function playStrokeAndSpeak() {
 }
 
 // 顯示影片彈窗
-function showVideoModal(videoUrl) {
+function showVideoModal(videoUrl, event) {
+    // 防止默認行為
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    console.log('Opening video:', videoUrl);
+    
     // 將 YouTube 網址轉換為嵌入格式
     let embedUrl = videoUrl;
     
