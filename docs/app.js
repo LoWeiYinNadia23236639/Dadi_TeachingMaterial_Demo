@@ -33,6 +33,7 @@ const i18n = {
         selectLanguage: '選擇語言',
         inputName: '輸入你的名字',
         confirm: '確定',
+        selectCharHint: '請選擇一個學習夥伴！',
         
         // 學習頁面
         sectionIntro: '課前提問',
@@ -84,6 +85,7 @@ const i18n = {
         selectLanguage: '选择语言',
         inputName: '输入你的名字',
         confirm: '确定',
+        selectCharHint: '请选择一个学习伙伴！',
         
         // 學習頁面
         sectionIntro: '课前提问',
@@ -172,6 +174,12 @@ function updateAllText() {
     const confirmBtn = document.getElementById('confirmBtn');
     if (confirmBtn) {
         confirmBtn.textContent = t('confirm') + ' ✓';
+    }
+    
+    // 更新選擇角色提示
+    const charSelectHint = document.getElementById('charSelectHint');
+    if (charSelectHint) {
+        charSelectHint.textContent = t('selectCharHint');
     }
     
     // 更新學習頁面section配置

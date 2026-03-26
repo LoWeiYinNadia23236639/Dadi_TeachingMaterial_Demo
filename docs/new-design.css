@@ -511,6 +511,22 @@ body {
 }
 
 /* 角色列 */
+.char-select-hint {
+    position: absolute;
+    bottom: 42%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #4CAF50;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 15;
+    animation: bounce 2s infinite;
+}
+
 .char-row {
     position: absolute;
     bottom: 12%;
@@ -598,6 +614,7 @@ body {
     .nihao-bubble { font-size: 42px; padding: 20px 35px; }
     .b-char { max-width: 110px; }
     .char-item { max-width: 130px; }
+    .char-select-hint { font-size: 20px; padding: 10px 25px; bottom: 40%; }
 }
 
 @media (max-width: 768px) {
@@ -610,10 +627,12 @@ body {
     .tree { font-size: 60px; }
     .name-input { width: 260px; padding: 15px 25px; font-size: 18px; }
     .char-item { max-width: 90px; }
+    .char-select-hint { font-size: 18px; padding: 8px 20px; bottom: 38%; }
 }
 
 @media (max-width: 480px) {
     .green-circle-btn { width: 45px; height: 45px; font-size: 18px; }
+    .char-select-hint { font-size: 16px; padding: 8px 16px; bottom: 36%; width: 90%; text-align: center; }
     .sign-arc { font-size: 14px; padding: 8px 18px; }
     .sign-rect { font-size: 12px; padding: 6px 15px; }
     .main-lion { width: 220px; height: 220px; }
