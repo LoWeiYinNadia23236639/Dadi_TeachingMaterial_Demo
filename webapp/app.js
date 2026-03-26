@@ -96,7 +96,71 @@ const i18n = {
         secondary: '中學',
         courseware: '課件',
         poems: '唐詩',
-        songs: '兒歌'
+        songs: '兒歌',
+        
+        // 冊別
+        volumeUpper: '上冊',
+        volumeLower: '下冊',
+        
+        // 章節名稱
+        chapter1: '一家人',
+        chapter2: '幼兒園',
+        chapter3: '數字',
+        chapter4: '顏色',
+        chapter5: '動物',
+        chapter6: '水果',
+        chapter7: '天氣',
+        chapter8: '季節',
+        chapter9: '運動',
+        chapter10: '食物',
+        chapter11: '身體',
+        
+        // 引導頁
+        enterLearning: '進入學習',
+        ready: '準備好了嗎？',
+        todayLearn: '今天想學什麼呢？',
+        wantLearn: '你想學習什麼內容呢？',
+        
+        // 页面标题
+        selectCharacter: '選擇角色',
+        selectLevel: '選擇學習程度',
+        selectCategory: '選擇學習類別',
+        selectChapter: '選擇章節',
+        
+        // 歌曲名稱
+        song1: '兩隻老虎',
+        song2: '小星星',
+        song3: '拔蘿蔔',
+        song4: '小兔子',
+        song5: '找朋友',
+        song6: '好媽媽',
+        song7: '新年好',
+        song8: '春天',
+        song9: '數鴨子',
+        song10: '泥娃娃',
+        song11: '一分錢',
+        song12: '小燕子',
+        
+        // 詩歌名稱
+        poem1: '靜夜思',
+        poem2: '春暃',
+        poem3: '詠鵝',
+        poem4: '悯農',
+        poem5: '登鶓雀樓',
+        poem6: '江雪',
+        poem7: '問劉十九',
+        poem8: '暮江吟',
+        poem9: '望廬山瀑布',
+        poem10: '早發白帝城',
+        poem11: '黃鶴樓',
+        poem12: '山居秀曦',
+        
+        // 語言選擇
+        langTW: '繁體中文',
+        langCN: '简體中文',
+        
+        // 首頁
+        startLearning: '開始學習'
     },
     'zh-CN': {
         // 角色選擇頁面
@@ -166,7 +230,71 @@ const i18n = {
         secondary: '中学',
         courseware: '课件',
         poems: '唐诗',
-        songs: '儿歌'
+        songs: '儿歌',
+        
+        // 册别
+        volumeUpper: '上册',
+        volumeLower: '下册',
+        
+        // 章节名称
+        chapter1: '一家人',
+        chapter2: '幼儿园',
+        chapter3: '数字',
+        chapter4: '颜色',
+        chapter5: '动物',
+        chapter6: '水果',
+        chapter7: '天气',
+        chapter8: '季节',
+        chapter9: '运动',
+        chapter10: '食物',
+        chapter11: '身体',
+        
+        // 引导页
+        enterLearning: '进入学习',
+        ready: '准备好了吗？',
+        todayLearn: '今天想学什么呢？',
+        wantLearn: '你想学习什么内容呢？',
+        
+        // 页面标题
+        selectCharacter: '选择角色',
+        selectLevel: '选择学习程度',
+        selectCategory: '选择学习类别',
+        selectChapter: '选择章节',
+        
+        // 歌曲名称
+        song1: '两只老虎',
+        song2: '小星星',
+        song3: '拔萝卜',
+        song4: '小兔子',
+        song5: '找朋友',
+        song6: '好妈妈',
+        song7: '新年好',
+        song8: '春天',
+        song9: '数鸭子',
+        song10: '泥娃娃',
+        song11: '一分钱',
+        song12: '小燕子',
+        
+        // 诗歌名称
+        poem1: '静夜思',
+        poem2: '春晓',
+        poem3: '咏鹅',
+        poem4: '怜农',
+        poem5: '登鹊鹊楼',
+        poem6: '江雪',
+        poem7: '问刘十九',
+        poem8: '暮江吟',
+        poem9: '望庐山瀑布',
+        poem10: '早发白帝城',
+        poem11: '黄鹤楼',
+        poem12: '山居秋晨',
+        
+        // 语言选择
+        langTW: '繁体中文',
+        langCN: '简体中文',
+        
+        // 首页
+        startLearning: '开始学习'
     }
 };
 
@@ -250,6 +378,59 @@ function updateAllText() {
     
     // 更新問答挑戰的問題
     updateQuizQuestions();
+    
+    // 更新程度選擇頁面
+    document.querySelectorAll('[data-i18n="kindergarten"]').forEach(el => el.textContent = t('kindergarten'));
+    document.querySelectorAll('[data-i18n="primary"]').forEach(el => el.textContent = t('primary'));
+    document.querySelectorAll('[data-i18n="secondary"]').forEach(el => el.textContent = t('secondary'));
+    
+    // 更新分類頁面
+    document.querySelectorAll('[data-i18n="courseware"]').forEach(el => el.textContent = t('courseware'));
+    document.querySelectorAll('[data-i18n="poems"]').forEach(el => el.textContent = t('poems'));
+    document.querySelectorAll('[data-i18n="songs"]').forEach(el => el.textContent = t('songs'));
+    
+    // 更新冊別
+    document.querySelectorAll('[data-i18n="volumeUpper"]').forEach(el => el.textContent = t('volumeUpper'));
+    document.querySelectorAll('[data-i18n="volumeLower"]').forEach(el => el.textContent = t('volumeLower'));
+    
+    // 更新章節名稱
+    for (let i = 1; i <= 11; i++) {
+        document.querySelectorAll(`[data-i18n="chapter${i}"]`).forEach(el => el.textContent = t(`chapter${i}`));
+    }
+    
+    // 更新引導頁
+    document.querySelectorAll('[data-i18n="enterLearning"]').forEach(el => el.textContent = t('enterLearning'));
+    
+    // 更新按鈕
+    document.querySelectorAll('[data-i18n="clear"]').forEach(el => el.textContent = t('clear'));
+    document.querySelectorAll('[data-i18n="complete"]').forEach(el => el.textContent = t('complete'));
+    document.querySelectorAll('[data-i18n="watchStroke"]').forEach(el => {
+        const arrow = el.textContent.includes('▶') ? '▶ ' : '';
+        el.textContent = arrow + t('watchStroke');
+    });
+    
+    // 更新頁面標題
+    document.querySelectorAll('[data-i18n="selectCharacter"]').forEach(el => el.textContent = t('selectCharacter'));
+    document.querySelectorAll('[data-i18n="selectLevel"]').forEach(el => el.textContent = t('selectLevel'));
+    document.querySelectorAll('[data-i18n="selectCategory"]').forEach(el => el.textContent = t('selectCategory'));
+    document.querySelectorAll('[data-i18n="selectChapter"]').forEach(el => el.textContent = t('selectChapter'));
+    
+    // 更新歌曲名稱
+    for (let i = 1; i <= 12; i++) {
+        document.querySelectorAll(`[data-i18n="song${i}"]`).forEach(el => el.textContent = t(`song${i}`));
+    }
+    
+    // 更新詩歌名稱
+    for (let i = 1; i <= 12; i++) {
+        document.querySelectorAll(`[data-i18n="poem${i}"]`).forEach(el => el.textContent = t(`poem${i}`));
+    }
+    
+    // 更新語言選擇按鈕
+    document.querySelectorAll('[data-i18n="langTW"]').forEach(el => el.textContent = t('langTW'));
+    document.querySelectorAll('[data-i18n="langCN"]').forEach(el => el.textContent = t('langCN'));
+    
+    // 更新首頁按鈕
+    document.querySelectorAll('[data-i18n="startLearning"]').forEach(el => el.textContent = t('startLearning'));
 }
 
 // 更新頁面語言
@@ -316,6 +497,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (nameInput) {
         nameInput.placeholder = t('inputName');
     }
+    
+    // 更新所有頁面文字
+    updateAllText();
     
     // 恢復已選擇的角色
     const savedChar = localStorage.getItem('selectedCharacter');
