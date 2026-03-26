@@ -936,6 +936,10 @@ function showVideoModal(videoUrl) {
         // Shorts 格式: https://www.youtube.com/shorts/VIDEO_ID
         const videoId = videoUrl.split('/shorts/')[1].split('?')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    } else if (videoUrl.includes('youtube.com/watch?v=')) {
+        // 標準格式: https://www.youtube.com/watch?v=VIDEO_ID
+        const videoId = videoUrl.split('v=')[1].split('&')[0];
+        embedUrl = `https://www.youtube.com/embed/${videoId}`;
     } else if (videoUrl.includes('youtu.be/')) {
         // youtu.be 格式: https://youtu.be/VIDEO_ID
         const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
