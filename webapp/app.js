@@ -34,6 +34,8 @@ const i18n = {
         inputName: '輸入你的名字',
         confirm: '確定',
         selectCharHint: '請選擇一個學習夥伴！',
+        selectCharAlert: '請選擇一個角色！',
+        writeGood: '寫得很好！',
         
         // 學習頁面
         sectionIntro: '課前提問',
@@ -70,6 +72,22 @@ const i18n = {
         descFoot: '我們用腳來走路和跑步',
         descHead: '頭部有五官，是我們思考的地方',
         
+        // 遊戲提示
+        clickRightText: '👆 現在點擊右邊對應的文字！',
+        clickLeftFirst: '👉 請先點擊左邊的圖片！',
+        matchSuccess: '🎉 配對成功！',
+        allMatched: '🎊 恭喜你完成了所有配對！🎊',
+        matchingMaster: '太棒了！你是配對小達人！',
+        tryAgain: '😅 不對喔，再試試！',
+        keepGoing: '繼續加油！',
+        flipCardHint: '再翻一張看看！',
+        memoryMatchSuccess: '🎉 配對成功！',
+        memoryAllMatched: '🎊 恭喜你完成了記憶遊戲！🎊',
+        findSameCard: '找到相同的卡片！',
+        quizCorrect: '🎉 答對了！真棒！',
+        quizAllCorrect: '🎊 太棒了！全部答對！🎊',
+        quizWrong: '😅 不對喔，再試試！',
+        
         // 其他文字
         score: '得分',
         welcome: '歡迎',
@@ -86,6 +104,8 @@ const i18n = {
         inputName: '输入你的名字',
         confirm: '确定',
         selectCharHint: '请选择一个学习伙伴！',
+        selectCharAlert: '请选择一个角色！',
+        writeGood: '写得很好！',
         
         // 學習頁面
         sectionIntro: '课前提问',
@@ -121,6 +141,22 @@ const i18n = {
         descHand: '我们用手来拿东西和触摸',
         descFoot: '我们用脚来走路和跑步',
         descHead: '头部有五官，是我们思考的地方',
+        
+        // 游戏提示
+        clickRightText: '👆 现在点击右边对应的文字！',
+        clickLeftFirst: '👉 请先点击左边的图片！',
+        matchSuccess: '🎉 配对成功！',
+        allMatched: '🎊 恭喜你完成了所有配对！🎊',
+        matchingMaster: '太棒了！你是配对小达人！',
+        tryAgain: '😅 不对哦，再试试！',
+        keepGoing: '继续加油！',
+        flipCardHint: '再翻一张看看！',
+        memoryMatchSuccess: '🎉 配对成功！',
+        memoryAllMatched: '🎊 恭喜你完成了记忆游戏！🎊',
+        findSameCard: '找到相同的卡片！',
+        quizCorrect: '🎉 答对了！真棒！',
+        quizAllCorrect: '🎊 太棒了！全部答对！🎊',
+        quizWrong: '😅 不对哦，再试试！',
         
         // 其他文字
         score: '得分',
@@ -472,7 +508,7 @@ function confirmChar() {
         return;
     }
     if (!AppState.selectedChar) {
-        alert('請選擇一個角色！');
+        alert(t('selectCharAlert'));
         return;
     }
     AppState.playerName = nameInput.value.trim();
@@ -1591,14 +1627,14 @@ function selectLeft(element) {
     
     // 更新提示
     const msgEl = document.getElementById('matchMessage');
-    if (msgEl) msgEl.textContent = '👆 現在點擊右邊對應的文字！';
+    if (msgEl) msgEl.textContent = t('clickRightText');
 }
 
 function selectRight(element) {
     const msgEl = document.getElementById('matchMessage');
     
     if (!selectedLeft || element.classList.contains('matched')) {
-        if (msgEl && !selectedLeft) msgEl.textContent = '👉 請先點擊左邊的圖片！';
+        if (msgEl && !selectedLeft) msgEl.textContent = t('clickLeftFirst');
         return;
     }
     
@@ -1641,8 +1677,8 @@ function selectRight(element) {
         if (matchedPairs.size >= 4) {
             setTimeout(() => {
                 celebrateWin();
-                if (msgEl) msgEl.innerHTML = '🎊 恭喜你完成了所有配對！🎊';
-                document.getElementById('matchingInstruction').textContent = '太棒了！你是配對小達人！';
+                if (msgEl) msgEl.innerHTML = t('allMatched');
+                document.getElementById('matchingInstruction').textContent = t('matchingMaster');
             }, 500);
         }
         
@@ -1756,7 +1792,7 @@ function flipMemoryCard(card) {
     
     // 更新提示文字
     const msgEl = document.getElementById('gameMessage');
-    if (msgEl) msgEl.textContent = AppState.memoryFlipped.length === 1 ? '再翻一張看看！' : '...';
+    if (msgEl) msgEl.textContent = AppState.memoryFlipped.length === 1 ? t('flipCardHint') : '...';
     
     if (AppState.memoryFlipped.length === 2) {
         const [c1, c2] = AppState.memoryFlipped;
@@ -1764,7 +1800,7 @@ function flipMemoryCard(card) {
         
         if (c1.dataset.key === c2.dataset.key) {
             // 配對成功
-            if (msgEl) msgEl.textContent = '🎉 配對成功！';
+            if (msgEl) msgEl.textContent = t('matchSuccess');
             
             setTimeout(() => {
                 c1.querySelector('.card-back').style.background = '#C8E6C9';
@@ -1788,19 +1824,19 @@ function flipMemoryCard(card) {
                 createConfetti();
                 
                 if (AppState.memoryMatched >= 4) {
-                    if (msgEl) msgEl.innerHTML = '🎊 恭喜你完成了記憶遊戲！🎊';
+                    if (msgEl) msgEl.innerHTML = t('memoryAllMatched');
                     setTimeout(() => {
                         celebrateWin();
                     }, 500);
                 } else {
                     setTimeout(() => {
-                        if (msgEl) msgEl.textContent = '繼續加油！';
+                        if (msgEl) msgEl.textContent = t('keepGoing');
                     }, 1500);
                 }
             }, 600);
         } else {
             // 配對失敗
-            if (msgEl) msgEl.textContent = '😅 不對喔，再試試！';
+            if (msgEl) msgEl.textContent = t('tryAgain');
             
             setTimeout(() => {
                 c1.style.transform = 'rotateY(0deg)';
@@ -1810,7 +1846,7 @@ function flipMemoryCard(card) {
                 AppState.memoryFlipped = [];
                 
                 setTimeout(() => {
-                    if (msgEl) msgEl.textContent = '找到相同的卡片！';
+                    if (msgEl) msgEl.textContent = t('findSameCard');
                 }, 500);
             }, 1200);
         }
@@ -1843,7 +1879,7 @@ function answerQuiz(btn, isCorrect, soundText) {
         btn.style.boxShadow = '0 8px 25px rgba(76,175,80,0.4)';
         
         if (feedbackEl) {
-            feedbackEl.innerHTML = '🎉 答對了！真棒！';
+            feedbackEl.innerHTML = t('quizCorrect');
             feedbackEl.style.color = '#4CAF50';
         }
         
@@ -1862,7 +1898,7 @@ function answerQuiz(btn, isCorrect, soundText) {
                 // 完成所有題目
                 celebrateWin();
                 if (feedbackEl) {
-                    feedbackEl.innerHTML = '🎊 太棒了！全部答對！🎊';
+                    feedbackEl.innerHTML = t('quizAllCorrect');
                 }
                 setTimeout(() => {
                     alert(`🎉 恭喜你完成了所有題目！\n\n總得分: ${AppState.gameScore} 分\n\n你是學習小達人！`);
@@ -1879,7 +1915,7 @@ function answerQuiz(btn, isCorrect, soundText) {
         btn.style.animation = 'shake 0.5s ease-out';
         
         if (feedbackEl) {
-            feedbackEl.innerHTML = '😅 不對喔，再試試！';
+            feedbackEl.innerHTML = t('quizWrong');
             feedbackEl.style.color = '#EF5350';
         }
         
