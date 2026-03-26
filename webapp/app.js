@@ -1528,13 +1528,21 @@ function initLineMatchingGame() {
     AppState.gameScore = 0;
     updateGameScore();
     
-    // 洗牌右側文字
+    // 從左側獲取當前顯示的部位
+    const leftItems = document.querySelectorAll('.emoji-item');
+    const parts = Array.from(leftItems).map(item => item.dataset.part).sort(() => Math.random() - 0.5);
+    
+    // 洗牌右側文字（使用與左側相同的部位）
     const rightItems = document.querySelectorAll('.text-item');
-    const parts = ['eye', 'nose', 'ear', 'mouth'].sort(() => Math.random() - 0.5);
     rightItems.forEach((item, i) => {
         item.dataset.part = parts[i];
         item.textContent = bodyPartsData[parts[i]].text;
         item.classList.remove('matched');
+        // 重置樣式
+        item.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
+        item.style.borderColor = '#0066CC';
+        item.style.color = '#0066CC';
+        item.style.transform = 'scale(1)';
     });
     
     // 重置左側
