@@ -511,13 +511,18 @@ body {
 }
 
 /* 角色列 */
-.char-select-hint {
+.char-hint-container {
     position: absolute;
-    bottom: 30%;
+    bottom: 32%;
     left: 0;
     right: 0;
-    margin: 0 auto;
-    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.char-select-hint {
     background: rgba(255, 255, 255, 0.95);
     padding: 12px 30px;
     border-radius: 25px;
@@ -525,7 +530,6 @@ body {
     font-weight: bold;
     color: #4CAF50;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    z-index: 15;
     animation: bounce 2s infinite;
     white-space: nowrap;
     text-align: center;
@@ -618,7 +622,7 @@ body {
     .nihao-bubble { font-size: 42px; padding: 20px 35px; }
     .b-char { max-width: 110px; }
     .char-item { max-width: 130px; }
-    .char-select-hint { font-size: 20px; padding: 10px 25px; bottom: 33%; }
+    .char-select-hint { font-size: 20px; padding: 10px 25px; }
 }
 
 @media (max-width: 768px) {
@@ -631,12 +635,12 @@ body {
     .tree { font-size: 60px; }
     .name-input { width: 260px; padding: 15px 25px; font-size: 18px; }
     .char-item { max-width: 90px; }
-    .char-select-hint { font-size: 18px; padding: 8px 20px; bottom: 32%; }
+    .char-select-hint { font-size: 18px; padding: 8px 20px; }
 }
 
 @media (max-width: 480px) {
     .green-circle-btn { width: 45px; height: 45px; font-size: 18px; }
-    .char-select-hint { font-size: 16px; padding: 8px 16px; bottom: 30%; width: 90%; text-align: center; white-space: normal; }
+    .char-select-hint { font-size: 16px; padding: 8px 16px; white-space: normal; }
     .sign-arc { font-size: 14px; padding: 8px 18px; }
     .sign-rect { font-size: 12px; padding: 6px 15px; }
     .main-lion { width: 220px; height: 220px; }
