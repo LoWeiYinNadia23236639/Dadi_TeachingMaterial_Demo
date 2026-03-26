@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Poem</title>
+    <style>
+        .poem-box {
+            width: 160px;
+            height: 100px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            margin: 10px;
+            font-family: inherit;
+        }
+        .poem-box:hover {
+            transform: scale(1.05);
+            background: #f0f8ff;
+        }
+    </style>
+</head>
+<body style="background: #81D4FA; padding: 50px;">
+    <button type="button" class="poem-box" onclick="alert('Button clicked!'); console.log('Button works');">
+        <span style="font-size: 22px; font-weight: bold;">静夜思</span>
+        <span style="font-size: 14px; color: #666;">李白</span>
+    </button>
+</body>
+</html>
