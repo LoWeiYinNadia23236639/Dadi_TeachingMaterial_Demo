@@ -53,6 +53,18 @@ const i18n = {
         foot: '腳',
         head: '頭',
         
+        // 身體部位單字
+        headChar: '頭',
+        eyeChar: '眼',
+        earChar: '耳',
+        noseChar: '鼻',
+        mouthChar: '口',
+        handChar: '手',
+        footChar: '腳',
+        
+        // 課程標題
+        lesson11Title: '第11課：身體',
+        
         // 按鈕文字
         playAudio: '播放發音',
         watchStroke: '觀看筆順影片',
@@ -322,6 +334,16 @@ function selectLanguage(lang) {
     // 更新所有頁面的文字
     updateAllText();
     
+    // 更新學習頁面默認顯示的字符
+    const demoChar = document.getElementById('demoChar');
+    if (demoChar) {
+        demoChar.textContent = t('headChar');
+    }
+    const demoMeaning = document.getElementById('demoMeaning');
+    if (demoMeaning) {
+        demoMeaning.textContent = t('head');
+    }
+    
     // 保存語言偏好
     localStorage.setItem('preferredLanguage', lang);
 }
@@ -431,6 +453,18 @@ function updateAllText() {
     
     // 更新首頁按鈕
     document.querySelectorAll('[data-i18n="startLearning"]').forEach(el => el.textContent = t('startLearning'));
+    
+    // 更新課程標題
+    document.querySelectorAll('[data-i18n="lesson11Title"]').forEach(el => el.textContent = t('lesson11Title'));
+    
+    // 更新學習頁面身體部位單字按鈕
+    const charButtons = document.querySelectorAll('.char-option');
+    charButtons.forEach(btn => {
+        const key = btn.getAttribute('data-i18n');
+        if (key) {
+            btn.textContent = t(key);
+        }
+    });
 }
 
 // 更新頁面語言
@@ -500,6 +534,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 更新所有頁面文字
     updateAllText();
+    
+    // 更新學習頁面默認顯示的字符
+    const demoChar = document.getElementById('demoChar');
+    if (demoChar) {
+        demoChar.textContent = t('headChar');
+    }
+    const demoMeaning = document.getElementById('demoMeaning');
+    if (demoMeaning) {
+        demoMeaning.textContent = t('head');
+    }
     
     // 恢復已選擇的角色
     const savedChar = localStorage.getItem('selectedCharacter');
@@ -1148,7 +1192,19 @@ function clearCanvas() {
 }
 
 function playStrokeAndSpeak() {
-    const videoUrl = strokeVideos[AppState.currentChar];
+    // 支持繁體和簡體字查找筆順影片
+    let videoUrl = strokeVideos[AppState.currentChar];
+    if (!videoUrl) {
+        // 將繁體轉換為簡體查找
+        const simplifiedMap = {
+            '頭': '头', '眼': '眼', '耳': '耳', '鼻': '鼻',
+            '口': '口', '手': '手', '腳': '脚'
+        };
+        const simplified = simplifiedMap[AppState.currentChar];
+        if (simplified) {
+            videoUrl = strokeVideos[simplified];
+        }
+    }
     if (videoUrl) {
         showVideoModal(videoUrl);
     }

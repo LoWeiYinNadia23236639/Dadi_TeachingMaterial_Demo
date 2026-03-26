@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大地幼教学材 - 学习平台</title>
-    <link rel="stylesheet" href="new-design.css?v=24">
+    <link rel="stylesheet" href="new-design.css?v=25">
 </head>
 <body>
     <!-- PAGE 1: WELCOME - 使用2.png作為背景 -->
@@ -238,7 +238,7 @@
                 <div class="intro-character">
                     <img src="study-character.png" alt="進入學習角色">
                 </div>
-                <div class="intro-topic">第11课：身体</div>
+                <div class="intro-topic" data-i18n="lesson11Title">第11課：身體</div>
             </div>
             
             <button class="enter-learning-btn" onclick="goTo('learning', event)" data-i18n="enterLearning">进入学习</button>
@@ -426,13 +426,13 @@
                     <div class="section-content" data-section="6">
                         <div class="writing-container">
                             <div class="char-selector">
-                                <button class="char-option active" onclick="selectCharTab('头', 'tóu', '頭部', this)">头</button>
-                                <button class="char-option" onclick="selectCharTab('眼', 'yǎn', '眼睛', this)">眼</button>
-                                <button class="char-option" onclick="selectCharTab('耳', 'ěr', '耳朵', this)">耳</button>
-                                <button class="char-option" onclick="selectCharTab('鼻', 'bí', '鼻子', this)">鼻</button>
-                                <button class="char-option" onclick="selectCharTab('口', 'kǒu', '嘴巴', this)">口</button>
-                                <button class="char-option" onclick="selectCharTab('手', 'shǒu', '手', this)">手</button>
-                                <button class="char-option" onclick="selectCharTab('脚', 'jiǎo', '腳', this)">脚</button>
+                                <button class="char-option active" onclick="selectCharTab(t('headChar'), 'tóu', t('head'), this)" data-i18n="headChar">頭</button>
+                                <button class="char-option" onclick="selectCharTab(t('eyeChar'), 'yǎn', t('eye'), this)" data-i18n="eyeChar">眼</button>
+                                <button class="char-option" onclick="selectCharTab(t('earChar'), 'ěr', t('ear'), this)" data-i18n="earChar">耳</button>
+                                <button class="char-option" onclick="selectCharTab(t('noseChar'), 'bí', t('nose'), this)" data-i18n="noseChar">鼻</button>
+                                <button class="char-option" onclick="selectCharTab(t('mouthChar'), 'kǒu', t('mouth'), this)" data-i18n="mouthChar">口</button>
+                                <button class="char-option" onclick="selectCharTab(t('handChar'), 'shǒu', t('hand'), this)" data-i18n="handChar">手</button>
+                                <button class="char-option" onclick="selectCharTab(t('footChar'), 'jiǎo', t('foot'), this)" data-i18n="footChar">腳</button>
                             </div>
                             
                             <div class="writing-area">
@@ -577,6 +577,6 @@
         </div>
     </section>
 
-    <script src="app.js?v=115"></script>
+    <script src="app.js?v=116"></script>
 </body>
 </html>
