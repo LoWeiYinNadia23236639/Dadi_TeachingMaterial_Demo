@@ -8,6 +8,7 @@
     background: #81D4FA;
     position: relative;
     padding: 100px 60px 60px;
+    pointer-events: auto;
 }
 
 /* 藍色圓形按鈕 */
@@ -38,6 +39,9 @@
     gap: 20px;
     max-width: 900px;
     margin: 0 auto;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .poem-box {
@@ -57,6 +61,8 @@
     position: relative;
     border: none;
     font-family: inherit;
+    pointer-events: auto !important;
+    z-index: 50;
 }
 
 .poem-box:hover {
