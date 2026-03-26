@@ -513,7 +513,7 @@ body {
 /* 角色列 */
 .char-hint-container {
     position: absolute;
-    bottom: 52%;
+    bottom: 58%;
     left: 0;
     right: 0;
     display: flex;
