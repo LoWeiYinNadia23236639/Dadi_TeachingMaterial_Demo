@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大地幼教学材 - 学习平台</title>
     <link rel="stylesheet" href="new-design.css?v=25">
+    <script>
+        // 清除舊的 localStorage 緩存
+        localStorage.removeItem('preferredLanguage');
+    </script>
 </head>
 <body>
     <!-- PAGE 1: WELCOME - 使用2.png作為背景 -->
@@ -238,7 +242,7 @@
                 <div class="intro-character">
                     <img src="study-character.png" alt="進入學習角色">
                 </div>
-                <div class="intro-topic" data-i18n="lesson11Title">第11課：身體</div>
+                <div class="intro-topic" data-i18n="lesson11Title">第11课：身体</div>
             </div>
             
             <button class="enter-learning-btn" onclick="goTo('learning', event)" data-i18n="enterLearning">进入学习</button>
@@ -577,6 +581,6 @@
         </div>
     </section>
 
-    <script src="app.js?v=116"></script>
+    <script src="app.js?v=20250331"></script>
 </body>
 </html>

@@ -199,6 +199,9 @@ const i18n = {
         foot: '脚',
         head: '头',
         
+        // 課程標題
+        lesson11Title: '第11课：身体',
+        
         // 按鈕文字
         playAudio: '播放发音',
         watchStroke: '观看笔顺视频',
