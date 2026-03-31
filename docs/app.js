@@ -199,6 +199,15 @@ const i18n = {
         foot: '脚',
         head: '头',
         
+        // 身體部位單字
+        headChar: '头',
+        eyeChar: '眼',
+        earChar: '耳',
+        noseChar: '鼻',
+        mouthChar: '口',
+        handChar: '手',
+        footChar: '脚',
+        
         // 課程標題
         lesson11Title: '第11课：身体',
         
