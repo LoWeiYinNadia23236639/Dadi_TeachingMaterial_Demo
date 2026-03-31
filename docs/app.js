@@ -468,6 +468,24 @@ function updateAllText() {
             btn.textContent = t(key);
         }
     });
+    
+    // 更新書寫練習頁面的當前字符顯示
+    const demoChar = document.getElementById('demoChar');
+    const demoMeaning = document.getElementById('demoMeaning');
+    if (demoChar && demoMeaning) {
+        // 獲取當前活躍的字符按鈕
+        const activeBtn = document.querySelector('.char-option.active');
+        if (activeBtn) {
+            const key = activeBtn.getAttribute('data-i18n');
+            if (key) {
+                // 根據 key 獲取對應的字符和含義
+                const charKey = key; // headChar, eyeChar, etc.
+                const meaningKey = charKey.replace('Char', ''); // head, eye, etc.
+                demoChar.textContent = t(charKey);
+                demoMeaning.textContent = t(meaningKey);
+            }
+        }
+    }
 }
 
 // 更新頁面語言
