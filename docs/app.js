@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // 角色引導系統
 // ============================================
 
-// 引導對話內容
+// 引導對话内容
 const guideMessages = {
     'zh-TW': {
         levels: ['哈囉！我是你的學習夥伴！', '請選擇你的學習程度喔！', '幼兒園、小學還是中學呢？'],
@@ -605,7 +605,7 @@ function showGuideCharacter(pageId) {
     // 獲取對應頁面的對話
     let message = getGuideMessage(pageId);
     
-    // 創建角色引導容器
+    // 创建角色引导容器
     const guideContainer = document.createElement('div');
     guideContainer.className = 'guide-character-container';
     guideContainer.innerHTML = `
@@ -614,28 +614,28 @@ function showGuideCharacter(pageId) {
             <button class="guide-close" onclick="hideGuideSpeech()">✕</button>
         </div>
         <div class="guide-character">
-            <img src="char${charImg}.png" alt="學習夥伴">
+            <img src="char${charImg}.png" alt="学习伙伴">
         </div>
     `;
     
-    // 添加到當前頁面
+    // 添加到当前页面
     const currentPage = document.getElementById('page-' + pageId);
     if (currentPage) {
         currentPage.appendChild(guideContainer);
         
-        // 添加動畫效果
+        // 添加动画效果
         setTimeout(() => {
             guideContainer.classList.add('show');
         }, 50);
         
-        // 8秒後自動隱藏對話框
+        // 8秒后自动隐藏对话框
         setTimeout(() => {
             hideGuideSpeech();
         }, 8000);
     }
 }
 
-// 獲取引導對話
+// 获取引导对话
 function getGuideMessage(pageId) {
     const messages = guideMessages[AppState.language];
     let pageMessages = [];
@@ -877,7 +877,7 @@ function gotoSection(index) {
     // 如果是識圖部分，顯示子導航
     updateSubNavVisibility(index);
     
-    // 更新角色引導對話
+    // 更新角色引导对话
     setTimeout(() => {
         updateGuideMessage();
     }, 300);
@@ -1323,67 +1323,126 @@ function checkWriting() {
 // SECTION 7: STORIES
 // ============================================
 // 故事繪本 - 更豐富有趣的內容
+// 故事繪本 - 支持多語言
 const storiesData = {
-    1: { 
-        title: '千變萬化的手', 
-        pages: [
-            '我們有一雙神奇的手！👋 手可以做很多事情。',
-            '早上起床，我們用手刷牙、洗臉。💦',
-            '吃飯時，我們用手拿湯匙。🥄 畫畫時，我們用手拿畫筆。🎨',
-            '我們要愛護雙手，常常洗手，保持乾淨！🧼'
-        ] 
+    'zh-TW': {
+        1: { 
+            title: '千變萬化的手', 
+            pages: [
+                '我們有一雙神奇的手！👋 手可以做很多事情。',
+                '早上起床，我們用手刷牙、洗臉。💦',
+                '吃飯時，我們用手拿湯匙。🥄 畫畫時，我們用手拿畫筆。🎨',
+                '我們要愛護雙手，常常洗手，保持乾淨！🧼'
+            ] 
+        },
+        2: { 
+            title: '我的身體', 
+            pages: [
+                '這是我的身體！我有頭、手、腳... 🧍',
+                '頭上有眼睛、鼻子、耳朵和嘴巴。👀👃👂👄',
+                '每個部位都有重要的工作，就像一個大家庭！🏠',
+                '我愛我的身體，我要好好照顧它！❤️'
+            ] 
+        },
+        3: { 
+            title: '眼睛看世界', 
+            pages: [
+                '我們的眼睛像兩顆明亮的星星！✨ 幫助我們看這個美麗的世界。',
+                '我們可以用眼睛看到紅紅的蘋果、綠綠的樹葉。🍎🌿',
+                '看書、看電視、看媽媽的笑容，都需要眼睛！📺',
+                '記得不要看太多電視，要讓眼睛休息哦！😊'
+            ] 
+        },
+        4: { 
+            title: '耳朵聽聲音', 
+            pages: [
+                '我們有兩隻可愛的耳朵！👂 像兩個小問號。',
+                '耳朵可以聽到小鳥唱歌：嘰嘰喳喳！🐦',
+                '可以聽到媽媽叫我們吃飯：「寶貝，來吃飯囉！」🍚',
+                '也可以聽到美妙的音樂。🎵 耳朵真神奇！'
+            ] 
+        },
+        5: { 
+            title: '牙齒的故事', 
+            pages: [
+                '我有二十顆白白的牙齒！🦷 像一排小珍珠。',
+                '牙齒幫助我們咬食物，讓我們可以吃到好吃的東西。🍎🥕',
+                '每天早上和晚上，都要刷牙刷得乾乾淨淨！🪥',
+                '少吃糖果，多刷牙，牙齒才會健康又漂亮！✨'
+            ] 
+        },
+        6: { 
+            title: '心臟蹦蹦跳', 
+            pages: [
+                '摸摸你的胸口，感覺到了嗎？心臟在蹦蹦跳！❤️',
+                '心臟就像一個小幫浦，每天不停工作。',
+                '它把血液送到全身，讓我們有力氣玩耍。🏃',
+                '運動後心跳會加快，這是心臟在努力工作呢！💪'
+            ] 
+        }
     },
-    2: { 
-        title: '我的身體', 
-        pages: [
-            '這是我的身體！我有頭、手、腳... 🧍',
-            '頭上有眼睛、鼻子、耳朵和嘴巴。👀👃👂👄',
-            '每個部位都有重要的工作，就像一個大家庭！🏠',
-            '我愛我的身體，我要好好照顧它！❤️'
-        ] 
-    },
-    3: { 
-        title: '眼睛看世界', 
-        pages: [
-            '我們的眼睛像兩顆明亮的星星！✨ 幫助我們看這個美麗的世界。',
-            '我們可以用眼睛看到紅紅的蘋果、綠綠的樹葉。🍎🌿',
-            '看書、看電視、看媽媽的笑容，都需要眼睛！📺',
-            '記得不要看太多電視，要讓眼睛休息哦！😊'
-        ] 
-    },
-    4: { 
-        title: '耳朵聽聲音', 
-        pages: [
-            '我們有兩隻可愛的耳朵！👂 像兩個小問號。',
-            '耳朵可以聽到小鳥唱歌：嘰嘰喳喳！🐦',
-            '可以聽到媽媽叫我們吃飯：「寶貝，來吃飯囉！」🍚',
-            '也可以聽到美妙的音樂。🎵 耳朵真神奇！'
-        ] 
-    },
-    5: { 
-        title: '牙齒的故事', 
-        pages: [
-            '我有二十顆白白的牙齒！🦷 像一排小珍珠。',
-            '牙齒幫助我們咬食物，讓我們可以吃到好吃的東西。🍎🥕',
-            '每天早上和晚上，都要刷牙刷得乾乾淨淨！🪥',
-            '少吃糖果，多刷牙，牙齒才會健康又漂亮！✨'
-        ] 
-    },
-    6: { 
-        title: '心臟蹦蹦跳', 
-        pages: [
-            '摸摸你的胸口，感覺到了嗎？心臟在蹦蹦跳！❤️',
-            '心臟就像一個小幫浦，每天不停工作。',
-            '它把血液送到全身，讓我們有力氣玩耍。🏃',
-            '運動後心跳會加快，這是心臟在努力工作呢！💪'
-        ] 
+    'zh-CN': {
+        1: { 
+            title: '千变万化的手', 
+            pages: [
+                '我们有一双神奇的手！👋 手可以做很多事情。',
+                '早上起床，我们用手刷牙、洗脸。💦',
+                '吃饭时，我们用手拿汤匙。🥄 画画时，我们用手拿画笔。🎨',
+                '我们要爱护双手，常常洗手，保持干净！🧼'
+            ] 
+        },
+        2: { 
+            title: '我的身体', 
+            pages: [
+                '这是我的身体！我有头、手、脚... 🧍',
+                '头上有眼睛、鼻子、耳朵和嘴巴。👀👃👂👄',
+                '每个部位都有重要的工作，就像一个大家庭！🏠',
+                '我爱我的身体，我要好好照顾它！❤️'
+            ] 
+        },
+        3: { 
+            title: '眼睛看世界', 
+            pages: [
+                '我们的眼睛像两颗明亮的星星！✨ 帮助我们看这个美丽的世界。',
+                '我们可以用眼睛看到红红的苹果、绿绿的树叶。🍎🌿',
+                '看书、看电视、看妈妈的笑容，都需要眼睛！📺',
+                '记得不要看太多电视，要让眼睛休息哦！😊'
+            ] 
+        },
+        4: { 
+            title: '耳朵听声音', 
+            pages: [
+                '我们有两只可爱的耳朵！👂 像两个小问号。',
+                '耳朵可以听到小鸟唱歌：叽叽喳喳！🐦',
+                '可以听到妈妈叫我们吃饭：「宝贝，来吃饭啰！」🍚',
+                '也可以听到美妙的音乐。🎵 耳朵真神奇！'
+            ] 
+        },
+        5: { 
+            title: '牙齿的故事', 
+            pages: [
+                '我有二十颗白白的牙齿！🦷 像一排小珍珠。',
+                '牙齿帮助我们咬食物，让我们可以吃到好吃的东西。🍎🥕',
+                '每天早上和晚上，都要刷牙刷得干干净净！🪥',
+                '少吃糖果，多刷牙，牙齿才会健康又漂亮！✨'
+            ] 
+        },
+        6: { 
+            title: '心脏蹦蹦跳', 
+            pages: [
+                '摸摸你的胸口，感觉到了吗？心脏在蹦蹦跳！❤️',
+                '心脏就像一个小帮浦，每天不停工作。',
+                '它把血液送到全身，让我们有力气玩耍。🏃',
+                '运动后心跳会加快，这是心脏在努力工作呢！💪'
+            ] 
+        }
     }
 };
 
 function openStory(id) {
     AppState.currentStoryId = id;
     AppState.currentStoryPage = 1;
-    const story = storiesData[id];
+    const story = storiesData[AppState.language][id];
     
     document.getElementById('storyTitle').textContent = story.title;
     updateStoryPage();
@@ -1396,16 +1455,17 @@ function closeStory() {
 }
 
 function updateStoryPage() {
-    const story = storiesData[AppState.currentStoryId];
+    const story = storiesData[AppState.language][AppState.currentStoryId];
+    const pageText = AppState.language === 'zh-TW' ? '頁' : '页';
     document.getElementById('storyPageNum').textContent = AppState.currentStoryPage + ' / ' + story.pages.length;
     document.getElementById('storyText').innerHTML = `
-        <h3>${story.title} - 第${AppState.currentStoryPage}頁</h3>
+        <h3>${story.title} - 第${AppState.currentStoryPage}${pageText}</h3>
         <p>${story.pages[AppState.currentStoryPage - 1]}</p>
     `;
 }
 
 function nextStoryPage() {
-    const story = storiesData[AppState.currentStoryId];
+    const story = storiesData[AppState.language][AppState.currentStoryId];
     if (AppState.currentStoryPage < story.pages.length) {
         AppState.currentStoryPage++;
         updateStoryPage();
