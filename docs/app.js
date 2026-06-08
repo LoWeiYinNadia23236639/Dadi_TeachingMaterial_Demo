@@ -721,21 +721,7 @@ function goTo(pageId) {
     // 更新角色圖片
     updateCharacterImages(pageId);
     
-    // 在每個頁面顯示角色引導（只在唐詩、兒歌頁顯示）
-    if (pageId === 'poems' || pageId === 'songs') {
-        setTimeout(() => {
-            showGuideCharacter(pageId);
-        }, 150);
-    }
-    
-    // 初始化學習夥伴問候語
-    if (pageId === 'levels') {
-        setTimeout(() => initLevelPartner(), 300);
-    } else if (pageId === 'cats') {
-        setTimeout(() => initCatsPartner(), 300);
-    } else if (pageId === 'chapters') {
-        setTimeout(() => initChaptersPartner(), 300);
-    }
+    // 學習夥伴已移除，不再顯示角色引導和問候語
     
     if (pageId === 'intro') {
         updateIntroTitle();
@@ -1816,18 +1802,17 @@ function renderWritingPage() {
     container.innerHTML = `
         <div class="game-writing-page">
             <button class="game-writing-back-btn" onclick="backToGameMenu()" title="返回">◀</button>
-            <div class="game-writing-ellipse">
+            <div class="game-writing-card">
                 <img src="第六頁/練習寫字環節卡片.png" alt="練習寫字環節"
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>圖片待補</div>';">
             </div>
-            <div class="game-writing-text">我們一起練習寫字吧</div>
             <button class="game-writing-done-btn" onclick="goToLevels()" title="完成">✓</button>
         </div>
     `;
 }
 
 function goToLevels() {
-    goTo('levels');
+    goTo('cats');
 }
 
 /* ---------- 通用輔助函數 ---------- */
