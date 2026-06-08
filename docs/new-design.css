@@ -52,22 +52,19 @@ body {
 /* 開始學習按鈕 */
 .start-learning-btn {
     position: absolute;
-    top: 12%;
-    right: 18%;
+    top: calc(46% + 15px);
+    left: calc(72% + 22px);
     z-index: 10;
     padding: 20px 40px;
-    background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
     border: none;
     border-radius: 30px;
     color: white;
     font-size: 26px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.5);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -78,29 +75,6 @@ body {
 
 .start-learning-btn:active {
     transform: translateY(-2px) scale(1.02);
-}
-
-.btn-icon {
-    font-size: 32px;
-}
-
-/* 右下角Logo */
-.home-logo {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #8BC34A;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 10;
 }
 
 /* 舊版首頁樣式（保留以備用） */
@@ -282,45 +256,6 @@ body {
     filter: drop-shadow(0 15px 30px rgba(0,0,0,0.25));
 }
 
-/* nǐ hǎo 氣泡 */
-.nihao-bubble {
-    position: absolute;
-    top: 18%;
-    right: 12%;
-    background: #FFC107;
-    color: white;
-    padding: 25px 45px;
-    border-radius: 25px;
-    font-size: 56px;
-    font-weight: bold;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    z-index: 100;
-    animation: bubblePop 2.5s ease-in-out infinite;
-    cursor: pointer;
-    transition: all 0.3s;
-    pointer-events: auto;
-}
-
-.nihao-bubble:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-    background: #FFB300;
-}
-
-.nihao-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -25px;
-    left: 50px;
-    border: 15px solid transparent;
-    border-top-color: #FFC107;
-}
-
-@keyframes bubblePop {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
 /* 水面 */
 .water {
     position: absolute;
@@ -375,6 +310,276 @@ body {
 
 .tree-left { left: 1%; }
 .tree-right { right: 1%; }
+
+/* ============================================
+   PAGE 2: 角色選擇 V2 (新設計)
+   ============================================ */
+.char-page-v2 {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.char2-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Back button */
+.char2-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #8BC34A;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.char2-back:hover { transform: scale(1.1); }
+
+/* Logo */
+/* Input area (center, slightly upper) */
+.char2-inputs {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255,255,255,0.88);
+    padding: 24px 36px;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    backdrop-filter: blur(4px);
+}
+
+.char2-name {
+    width: 300px;
+    padding: 16px 28px;
+    border: 3px solid #8BC34A;
+    border-radius: 35px;
+    font-size: 20px;
+    text-align: center;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    outline: none;
+}
+.char2-name::placeholder { color: #aaa; }
+
+/* Language buttons */
+.char2-lang-label {
+    font-size: 22px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+.char2-lang {
+    display: flex;
+    gap: 16px;
+}
+
+.char2-lang-btn {
+    padding: 14px 32px;
+    border: 2px solid #ddd;
+    background: white;
+    color: #666;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.char2-lang-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.char2-lang-btn.active {
+    background: linear-gradient(135deg, #8BC34A, #689F38);
+    color: white;
+    border-color: #8BC34A;
+    box-shadow: 0 4px 15px rgba(139,195,74,0.4);
+}
+
+/* Hint on the right */
+.char2-hint {
+    position: absolute;
+    top: 62%;
+    right: 3%;
+    transform: translateY(-50%);
+    z-index: 10;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    animation: bounce 2s infinite;
+    white-space: nowrap;
+    writing-mode: horizontal-tb;
+}
+
+/* Character row on light gray ground */
+.char2-row {
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 0 2%;
+    z-index: 10;
+    height: 26%;
+}
+
+.char2-item {
+    flex: 1;
+    max-width: 140px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Character height adjustments (人6 Scottish boy = 100% baseline) */
+.char2-item:nth-child(1) { height: 77%; }   /* 人1 - 最右男孩 */
+.char2-item:nth-child(2) { height: 90%; }   /* 人2 - 中東男孩 */
+.char2-item:nth-child(3) { height: 88%; }   /* 人3 - 紅髮女孩 */
+.char2-item:nth-child(4) { height: 83%; }   /* 人4 - 黑人男孩 */
+.char2-item:nth-child(5) { height: 88%; }   /* 人5 - 粉紅頭髮女孩 */
+.char2-item:nth-child(6) { height: 100%; }  /* 人6 - 蘇格蘭男孩 (基準) */
+.char2-item:nth-child(7) { height: 88%; }   /* 人7 - 中國女孩 */
+.char2-item:nth-child(8) { height: 87%; }   /* 人8 - 綠衣女孩 */
+.char2-item:nth-child(9) { height: 86%; }   /* 人9 - 亞洲男孩 */
+
+.char2-item img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.char2-item:hover { transform: translateY(-10px); }
+.char2-item.selected { transform: translateY(-15px); }
+.char2-item.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Confirm button */
+
+@media (max-width: 1024px) {
+    .char2-item { max-width: 110px; }
+    .char2-hint { font-size: 18px; }
+}
+@media (max-width: 768px) {
+    .char2-name { width: 260px; padding: 14px 24px; font-size: 18px; }
+    .char2-item { max-width: 80px; }
+    .char2-hint { font-size: 16px; }
+    .char2-confirm { padding: 12px 40px; font-size: 20px; }
+}
+@media (max-width: 480px) {
+    .char2-item { max-width: 55px; }
+    .char2-hint { font-size: 14px; }
+    .char2-name { width: 220px; padding: 12px 20px; font-size: 16px; }
+}
+
+/* ============================================
+   PARTNER GREETING (學習夥伴問候語)
+   ============================================ */
+.partner-greeting {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.partner-avatar {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.partner-avatar:hover {
+    transform: scale(1.1);
+}
+
+.partner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.partner-speech {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    position: relative;
+    margin-bottom: 20px;
+    max-width: 200px;
+    animation: fadeIn 0.5s ease;
+}
+
+.partner-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    border: 10px solid transparent;
+    border-top-color: white;
+}
+
+.partner-speech.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* ============================================
    PAGE 2: 角色選擇 (根據 3.png)
@@ -619,7 +824,6 @@ body {
    ============================================ */
 @media (max-width: 1024px) {
     .main-lion { width: 400px; height: 400px; }
-    .nihao-bubble { font-size: 42px; padding: 20px 35px; }
     .b-char { max-width: 110px; }
     .char-item { max-width: 130px; }
     .char-select-hint { font-size: 20px; padding: 10px 25px; }
@@ -630,7 +834,6 @@ body {
     .sign-arc { font-size: 18px; padding: 10px 25px; }
     .sign-rect { font-size: 16px; padding: 8px 20px; }
     .main-lion { width: 300px; height: 300px; left: 40%; }
-    .nihao-bubble { font-size: 32px; padding: 15px 25px; right: 5%; }
     .b-char { max-width: 80px; }
     .tree { font-size: 60px; }
     .name-input { width: 260px; padding: 15px 25px; font-size: 18px; }
@@ -644,7 +847,6 @@ body {
     .sign-arc { font-size: 14px; padding: 8px 18px; }
     .sign-rect { font-size: 12px; padding: 6px 15px; }
     .main-lion { width: 220px; height: 220px; }
-    .nihao-bubble { font-size: 24px; padding: 12px 20px; top: 12%; }
     .b-char { max-width: 55px; }
     .tree { font-size: 45px; bottom: 18%; }
     .name-input { width: 220px; padding: 12px 20px; font-size: 16px; }
@@ -909,19 +1111,7 @@ body {
     .start-learning-btn {
         padding: 15px 30px;
         font-size: 20px;
-        top: 30%;
-        right: 10%;
-    }
-    
-    .btn-icon {
-        font-size: 26px;
-    }
-    
-    .home-logo {
-        width: 50px;
-        height: 50px;
-        font-size: 26px;
-        bottom: 20px;
-        right: 20px;
+        top: calc(48% + 12px);
+        left: calc(68% + 19px);
     }
 }

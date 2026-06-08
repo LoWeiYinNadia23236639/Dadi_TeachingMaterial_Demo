@@ -1,5 +1,5 @@
 /* ============================================
-   進入學習頁面 (根據 11.png)
+   進入學習頁面
    ============================================ */
 
 .intro-page {
@@ -35,77 +35,48 @@
 
 /* 白色橢圓區域 */
 .intro-oval-area {
-    background: white;
-    border-radius: 50%;
-    width: 80%;
-    max-width: 900px;
-    aspect-ratio: 1.4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    position: relative;
+    width: 80vw;
+    max-width: 1300px;
+    max-height: 78vh;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-/* 角色圖片 */
-.intro-character {
-    width: 400px;
-    height: 300px;
-    margin-bottom: 30px;
+.intro-oval-area:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
 }
 
-.intro-character img {
+.intro-oval-area img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    display: block;
 }
 
 /* 主題標題 */
 .intro-topic {
-    font-size: 36px;
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+    font-size: 32px;
     font-weight: bold;
     color: #333;
     text-align: center;
-}
-
-/* 進入學習按鈕 */
-.enter-learning-btn {
-    position: absolute;
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    color: #333;
-    border: none;
-    padding: 20px 60px;
-    border-radius: 50px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    transition: all 0.3s;
-}
-
-.enter-learning-btn:hover {
-    transform: translateX(-50%) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    pointer-events: none;
 }
 
 /* 響應式 */
 @media (max-width: 1024px) {
     .intro-oval-area {
-        width: 85%;
-        padding: 40px;
-    }
-    
-    .intro-character {
-        width: 320px;
-        height: 240px;
+        width: 85vw;
+        max-width: 1000px;
     }
     
     .intro-topic {
-        font-size: 30px;
+        font-size: 26px;
     }
 }
 
@@ -123,44 +94,22 @@
     }
     
     .intro-oval-area {
-        width: 90%;
-        padding: 30px;
-        border-radius: 40px;
-    }
-    
-    .intro-character {
-        width: 250px;
-        height: 190px;
-        margin-bottom: 20px;
+        width: 90vw;
+        max-height: 65vh;
     }
     
     .intro-topic {
-        font-size: 24px;
-    }
-    
-    .enter-learning-btn {
-        padding: 15px 40px;
         font-size: 22px;
     }
 }
 
 @media (max-width: 480px) {
     .intro-oval-area {
-        border-radius: 30px;
-        padding: 25px;
-    }
-    
-    .intro-character {
-        width: 200px;
-        height: 150px;
+        width: 92vw;
+        max-height: 60vh;
     }
     
     .intro-topic {
-        font-size: 20px;
-    }
-    
-    .enter-learning-btn {
-        padding: 12px 35px;
-        font-size: 20px;
+        font-size: 18px;
     }
 }

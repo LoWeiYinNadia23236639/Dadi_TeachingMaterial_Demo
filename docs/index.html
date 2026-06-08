@@ -4,130 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大地幼教学材 - 学习平台</title>
-    <link rel="stylesheet" href="new-design.css?v=26">
+    <link rel="stylesheet" href="new-design.css?v=27">
     <script>
-        // 清除旧的 localStorage 缓存
+        // 清除舊的 localStorage 緩存
         localStorage.removeItem('preferredLanguage');
     </script>
 </head>
 <body>
-    <!-- PAGE 1: WELCOME - 使用2.png作為背景 -->
+    <!-- PAGE 1: WELCOME -->
     <section id="page-welcome" class="page active">
         <div class="home-page-new">
-            <!-- 背景图片 -->
+            <!-- 背景圖片 -->
             <div class="home-background">
                 <img src="home-bg.png" alt="大地幼教学材">
             </div>
             
-            <!-- 开始学习按钮 -->
+            <!-- 開始學習按鈕 -->
             <button class="start-learning-btn" onclick="goToChars()">
-                <span class="btn-text" data-i18n="startLearning">开始学习</span>
-                <span class="btn-icon">📚</span>
+                <span class="btn-text" data-i18n="startLearning">開始學習</span>
             </button>
-            
-            <!-- 右下角Logo -->
-            <div class="home-logo">华</div>
         </div>
     </section>
 
     <!-- PAGE 2: CHARACTER SELECTION -->
     <section id="page-chars" class="page">
-        <div class="char-page">
-            <button class="green-circle-btn btn-play" onclick="goTo('welcome', event)">◀</button>
-            <div class="green-circle-btn btn-logo">华</div>
+        <div class="char-page-v2">
+            <!-- Background -->
+            <img src="page2-bg-new.png" class="char2-bg" alt="background">
             
-            <div class="cloud cloud-1">☁️</div>
-            <div class="cloud cloud-2">☁️</div>
-            <div class="cloud cloud-3">☁️</div>
+            <!-- Back button -->
+            <button class="char2-back" onclick="goTo('welcome', event)">◀</button>
             
-            <div class="name-input-container">
-                <input type="text" class="name-input" placeholder="输入你的名字" id="playerName" maxlength="8">
-            </div>
-            
-            <!-- 语言选择 -->
-            <div class="language-selector">
-                <div class="lang-label" id="langLabel"></div>
-                <div class="lang-options">
-                    <button class="lang-btn" id="lang-TW" onclick="selectLanguage('zh-TW', event)" data-i18n="langTW"></button>
-                    <button class="lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)" data-i18n="langCN"></button>
+            <!-- Name + Language inputs (center, slightly upper) -->
+            <div class="char2-inputs">
+                <input type="text" class="char2-name" placeholder="Enter your name" id="playerName" maxlength="8">
+                <div class="char2-lang-label">Select Language</div>
+                <div class="char2-lang">
+                    <button class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)">繁體中文</button>
+                    <button class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)">简体中文</button>
                 </div>
             </div>
             
-            <div class="char-hint-container">
-                <div class="char-select-hint" id="charSelectHint">请选择一个学习伙伴！</div>
-            </div>
-            <div class="char-row">
-                <div class="char-item" onclick="selectChar(this, 'char1', event)"><img src="char1.png" alt="角色1"></div>
-                <div class="char-item" onclick="selectChar(this, 'char2', event)"><img src="char2.png" alt="角色2"></div>
-                <div class="char-item" onclick="selectChar(this, 'char3', event)"><img src="char3.png" alt="角色3"></div>
-                <div class="char-item" onclick="selectChar(this, 'char4', event)"><img src="char4.png" alt="角色4"></div>
-                <div class="char-item" onclick="selectChar(this, 'char5', event)"><img src="char5.png" alt="角色5"></div>
-                <div class="char-item" onclick="selectChar(this, 'char6', event)"><img src="char6.png" alt="角色6"></div>
-                <div class="char-item" onclick="selectChar(this, 'char7', event)"><img src="char7.png" alt="角色7"></div>
-                <div class="char-item" onclick="selectChar(this, 'char8', event)"><img src="char8.png" alt="角色8"></div>
-                <div class="char-item" onclick="selectChar(this, 'char9', event)"><img src="char9.png" alt="角色9"></div>
-            </div>
+            <!-- Hint on the right -->
+            <div class="char2-hint" id="charSelectHint">Choose a learning partner!</div>
             
-            <div class="grass-ground"></div>
-            
-            <button class="confirm-button" id="confirmBtn" onclick="confirmChar()">确定 ✓</button>
+            <!-- 9 Characters on the light gray ground -->
+            <div class="char2-row">
+                <div class="char2-item" onclick="selectCharAuto(this, '人1', event)"><img src="人1.png" alt="人1"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人2', event)"><img src="人2.png" alt="人2"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人3', event)"><img src="人3.png" alt="人3"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人4', event)"><img src="人4.png" alt="人4"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人5', event)"><img src="人5.png" alt="人5"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人6', event)"><img src="人6.png" alt="人6"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人7', event)"><img src="人7.png" alt="人7"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人8', event)"><img src="人8.png" alt="人8"></div>
+                <div class="char2-item" onclick="selectCharAuto(this, '人9', event)"><img src="人9.png" alt="人9"></div>
+            </div>
         </div>
     </section>
 
     <!-- PAGE 3: LEVEL SELECTION -->
     <section id="page-levels" class="page">
-        <link rel="stylesheet" href="levels-design.css?v=4">
+        <link rel="stylesheet" href="levels-design.css?v=5">
         <div class="levels-page">
             <button class="green-btn btn-back" onclick="goTo('chars', event)">◀</button>
-            <div class="green-btn btn-logo">华</div>
             
             <div class="level-cards-container">
                 <div class="level-card-new" onclick="selectLevel('kindergarten', event)">
-                    <div class="level-lion-img"><img src="lion-level.png" alt="幼儿园"></div>
-                    <div class="level-name" data-i18n="kindergarten">幼儿园</div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="幼兒園"></div>
+                    <div class="level-name" data-i18n="kindergarten">幼兒園</div>
                 </div>
                 <div class="level-card-new" onclick="selectLevel('primary', event)">
-                    <div class="level-lion-img"><img src="lion-level.png" alt="小学"></div>
-                    <div class="level-name" data-i18n="primary">小学</div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="小學"></div>
+                    <div class="level-name" data-i18n="primary">小學</div>
                 </div>
                 <div class="level-card-new" onclick="selectLevel('secondary', event)">
-                    <div class="level-lion-img"><img src="lion-level.png" alt="中学"></div>
-                    <div class="level-name" data-i18n="secondary">中学</div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="中學"></div>
+                    <div class="level-name" data-i18n="secondary">中學</div>
                 </div>
+            </div>
+            
+            <!-- 學習夥伴問候 -->
+            <div class="level-partner" id="levelPartner">
+                <div class="level-partner-speech" id="levelPartnerSpeech">
+                    <button class="level-partner-close" onclick="hideLevelPartnerSpeech()">✕</button>
+                    <span>請選擇你的學習程度喔！</span>
+                </div>
+                <div class="level-partner-avatar"><img src="人1.png" alt="partner"></div>
             </div>
         </div>
     </section>
 
     <!-- PAGE 4: CATEGORY -->
     <section id="page-cats" class="page">
-        <link rel="stylesheet" href="cats-design.css?v=4">
+        <link rel="stylesheet" href="cats-design.css?v=5">
         <div class="cats-page">
             <button class="yellow-circle-btn btn-back-yellow" onclick="goTo('levels', event)">◀</button>
-            <div class="yellow-circle-btn btn-logo-yellow">华</div>
             
             <div class="content-cards-container">
                 <div class="content-card" onclick="goTo('chapters', event)">
-                    <div class="content-icon"><img src="icon-courseware.png" alt="课件"></div>
-                    <div class="content-name" data-i18n="courseware">课件</div>
+                    <div class="content-icon"><img src="icon-courseware.png" alt="課件"></div>
+                    <div class="content-name" data-i18n="courseware">課件</div>
                 </div>
                 <div class="content-card" onclick="goTo('poems', event)">
-                    <div class="content-icon"><img src="icon-poems.png" alt="唐诗"></div>
-                    <div class="content-name" data-i18n="poems">唐诗</div>
+                    <div class="content-icon"><img src="icon-poems.png" alt="唐詩"></div>
+                    <div class="content-name" data-i18n="poems">唐詩</div>
                 </div>
                 <div class="content-card" onclick="goTo('songs', event)">
-                    <div class="content-icon"><img src="icon-songs.png" alt="儿歌"></div>
-                    <div class="content-name" data-i18n="songs">儿歌</div>
+                    <div class="content-icon"><img src="icon-songs.png" alt="兒歌"></div>
+                    <div class="content-name" data-i18n="songs">兒歌</div>
                 </div>
+            </div>
+            
+            <!-- 學習夥伴問候 -->
+            <div class="cats-partner" id="catsPartner">
+                <div class="cats-partner-speech" id="catsPartnerSpeech">
+                    <button class="cats-partner-close" onclick="hideCatsPartnerSpeech()">✕</button>
+                    <span>請選擇學習內容喔！</span>
+                </div>
+                <div class="cats-partner-avatar"><img src="人1.png" alt="partner"></div>
             </div>
         </div>
     </section>
 
     <!-- PAGE 5: POEMS -->
     <section id="page-poems" class="page">
-        <link rel="stylesheet" href="poems-design.css?v=9">
+        <link rel="stylesheet" href="poems-design.css?v=8">
         <div class="poems-page">
             <button class="blue-circle-btn btn-back-blue" onclick="goTo('cats', event)">◀</button>
-            <div class="blue-circle-btn btn-logo-blue">华</div>
+            <div class="blue-circle-btn btn-logo-blue">華</div>
             
             <div class="poems-grid">
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://www.youtube.com/watch?v=ofZypMlVeLQ'); return false;"><span class="poem-title" data-i18n="poem1">静夜思</span><span class="poem-author">李白</span></button>
@@ -136,7 +141,7 @@
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/ayEPQu5o_X4'); return false;"><span class="poem-title">悯农</span><span class="poem-author">李绅</span></button>
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/z36Ib24Ggq0'); return false;"><span class="poem-title">登鹳雀楼</span><span class="poem-author">王之涣</span></button>
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/19VrhE3WpSE'); return false;"><span class="poem-title" data-i18n="poem6">江雪</span><span class="poem-author">柳宗元</span></button>
-                <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/mfSceN8bpcc'); return false;"><span class="poem-title" data-i18n="poem7">问刘十九</span><span class="poem-author">白居易</span></button>
+                <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/mfSceN8bpcc'); return false;"><span class="poem-title" data-i18n="poem7">問劉十九</span><span class="poem-author">白居易</span></button>
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/dhX2ZhGYAR0'); return false;"><span class="poem-title" data-i18n="poem8">暮江吟</span><span class="poem-author">白居易</span></button>
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/KXJTo_SVyF8'); return false;"><span class="poem-title" data-i18n="poem9">望庐山瀑布</span><span class="poem-author">李白</span></button>
                 <button type="button" class="poem-box" onclick="event.stopPropagation(); showVideoModal('https://youtu.be/C9i70cAOaXQ'); return false;"><span class="poem-title" data-i18n="poem10">早发白帝城</span><span class="poem-author">李白</span></button>
@@ -145,22 +150,22 @@
             </div>
             </div>
             
-            <!-- 角色装饰 -->
+            <!-- 角色裝飾 -->
             <div class="poem-lion-left">
-                <img src="lion-level.png" alt="小狮子">
+                <img src="lion-level.png" alt="小獅子">
             </div>
             <div class="poem-char-right">
-                <img src="char5.png" alt="小朋友">
+                <img src="人5.png" alt="小朋友">
             </div>
         </div>
     </section>
 
     <!-- PAGE 6: SONGS -->
     <section id="page-songs" class="page">
-        <link rel="stylesheet" href="songs-design.css?v=4">
+        <link rel="stylesheet" href="songs-design.css?v=3">
         <div class="songs-page">
             <button class="yellow-circle-btn btn-back-songs" onclick="goTo('cats', event)">◀</button>
-            <div class="yellow-circle-btn btn-logo-songs">华</div>
+            <div class="yellow-circle-btn btn-logo-songs">華</div>
             
             <div class="songs-grid">
                 <div class="song-box" onclick="playSong(1)"><span class="song-icon">🐯</span><span class="song-title" data-i18n="song1">两只老虎</span></div>
@@ -177,340 +182,210 @@
                 <div class="song-box" onclick="playSong(12)"><span class="song-icon">🐦</span><span class="song-title" data-i18n="song12">小燕子</span></div>
             </div>
             
-            <!-- 角色装饰 -->
+            <!-- 角色裝飾 -->
             <div class="song-char-left">
-                <img src="char8.png" alt="小朋友">
+                <img src="人8.png" alt="小朋友">
             </div>
             <div class="song-char-right">
-                <img src="char9.png" alt="小朋友">
+                <img src="人9.png" alt="小朋友">
             </div>
         </div>
     </section>
 
     <!-- PAGE 7: CHAPTERS -->
     <section id="page-chapters" class="page">
-        <link rel="stylesheet" href="chapters-design.css?v=5">
+        <link rel="stylesheet" href="chapters-design.css?v=6">
         <div class="chapters-page">
             <button class="back-btn-yellow" onclick="goTo('cats', event)">◀</button>
             
             <div class="volume-tabs">
-                <button class="volume-tab active" onclick="showVolume(1)" data-i18n="volumeUpper">上册</button>
-                <button class="volume-tab" onclick="showVolume(2)" data-i18n="volumeLower">下册</button>
+                <button class="volume-tab active" onclick="showVolume(1)" data-i18n="volumeUpper">上冊</button>
+                <button class="volume-tab" onclick="showVolume(2)" data-i18n="volumeLower">下冊</button>
             </div>
             
             <div id="vol-content-1" class="volume-content active">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-num">1</span><span class="chapter-title" data-i18n="chapter1">一家人</span></div>
-                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-num">2</span><span class="chapter-title" data-i18n="chapter2">幼儿园</span></div>
-                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-num">3</span><span class="chapter-title" data-i18n="chapter3">数字</span></div>
-                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-num">4</span><span class="chapter-title" data-i18n="chapter4">颜色</span></div>
-                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-num">5</span><span class="chapter-title" data-i18n="chapter5">动物</span></div>
-                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-num">6</span><span class="chapter-title" data-i18n="chapter6">水果</span></div>
-                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-num">7</span><span class="chapter-title" data-i18n="chapter7">天气</span></div>
-                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-num">8</span><span class="chapter-title" data-i18n="chapter8">季节</span></div>
-                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-num">9</span><span class="chapter-title" data-i18n="chapter9">运动</span></div>
-                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-num">10</span><span class="chapter-title" data-i18n="chapter10">食物</span></div>
-                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-num">11</span><span class="chapter-title" data-i18n="chapter11">身体</span></div>
+                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-num">01</span><span class="chapter-title">一家人</span></div>
+                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-num">02</span><span class="chapter-title">幼兒園</span></div>
+                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-num">03</span><span class="chapter-title">數字</span></div>
+                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-num">04</span><span class="chapter-title">顏色</span></div>
+                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-num">05</span><span class="chapter-title">動物</span></div>
+                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-num">06</span><span class="chapter-title">水果</span></div>
+                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-num">07</span><span class="chapter-title">天氣</span></div>
+                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-num">08</span><span class="chapter-title">季節</span></div>
+                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-num">09</span><span class="chapter-title">運動</span></div>
+                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-num">10</span><span class="chapter-title">食物</span></div>
+                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-num">11</span><span class="chapter-title">身體</span></div>
                 </div>
             </div>
             
             <div id="vol-content-2" class="volume-content">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-num">12</span><span class="chapter-title">衣服</span></div>
-                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-num">13</span><span class="chapter-title">交通</span></div>
-                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-num">14</span><span class="chapter-title">职业</span></div>
-                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-num">15</span><span class="chapter-title">情感</span></div>
-                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-num">16</span><span class="chapter-title">动作</span></div>
-                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-num">17</span><span class="chapter-title">方位</span></div>
-                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-num">18</span><span class="chapter-title">时间</span></div>
-                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-num">19</span><span class="chapter-title">节日</span></div>
-                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-num">20</span><span class="chapter-title">礼貌</span></div>
-                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-num">21</span><span class="chapter-title">安全</span></div>
-                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-num">22</span><span class="chapter-title">环保</span></div>
+                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-num">12</span><span class="chapter-title">交通工具</span></div>
+                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-num">13</span><span class="chapter-title">家庭成員</span></div>
+                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-num">14</span><span class="chapter-title">日常用品</span></div>
+                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-num">15</span><span class="chapter-title">蔬菜</span></div>
+                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-num">16</span><span class="chapter-title">飲料</span></div>
+                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-num">17</span><span class="chapter-title">職業</span></div>
+                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-num">18</span><span class="chapter-title">國家</span></div>
+                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-num">19</span><span class="chapter-title">節日</span></div>
+                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-num">20</span><span class="chapter-title">情緒</span></div>
+                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-num">21</span><span class="chapter-title">服裝</span></div>
+                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-num">22</span><span class="chapter-title">時間</span></div>
+                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-num">23</span><span class="chapter-title">自然</span></div>
                 </div>
+            </div>
+            
+            <!-- 學習夥伴問候 -->
+            <div class="chapters-partner" id="chaptersPartner">
+                <div class="chapters-partner-speech" id="chaptersPartnerSpeech">
+                    <button class="chapters-partner-close" onclick="hideChaptersPartnerSpeech()">✕</button>
+                    <span>我們來選一個課程吧！</span>
+                </div>
+                <div class="chapters-partner-avatar"><img src="人1.png" alt="partner"></div>
             </div>
         </div>
     </section>
 
     <!-- PAGE 8: CHAPTER INTRO -->
     <section id="page-intro" class="page">
-        <link rel="stylesheet" href="intro-design.css?v=6">
+        <link rel="stylesheet" href="intro-design.css?v=7">
         <div class="intro-page">
             <button class="pink-circle-btn" onclick="goTo('chapters', event)">◀</button>
             
-            <div class="intro-oval-area">
-                <div class="intro-character">
-                    <img src="study-character.png" alt="进入学习角色">
-                </div>
-                <div class="intro-topic" data-i18n="lesson11Title">第11课：身体</div>
+            <div class="intro-oval-area" onclick="goTo('learning', event)">
+                <img src="課程介紹頁按鈕.png" alt="進入學習">
+                <div class="intro-topic">第11課：身體</div>
             </div>
-            
-            <button class="enter-learning-btn" onclick="goTo('learning', event)" data-i18n="enterLearning">进入学习</button>
         </div>
     </section>
 
     <!-- PAGE 9: LEARNING MODULE - REDESIGNED -->
     <section id="page-learning" class="page">
-        <link rel="stylesheet" href="learning-design.css?v=16">
+        <link rel="stylesheet" href="learning-design.css?v=15">
+        <link rel="stylesheet" href="quiz-design.css?v=1">
+        <link rel="stylesheet" href="recognition-design.css?v=1">
+        <link rel="stylesheet" href="writing-design.css?v=1">
+        <link rel="stylesheet" href="story-design.css?v=1">
+        <link rel="stylesheet" href="game-design.css?v=1">
         <div class="learning-page theme-pink" id="learningPage">
             
-            <!-- Header -->
-            <header class="learn-header">
-                <button class="header-btn" onclick="goTo('chapters', event)">◀</button>
-                <div class="header-title-box">
-                    <h2 id="sectionTitle">课前提问</h2>
-                </div>
-                <div class="header-logo">华</div>
-            </header>
-            
-            <!-- 角色装饰 -->
-            <div class="learning-lion-left">
-                <img src="lion-home.png" alt="小狮子">
+            <!-- 課前提問區域 -->
+            <div id="quizContainer" style="width:100%;height:100%;">
+                <!-- 由 JS 動態渲染 -->
             </div>
-            <div class="learning-char-right">
-                <img src="char4.png" alt="小朋友">
+            
+            <!-- 識圖區域 -->
+            <div id="recognitionContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 書寫練習區域 -->
+            <div id="writingContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 故事繪本區域 -->
+            <div id="storyContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 遊戲活動區域 -->
+            <div id="gameContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
             </div>
             
             <!-- Main Content -->
-            <main class="learn-main">
-                <!-- Left Circle -->
-                <div class="left-circle"></div>
-                
-                <!-- 右侧导航栏 - 5个主要部分 -->
+            <main class="learn-main" style="display:none;">
+                <!-- 右側導航欄 - 5個主要部分 -->
                 <div class="side-navigation">
                     <button class="nav-section-btn active" data-section="intro" onclick="showSectionGroup('intro', event)">
                         <span class="nav-sec-icon">❓</span>
-                        <span class="nav-sec-text" data-i18n="sectionIntro">课前提问</span>
+                        <span class="nav-sec-text" data-i18n="sectionIntro">課前提問</span>
                     </button>
                     <button class="nav-section-btn" data-section="learning" onclick="showSectionGroup('learning', event)">
                         <span class="nav-sec-icon">👁️</span>
-                        <span class="nav-sec-text" data-i18n="sectionLearning">识图</span>
+                        <span class="nav-sec-text" data-i18n="sectionLearning">識圖</span>
                     </button>
                     <button class="nav-section-btn" data-section="writing" onclick="showSectionGroup('writing', event)">
                         <span class="nav-sec-icon">✏️</span>
-                        <span class="nav-sec-text" data-i18n="sectionWriting">书写练习</span>
+                        <span class="nav-sec-text" data-i18n="sectionWriting">書寫練習</span>
                     </button>
                     <button class="nav-section-btn" data-section="story" onclick="showSectionGroup('story', event)">
                         <span class="nav-sec-icon">📚</span>
-                        <span class="nav-sec-text" data-i18n="sectionStory">故事绘本</span>
+                        <span class="nav-sec-text" data-i18n="sectionStory">故事繪本</span>
                     </button>
                     <button class="nav-section-btn" data-section="games" onclick="showSectionGroup('games', event)">
                         <span class="nav-sec-icon">🎮</span>
-                        <span class="nav-sec-text" data-i18n="sectionGames">游戏活动</span>
+                        <span class="nav-sec-text" data-i18n="sectionGames">遊戲活動</span>
                     </button>
                 </div>
                 
                 <!-- Content Area -->
                 <div class="content-area">
                     
-                    <!-- 子导航 - 只在识图部分显示 -->
-                    <div id="subNav" class="sub-nav" style="display: none;"></div>
-                    
-                    <!-- SECTION 0: Questions - 课前提问 -->
+                    <!-- SECTION 0: 課前提問 -->
                     <div class="section-content active" data-section="0">
-                        <div class="questions-container">
-                            <div class="questions-progress">
-                                <div class="q-progress-dot current" data-q="1">1</div>
-                                <div class="q-progress-dot" data-q="2">2</div>
-                                <div class="q-progress-dot" data-q="3">3</div>
-                                <div class="q-progress-dot" data-q="4">4</div>
-                                <div class="q-progress-dot" data-q="5">5</div>
-                            </div>
-                            
-                            <div class="teacher-area">
-                                <div class="teacher-mascot"><img src="lion-home.png" alt="小狮子"></div>
-                                <div class="teacher-speech">
-                                    <p id="questionText">小朋友，你知道我们的身体有哪些部位吗？点击正确的答案！</p>
-                                </div>
-                            </div>
-                            
-                            <div class="answers-area" id="answersArea">
-                                <button class="answer-card" onclick="checkAnswer(this, '眼睛', true)">
-                                    <span class="answer-emoji"><img src="眼睛.png" alt="眼睛" style="width: 80px; height: 80px; object-fit: contain;"></span>
-                                    <span class="answer-text">眼睛</span>
-                                </button>
-                                <button class="answer-card" onclick="checkAnswer(this, '耳朵', true)">
-                                    <span class="answer-emoji"><img src="耳朵.png" alt="耳朵" style="width: 80px; height: 80px; object-fit: contain;"></span>
-                                    <span class="answer-text">耳朵</span>
-                                </button>
-                                <button class="answer-card" onclick="checkAnswer(this, '鼻子', true)">
-                                    <span class="answer-emoji"><img src="鼻子.png" alt="鼻子" style="width: 80px; height: 80px; object-fit: contain;"></span>
-                                    <span class="answer-text">鼻子</span>
-                                </button>
-                                <button class="answer-card" onclick="checkAnswer(this, '桌子', false)">
-                                    <span class="answer-emoji">🪑</span>
-                                    <span class="answer-text">桌子</span>
-                                </button>
-                            </div>
-                            
-                            <div class="score-display">
-                                ⭐ 得分: <span id="scoreValue">0</span> / <span id="totalQuestions">5</span>
-                            </div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            課前提問
                         </div>
                     </div>
                     
-                    <!-- SECTION 1: 识图 - 眼睛 -->
+                    <!-- SECTION 1-5: 識圖 (待重新設計) -->
                     <div class="section-content" data-section="1">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="眼睛.png" alt="眼睛" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">眼睛</div>
-                            <div class="part-pinyin-large">yǎn jing</div>
-                            <button class="audio-btn" onclick="speakText('眼睛', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用眼睛来看东西</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
                         </div>
                     </div>
-                    
-                    <!-- SECTION 2: 识图 - 耳朵 -->
                     <div class="section-content" data-section="2">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="耳朵.png" alt="耳朵" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">耳朵</div>
-                            <div class="part-pinyin-large">ěr duo</div>
-                            <button class="audio-btn" onclick="speakText('耳朵', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用耳朵来听声音</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
                         </div>
                     </div>
-                    
-                    <!-- SECTION 3: 识图 - 鼻子 -->
                     <div class="section-content" data-section="3">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="鼻子.png" alt="鼻子" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">鼻子</div>
-                            <div class="part-pinyin-large">bí zi</div>
-                            <button class="audio-btn" onclick="speakText('鼻子', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用鼻子来闻气味</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
                         </div>
                     </div>
-                    
-                    <!-- SECTION 4: 识图 - 嘴巴 -->
                     <div class="section-content" data-section="4">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="嘴.png" alt="嘴巴" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">嘴巴</div>
-                            <div class="part-pinyin-large">zuǐ ba</div>
-                            <button class="audio-btn" onclick="speakText('嘴巴', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用嘴巴来吃东西和说话</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
                         </div>
                     </div>
-                    
-                    <!-- SECTION 5: 识图 - 手 -->
                     <div class="section-content" data-section="5">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="手.png" alt="手" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">手</div>
-                            <div class="part-pinyin-large">shǒu</div>
-                            <button class="audio-btn" onclick="speakText('手', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用手来拿东西和触摸</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
                         </div>
                     </div>
                     
-                    <!-- SECTION 6: 识图 - 脚 -->
+                    <!-- SECTION 6-8: 書寫練習 (待重新設計) -->
                     <div class="section-content" data-section="6">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="腳.png" alt="脚" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">脚</div>
-                            <div class="part-pinyin-large">jiǎo</div>
-                            <button class="audio-btn" onclick="speakText('脚', event)">🔊 播放发音</button>
-                            <div class="part-description">我们用脚来走路和跑步</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
                         </div>
                     </div>
-                    
-                    <!-- SECTION 7: 识图 - 头 -->
                     <div class="section-content" data-section="7">
-                        <div class="single-part-container">
-                            <div class="part-image-large"><img src="頭.png" alt="头" style="width: 160px; height: 160px; object-fit: contain;"></div>
-                            <div class="part-name-large">头</div>
-                            <div class="part-pinyin-large">tóu</div>
-                            <button class="audio-btn" onclick="speakText('头', event)">🔊 播放发音</button>
-                            <div class="part-description">头部有五官，是我们思考的地方</div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="8">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
                         </div>
                     </div>
                     
-                    <!-- SECTION 8: Character Learning - 识字 -->
-                    <div class="section-content" data-section="6">
-                        <div class="writing-container">
-                            <div class="char-selector">
-                                <button class="char-option active" onclick="selectCharTab(t('headChar'), 'tóu', t('head'), this)" data-i18n="headChar">头</button>
-                                <button class="char-option" onclick="selectCharTab(t('eyeChar'), 'yǎn', t('eye'), this)" data-i18n="eyeChar">眼</button>
-                                <button class="char-option" onclick="selectCharTab(t('earChar'), 'ěr', t('ear'), this)" data-i18n="earChar">耳</button>
-                                <button class="char-option" onclick="selectCharTab(t('noseChar'), 'bí', t('nose'), this)" data-i18n="noseChar">鼻</button>
-                                <button class="char-option" onclick="selectCharTab(t('mouthChar'), 'kǒu', t('mouth'), this)" data-i18n="mouthChar">口</button>
-                                <button class="char-option" onclick="selectCharTab(t('handChar'), 'shǒu', t('hand'), this)" data-i18n="handChar">手</button>
-                                <button class="char-option" onclick="selectCharTab(t('footChar'), 'jiǎo', t('foot'), this)" data-i18n="footChar">脚</button>
-                            </div>
-                            
-                            <div class="writing-area">
-                                <div class="demo-section">
-                                    <div class="demo-char-box" id="demoChar">头</div>
-                                    <div class="demo-info">
-                                        <div class="demo-pinyin" id="demoPinyin">tóu</div>
-                                        <div class="demo-meaning" id="demoMeaning">头部</div>
-                                    </div>
-                                    <button class="stroke-play-btn" onclick="playStrokeAndSpeak()">▶ 观看笔顺影片</button>
-                                </div>
-                                
-                                <div class="canvas-section">
-                                    <canvas id="writeCanvas" class="write-canvas" width="300" height="300"></canvas>
-                                    <div class="canvas-tools">
-                                        <button class="tool-btn" onclick="clearCanvas()" data-i18n="clear">清除</button>
-                                        <button class="tool-btn" onclick="checkWriting()" data-i18n="complete">完成</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- SECTION 9: Story Books - 故事绘本 -->
+                    <!-- SECTION 9: 故事繪本 (待重新設計) -->
                     <div class="section-content" data-section="9">
-                        <div class="storybooks-container">
-                            <div class="storybooks-header">
-                                <h3>📚 选择一本故事书</h3>
-                            </div>
-                            
-                            <div class="storybooks-grid">
-                                <div class="storybook-item" onclick="openStory(1)">
-                                    <div class="storybook-cover">🖐️</div>
-                                    <div class="storybook-title">千变万化的手</div>
-                                </div>
-                                <div class="storybook-item" onclick="openStory(2)">
-                                    <div class="storybook-cover">🧍</div>
-                                    <div class="storybook-title">我的身体</div>
-                                </div>
-                                <div class="storybook-item" onclick="openStory(3)">
-                                    <div class="storybook-cover"><img src="眼睛.png" alt="眼睛" style="width: 80px; height: 80px; object-fit: contain;"></div>
-                                    <div class="storybook-title">眼睛看世界</div>
-                                </div>
-                                <div class="storybook-item" onclick="openStory(4)">
-                                    <div class="storybook-cover"><img src="耳朵.png" alt="耳朵" style="width: 80px; height: 80px; object-fit: contain;"></div>
-                                    <div class="storybook-title">耳朵听声音</div>
-                                </div>
-                                <div class="storybook-item" onclick="openStory(5)">
-                                    <div class="storybook-cover">🦷</div>
-                                    <div class="storybook-title">牙齒的故事</div>
-                                </div>
-                                <div class="storybook-item" onclick="openStory(6)">
-                                    <div class="storybook-cover">❤️</div>
-                                    <div class="storybook-title">心脏蹦蹦跳</div>
-                                </div>
-                            </div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            故事繪本 - 待設計
                         </div>
                     </div>
                     
-                    <!-- SECTION 10: Activities - 活动 -->
+                    <!-- SECTION 10: 遊戲活動 (待重新設計) -->
                     <div class="section-content" data-section="10">
-                        <div class="activities-container">
-                            <div class="game-selector">
-                                <button class="game-option active" onclick="switchGameType('matching', event)">配对游戏</button>
-                                <button class="game-option" onclick="switchGameType('memory', event)">记忆游戏</button>
-                                <button class="game-option" onclick="switchGameType('quiz', event)">问答挑战</button>
-                            </div>
-                            
-                            <div class="game-area" id="gameArea">
-                                <!-- 游戏内容由 JavaScript 动态生成 -->
-                                <div style="text-align: center; color: #666; font-size: 18px;">
-                                    载入游戏中...
-                                </div>
-                            </div>
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            遊戲活動 - 待設計
                         </div>
                     </div>
                     
@@ -541,9 +416,9 @@
             <header class="learn-header">
                 <button class="header-btn" onclick="closeStory()">◀</button>
                 <div class="header-title-box">
-                    <h2 id="storyTitle">故事绘本</h2>
+                    <h2 id="storyTitle">故事繪本</h2>
                 </div>
-                <div class="header-logo">华</div>
+                <div class="header-logo">華</div>
             </header>
             
             <main class="learn-main">
@@ -562,8 +437,8 @@
                             <div class="story-page">
                                 <div class="story-illustration" id="storyIllustration">📖</div>
                                 <div class="story-text" id="storyText">
-                                    <h3>欢迎阅读故事！</h3>
-                                    <p>这是一个关于身体的有趣故事...</p>
+                                    <h3>歡迎閱讀故事！</h3>
+                                    <p>這是一個關於身體的有趣故事...</p>
                                 </div>
                             </div>
                         </div>
@@ -581,6 +456,6 @@
         </div>
     </section>
 
-    <script src="app.js?v=202503312350"></script>
+    <script src="app.js?v=20250331"></script>
 </body>
 </html>

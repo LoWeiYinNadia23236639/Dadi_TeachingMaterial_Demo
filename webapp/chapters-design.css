@@ -59,15 +59,15 @@
 /* 章節網格 */
 .chapters-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 850px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 .chapter-box {
-    width: 140px;
-    height: 140px;
+    width: 125px;
+    height: 125px;
     background: white;
     border-radius: 20px;
     display: flex;
@@ -86,15 +86,15 @@
 }
 
 .chapter-num {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
     color: #E91E63;
 }
 
 .chapter-title {
-    font-size: 18px;
+    font-size: 14px;
     color: #333;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 /* 隱藏的內容 */
@@ -110,6 +110,11 @@
 @media (max-width: 1024px) {
     .chapters-grid {
         grid-template-columns: repeat(3, 1fr);
+        max-width: 600px;
+    }
+    .chapter-box {
+        width: 110px;
+        height: 110px;
     }
 }
 
@@ -133,16 +138,122 @@
     }
     
     .chapter-box {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         border-radius: 15px;
     }
     
     .chapter-num {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .chapter-title {
+        font-size: 12px;
+    }
+}
+
+
+/* ============================================
+   CHAPTERS PAGE - LEARNING PARTNER
+   ============================================ */
+
+.chapters-partner {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.chapters-partner-avatar {
+    width: 120px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.chapters-partner-avatar:hover {
+    transform: scale(1.05);
+}
+
+.chapters-partner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.chapters-partner-speech {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    max-width: 220px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+/* 氣泡尾巴指向角色 */
+.chapters-partner-speech::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 30px;
+    border-width: 12px 12px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+.chapters-partner-speech.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+.chapters-partner-close {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.chapters-partner-close:hover {
+    color: #333;
+}
+
+.chapters-partner-speech span {
+    display: block;
+    padding-right: 16px;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+    .chapters-partner-avatar {
+        width: 90px;
+        height: 110px;
+    }
+    
+    .chapters-partner-speech {
         font-size: 14px;
+        padding: 12px 16px;
+        max-width: 180px;
     }
 }

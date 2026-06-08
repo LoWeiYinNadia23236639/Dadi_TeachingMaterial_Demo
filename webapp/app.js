@@ -31,9 +31,9 @@ const i18n = {
     'zh-TW': {
         // 角色選擇頁面
         selectLanguage: '選擇語言',
-        inputName: '輸入你的名字',
+        inputName: 'Enter your name',
         confirm: '確定',
-        selectCharHint: '請選擇一個學習夥伴！',
+        selectCharHint: 'Choose a learning partner!',
         selectCharAlert: '請選擇一個角色！',
         writeGood: '寫得很好！',
         
@@ -177,9 +177,9 @@ const i18n = {
     'zh-CN': {
         // 角色選擇頁面
         selectLanguage: '选择语言',
-        inputName: '输入你的名字',
+        inputName: 'Enter your name',
         confirm: '确定',
-        selectCharHint: '请选择一个学习伙伴！',
+        selectCharHint: 'Choose a learning partner!',
         selectCharAlert: '请选择一个角色！',
         writeGood: '写得很好！',
         
@@ -322,11 +322,13 @@ function t(key) {
 function selectLanguage(lang) {
     AppState.language = lang;
     
-    // 更新按鈕狀態
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    // 更新按鈕狀態 (舊版 .lang-btn 和 新版 .char2-lang-btn)
+    document.querySelectorAll('.lang-btn, .char2-lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    document.getElementById('lang-' + (lang === 'zh-TW' ? 'TW' : 'CN')).classList.add('active');
+    const btnId = 'lang-' + (lang === 'zh-TW' ? 'TW' : 'CN');
+    const btn = document.getElementById(btnId);
+    if (btn) btn.classList.add('active');
     
     // 更新語言標籤
     const langLabel = document.getElementById('langLabel');
@@ -600,7 +602,7 @@ function showGuideCharacter(pageId) {
     
     // 獲取角色圖片
     const charId = AppState.selectedChar.id;
-    const charImg = charId ? charId.replace('char', '') : '1';
+    const charImg = charId ? charId + '.png' : '人1.png';
     
     // 獲取對應頁面的對話
     let message = getGuideMessage(pageId);
@@ -614,7 +616,7 @@ function showGuideCharacter(pageId) {
             <button class="guide-close" onclick="hideGuideSpeech()">✕</button>
         </div>
         <div class="guide-character">
-            <img src="char${charImg}.png" alt="學習夥伴">
+            <img src="${charImg}" alt="學習夥伴">
         </div>
     `;
     
@@ -692,24 +694,61 @@ function updateGuideMessage() {
 // ============================================
 // NAVIGATION
 // ============================================
+// 更新當前頁面中所有角色圖片為選擇的角色
+function updateCharacterImages(pageId) {
+    if (!AppState.selectedChar) return;
+    const charImg = AppState.selectedChar.id + '.png';
+    const page = document.getElementById('page-' + pageId);
+    if (!page) return;
+    
+    // 更新學習夥伴頭像
+    page.querySelectorAll('.partner-avatar img, .level-partner-avatar img, .cats-partner-avatar img, .chapters-partner-avatar img').forEach(img => {
+        img.src = charImg;
+    });
+    
+    // 更新裝飾角色圖片
+    page.querySelectorAll('.poem-char-right img, .song-char-left img, .song-char-right img, .learning-char-right img').forEach(img => {
+        img.src = charImg;
+    });
+}
+
 function goTo(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const page = document.getElementById('page-' + pageId);
     if (page) page.classList.add('active');
     AppState.currentPage = pageId;
     
-    // 在每個頁面顯示角色引導（除了歡迎頁和角色選擇頁）
-    if (pageId !== 'welcome' && pageId !== 'chars') {
+    // 更新角色圖片
+    updateCharacterImages(pageId);
+    
+    // 在每個頁面顯示角色引導（只在唐詩、兒歌頁顯示）
+    if (pageId === 'poems' || pageId === 'songs') {
         setTimeout(() => {
             showGuideCharacter(pageId);
         }, 150);
     }
     
+    // 初始化學習夥伴問候語
+    if (pageId === 'levels') {
+        setTimeout(() => initLevelPartner(), 300);
+    } else if (pageId === 'cats') {
+        setTimeout(() => initCatsPartner(), 300);
+    } else if (pageId === 'chapters') {
+        setTimeout(() => initChaptersPartner(), 300);
+    }
+    
+    if (pageId === 'intro') {
+        updateIntroTitle();
+    }
+    
     if (pageId === 'learning') {
-        setTimeout(initCanvas, 100);
-        // 初始化顯示第一個部分
+        // 初始化課前提問
+        const learningPage = document.getElementById('learningPage');
+        if (learningPage) {
+            learningPage.style.borderColor = '#F06292';
+        }
         setTimeout(() => {
-            showSectionGroup('intro');
+            initQuiz();
         }, 100);
     }
 }
@@ -724,22 +763,27 @@ function goToChars() {
 // PAGE 2: CHARACTER SELECTION
 // ============================================
 function selectChar(element, charId) {
-    document.querySelectorAll('.char-item').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.char2-item').forEach(c => c.classList.remove('selected'));
     element.classList.add('selected');
     AppState.selectedChar = { id: charId };
-    
-    const confirmBtn = document.getElementById('confirmBtn');
-    if (confirmBtn) confirmBtn.classList.add('show');
+}
+
+function selectCharAuto(element, charId) {
+    selectChar(element, charId);
+    // Auto navigate after a short delay to show the checkmark
+    setTimeout(() => {
+        confirmChar();
+    }, 600);
 }
 
 function confirmChar() {
     const nameInput = document.getElementById('playerName');
     if (!nameInput.value.trim()) {
-        alert(t('inputName') + '！');
+        alert('Please enter your name!');
         return;
     }
     if (!AppState.selectedChar) {
-        alert(t('selectCharAlert'));
+        alert('Please choose a learning partner!');
         return;
     }
     AppState.playerName = nameInput.value.trim();
@@ -748,11 +792,6 @@ function confirmChar() {
     localStorage.setItem('selectedCharacter', JSON.stringify(AppState.selectedChar));
     
     goTo('levels');
-    
-    // 在程度選擇頁面顯示角色引導
-    setTimeout(() => {
-        showGuideCharacter('levels');
-    }, 100);
 }
 
 function selectAvatar(id) {
@@ -785,8 +824,27 @@ function showVolume(vol) {
     if (content) content.classList.add('active');
 }
 
+// 章節標題數據
+const chapterTitles = {
+    1: '一家人', 2: '幼兒園', 3: '數字', 4: '顏色', 5: '動物',
+    6: '水果', 7: '天氣', 8: '季節', 9: '運動', 10: '食物',
+    11: '身體', 12: '交通工具', 13: '家庭成員', 14: '日常用品', 15: '蔬菜',
+    16: '飲料', 17: '職業', 18: '國家', 19: '節日', 20: '情緒',
+    21: '服裝', 22: '時間', 23: '自然'
+};
+
 function openChapter(num) {
+    AppState.currentChapter = num;
+    updateIntroTitle();
     goTo('intro');
+}
+
+function updateIntroTitle() {
+    const titleEl = document.querySelector('.intro-topic');
+    if (titleEl && AppState.currentChapter) {
+        const title = chapterTitles[AppState.currentChapter] || '';
+        titleEl.textContent = `第${AppState.currentChapter}課：${title}`;
+    }
 }
 
 // ============================================
@@ -867,12 +925,8 @@ function gotoSection(index) {
     const pageNum = document.getElementById('currentPage');
     if (pageNum) pageNum.textContent = index + 1;
     
-    // 初始化活動頁面遊戲
-    if (index === 10) {
-        setTimeout(() => {
-            initMatchingGame();
-        }, 100);
-    }
+    // 初始化活動頁面遊戲 (待重新設計)
+    // if (index === 10) { setTimeout(initMatchingGame, 100); }
     
     // 如果是識圖部分，顯示子導航
     updateSubNavVisibility(index);
@@ -951,1152 +1005,899 @@ function updateSubNavVisibility(index) {
     }
 }
 
-// 更新識圖部分的描述文字
+// 更新識圖部分的描述文字 (待重新設計)
 function updateBodyPartDescriptions() {
-    // 更新各個識圖section的描述
-    const descriptions = [
-        { index: 1, key: 'descEye' },
-        { index: 2, key: 'descEar' },
-        { index: 3, key: 'descNose' },
-        { index: 4, key: 'descMouth' },
-        { index: 5, key: 'descHand' },
-        { index: 6, key: 'descFoot' },
-        { index: 7, key: 'descHead' }
-    ];
-    
-    descriptions.forEach(({ index, key }) => {
-        const section = document.querySelector(`.section-content[data-section="${index}"]`);
-        if (section) {
-            const descEl = section.querySelector('.part-description');
-            if (descEl) {
-                descEl.textContent = t(key);
-            }
-            // 更新按鈕文字
-            const audioBtn = section.querySelector('.audio-btn');
-            if (audioBtn) {
-                audioBtn.textContent = '🔊 ' + t('playAudio');
-            }
-        }
-    });
+    // 佔位函數 - 待重新設計
 }
 
-// 更新問答挑戰的問題
+// 更新問答挑戰的問題 (待重新設計)
 function updateQuizQuestions() {
-    // 更新問題數據
-    quizQuestions[0].question = t('question1');
+    // 佔位函數 - 待重新設計
 }
 
 // ============================================
 // SECTION 0: QUESTIONS
 // ============================================
 // 課前提問 - 更適合小朋友的問題
-// 圖片映射
-const emojiToImage = {
-    '👁️': '眼睛.png',
-    '👂': '耳朵.png',
-    '👃': '鼻子.png',
-    '👄': '嘴.png',
-    '✋': '手.png',
-    '🦶': '腳.png'
-};
-
-const questionsData = [
-    {
-        question: '小朋友，我們的身體有哪些部位呢？點擊正確的答案！',
-        answers: [
-            { emoji: '👁️', text: '眼睛', correct: true },
-            { emoji: '👂', text: '耳朵', correct: true },
-            { emoji: '👃', text: '鼻子', correct: true },
-            { emoji: '🪑', text: '桌子', correct: false }
-        ]
-    },
-    {
-        question: '五官是哪些呢？想一想！',
-        answers: [
-            { emoji: '👄', text: '嘴巴', correct: true },
-            { emoji: '👁️', text: '眼睛', correct: true },
-            { emoji: '👟', text: '鞋子', correct: false },
-            { emoji: '👃', text: '鼻子', correct: true }
-        ]
-    },
-    {
-        question: '小鳥唱歌，我們用什麼來聽呢？',
-        answers: [
-            { emoji: '👂', text: '耳朵', correct: true },
-            { emoji: '👁️', text: '眼睛', correct: false },
-            { emoji: '👃', text: '鼻子', correct: false },
-            { emoji: '👄', text: '嘴巴', correct: false }
-        ]
-    },
-    {
-        question: '看美麗的花朵，我們用什麼來看呢？',
-        answers: [
-            { emoji: '👁️', text: '眼睛', correct: true },
-            { emoji: '👂', text: '耳朵', correct: false },
-            { emoji: '👃', text: '鼻子', correct: false },
-            { emoji: '✋', text: '手', correct: false }
-        ]
-    },
-    {
-        question: '拿玩具、抱抱媽媽，我們用什麼呢？',
-        answers: [
-            { emoji: '✋', text: '手', correct: true },
-            { emoji: '👁️', text: '眼睛', correct: false },
-            { emoji: '🦶', text: '腳', correct: false },
-            { emoji: '👂', text: '耳朵', correct: false }
-        ]
-    }
-];
-
+// ============================================
+// SECTION 0: QUESTIONS (課前提問 - 待重新設計)
+// ============================================
 function loadQuestion(qNum) {
-    if (qNum > questionsData.length) {
-        createConfetti();
-        alert('恭喜你！完成了所有問題！你的得分是' + AppState.score + '分！');
-        return;
-    }
-    
-    AppState.currentQuestion = qNum;
-    const qData = questionsData[qNum - 1];
-    
-    document.querySelectorAll('.q-progress-dot').forEach((dot, i) => {
-        dot.classList.remove('current', 'completed');
-        if (i < qNum - 1) dot.classList.add('completed');
-        if (i === qNum - 1) dot.classList.add('current');
-    });
-    
-    document.getElementById('questionText').textContent = qData.question;
-    
-    const answersArea = document.getElementById('answersArea');
-    answersArea.innerHTML = '';
-    qData.answers.forEach((ans) => {
-        const btn = document.createElement('button');
-        btn.className = 'answer-card';
-        const imgSrc = emojiToImage[ans.emoji] || '';
-        btn.innerHTML = `<span class="answer-emoji">${imgSrc ? `<img src="${imgSrc}" alt="${ans.text}" style="width: 80px; height: 80px; object-fit: contain;">` : ans.emoji}</span><span class="answer-text">${ans.text}</span>`;
-        btn.onclick = () => checkAnswer(btn, ans.text, ans.correct);
-        answersArea.appendChild(btn);
-    });
+    // 佔位函數 - 待重新設計
 }
 
 function checkAnswer(btn, answer, isCorrect) {
-    if (AppState.answered.has(AppState.currentQuestion + '-' + answer)) return;
-    
-    AppState.answered.add(AppState.currentQuestion + '-' + answer);
-    
-    if (isCorrect) {
-        btn.classList.add('correct');
-        AppState.score++;
-        document.getElementById('scoreValue').textContent = AppState.score;
-        speakText(answer);
-        createConfetti();
-        
-        setTimeout(() => {
-            loadQuestion(AppState.currentQuestion + 1);
-        }, 1500);
-    } else {
-        btn.classList.add('wrong');
-        setTimeout(() => btn.classList.remove('wrong'), 1000);
-    }
+    // 佔位函數 - 待重新設計
 }
 
 // ============================================
-// SECTIONS 1-5: BODY PARTS (Single pages)
+// SECTIONS 1-8: 識圖 + 書寫練習 (待重新設計)
 // ============================================
 function speakText(text) {
     speak(text);
 }
 
-// ============================================
-// SECTION 6: WRITING
-// ============================================
-
-// 筆順影片連結
-const strokeVideos = {
-    '头': 'https://www.youtube.com/shorts/q8KAu1CTZXE',
-    '眼': 'https://youtu.be/p4QZvx3TX98',
-    '耳': 'https://youtu.be/rdP57TBmreI',
-    '鼻': 'https://youtu.be/xyS0x5INxMY',
-    '口': 'https://youtu.be/0At3BydJJ-w',
-    '手': 'https://youtu.be/fmbv-e1iFqM',
-    '脚': 'https://youtu.be/0jNK48jBm4c'
-};
-
 function selectCharTab(char, pinyin, meaning, btn) {
-    AppState.currentChar = char;
-    AppState.currentPinyin = pinyin;
-    AppState.currentMeaning = meaning;
-    
-    document.querySelectorAll('.char-option').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-    
-    document.getElementById('demoChar').textContent = char;
-    document.getElementById('demoPinyin').textContent = pinyin;
-    document.getElementById('demoMeaning').textContent = meaning;
-    
-    clearCanvas();
+    // 佔位函數 - 待重新設計
 }
 
 function initCanvas() {
-    const canvas = document.getElementById('writeCanvas');
-    if (!canvas || AppState.writeCtx) return;
-    
-    const ctx = canvas.getContext('2d');
-    AppState.writeCtx = ctx;
-    ctx.strokeStyle = '#333';
-    ctx.lineWidth = 8;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    
-    let drawing = false;
-    let lastX = 0, lastY = 0;
-    
-    function getPos(e) {
-        const rect = canvas.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        return { x: clientX - rect.left, y: clientY - rect.top };
-    }
-    
-    function start(e) {
-        e.preventDefault();
-        drawing = true;
-        const pos = getPos(e);
-        lastX = pos.x;
-        lastY = pos.y;
-    }
-    
-    function move(e) {
-        e.preventDefault();
-        if (!drawing) return;
-        const pos = getPos(e);
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(pos.x, pos.y);
-        ctx.stroke();
-        lastX = pos.x;
-        lastY = pos.y;
-    }
-    
-    function end() { drawing = false; }
-    
-    canvas.addEventListener('mousedown', start);
-    canvas.addEventListener('mousemove', move);
-    canvas.addEventListener('mouseup', end);
-    canvas.addEventListener('mouseout', end);
-    canvas.addEventListener('touchstart', start, { passive: false });
-    canvas.addEventListener('touchmove', move, { passive: false });
-    canvas.addEventListener('touchend', end);
+    // 佔位函數 - 待重新設計
 }
 
 function clearCanvas() {
-    if (!AppState.writeCtx) return;
-    const canvas = document.getElementById('writeCanvas');
-    AppState.writeCtx.clearRect(0, 0, canvas.width, canvas.height);
+    // 佔位函數 - 待重新設計
 }
 
 function playStrokeAndSpeak() {
-    // 支持繁體和簡體字查找筆順影片
-    let videoUrl = strokeVideos[AppState.currentChar];
-    if (!videoUrl) {
-        // 將繁體轉換為簡體查找
-        const simplifiedMap = {
-            '頭': '头', '眼': '眼', '耳': '耳', '鼻': '鼻',
-            '口': '口', '手': '手', '腳': '脚'
-        };
-        const simplified = simplifiedMap[AppState.currentChar];
-        if (simplified) {
-            videoUrl = strokeVideos[simplified];
-        }
-    }
-    if (videoUrl) {
-        showVideoModal(videoUrl);
-    }
+    // 佔位函數 - 待重新設計
 }
 
-// 顯示影片彈窗
 function showVideoModal(videoUrl) {
-    // 將 YouTube 網址轉換為嵌入格式
     console.log('Opening video:', videoUrl);
-    
-    // 將 YouTube 網址轉換為嵌入格式
     let embedUrl = videoUrl;
-    
-    // 處理不同格式的 YouTube 網址
     if (videoUrl.includes('youtube.com/shorts/')) {
-        // Shorts 格式: https://www.youtube.com/shorts/VIDEO_ID
         const videoId = videoUrl.split('/shorts/')[1].split('?')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
     } else if (videoUrl.includes('youtube.com/watch?v=')) {
-        // 標準格式: https://www.youtube.com/watch?v=VIDEO_ID
         const videoId = videoUrl.split('v=')[1].split('&')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
     } else if (videoUrl.includes('youtu.be/')) {
-        // youtu.be 格式: https://youtu.be/VIDEO_ID
         const videoId = videoUrl.split('youtu.be/')[1].split('?')[0];
         embedUrl = `https://www.youtube.com/embed/${videoId}`;
     }
-    
-    // 創建彈窗
     const modal = document.createElement('div');
     modal.id = 'videoModal';
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        animation: fadeIn 0.3s ease;
-    `;
-    
+    modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;z-index:9999;`;
     modal.innerHTML = `
-        <div style="
-            position: relative;
-            width: 90%;
-            max-width: 800px;
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        ">
-            <button onclick="closeVideoModal()" style="
-                position: absolute;
-                top: -15px;
-                right: -15px;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background: #E85A9C;
-                color: white;
-                border: none;
-                font-size: 20px;
-                cursor: pointer;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                z-index: 10;
-            ">✕</button>
-            <div style="
-                position: relative;
-                padding-bottom: 56.25%;
-                height: 0;
-                overflow: hidden;
-                border-radius: 15px;
-            ">
-                <iframe src="${embedUrl}" style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                " allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div style="position:relative;width:90%;max-width:800px;background:white;border-radius:20px;padding:20px;">
+            <button onclick="closeVideoModal()" style="position:absolute;top:-15px;right:-15px;width:40px;height:40px;border-radius:50%;background:#E85A9C;color:white;border:none;font-size:20px;cursor:pointer;">✕</button>
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:15px;">
+                <iframe src="${embedUrl}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen></iframe>
             </div>
-        </div>
-    `;
-    
+        </div>`;
     document.body.appendChild(modal);
-    
-    // 點擊背景關閉
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeVideoModal();
-        }
-    });
+    modal.addEventListener('click', function(e) { if (e.target === modal) closeVideoModal(); });
 }
 
 function closeVideoModal() {
     const modal = document.getElementById('videoModal');
-    if (modal) {
-        modal.remove();
-    }
+    if (modal) modal.remove();
 }
 
 function checkWriting() {
-    alert('写得很好！');
-    createConfetti();
+    // 佔位函數 - 待重新設計
 }
 
 // ============================================
-// SECTION 7: STORIES
+// SECTION 9: STORIES (故事繪本)
 // ============================================
-// 故事繪本 - 更豐富有趣的內容
-const storiesData = {
-    1: { 
-        title: '千變萬化的手', 
+
+const storyBooks = [
+    {
+        id: 'hands',
+        title: '千變萬化的手',
+        cover: '圖書封面/book_cover_hands.png',
         pages: [
-            '我們有一雙神奇的手！👋 手可以做很多事情。',
-            '早上起床，我們用手刷牙、洗臉。💦',
-            '吃飯時，我們用手拿湯匙。🥄 畫畫時，我們用手拿畫筆。🎨',
-            '我們要愛護雙手，常常洗手，保持乾淨！🧼'
-        ] 
+            { image: null, text: '我們每個人都有兩隻手。手可以做很多很多的事情。', question: null },
+            { image: null, text: '用手可以推門、拉窗，還可以握手打招呼。', question: '你能用手做一個推的動作給老師看嗎？' },
+            { image: null, text: '手還可以畫畫、寫字、摺紙，做出美麗的作品。', question: null },
+            { image: null, text: '我們要愛護自己的雙手，保持乾淨，勤洗手。', question: '你知道什麼時候應該洗手嗎？' }
+        ]
     },
-    2: { 
-        title: '我的身體', 
+    {
+        id: 'body',
+        title: '我的身體',
+        cover: '圖書封面/book_cover_body.png',
         pages: [
-            '這是我的身體！我有頭、手、腳... 🧍',
-            '頭上有眼睛、鼻子、耳朵和嘴巴。👀👃👂👄',
-            '每個部位都有重要的工作，就像一個大家庭！🏠',
-            '我愛我的身體，我要好好照顧它！❤️'
-        ] 
+            { image: null, text: '這是我的身體。我有頭、頸、軀幹、手和腳。', question: null },
+            { image: null, text: '頭上有眼睛、耳朵、鼻子和嘴巴，幫助我認識世界。', question: '你能指一指自己的眼睛在哪裡嗎？' },
+            { image: null, text: '身體可以跑、跳、走、坐，讓我做各種運動。', question: null },
+            { image: null, text: '我們要好好照顧自己的身體，吃得健康、多運動。', question: '你喜歡做什麼運動呢？' }
+        ]
     },
-    3: { 
-        title: '眼睛看世界', 
+    {
+        id: 'eyes',
+        title: '眼睛的故事',
+        cover: '圖書封面/book_cover_eyes.png',
         pages: [
-            '我們的眼睛像兩顆明亮的星星！✨ 幫助我們看這個美麗的世界。',
-            '我們可以用眼睛看到紅紅的蘋果、綠綠的樹葉。🍎🌿',
-            '看書、看電視、看媽媽的笑容，都需要眼睛！📺',
-            '記得不要看太多電視，要讓眼睛休息哦！😊'
-        ] 
-    },
-    4: { 
-        title: '耳朵聽聲音', 
-        pages: [
-            '我們有兩隻可愛的耳朵！👂 像兩個小問號。',
-            '耳朵可以聽到小鳥唱歌：嘰嘰喳喳！🐦',
-            '可以聽到媽媽叫我們吃飯：「寶貝，來吃飯囉！」🍚',
-            '也可以聽到美妙的音樂。🎵 耳朵真神奇！'
-        ] 
-    },
-    5: { 
-        title: '牙齒的故事', 
-        pages: [
-            '我有二十顆白白的牙齒！🦷 像一排小珍珠。',
-            '牙齒幫助我們咬食物，讓我們可以吃到好吃的東西。🍎🥕',
-            '每天早上和晚上，都要刷牙刷得乾乾淨淨！🪥',
-            '少吃糖果，多刷牙，牙齒才會健康又漂亮！✨'
-        ] 
-    },
-    6: { 
-        title: '心臟蹦蹦跳', 
-        pages: [
-            '摸摸你的胸口，感覺到了嗎？心臟在蹦蹦跳！❤️',
-            '心臟就像一個小幫浦，每天不停工作。',
-            '它把血液送到全身，讓我們有力氣玩耍。🏃',
-            '運動後心跳會加快，這是心臟在努力工作呢！💪'
-        ] 
+            { image: null, text: '每個人都有兩隻眼睛。眼睛讓我們看到美麗的世界。', question: null },
+            { image: null, text: '眼睛可以看到紅的花、綠的樹、藍的天和白雲。', question: '你現在能看到什麼顏色？' },
+            { image: null, text: '看書的時候要保持距離，不能靠得太近。', question: null },
+            { image: null, text: '看完電視或手機後，要讓眼睛休息一下，看看遠方。', question: '你知道怎樣做眼保健操嗎？' }
+        ]
     }
+];
+
+let storyState = {
+    currentBookIndex: -1,
+    currentPageIndex: 0,
+    view: 'selection' // 'selection' | 'reader'
 };
 
-function openStory(id) {
-    AppState.currentStoryId = id;
-    AppState.currentStoryPage = 1;
-    const story = storiesData[id];
-    
-    document.getElementById('storyTitle').textContent = story.title;
-    updateStoryPage();
-    goTo('story');
+function initStory() {
+    storyState.currentBookIndex = -1;
+    storyState.currentPageIndex = 0;
+    storyState.view = 'selection';
+    renderStory();
 }
 
-function closeStory() {
-    goTo('learning');
-    gotoSection(7);
+function renderStory() {
+    if (storyState.view === 'selection') {
+        renderStorySelection();
+    } else {
+        renderStoryReader();
+    }
 }
 
-function updateStoryPage() {
-    const story = storiesData[AppState.currentStoryId];
-    document.getElementById('storyPageNum').textContent = AppState.currentStoryPage + ' / ' + story.pages.length;
-    document.getElementById('storyText').innerHTML = `
-        <h3>${story.title} - 第${AppState.currentStoryPage}頁</h3>
-        <p>${story.pages[AppState.currentStoryPage - 1]}</p>
+function renderStorySelection() {
+    const container = document.getElementById('storyContainer');
+    if (!container) return;
+
+    const booksHtml = storyBooks.map((book, index) => `
+        <div class="story-book-card" onclick="goToStory(${index})">
+            <div class="story-book-cover">
+                <img src="${book.cover}" alt="${book.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'story-page-placeholder\'><span class=\'placeholder-icon\'>📖</span><span>封面圖片待補</span></div>';">
+            </div>
+            <div class="story-book-title">${book.title}</div>
+        </div>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="story-page">
+            <!-- 頭部 -->
+            <div class="story-header">
+                <button class="story-green-circle" onclick="switchLearningModule('quiz')">◀</button>
+                <div class="story-title-pill">故事繪本</div>
+                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+
+            <!-- 右側功能標籤 -->
+            <div class="story-side-tabs">
+                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+
+            <!-- 主內容 -->
+            <div class="story-selection">
+                <div class="story-selection-title">請選擇一本故事書</div>
+                <div class="story-books-grid">
+                    ${booksHtml}
+                </div>
+            </div>
+
+            <!-- 底部導航 -->
+            <div class="story-bottom-nav">
+                <button class="story-green-circle" onclick="prevSection()">◀</button>
+                <button class="story-green-circle" onclick="nextSection()">▶</button>
+            </div>
+        </div>
+    `;
+}
+
+function goToStory(index) {
+    storyState.currentBookIndex = index;
+    storyState.currentPageIndex = 0;
+    storyState.view = 'reader';
+    renderStoryReader();
+}
+
+function backToStorySelection() {
+    storyState.currentBookIndex = -1;
+    storyState.currentPageIndex = 0;
+    storyState.view = 'selection';
+    renderStorySelection();
+}
+
+function renderStoryReader() {
+    const container = document.getElementById('storyContainer');
+    if (!container) return;
+
+    const book = storyBooks[storyState.currentBookIndex];
+    const page = book.pages[storyState.currentPageIndex];
+    const isFirstPage = storyState.currentPageIndex === 0;
+    const isLastPage = storyState.currentPageIndex === book.pages.length - 1;
+
+    const imageHtml = page.image
+        ? `<img src="${page.image}" alt="故事插圖" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="story-page-placeholder" style="display:none;"><span class="placeholder-icon">🖼️</span><span>頁面圖片待補</span></div>`
+        : `<div class="story-page-placeholder"><span class="placeholder-icon">🖼️</span><span>頁面圖片待補</span></div>`;
+
+    const questionHtml = page.question
+        ? `<div class="story-page-question">${page.question}</div>`
+        : '';
+
+    container.innerHTML = `
+        <div class="story-page">
+            <!-- 頭部 -->
+            <div class="story-header">
+                <button class="story-green-circle" onclick="backToStorySelection()">◀</button>
+                <div class="story-title-pill">${book.title}</div>
+                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+
+            <!-- 右側功能標籤 -->
+            <div class="story-side-tabs">
+                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+
+            <!-- 主內容 -->
+            <div class="story-reader">
+                <div class="story-reader-content">
+                    <div class="story-page-card">
+                        <div class="story-page-image">
+                            ${imageHtml}
+                        </div>
+                        <div class="story-page-text-area">
+                            ${questionHtml}
+                            <div class="story-page-indicator">${storyState.currentPageIndex + 1} / ${book.pages.length}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部導航 -->
+            <div class="story-bottom-nav">
+                <button class="story-green-circle" onclick="prevStoryPage()" ${isFirstPage ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
+                <button class="story-green-circle" onclick="nextStoryPage()" ${isLastPage ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+            </div>
+        </div>
     `;
 }
 
 function nextStoryPage() {
-    const story = storiesData[AppState.currentStoryId];
-    if (AppState.currentStoryPage < story.pages.length) {
-        AppState.currentStoryPage++;
-        updateStoryPage();
+    const book = storyBooks[storyState.currentBookIndex];
+    if (storyState.currentPageIndex < book.pages.length - 1) {
+        storyState.currentPageIndex++;
+        renderStoryReader();
     }
 }
 
 function prevStoryPage() {
-    if (AppState.currentStoryPage > 1) {
-        AppState.currentStoryPage--;
-        updateStoryPage();
+    if (storyState.currentPageIndex > 0) {
+        storyState.currentPageIndex--;
+        renderStoryReader();
     }
 }
 
 // ============================================
-// SECTION 8: GAMES
+// SECTION 10: GAMES (遊戲活動)
 // ============================================
 
-// 所有身體部位數據（用於遊戲）
-const allBodyParts = [
-    { key: 'eye', src: '眼睛.png', name: '眼睛', emoji: '👁️' },
-    { key: 'ear', src: '耳朵.png', name: '耳朵', emoji: '👂' },
-    { key: 'nose', src: '鼻子.png', name: '鼻子', emoji: '👃' },
-    { key: 'mouth', src: '嘴.png', name: '嘴巴', emoji: '👄' },
-    { key: 'hand', src: '手.png', name: '手', emoji: '✋' },
-    { key: 'foot', src: '腳.png', name: '腳', emoji: '🦶' }
+const gameActivities = [
+    { id: 'matching', name: '圖案和文字配對', icon: '🔗' },
+    { id: 'quiz', name: '文字選擇題', icon: '❓' },
+    { id: 'memory', name: '記憶力翻牌子', icon: '🃏' }
 ];
 
-// 問答題目數據
-const quizQuestions = [
-    { question: '我們用什麼來看東西？', options: ['眼睛', '耳朵', '鼻子', '嘴巴'], correct: 0, emoji: '👁️', sound: '眼睛' },
-    { question: '我們用什麼來聽聲音？', options: ['眼睛', '耳朵', '鼻子', '嘴巴'], correct: 1, emoji: '👂', sound: '耳朵' },
-    { question: '我們用什麼來聞氣味？', options: ['眼睛', '耳朵', '鼻子', '嘴巴'], correct: 2, emoji: '👃', sound: '鼻子' },
-    { question: '我們用什麼來吃東西？', options: ['眼睛', '耳朵', '鼻子', '嘴巴'], correct: 3, emoji: '👄', sound: '嘴巴' },
-    { question: '我們用什麼來拿東西？', options: ['頭', '手', '腳', '耳朵'], correct: 1, emoji: '✋', sound: '手' },
-    { question: '我們用什麼來走路？', options: ['頭', '手', '腳', '耳朵'], correct: 2, emoji: '🦶', sound: '腳' }
+const gameMatchingData = [
+    { hanzi: '頭', image: '課程介紹頁/real_head.png' },
+    { hanzi: '耳', image: '課程介紹頁/real_ear.png' },
+    { hanzi: '腳', image: '課程介紹頁/real_foot.png' },
+    { hanzi: '鼻', image: '課程介紹頁/real_nose.png' },
+    { hanzi: '眼', image: '課程介紹頁/real_eye.png' },
+    { hanzi: '口', image: '課程介紹頁/real_mouth.png' },
+    { hanzi: '手', image: '課程介紹頁/real_hand.png' }
 ];
 
-let currentQuizIndex = 0;
-
-function switchGameType(type) {
-    document.querySelectorAll('.game-option').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    // 重置遊戲分數
-    AppState.gameScore = 0;
-    
-    if (type === 'matching') {
-        initMatchingGame();
-    } else if (type === 'memory') {
-        initMemoryGameHTML();
-    } else if (type === 'quiz') {
-        currentQuizIndex = 0;
-        initQuizGame();
+const gameQuizQuestions = [
+    {
+        type: 'multi',
+        question: '小朋友，你知道我們的身體有哪些部位嗎？',
+        options: ['眼睛', '耳朵', '鼻子', '椅子'],
+        correct: [0, 1, 2]
+    },
+    {
+        type: 'single',
+        question: '小鳥唱歌，我們用什麼來聽呢？',
+        options: ['嘴巴', '手', '眼睛', '耳朵'],
+        correct: 3
+    },
+    {
+        type: 'single',
+        question: '看美麗的花朵，我們用什麼來看呢？',
+        options: ['鼻子', '眼睛', '耳朵', '嘴巴'],
+        correct: 1
+    },
+    {
+        type: 'single',
+        question: '拿玩具、抱抱媽媽，我們用什麼呢？',
+        options: ['腳', '眼睛', '手', '耳朵'],
+        correct: 2
     }
-}
+];
 
-// 配對遊戲初始化 - 更有趣的版本
-function initMatchingGame() {
-    const gameArea = document.getElementById('gameArea');
-    
-    // 隨機選擇4個部位
-    const shuffled = [...allBodyParts].sort(() => Math.random() - 0.5).slice(0, 4);
-    const leftItems = [...shuffled].sort(() => Math.random() - 0.5);
-    const rightItems = [...shuffled].sort(() => Math.random() - 0.5);
-    
-    const leftHTML = leftItems.map(part => `
-        <div class="emoji-item" data-part="${part.key}" data-name="${part.name}" onclick="selectLeft(this)" style="
-            width: 110px;
-            height: 90px;
-            background: linear-gradient(145deg, #ffffff, #f5f5f5);
-            border: 4px solid #E85A9C;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 20px rgba(232,90,156,0.2);
-        " onmouseover="if(!this.classList.contains('matched')) { this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(232,90,156,0.35)'; }"
-        onmouseout="if(!this.classList.contains('matched')) { this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(232,90,156,0.2)'; }">
-            <img src="${part.src}" alt="${part.name}" style="width: 65px; height: 65px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
-        </div>
-    `).join('');
-    
-    const rightHTML = rightItems.map(part => `
-        <div class="text-item" data-part="${part.key}" data-name="${part.name}" onclick="selectRight(this)" style="
-            width: 110px;
-            height: 90px;
-            background: linear-gradient(145deg, #ffffff, #f5f5f5);
-            border: 4px solid #0066CC;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 6px 20px rgba(0,102,204,0.2);
-            font-size: 26px;
-            font-weight: bold;
-            color: #0066CC;
-        " onmouseover="if(!this.classList.contains('matched')) { this.style.transform='scale(1.08)'; this.style.boxShadow='0 10px 30px rgba(0,102,204,0.35)'; }"
-        onmouseout="if(!this.classList.contains('matched')) { this.style.transform='scale(1)'; this.style.boxShadow='0 6px 20px rgba(0,102,204,0.2)'; }">${part.name}</div>
-    `).join('');
-    
-    gameArea.innerHTML = `
-        <div id="matchingInstruction" style="
-            font-size: 22px;
-            color: #E85A9C;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-align: center;
-            animation: pulse 2s infinite;
-        ">🎯 點擊左邊圖片，再點擊右邊文字來配對！</div>
-        
-        <div id="lineMatchingGame" style="
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            height: 420px;
-            padding: 20px 50px;
-            background: linear-gradient(145deg, #f8f9fa, #ffffff);
-            border-radius: 25px;
-            box-shadow: inset 0 2px 15px rgba(0,0,0,0.08);
-        ">
-            <svg id="connectionLines" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></svg>
-            <div style="display: flex; flex-direction: column; gap: 25px; z-index: 2;">${leftHTML}</div>
-            <div style="display: flex; flex-direction: column; gap: 25px; z-index: 2;">${rightHTML}</div>
-        </div>
-        
-        <div id="matchMessage" style="
-            margin-top: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            height: 35px;
-            text-align: center;
-            color: #4CAF50;
-        "></div>
-        
-        <div style="
-            margin-top: 10px;
-            background: linear-gradient(135deg, #E85A9C, #C44569);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-size: 22px;
-            font-weight: bold;
-            box-shadow: 0 6px 20px rgba(232,90,156,0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        ">
-            <span>🏆</span>
-            <span>得分: <span id="gameScore">0</span></span>
-        </div>
-        
-        <button onclick="initMatchingGame()" style="
-            margin-top: 15px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #4CAF50, #388E3C);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(76,175,80,0.4);
-            transition: all 0.3s;
-        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🔄 重新開始</button>
-    `;
-    
-    initLineMatchingGame();
-}
+const gameMemoryData = [
+    { hanzi: '頭', image: '課程介紹頁/real_head.png' },
+    { hanzi: '耳', image: '課程介紹頁/real_ear.png' },
+    { hanzi: '腳', image: '課程介紹頁/real_foot.png' },
+    { hanzi: '鼻', image: '課程介紹頁/real_nose.png' },
+    { hanzi: '眼', image: '課程介紹頁/real_eye.png' },
+    { hanzi: '口', image: '課程介紹頁/real_mouth.png' },
+    { hanzi: '手', image: '課程介紹頁/real_hand.png' }
+];
 
-// 記憶遊戲初始化（生成HTML）- 更有趣的版本
-function initMemoryGameHTML() {
-    const gameArea = document.getElementById('gameArea');
-    
-    // 隨機選擇4個部位，每個2張 = 8張牌
-    const selected = [...allBodyParts].sort(() => Math.random() - 0.5).slice(0, 4);
-    const cards = [];
-    selected.forEach(part => {
-        cards.push({ ...part, id: part.key + '_1' });
-        cards.push({ ...part, id: part.key + '_2' });
-    });
-    const shuffled = cards.sort(() => Math.random() - 0.5);
-    
-    // 使用更簡單可靠的HTML結構
-    gameArea.innerHTML = `
-        <div id="memoryGame" style="
-            display: grid;
-            grid-template-columns: repeat(4, 90px);
-            grid-template-rows: repeat(2, 90px);
-            gap: 12px;
-            justify-content: center;
-            align-content: center;
-            padding: 20px;
-            background: linear-gradient(145deg, #f0f0f0, #ffffff);
-            border-radius: 20px;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.1);
-        ">
-            ${shuffled.map((card, i) => `
-                <div class="memory-card" data-key="${card.key}" data-name="${card.name}" onclick="flipMemoryCard(this)" style="
-                    width: 90px;
-                    height: 90px;
-                    position: relative;
-                    cursor: pointer;
-                    transform-style: preserve-3d;
-                    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                ">
-                    <div class="card-front" style="
-                        position: absolute;
-                        width: 90px;
-                        height: 90px;
-                        border-radius: 15px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 32px;
-                        font-weight: bold;
-                        color: white;
-                        background: linear-gradient(135deg, #E85A9C, #C44569);
-                        box-shadow: 0 4px 15px rgba(232,90,156,0.4);
-                        backface-visibility: hidden;
-                        -webkit-backface-visibility: hidden;
-                        border: 3px solid white;
-                    ">?</div>
-                    <div class="card-back" style="
-                        position: absolute;
-                        width: 90px;
-                        height: 90px;
-                        border-radius: 15px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background: white;
-                        border: 3px solid #4CAF50;
-                        box-shadow: 0 4px 15px rgba(76,175,80,0.3);
-                        transform: rotateY(180deg);
-                        backface-visibility: hidden;
-                        -webkit-backface-visibility: hidden;
-                    ">
-                        <img src="${card.src}" alt="${card.name}" style="width: 55px; height: 55px; object-fit: contain;">
-                    </div>
-                </div>
-            `).join('')}
-        </div>
-        <div id="gameMessage" style="
-            margin-top: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #E85A9C;
-            height: 30px;
-            text-align: center;
-            transition: all 0.3s;
-        ">找到相同的卡片！</div>
-        <div class="game-score" style="
-            margin-top: 10px;
-            background: linear-gradient(135deg, #E85A9C, #C44569);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(232,90,156,0.4);
-        ">⭐ 得分: <span id="gameScore">0</span></div>
-        <button onclick="initMemoryGameHTML()" style="
-            margin-top: 15px;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, #4CAF50, #388E3C);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(76,175,80,0.4);
-            transition: transform 0.3s;
-        " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">🔄 重新開始</button>
-    `;
-    
-    initMemoryGame();
-}
-
-// 問答遊戲初始化 - 更有趣的版本
-function initQuizGame() {
-    const gameArea = document.getElementById('gameArea');
-    const q = quizQuestions[currentQuizIndex];
-    
-    const progressDots = quizQuestions.map((_, i) => `
-        <div style="
-            width: ${i === currentQuizIndex ? '35px' : '12px'};
-            height: 12px;
-            border-radius: 6px;
-            background: ${i < currentQuizIndex ? '#4CAF50' : (i === currentQuizIndex ? '#E85A9C' : '#ddd')};
-            transition: all 0.3s;
-        "></div>
-    `).join('');
-    
-    const optionsHTML = q.options.map((opt, i) => `
-        <button id="quizBtn${i}" onclick="answerQuiz(this, ${i === q.correct}, '${q.sound}')" style="
-            padding: 25px 20px;
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
-            border: 3px solid #e0e0e0;
-            border-radius: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            color: #333;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        " onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.15)'" 
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'">
-            <span style="font-size: 32px;">${i === q.correct ? q.emoji : ['👀', '👂', '👃', '👄', '🧠', '✋', '🦶'][i % 7]}</span>
-            <span>${opt}</span>
-        </button>
-    `).join('');
-    
-    gameArea.innerHTML = `
-        <div style="
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 550px;
-            animation: fadeIn 0.5s ease-out;
-        ">
-            <div style="
-                display: flex;
-                gap: 8px;
-                padding: 10px 20px;
-                background: white;
-                border-radius: 20px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            ">${progressDots}</div>
-            
-            <div style="
-                font-size: 32px;
-                font-weight: bold;
-                color: #333;
-                text-align: center;
-                background: linear-gradient(145deg, #ffffff, #f8f8f8);
-                padding: 30px 40px;
-                border-radius: 25px;
-                border: 4px solid #E85A9C;
-                box-shadow: 0 8px 30px rgba(232,90,156,0.2);
-                width: 100%;
-                position: relative;
-                overflow: hidden;
-            ">
-                <div style="font-size: 50px; margin-bottom: 10px;">❓</div>
-                ${q.question}
-            </div>
-            
-            <div style="
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                width: 100%;
-            ">${optionsHTML}</div>
-        </div>
-        
-        <div id="quizFeedback" style="
-            margin-top: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            height: 40px;
-            text-align: center;
-            transition: all 0.3s;
-        "></div>
-        
-        <div style="
-            margin-top: 10px;
-            background: linear-gradient(135deg, #E85A9C, #C44569);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-size: 22px;
-            font-weight: bold;
-            box-shadow: 0 6px 20px rgba(232,90,156,0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        ">
-            <span>🏆</span>
-            <span>得分: <span id="gameScore">${AppState.gameScore}</span></span>
-        </div>
-    `;
-}
-
-// 連線配對遊戲數據（包含所有可用部位）
-const bodyPartsData = {
-    'eye': { emoji: '👁️', text: '眼睛', image: '眼睛.png' },
-    'nose': { emoji: '👃', text: '鼻子', image: '鼻子.png' },
-    'ear': { emoji: '👂', text: '耳朵', image: '耳朵.png' },
-    'mouth': { emoji: '👄', text: '嘴巴', image: '嘴.png' },
-    'hand': { emoji: '✋', text: '手', image: '手.png' },
-    'foot': { emoji: '🦶', text: '腳', image: '腳.png' }
+let gameState = {
+    currentActivity: 'menu',
+    matching: { selectedImage: null, selectedText: null, matched: new Set() },
+    quiz: { currentQ: 0, selected: new Set(), answered: false },
+    memory: { cards: [], flipped: [], matched: new Set(), canFlip: true },
+    score: 0
 };
 
-let selectedLeft = null;
-let matchedPairs = new Set();
-
-function initLineMatchingGame() {
-    selectedLeft = null;
-    matchedPairs.clear();
-    AppState.gameScore = 0;
-    updateGameScore();
-    
-    // 從左側獲取當前顯示的部位
-    const leftItems = document.querySelectorAll('.emoji-item');
-    const parts = Array.from(leftItems).map(item => item.dataset.part).sort(() => Math.random() - 0.5);
-    
-    // 洗牌右側文字（使用與左側相同的部位）
-    const rightItems = document.querySelectorAll('.text-item');
-    rightItems.forEach((item, i) => {
-        item.dataset.part = parts[i];
-        item.textContent = bodyPartsData[parts[i]].text;
-        item.classList.remove('matched');
-        // 重置樣式
-        item.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
-        item.style.borderColor = '#0066CC';
-        item.style.color = '#0066CC';
-        item.style.transform = 'scale(1)';
-    });
-    
-    // 重置左側
-    document.querySelectorAll('.emoji-item').forEach(item => {
-        item.classList.remove('selected', 'matched');
-    });
-    
-    // 清除連線
-    const svg = document.getElementById('connectionLines');
-    if (svg) svg.innerHTML = '';
+function initGame() {
+    gameState.currentActivity = 'menu';
+    gameState.score = 0;
+    resetMatchingGame();
+    resetQuizGame();
+    resetMemoryGame();
+    renderGameMenu();
 }
 
-function selectLeft(element) {
-    if (element.classList.contains('matched')) return;
-    
-    // 移除其他選中狀態
-    document.querySelectorAll('.emoji-item').forEach(el => {
-        el.classList.remove('selected');
-        el.style.borderColor = '#E85A9C';
-        el.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
-        el.style.transform = 'scale(1)';
-    });
-    
-    // 添加選中樣式
-    element.classList.add('selected');
-    element.style.borderColor = '#FF9800';
-    element.style.background = 'linear-gradient(145deg, #FFF3E0, #FFE0B2)';
-    element.style.transform = 'scale(1.1)';
-    element.style.boxShadow = '0 0 25px rgba(255,152,0,0.5)';
-    selectedLeft = element;
-    
-    // 更新提示
-    const msgEl = document.getElementById('matchMessage');
-    if (msgEl) msgEl.textContent = t('clickRightText');
+function resetMatchingGame() {
+    gameState.matching = { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [] };
 }
 
-function selectRight(element) {
-    const msgEl = document.getElementById('matchMessage');
-    
-    if (!selectedLeft || element.classList.contains('matched')) {
-        if (msgEl && !selectedLeft) msgEl.textContent = t('clickLeftFirst');
-        return;
-    }
-    
-    const leftPart = selectedLeft.dataset.part;
-    const rightPart = element.dataset.part;
-    
-    if (leftPart === rightPart) {
-        // 配對成功
-        element.classList.add('matched');
-        selectedLeft.classList.add('matched');
-        selectedLeft.classList.remove('selected');
-        matchedPairs.add(leftPart);
-        AppState.gameScore += 10;
-        updateGameScore();
-        
-        // 成功樣式
-        element.style.background = 'linear-gradient(145deg, #C8E6C9, #A5D6A7)';
-        element.style.borderColor = '#4CAF50';
-        element.style.color = '#2E7D32';
-        element.style.transform = 'scale(1.1)';
-        
-        selectedLeft.style.background = 'linear-gradient(145deg, #C8E6C9, #A5D6A7)';
-        selectedLeft.style.borderColor = '#4CAF50';
-        selectedLeft.style.transform = 'scale(1.1)';
-        selectedLeft.style.boxShadow = '0 8px 25px rgba(76,175,80,0.4)';
-        
-        // 繪製連線
-        drawLine(selectedLeft, element);
-        
-        // 播放發音
-        const partName = bodyPartsData[leftPart]?.text || selectedLeft.dataset.name;
-        speakText(partName);
-        
-        // 更新提示
-        if (msgEl) msgEl.innerHTML = `🎉 ${partName} 配對成功！`;
-        
-        // 創建小煙花效果
-        createMiniConfetti(element);
-        
-        if (matchedPairs.size >= 4) {
-            setTimeout(() => {
-                celebrateWin();
-                if (msgEl) msgEl.innerHTML = t('allMatched');
-                document.getElementById('matchingInstruction').textContent = t('matchingMaster');
-            }, 500);
+function resetQuizGame() {
+    gameState.quiz = { currentQ: 0, selected: new Set(), answered: false };
+}
+
+function resetMemoryGame() {
+    gameState.memory = { cards: [], flipped: [], matched: new Set(), canFlip: true };
+}
+
+/* ---------- 活動選擇菜單 ---------- */
+
+function renderGameMenu() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+
+    const cardsHtml = gameActivities.map(act => `
+        <div class="game-menu-card" onclick="startGameActivity('${act.id}')">
+            <div class="game-menu-icon">${act.icon}</div>
+            <div class="game-menu-name">${act.name}</div>
+        </div>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="game-page">
+            <div class="game-header">
+                <button class="game-purple-circle" onclick="switchLearningModule('story')">◀</button>
+                <div class="game-title-pill">遊戲活動</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+            <div class="game-side-tabs">
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+            <div class="game-menu">
+                <div class="game-menu-title">請選擇一個遊戲活動</div>
+                <div class="game-menu-grid">${cardsHtml}</div>
+            </div>
+            <div class="game-bottom-nav">
+                <button class="game-purple-circle" onclick="prevSection()">◀</button>
+                <button class="game-purple-circle" onclick="nextSection()">▶</button>
+            </div>
+            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}" id="gameStar">⭐</div>
+        </div>
+    `;
+}
+
+function startGameActivity(id) {
+    gameState.currentActivity = id;
+    if (id === 'matching') renderMatchingGame();
+    else if (id === 'quiz') renderQuizGame();
+    else if (id === 'memory') renderMemoryGame();
+}
+
+function backToGameMenu() {
+    gameState.currentActivity = 'menu';
+    renderGameMenu();
+}
+
+/* ---------- 活動1：圖案和文字配對 ---------- */
+
+function renderMatchingGame() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+
+    const shuffledData = [...gameMatchingData].sort(() => Math.random() - 0.5);
+    const shuffledTexts = [...gameMatchingData].sort(() => Math.random() - 0.5);
+
+    const imagesHtml = shuffledData.map((item, i) => `
+        <div class="game-matching-image ${gameState.matching.matched.has(item.hanzi) ? 'matched' : ''}"
+             data-hanzi="${item.hanzi}" data-side="image" data-idx="${i}"
+             onclick="handleMatchingClick(this)">
+            <img src="${item.image}" alt="${item.hanzi}">
+        </div>
+    `).join('');
+
+    const textsHtml = shuffledTexts.map((item, i) => `
+        <div class="game-matching-text ${gameState.matching.matched.has(item.hanzi) ? 'matched' : ''}"
+             data-hanzi="${item.hanzi}" data-side="text" data-idx="${i}"
+             onclick="handleMatchingClick(this)">
+            ${item.hanzi}
+        </div>
+    `).join('');
+
+    const progress = gameState.matching.matched.size;
+    const total = gameMatchingData.length;
+
+    container.innerHTML = `
+        <div class="game-page">
+            <div class="game-header">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <div class="game-title-pill">圖案和文字配對</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+            <div class="game-side-tabs">
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+            <div class="game-matching">
+                <div class="game-matching-title">請把圖案和文字配對起來！（${progress}/${total}）</div>
+                <div class="game-matching-area" id="matchingArea">
+                    <div class="game-matching-col">${imagesHtml}</div>
+                    <div class="game-matching-col">${textsHtml}</div>
+                </div>
+            </div>
+            <div class="game-bottom-nav">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <button class="game-purple-circle" onclick="startGameActivity('quiz')">▶</button>
+            </div>
+            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+        </div>
+    `;
+
+    // Draw connection lines for matched pairs
+    requestAnimationFrame(() => drawMatchingLines());
+}
+
+function handleMatchingClick(el) {
+    const hanzi = el.dataset.hanzi;
+    const side = el.dataset.side;
+
+    if (gameState.matching.matched.has(hanzi)) return;
+
+    // Clear previous selection on same side
+    if (side === 'image') {
+        if (gameState.matching.selectedImage) {
+            const prev = document.querySelector(`[data-hanzi="${gameState.matching.selectedImage}"][data-side="image"]`);
+            if (prev) prev.classList.remove('selected');
         }
-        
-        selectedLeft = null;
+        gameState.matching.selectedImage = hanzi;
+        el.classList.add('selected');
     } else {
-        // 配對失敗
-        element.style.animation = 'shake 0.5s ease-out';
-        element.style.background = 'linear-gradient(145deg, #FFCDD2, #EF9A9A)';
-        element.style.borderColor = '#EF5350';
-        
-        if (msgEl) msgEl.innerHTML = '😅 不對喔，再試試！';
-        
-        setTimeout(() => {
-            element.style.animation = '';
-            element.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
-            element.style.borderColor = '#0066CC';
-        }, 600);
-        
-        selectedLeft.classList.remove('selected');
-        selectedLeft.style.borderColor = '#E85A9C';
-        selectedLeft.style.background = 'linear-gradient(145deg, #ffffff, #f5f5f5)';
-        selectedLeft.style.transform = 'scale(1)';
-        selectedLeft.style.boxShadow = '0 6px 20px rgba(232,90,156,0.2)';
-        selectedLeft = null;
-        
-        setTimeout(() => {
-            if (msgEl && matchedPairs.size < 4) msgEl.textContent = '';
-        }, 1500);
+        if (gameState.matching.selectedText) {
+            const prev = document.querySelector(`[data-hanzi="${gameState.matching.selectedText}"][data-side="text"]`);
+            if (prev) prev.classList.remove('selected');
+        }
+        gameState.matching.selectedText = hanzi;
+        el.classList.add('selected');
+    }
+
+    // Check match
+    if (gameState.matching.selectedImage && gameState.matching.selectedText) {
+        if (gameState.matching.selectedImage === gameState.matching.selectedText) {
+            // Correct!
+            gameState.matching.matched.add(hanzi);
+            gameState.matching.matchedPairs.push({ image: gameState.matching.selectedImage, text: gameState.matching.selectedText });
+            gameState.score++;
+            playCorrectSound();
+            renderMatchingGame();
+            if (gameState.matching.matched.size === gameMatchingData.length) {
+                setTimeout(() => showGameComplete('太棒了！全部配對成功！', () => {
+                    resetMatchingGame();
+                    startGameActivity('quiz');
+                }), 600);
+            }
+        } else {
+            // Wrong
+            const imgEl = document.querySelector(`[data-hanzi="${gameState.matching.selectedImage}"][data-side="image"]`);
+            const txtEl = document.querySelector(`[data-hanzi="${gameState.matching.selectedText}"][data-side="text"]`);
+            if (imgEl) { imgEl.classList.add('game-shake'); setTimeout(() => imgEl.classList.remove('game-shake'), 400); }
+            if (txtEl) { txtEl.classList.add('game-shake'); setTimeout(() => txtEl.classList.remove('game-shake'), 400); }
+            gameState.matching.selectedImage = null;
+            gameState.matching.selectedText = null;
+            setTimeout(() => {
+                document.querySelectorAll('.game-matching-image.selected, .game-matching-text.selected').forEach(e => e.classList.remove('selected'));
+            }, 400);
+        }
     }
 }
 
-// 小煙花效果
-function createMiniConfetti(element) {
-    const rect = element.getBoundingClientRect();
-    const colors = ['#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107'];
-    
-    for (let i = 0; i < 8; i++) {
-        const confetti = document.createElement('div');
-        confetti.style.cssText = `
-            position: fixed;
-            left: ${rect.left + rect.width / 2}px;
-            top: ${rect.top + rect.height / 2}px;
-            width: 10px;
-            height: 10px;
-            background: ${colors[Math.floor(Math.random() * colors.length)]};
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
+function drawMatchingLines() {
+    const area = document.getElementById('matchingArea');
+    if (!area) return;
+
+    // Remove old lines
+    area.querySelectorAll('.game-matching-connect').forEach(el => el.remove());
+
+    const areaRect = area.getBoundingClientRect();
+
+    gameState.matching.matchedPairs.forEach((pair, index) => {
+        const imgEl = document.querySelector(`.game-matching-image[data-hanzi="${pair.image}"]`);
+        const txtEl = document.querySelector(`.game-matching-text[data-hanzi="${pair.text}"]`);
+        if (!imgEl || !txtEl) return;
+
+        const imgRect = imgEl.getBoundingClientRect();
+        const txtRect = txtEl.getBoundingClientRect();
+
+        const x1 = imgRect.right - areaRect.left;
+        const y1 = imgRect.top + imgRect.height / 2 - areaRect.top;
+        const x2 = txtRect.left - areaRect.left;
+        const y2 = txtRect.top + txtRect.height / 2 - areaRect.top;
+
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const length = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        const line = document.createElement('div');
+        line.className = 'game-matching-connect';
+        line.style.left = x1 + 'px';
+        line.style.top = y1 + 'px';
+        line.style.width = length + 'px';
+        line.style.transform = `rotate(${angle}deg)`;
+        line.style.animationDelay = (index * 0.05) + 's';
+        area.appendChild(line);
+    });
+}
+
+/* ---------- 活動2：文字選擇題 ---------- */
+
+function renderQuizGame() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+
+    const q = gameQuizQuestions[gameState.quiz.currentQ];
+    const isLast = gameState.quiz.currentQ === gameQuizQuestions.length - 1;
+
+    const cardsHtml = q.options.map((opt, i) => {
+        let cls = 'game-quiz-card';
+        if (gameState.quiz.answered) {
+            if (Array.isArray(q.correct)) {
+                if (q.correct.includes(i)) cls += ' correct';
+                else if (gameState.quiz.selected.has(i)) cls += ' wrong';
+            } else {
+                if (i === q.correct) cls += ' correct';
+                else if (gameState.quiz.selected.has(i)) cls += ' wrong';
+            }
+            cls += ' disabled';
+        } else if (gameState.quiz.selected.has(i)) {
+            cls += ' selected';
+        }
+        return `<div class="${cls}" data-idx="${i}" onclick="handleQuizClick(${i})">${opt}</div>`;
+    }).join('');
+
+    const multiHint = q.type === 'multi' ? '<div style="font-size:14px;color:#888;margin-bottom:10px;text-align:center;">（可多選）</div>' : '';
+
+    container.innerHTML = `
+        <div class="game-page">
+            <div class="game-header">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <div class="game-title-pill">文字選擇題</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+            <div class="game-side-tabs">
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+            <div class="game-quiz">
+                <div style="font-size:16px;color:#8B5CF6;margin-bottom:8px;text-align:center;">題目 ${gameState.quiz.currentQ + 1} / ${gameQuizQuestions.length}</div>
+                ${multiHint}
+                <div class="game-quiz-question">${q.question}</div>
+                <div class="game-quiz-cards">${cardsHtml}</div>
+            </div>
+            <div class="game-bottom-nav">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <button class="game-purple-circle" onclick="startGameActivity('memory')">▶</button>
+            </div>
+            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+        </div>
+    `;
+}
+
+function handleQuizClick(idx) {
+    if (gameState.quiz.answered) return;
+
+    const q = gameQuizQuestions[gameState.quiz.currentQ];
+    gameState.quiz.selected.add(idx);
+
+    if (q.type === 'multi') {
+        // Multi-select: check if all correct are selected
+        const allCorrectSelected = q.correct.every(c => gameState.quiz.selected.has(c));
+        const anyWrongSelected = Array.from(gameState.quiz.selected).some(s => !q.correct.includes(s));
+
+        if (anyWrongSelected) {
+            gameState.quiz.answered = true;
+            renderQuizGame();
+            setTimeout(() => {
+                if (gameState.quiz.currentQ < gameQuizQuestions.length - 1) {
+                    gameState.quiz.currentQ++;
+                    gameState.quiz.selected = new Set();
+                    gameState.quiz.answered = false;
+                    renderQuizGame();
+                } else {
+                    showGameComplete('太棒了！全部答對了！', () => {
+                        resetQuizGame();
+                        startGameActivity('memory');
+                    });
+                }
+            }, 1200);
+        } else if (allCorrectSelected) {
+            gameState.quiz.answered = true;
+            gameState.score++;
+            playCorrectSound();
+            renderQuizGame();
+            setTimeout(() => {
+                if (gameState.quiz.currentQ < gameQuizQuestions.length - 1) {
+                    gameState.quiz.currentQ++;
+                    gameState.quiz.selected = new Set();
+                    gameState.quiz.answered = false;
+                    renderQuizGame();
+                } else {
+                    showGameComplete('太棒了！全部答對了！', () => {
+                        resetQuizGame();
+                        startGameActivity('memory');
+                    });
+                }
+            }, 1200);
+        } else {
+            // Still selecting, just re-render to show selection state
+            renderQuizGame();
+        }
+    } else {
+        // Single select
+        gameState.quiz.answered = true;
+        if (idx === q.correct) {
+            gameState.score++;
+            playCorrectSound();
+        }
+        renderQuizGame();
+        setTimeout(() => {
+            if (gameState.quiz.currentQ < gameQuizQuestions.length - 1) {
+                gameState.quiz.currentQ++;
+                gameState.quiz.selected = new Set();
+                gameState.quiz.answered = false;
+                renderQuizGame();
+            } else {
+                showGameComplete('太棒了！全部答對了！', () => {
+                    resetQuizGame();
+                    startGameActivity('memory');
+                });
+            }
+        }, 1200);
+    }
+}
+
+/* ---------- 活動3：記憶力翻牌子 ---------- */
+
+function renderMemoryGame() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+
+    // Initialize cards if empty
+    if (gameState.memory.cards.length === 0) {
+        const pairs = [...gameMemoryData].sort(() => Math.random() - 0.5).slice(0, 6);
+        const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i })).sort(() => Math.random() - 0.5);
+        gameState.memory.cards = deck;
+    }
+
+    const gridHtml = gameState.memory.cards.map((card, i) => {
+        const isFlipped = gameState.memory.flipped.includes(i) || gameState.memory.matched.has(i);
+        const isMatched = gameState.memory.matched.has(i);
+        return `
+            <div class="game-memory-card ${isFlipped ? 'flipped' : ''} ${isMatched ? 'matched' : ''}"
+                 data-idx="${i}" onclick="handleMemoryClick(${i})">
+                <div class="game-memory-card-inner">
+                    <div class="game-memory-front">?</div>
+                    <div class="game-memory-back">
+                        <img src="${card.image}" alt="${card.hanzi}">
+                    </div>
+                </div>
+            </div>
         `;
-        document.body.appendChild(confetti);
-        
-        const angle = (i / 8) * Math.PI * 2;
-        const velocity = 50 + Math.random() * 50;
-        const vx = Math.cos(angle) * velocity;
-        const vy = Math.sin(angle) * velocity;
-        
-        confetti.animate([
-            { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-            { transform: `translate(${vx}px, ${vy}px) scale(0)`, opacity: 0 }
-        ], {
-            duration: 600,
-            easing: 'ease-out'
-        }).onfinish = () => confetti.remove();
+    }).join('');
+
+    const progress = gameState.memory.matched.size;
+    const total = gameState.memory.cards.length;
+
+    container.innerHTML = `
+        <div class="game-page">
+            <div class="game-header">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <div class="game-title-pill">記憶力翻牌子</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+            </div>
+            <div class="game-side-tabs">
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+            <div class="game-memory">
+                <div class="game-memory-title">翻開牌子，找出相同的圖案！（${progress}/${total}）</div>
+                <div class="game-memory-grid">${gridHtml}</div>
+            </div>
+            <div class="game-bottom-nav">
+                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
+                <button class="game-purple-circle" onclick="renderWritingPage()">▶</button>
+            </div>
+            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+        </div>
+    `;
+}
+
+function handleMemoryClick(idx) {
+    const mem = gameState.memory;
+    if (!mem.canFlip) return;
+    if (mem.flipped.includes(idx) || mem.matched.has(idx)) return;
+
+    mem.flipped.push(idx);
+    renderMemoryGame();
+
+    if (mem.flipped.length === 2) {
+        mem.canFlip = false;
+        const [a, b] = mem.flipped;
+        const cardA = mem.cards[a];
+        const cardB = mem.cards[b];
+
+        if (cardA.hanzi === cardB.hanzi) {
+            // Match!
+            setTimeout(() => {
+                mem.matched.add(a);
+                mem.matched.add(b);
+                mem.flipped = [];
+                mem.canFlip = true;
+                gameState.score++;
+                playCorrectSound();
+                renderMemoryGame();
+                if (mem.matched.size === mem.cards.length) {
+                    setTimeout(() => showGameComplete('太棒了！全部配對成功！', () => {
+                        resetMemoryGame();
+                        renderWritingPage();
+                    }), 600);
+                }
+            }, 600);
+        } else {
+            // No match
+            setTimeout(() => {
+                mem.flipped = [];
+                mem.canFlip = true;
+                renderMemoryGame();
+            }, 1000);
+        }
+    }
+}
+
+/* ---------- 練習寫字環節 ---------- */
+
+function renderWritingPage() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="game-writing-page">
+            <button class="game-writing-back-btn" onclick="backToGameMenu()" title="返回">◀</button>
+            <div class="game-writing-ellipse">
+                <img src="第六頁/練習寫字環節卡片.png" alt="練習寫字環節"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>圖片待補</div>';">
+            </div>
+            <div class="game-writing-text">我們一起練習寫字吧</div>
+            <button class="game-writing-done-btn" onclick="goToLevels()" title="完成">✓</button>
+        </div>
+    `;
+}
+
+function goToLevels() {
+    goTo('levels');
+}
+
+/* ---------- 通用輔助函數 ---------- */
+
+function playCorrectSound() {
+    // 使用 Web Audio API 播放簡單的正確音效
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 880;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.3);
+    } catch(e) {}
+}
+
+function showGameComplete(message, onNext) {
+    playGameConfetti();
+    const overlay = document.createElement('div');
+    overlay.className = 'game-complete-overlay';
+    overlay.innerHTML = `
+        <div class="game-complete-box">
+            <div class="complete-icon">🎉</div>
+            <div class="complete-text">${message}</div>
+            <button class="complete-btn" onclick="this.closest('.game-complete-overlay').remove();">繼續</button>
+        </div>
+    `;
+    overlay.querySelector('.complete-btn').addEventListener('click', onNext);
+    document.body.appendChild(overlay);
+}
+
+function playGameConfetti() {
+    const colors = ['#8B5CF6', '#F06292', '#FFD700', '#4CAF50', '#F44336'];
+    for (let i = 0; i < 80; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'game-confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-10px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        piece.style.width = (8 + Math.random() * 12) + 'px';
+        piece.style.height = (8 + Math.random() * 12) + 'px';
+        piece.style.animationDelay = (Math.random() * 0.8) + 's';
+        piece.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 4500);
     }
 }
 
 function drawLine(elem1, elem2) {
-    const svg = document.getElementById('connectionLines');
-    if (!svg) return;
-    
-    const gameArea = document.getElementById('lineMatchingGame');
-    const rect1 = elem1.getBoundingClientRect();
-    const rect2 = elem2.getBoundingClientRect();
-    const gameRect = gameArea.getBoundingClientRect();
-    
-    const x1 = rect1.right - gameRect.left;
-    const y1 = rect1.top + rect1.height / 2 - gameRect.top;
-    const x2 = rect2.left - gameRect.left;
-    const y2 = rect2.top + rect2.height / 2 - gameRect.top;
-    
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
-    line.setAttribute('stroke', '#4CAF50');
-    line.setAttribute('stroke-width', '4');
-    line.setAttribute('stroke-linecap', 'round');
-    
-    svg.appendChild(line);
+    // 佔位函數 - 待重新設計
 }
 
 function resetLineGame() {
-    initLineMatchingGame();
+    // 佔位函數 - 待重新設計
 }
 
 function initMemoryGame() {
-    AppState.memoryFlipped = [];
-    AppState.memoryMatched = 0;
-    AppState.gameScore = 0;
-    updateGameScore();
+    // 佔位函數 - 待重新設計
 }
 
 function flipMemoryCard(card) {
-    if (card.classList.contains('flipped') || card.classList.contains('matched') || AppState.memoryFlipped.length >= 2) return;
-    
-    // 翻牌動畫
-    card.style.transform = 'rotateY(180deg)';
-    card.classList.add('flipped');
-    AppState.memoryFlipped.push(card);
-    
-    // 更新提示文字
-    const msgEl = document.getElementById('gameMessage');
-    if (msgEl) msgEl.textContent = AppState.memoryFlipped.length === 1 ? t('flipCardHint') : '...';
-    
-    if (AppState.memoryFlipped.length === 2) {
-        const [c1, c2] = AppState.memoryFlipped;
-        const partName = c1.dataset.name;
-        
-        if (c1.dataset.key === c2.dataset.key) {
-            // 配對成功
-            if (msgEl) msgEl.textContent = t('matchSuccess');
-            
-            setTimeout(() => {
-                c1.querySelector('.card-back').style.background = '#C8E6C9';
-                c1.querySelector('.card-back').style.borderColor = '#4CAF50';
-                c2.querySelector('.card-back').style.background = '#C8E6C9';
-                c2.querySelector('.card-back').style.borderColor = '#4CAF50';
-                c1.classList.add('matched');
-                c2.classList.add('matched');
-                
-                // 添加勝利動畫
-                c1.style.animation = 'bounce 0.5s ease-out';
-                c2.style.animation = 'bounce 0.5s ease-out';
-                
-                AppState.memoryMatched++;
-                AppState.gameScore += 10;
-                updateGameScore();
-                AppState.memoryFlipped = [];
-                
-                // 播放發音
-                speakText(partName);
-                createConfetti();
-                
-                if (AppState.memoryMatched >= 4) {
-                    if (msgEl) msgEl.innerHTML = t('memoryAllMatched');
-                    setTimeout(() => {
-                        celebrateWin();
-                    }, 500);
-                } else {
-                    setTimeout(() => {
-                        if (msgEl) msgEl.textContent = t('keepGoing');
-                    }, 1500);
-                }
-            }, 600);
-        } else {
-            // 配對失敗
-            if (msgEl) msgEl.textContent = t('tryAgain');
-            
-            setTimeout(() => {
-                c1.style.transform = 'rotateY(0deg)';
-                c2.style.transform = 'rotateY(0deg)';
-                c1.classList.remove('flipped');
-                c2.classList.remove('flipped');
-                AppState.memoryFlipped = [];
-                
-                setTimeout(() => {
-                    if (msgEl) msgEl.textContent = t('findSameCard');
-                }, 500);
-            }, 1200);
-        }
-    }
+    // 佔位函數 - 待重新設計
 }
 
-// 勝利慶祝動畫
 function celebrateWin() {
     createConfetti();
     setTimeout(createConfetti, 300);
@@ -2104,83 +1905,7 @@ function celebrateWin() {
 }
 
 function answerQuiz(btn, isCorrect, soundText) {
-    const feedbackEl = document.getElementById('quizFeedback');
-    const allBtns = document.querySelectorAll('[id^="quizBtn"]');
-    
-    // 禁用所有按鈕
-    allBtns.forEach(b => {
-        b.disabled = true;
-        b.style.opacity = '0.7';
-        b.style.cursor = 'not-allowed';
-    });
-    
-    if (isCorrect) {
-        // 正確答案樣式
-        btn.style.background = 'linear-gradient(145deg, #C8E6C9, #A5D6A7)';
-        btn.style.borderColor = '#4CAF50';
-        btn.style.transform = 'scale(1.05)';
-        btn.style.boxShadow = '0 8px 25px rgba(76,175,80,0.4)';
-        
-        if (feedbackEl) {
-            feedbackEl.innerHTML = t('quizCorrect');
-            feedbackEl.style.color = '#4CAF50';
-        }
-        
-        AppState.gameScore += 10;
-        updateGameScore();
-        createConfetti();
-        
-        // 播放正確答案的發音
-        speakText(soundText);
-        
-        setTimeout(() => {
-            currentQuizIndex++;
-            if (currentQuizIndex < quizQuestions.length) {
-                initQuizGame();
-            } else {
-                // 完成所有題目
-                celebrateWin();
-                if (feedbackEl) {
-                    feedbackEl.innerHTML = t('quizAllCorrect');
-                }
-                setTimeout(() => {
-                    alert(`🎉 恭喜你完成了所有題目！\n\n總得分: ${AppState.gameScore} 分\n\n你是學習小達人！`);
-                    currentQuizIndex = 0;
-                    AppState.gameScore = 0;
-                    initQuizGame();
-                }, 1000);
-            }
-        }, 1800);
-    } else {
-        // 錯誤答案樣式
-        btn.style.background = 'linear-gradient(145deg, #FFCDD2, #EF9A9A)';
-        btn.style.borderColor = '#EF5350';
-        btn.style.animation = 'shake 0.5s ease-out';
-        
-        if (feedbackEl) {
-            feedbackEl.innerHTML = t('quizWrong');
-            feedbackEl.style.color = '#EF5350';
-        }
-        
-        setTimeout(() => {
-            btn.style.background = 'linear-gradient(145deg, #ffffff, #f0f0f0)';
-            btn.style.borderColor = '#e0e0e0';
-            btn.style.animation = '';
-            btn.disabled = false;
-            btn.style.opacity = '1';
-            btn.style.cursor = 'pointer';
-            
-            allBtns.forEach(b => {
-                if (b !== btn) {
-                    b.disabled = false;
-                    b.style.opacity = '1';
-                    b.style.cursor = 'pointer';
-                }
-            });
-            
-            if (feedbackEl) feedbackEl.textContent = '';
-        }, 1200);
-    }
+    // 佔位函數 - 待重新設計
 }
 
 function updateGameScore() {
@@ -2302,8 +2027,129 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-console.log('🦁 大地幼教学材已加载');
+// ============================================
+// LEVELS PAGE - LEARNING PARTNER
+// ============================================
+function initLevelPartner() {
+    const partnerEl = document.getElementById('levelPartner');
+    if (!partnerEl) return;
+    
+    const speechEl = document.getElementById('levelPartnerSpeech');
+    const avatarEl = partnerEl.querySelector('.level-partner-avatar');
+    if (!speechEl || !avatarEl) return;
+    
+    // Show greeting on page load
+    speechEl.classList.remove('hidden');
+    
+    // Hide after 15 seconds
+    setTimeout(() => {
+        speechEl.classList.add('hidden');
+    }, 15000);
+    
+    // Show on hover
+    avatarEl.addEventListener('mouseenter', () => {
+        speechEl.classList.remove('hidden');
+    });
+    avatarEl.addEventListener('mouseleave', () => {
+        speechEl.classList.add('hidden');
+    });
+}
 
+function hideLevelPartnerSpeech() {
+    const speechEl = document.getElementById('levelPartnerSpeech');
+    if (speechEl) speechEl.classList.add('hidden');
+}
+
+// CATS PAGE - LEARNING PARTNER
+// ============================================
+function initCatsPartner() {
+    const partnerEl = document.getElementById('catsPartner');
+    if (!partnerEl) return;
+    
+    const speechEl = document.getElementById('catsPartnerSpeech');
+    const avatarEl = partnerEl.querySelector('.cats-partner-avatar');
+    if (!speechEl || !avatarEl) return;
+    
+    // Show greeting on page load
+    speechEl.classList.remove('hidden');
+    
+    // Hide after 15 seconds
+    setTimeout(() => {
+        speechEl.classList.add('hidden');
+    }, 15000);
+    
+    // Show on hover
+    avatarEl.addEventListener('mouseenter', () => {
+        speechEl.classList.remove('hidden');
+    });
+    avatarEl.addEventListener('mouseleave', () => {
+        speechEl.classList.add('hidden');
+    });
+}
+
+function hideCatsPartnerSpeech() {
+    const speechEl = document.getElementById('catsPartnerSpeech');
+    if (speechEl) speechEl.classList.add('hidden');
+}
+
+// CHAPTERS PAGE - LEARNING PARTNER
+// ============================================
+function initChaptersPartner() {
+    const partnerEl = document.getElementById('chaptersPartner');
+    if (!partnerEl) return;
+    
+    const speechEl = document.getElementById('chaptersPartnerSpeech');
+    const avatarEl = partnerEl.querySelector('.chapters-partner-avatar');
+    if (!speechEl || !avatarEl) return;
+    
+    // Show greeting on page load
+    speechEl.classList.remove('hidden');
+    
+    // Hide after 15 seconds
+    setTimeout(() => {
+        speechEl.classList.add('hidden');
+    }, 15000);
+    
+    // Show on hover
+    avatarEl.addEventListener('mouseenter', () => {
+        speechEl.classList.remove('hidden');
+    });
+    avatarEl.addEventListener('mouseleave', () => {
+        speechEl.classList.add('hidden');
+    });
+}
+
+function hideChaptersPartnerSpeech() {
+    const speechEl = document.getElementById('chaptersPartnerSpeech');
+    if (speechEl) speechEl.classList.add('hidden');
+}
+
+// PARTNER GREETING (學習夥伴問候語)
+// ============================================
+function initPartnerGreeting(pageId) {
+    const greetingEl = document.getElementById(pageId + 'PartnerGreeting');
+    if (!greetingEl) return;
+    
+    const speechEl = greetingEl.querySelector('.partner-speech');
+    const avatarEl = greetingEl.querySelector('.partner-avatar');
+    if (!speechEl || !avatarEl) return;
+    
+    // Show greeting on page load
+    speechEl.classList.remove('hidden');
+    
+    // Hide after 15 seconds
+    const hideTimer = setTimeout(() => {
+        speechEl.classList.add('hidden');
+    }, 15000);
+    
+    // Show on hover
+    avatarEl.addEventListener('mouseenter', () => {
+        speechEl.classList.remove('hidden');
+    });
+    avatarEl.addEventListener('mouseleave', () => {
+        speechEl.classList.add('hidden');
+    });
+}
 
 // ============================================
 // POEMS PAGE - FORCE INTERCEPT ALL CLICKS
@@ -2353,3 +2199,912 @@ if (originalGoTo) {
 
 console.log('🦁 大地幼教学材已加载');
 // Cache bust: 1774964562
+
+
+// ============================================
+// QUIZ SYSTEM - 課前提問
+// ============================================
+
+const quizData = [
+    {
+        type: 'choice',
+        mode: 'multi',
+        question: '小朋友，你知道我們的身體有哪些部位嗎？點擊正確的答案！',
+        options: [
+            { icon: '👄', label: '嘴巴', correct: true },
+            { icon: '👂', label: '耳朵', correct: true },
+            { icon: '👁️', label: '眼睛', correct: true },
+            { icon: '🪑', label: '椅子', correct: false }
+        ]
+    },
+    {
+        type: 'choice',
+        mode: 'single',
+        question: '小鳥唱歌，我們用什麼來聽呢？',
+        options: [
+            { icon: '👄', label: '嘴巴', correct: false },
+            { icon: '🖐️', label: '手', correct: false },
+            { icon: '👁️', label: '眼睛', correct: false },
+            { icon: '👂', label: '耳朵', correct: true }
+        ]
+    },
+    {
+        type: 'choice',
+        mode: 'single',
+        question: '看美麗的花朵，我們用什麼來看呢？',
+        options: [
+            { icon: '👃', label: '鼻子', correct: false },
+            { icon: '👁️', label: '眼睛', correct: true },
+            { icon: '👂', label: '耳朵', correct: false },
+            { icon: '👄', label: '嘴巴', correct: false }
+        ]
+    },
+    {
+        type: 'choice',
+        mode: 'single',
+        question: '拿玩具、抱抱媽媽，我們用什麼呢？',
+        options: [
+            { icon: '🦶', label: '腳', correct: false },
+            { icon: '👁️', label: '眼睛', correct: false },
+            { icon: '🖐️', label: '手', correct: true },
+            { icon: '👂', label: '耳朵', correct: false }
+        ]
+    },
+    {
+        type: 'photo',
+        target: '眉毛',
+        question: '眉毛在那裡？',
+        buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
+        activeButton: '眉毛',
+        regions: [
+            { x1: 33, y1: 38.5, x2: 43, y2: 41.5, cx: 38, cy: 40 },
+            { x1: 56.5, y1: 38.5, x2: 66.5, y2: 41.5, cx: 62, cy: 40 }
+        ]
+    },
+    {
+        type: 'photo',
+        target: '眼睛',
+        question: '眼睛在那裡？',
+        buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
+        activeButton: '眼睛',
+        regions: [
+            { x1: 35.5, y1: 43, x2: 43.5, y2: 48.5, cx: 39.5, cy: 46 },
+            { x1: 56.5, y1: 43, x2: 64.5, y2: 48.5, cx: 60.5, cy: 46 }
+        ]
+    },
+    {
+        type: 'photo',
+        target: '鼻子',
+        question: '鼻子在那裡？',
+        buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
+        activeButton: '鼻子',
+        regions: [
+            { x1: 47, y1: 50, x2: 53, y2: 57.5, cx: 50, cy: 53.5 }
+        ]
+    },
+    {
+        type: 'photo',
+        target: '耳朵',
+        question: '耳朵在那裡？',
+        buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
+        activeButton: '耳朵',
+        regions: [
+            { x1: 23, y1: 47.5, x2: 30, y2: 58, cx: 26.5, cy: 52.5 },
+            { x1: 70.5, y1: 47.5, x2: 77.5, y2: 58, cx: 73.5, cy: 52.5 }
+        ]
+    },
+    {
+        type: 'photo',
+        target: '嘴巴',
+        question: '嘴巴在那裡？',
+        buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
+        activeButton: '嘴巴',
+        regions: [
+            { x1: 45.5, y1: 62, x2: 54.5, y2: 67, cx: 50, cy: 64.5 }
+        ]
+    }
+];
+
+let quizState = {
+    currentIndex: 0,
+    scores: new Array(9).fill(false),
+    selectedCards: new Set(),
+    photoMarked: false,
+    markers: []
+};
+
+function playPopSound() {
+    try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 600;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 0.15);
+    } catch (e) {}
+}
+
+function initQuiz() {
+    quizState.currentIndex = 0;
+    quizState.scores = new Array(9).fill(false);
+    quizState.selectedCards = new Set();
+    quizState.photoMarked = false;
+    quizState.markers = [];
+    renderQuiz();
+}
+
+function renderQuiz() {
+    const container = document.getElementById('quizContainer');
+    if (!container) return;
+    
+    const q = quizData[quizState.currentIndex];
+    const isLast = quizState.currentIndex === quizData.length - 1;
+    const hasScore = quizState.scores[quizState.currentIndex];
+    
+    let html = `
+        <div class="quiz-header">
+            <button class="quiz-pink-circle" onclick="goTo('intro', event)">◀</button>
+            <div class="quiz-title-pill">課前提問</div>
+            <div class="quiz-pink-circle" style="font-size:22px;font-weight:bold;">華</div>
+        </div>
+        <div class="quiz-side-tabs">
+            <div class="quiz-side-tab active" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+        </div>
+        <div class="quiz-star-score ${hasScore ? 'earned' : ''}" id="quizStar">⭐</div>
+    `;
+    
+    if (q.type === 'choice') {
+        html += renderChoiceQuestion(q);
+    } else {
+        html += renderPhotoQuestion(q);
+    }
+    
+    html += `
+        <div class="quiz-bottom-nav">
+            <button class="quiz-pink-circle" onclick="prevQuiz()" ${quizState.currentIndex === 0 ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
+            <button class="quiz-pink-circle" onclick="nextQuiz()" ${isLast ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+        </div>
+    `;
+    
+    container.innerHTML = html;
+}
+
+function renderChoiceQuestion(q) {
+    const cardsHtml = q.options.map((opt, i) => {
+        let stateClass = '';
+        const isSelected = quizState.selectedCards.has(i);
+        if (isSelected) {
+            stateClass = opt.correct ? 'correct' : 'wrong';
+        }
+        return `
+            <div class="quiz-card ${stateClass}" onclick="handleCardClick(${i}, ${opt.correct})">
+                <div class="quiz-card-icon">${opt.icon}</div>
+                <div class="quiz-card-label">${opt.label}</div>
+            </div>
+        `;
+    }).join('');
+    
+    return `
+        <div class="quiz-choice-mode">
+            <div class="quiz-question">${q.question}</div>
+            <div class="quiz-cards">${cardsHtml}</div>
+        </div>
+    `;
+}
+
+function renderPhotoQuestion(q) {
+    const buttonsHtml = q.buttons.map(btn => {
+        const isActive = btn === q.activeButton;
+        return `<div class="quiz-photo-btn ${isActive ? 'active' : ''}">${btn}</div>`;
+    }).join('');
+    
+    // 渲染所有已保存的標記
+    const markersHtml = quizState.markers.map(m => 
+        `<div class="quiz-marker" style="width:${m.w}px;height:${m.h}px;left:${m.left}%;top:${m.top}%;"></div>`
+    ).join('');
+    
+    return `
+        <div class="quiz-photo-mode">
+            <div class="quiz-photo-question">${q.question}</div>
+            <div class="quiz-photo-left">${buttonsHtml}</div>
+            <div class="quiz-photo-area" id="photoArea" onclick="handlePhotoClick(event)">
+                <img src="真人圖片標記_11課身體.png" alt="真人照片">
+                ${markersHtml}
+            </div>
+        </div>
+    `;
+}
+
+function handleCardClick(index, isCorrect) {
+    const q = quizData[quizState.currentIndex];
+    
+    if (q.mode === 'multi') {
+        if (quizState.selectedCards.has(index)) {
+            quizState.selectedCards.delete(index);
+        } else {
+            quizState.selectedCards.add(index);
+        }
+        
+        const correctIndices = q.options.map((o, i) => o.correct ? i : -1).filter(i => i !== -1);
+        const allCorrectSelected = correctIndices.every(i => quizState.selectedCards.has(i));
+        const noWrongSelected = Array.from(quizState.selectedCards).every(i => q.options[i].correct);
+        
+        if (allCorrectSelected && noWrongSelected) {
+            if (!quizState.scores[quizState.currentIndex]) {
+                quizState.scores[quizState.currentIndex] = true;
+                playConfetti();
+            }
+        }
+        
+        renderQuiz();
+    } else {
+        if (isCorrect) {
+            quizState.selectedCards = new Set([index]);
+            if (!quizState.scores[quizState.currentIndex]) {
+                quizState.scores[quizState.currentIndex] = true;
+                playConfetti();
+            }
+        } else {
+            quizState.selectedCards = new Set([index]);
+        }
+        renderQuiz();
+    }
+}
+
+function handlePhotoClick(event) {
+    const q = quizData[quizState.currentIndex];
+    const area = document.getElementById('photoArea');
+    if (!area || !q.regions) return;
+    
+    const rect = area.getBoundingClientRect();
+    const xPct = ((event.clientX - rect.left) / rect.width) * 100;
+    const yPct = ((event.clientY - rect.top) / rect.height) * 100;
+    
+    // 檢查是否落在正確區域內
+    let matchedRegion = null;
+    for (const r of q.regions) {
+        if (xPct >= r.x1 && xPct <= r.x2 && yPct >= r.y1 && yPct <= r.y2) {
+            matchedRegion = r;
+            break;
+        }
+    }
+    
+    if (matchedRegion) {
+        // 正確！
+        playPopSound();
+        
+        // 保存標記
+        quizState.markers.push({
+            left: matchedRegion.cx,
+            top: matchedRegion.cy,
+            w: 80,
+            h: 50
+        });
+        
+        if (!quizState.scores[quizState.currentIndex]) {
+            quizState.scores[quizState.currentIndex] = true;
+        }
+        
+        renderQuiz();
+        
+        // 最後一題播放紙屑並清除標記
+        if (quizState.currentIndex === quizData.length - 1) {
+            setTimeout(() => {
+                playConfetti();
+                setTimeout(() => {
+                    quizState.markers = [];
+                    renderQuiz();
+                }, 3000);
+            }, 400);
+        } else {
+            // 自動進入下一題
+            setTimeout(() => {
+                nextQuiz();
+            }, 800);
+        }
+    } else {
+        // 錯誤！顯示紅叉 + 震動
+        const wrongEl = document.createElement('div');
+        wrongEl.className = 'quiz-photo-wrong';
+        wrongEl.textContent = '✕';
+        wrongEl.style.left = xPct + '%';
+        wrongEl.style.top = yPct + '%';
+        area.appendChild(wrongEl);
+        
+        area.classList.add('shake');
+        setTimeout(() => {
+            area.classList.remove('shake');
+            wrongEl.remove();
+        }, 600);
+    }
+}
+
+function nextQuiz() {
+    if (quizState.currentIndex < quizData.length - 1) {
+        quizState.currentIndex++;
+        quizState.selectedCards = new Set();
+        quizState.photoMarked = false;
+        quizState.markers = [];
+        renderQuiz();
+    }
+}
+
+function prevQuiz() {
+    if (quizState.currentIndex > 0) {
+        quizState.currentIndex--;
+        quizState.selectedCards = new Set();
+        quizState.photoMarked = false;
+        quizState.markers = [];
+        renderQuiz();
+    }
+}
+
+function playConfetti() {
+    const colors = ['#F06292', '#F44336', '#FFD700', '#4CAF50', '#2196F3'];
+    for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.top = '-10px';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+        piece.style.width = (8 + Math.random() * 10) + 'px';
+        piece.style.height = (8 + Math.random() * 10) + 'px';
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        piece.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 3500);
+    }
+}
+
+/* ============================================
+   識圖模塊 (Recognition Module)
+   ============================================ */
+
+const recognitionData = [
+    { hanzi: '頭', pinyin: 'tóu',   definition: '我的頭在這裡。',   color: '#FF6B6B', image: '課程介紹頁/real_head.png',  audio: '課程介紹頁/audio_tou.mp3' },
+    { hanzi: '耳', pinyin: 'ěr',    definition: '我用耳朵聽聲音。', color: '#4ECDC4', image: '課程介紹頁/real_ear.png',   audio: '課程介紹頁/audio_er.mp3' },
+    { hanzi: '脚', pinyin: 'jiǎo',  definition: '我用腳走路。',     color: '#45B7D1', image: '課程介紹頁/real_foot.png',  audio: '課程介紹頁/audio_jiao.mp3' },
+    { hanzi: '鼻', pinyin: 'bí',    definition: '我用鼻子聞香味。', color: '#96CEB4', image: '課程介紹頁/real_nose.png',  audio: '課程介紹頁/audio_bi.mp3' },
+    { hanzi: '眼', pinyin: 'yǎn',   definition: '我用眼睛看東西。', color: '#FFEAA7', image: '課程介紹頁/real_eye.png',   audio: '課程介紹頁/audio_yan.mp3' },
+    { hanzi: '口', pinyin: 'kǒu',   definition: '我用嘴巴吃東西。', color: '#DDA0DD', image: '課程介紹頁/real_mouth.png', audio: '課程介紹頁/audio_kou.mp3' },
+    { hanzi: '手', pinyin: 'shǒu',  definition: '我用手拿東西。',   color: '#98D8C8', image: '課程介紹頁/real_hand.png', audio: '課程介紹頁/audio_shou.mp3' }
+];
+
+let recognitionState = {
+    currentIndex: 0
+};
+
+function initRecognition() {
+    recognitionState.currentIndex = 0;
+    renderRecognition();
+}
+
+function renderRecognition() {
+    const container = document.getElementById('recognitionContainer');
+    if (!container) return;
+
+    const item = recognitionData[recognitionState.currentIndex];
+    const isFirst = recognitionState.currentIndex === 0;
+    const isLast = recognitionState.currentIndex === recognitionData.length - 1;
+
+    const html = `
+        <div class="recognition-page">
+            <!-- 頭部 -->
+            <div class="rec-header">
+                <button class="rec-blue-circle" onclick="switchLearningModule('quiz')">◀</button>
+                <div class="rec-title-pill">識圖</div>
+                <div class="rec-blue-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">華</div>
+            </div>
+
+            <!-- 右側功能標籤 -->
+            <div class="rec-side-tabs">
+                <div class="rec-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="rec-side-tab active" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+
+            <!-- 主內容 -->
+            <div class="rec-content">
+                <!-- 詞彙導航 -->
+                <div class="rec-word-nav">
+                    ${recognitionData.map((w, i) => `
+                        <button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${w.hanzi}</button>
+                    `).join('')}
+                </div>
+
+                <!-- 圖片與文字區域 -->
+                <div class="rec-main-area">
+                    <!-- 左側圖片 -->
+                    <div class="rec-image-area">
+                        <img src="${item.image}" alt="${item.hanzi}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <div style="width:100%;height:100%;border-radius:24px;display:none;align-items:center;justify-content:center;background:${item.color}22;border:4px dashed ${item.color};box-shadow:0 8px 30px rgba(0,0,0,0.12);">
+                            <div style="text-align:center;">
+                                <div style="font-size:120px;color:${item.color};font-weight:bold;">${item.hanzi}</div>
+                                <div style="font-size:16px;color:#888;margin-top:10px;">身體部位示意圖</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右側文字 -->
+                    <div class="rec-text-area">
+                        <button class="rec-speaker" onclick="playPronunciation()" title="朗讀">🔊</button>
+                        <div class="rec-pinyin">${item.pinyin}</div>
+                        <div class="rec-hanzi">${item.hanzi}</div>
+                        <div class="rec-definition">${item.definition}</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部導航 -->
+            <div class="rec-bottom-nav">
+                <button class="rec-blue-circle" onclick="prevRecognition()" ${recognitionState.currentIndex === 0 ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
+                <button class="rec-blue-circle" onclick="nextRecognition()" ${recognitionState.currentIndex === recognitionData.length - 1 ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+let recCurrentAudio = null;
+
+function playPronunciation() {
+    const btn = document.querySelector('.rec-speaker');
+    const item = recognitionData[recognitionState.currentIndex];
+    
+    // 停止之前的音檔
+    if (recCurrentAudio) {
+        recCurrentAudio.pause();
+        recCurrentAudio.currentTime = 0;
+    }
+    
+    // 創建新的 Audio 物件
+    recCurrentAudio = new Audio(item.audio);
+    
+    // 播放開始時添加動畫
+    if (btn) btn.classList.add('playing');
+    
+    recCurrentAudio.onended = function() {
+        if (btn) btn.classList.remove('playing');
+        recCurrentAudio = null;
+    };
+    
+    recCurrentAudio.onerror = function() {
+        if (btn) btn.classList.remove('playing');
+        recCurrentAudio = null;
+    };
+    
+    recCurrentAudio.play().catch(() => {
+        if (btn) btn.classList.remove('playing');
+        recCurrentAudio = null;
+    });
+}
+
+function goToRecognition(index) {
+    if (index >= 0 && index < recognitionData.length) {
+        recognitionState.currentIndex = index;
+        renderRecognition();
+    }
+}
+
+function nextRecognition() {
+    if (recognitionState.currentIndex < recognitionData.length - 1) {
+        recognitionState.currentIndex++;
+        renderRecognition();
+    }
+}
+
+function prevRecognition() {
+    if (recognitionState.currentIndex > 0) {
+        recognitionState.currentIndex--;
+        renderRecognition();
+    }
+}
+
+/* ============================================
+   學習模塊切換 (Learning Module Switcher)
+   ============================================ */
+
+function switchLearningModule(module) {
+    const quizContainer = document.getElementById('quizContainer');
+    const recognitionContainer = document.getElementById('recognitionContainer');
+    const writingContainer = document.getElementById('writingContainer');
+    const storyContainer = document.getElementById('storyContainer');
+    const gameContainer = document.getElementById('gameContainer');
+    const learnMain = document.querySelector('.learn-main');
+    const learningPage = document.getElementById('learningPage');
+
+    if (!quizContainer || !recognitionContainer) return;
+
+    // 全部隱藏
+    quizContainer.style.display = 'none';
+    recognitionContainer.style.display = 'none';
+    if (writingContainer) writingContainer.style.display = 'none';
+    if (storyContainer) storyContainer.style.display = 'none';
+    if (gameContainer) gameContainer.style.display = 'none';
+    if (learnMain) learnMain.style.display = 'none';
+
+    // 移除所有主題類
+    if (learningPage) {
+        learningPage.classList.remove('theme-pink');
+    }
+
+    switch (module) {
+        case 'quiz':
+            quizContainer.style.display = 'block';
+            if (learningPage) {
+                learningPage.classList.add('theme-pink');
+                learningPage.style.borderColor = '#F06292';
+            }
+            renderQuiz();
+            break;
+        case 'recognition':
+            recognitionContainer.style.display = 'block';
+            if (learningPage) {
+                learningPage.style.borderColor = '#0054a6';
+            }
+            renderRecognition();
+            break;
+        case 'writing':
+            if (writingContainer) writingContainer.style.display = 'block';
+            if (learningPage) {
+                learningPage.style.borderColor = '#F5A623';
+            }
+            initWriting();
+            break;
+        case 'story':
+            if (storyContainer) storyContainer.style.display = 'block';
+            if (learningPage) {
+                learningPage.style.borderColor = '#4CAF50';
+            }
+            initStory();
+            break;
+        case 'game':
+            if (gameContainer) gameContainer.style.display = 'block';
+            if (learningPage) {
+                learningPage.style.borderColor = '#8B5CF6';
+            }
+            initGame();
+            break;
+        default:
+            quizContainer.style.display = 'block';
+            if (learningPage) learningPage.classList.add('theme-pink');
+    }
+}
+
+/* ============================================
+   書寫練習模塊 (Writing Practice Module)
+   ============================================ */
+
+const writingData = [
+    {
+        hanzi: '頭', pinyin: 'tóu', simpleHanzi: '头',
+        videoTraditional: 'videos/stroke/tou_fanti.mp4',
+        videoSimplified: 'videos/stroke/tou_jianti.mp4'
+    },
+    {
+        hanzi: '耳', pinyin: 'ěr', simpleHanzi: '耳',
+        videoTraditional: 'videos/stroke/er.mp4',
+        videoSimplified: 'videos/stroke/er.mp4'
+    },
+    {
+        hanzi: '腳', pinyin: 'jiǎo', simpleHanzi: '脚',
+        videoTraditional: 'videos/stroke/jiao_fanti.mp4',
+        videoSimplified: 'videos/stroke/jiao_jianti.mp4'
+    },
+    {
+        hanzi: '鼻', pinyin: 'bí', simpleHanzi: '鼻',
+        videoTraditional: 'videos/stroke/bi.mp4',
+        videoSimplified: 'videos/stroke/bi.mp4'
+    },
+    {
+        hanzi: '眼', pinyin: 'yǎn', simpleHanzi: '眼',
+        videoTraditional: 'videos/stroke/yan.mp4',
+        videoSimplified: 'videos/stroke/yan.mp4'
+    },
+    {
+        hanzi: '口', pinyin: 'kǒu', simpleHanzi: '口',
+        videoTraditional: 'videos/stroke/kou.mp4',
+        videoSimplified: 'videos/stroke/kou.mp4'
+    },
+    {
+        hanzi: '手', pinyin: 'shǒu', simpleHanzi: '手',
+        videoTraditional: 'videos/stroke/shou.mp4',
+        videoSimplified: 'videos/stroke/shou.mp4'
+    }
+];
+
+let writingState = {
+    currentIndex: 0,
+    isAnimating: false
+};
+
+function initWriting() {
+    writingState.currentIndex = 0;
+    writingState.isAnimating = false;
+    renderWriting();
+}
+
+function renderWriting() {
+    const container = document.getElementById('writingContainer');
+    if (!container) return;
+
+    const item = writingData[writingState.currentIndex];
+    const isFirst = writingState.currentIndex === 0;
+    const isLast = writingState.currentIndex === writingData.length - 1;
+
+    const html = `
+        <div class="writing-page">
+            <!-- 頭部 -->
+            <div class="writing-header">
+                <button class="writing-orange-circle" onclick="switchLearningModule('recognition')">◀</button>
+                <div class="writing-title-pill">書寫練習</div>
+                <div class="writing-orange-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">華</div>
+            </div>
+
+            <!-- 右側功能標籤 -->
+            <div class="writing-side-tabs">
+                <div class="writing-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
+                <div class="writing-side-tab active" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            </div>
+
+            <!-- 主內容 -->
+            <div class="writing-content">
+                <!-- 左側字詞選擇 -->
+                <div class="writing-word-grid">
+                    ${writingData.map((w, i) => `
+                        <button class="writing-grid-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${w.hanzi}</button>
+                    `).join('')}
+                </div>
+
+                <!-- 中間練習區 -->
+                <div class="writing-practice-area">
+                    <!-- 大字範本區 -->
+                    <div class="writing-model-wrapper">
+                        <div class="writing-model-box" id="writingModelBox">
+                            <svg class="writing-rice-grid" viewBox="0 0 200 200">
+                                <line x1="100" y1="0" x2="100" y2="200" />
+                                <line x1="0" y1="100" x2="200" y2="100" />
+                                <line x1="0" y1="0" x2="200" y2="200" />
+                                <line x1="200" y1="0" x2="0" y2="200" />
+                            </svg>
+                            <div class="writing-model-char">${item.hanzi}</div>
+                            <video 
+                                id="writingStrokeVideo"
+                                class="writing-stroke-video"
+                                style="display:none;"
+                                preload="auto"
+                                autoplay
+                                playsinline
+                                muted
+                                onended="hideWritingVideo()"
+                            ></video>
+                        </div>
+                        <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="筆順動畫">✏️</button>
+                    </div>
+
+                    <!-- 手寫練習區 -->
+                    <div class="writing-canvas-area">
+                        <div class="writing-canvas-box" id="writingCanvasBox">
+                            <canvas id="writingCanvas" width="640" height="640"></canvas>
+                        </div>
+                        <div class="writing-action-btns">
+                            <button class="writing-btn-clear" onclick="clearWritingCanvas()">清除</button>
+                            <button class="writing-btn-done" onclick="nextWritingWord()">完成</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部導航 -->
+            <div class="writing-bottom-nav">
+                <button class="writing-orange-circle" onclick="prevWritingWord()" ${isFirst ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
+                <button class="writing-orange-circle" onclick="nextWritingWord()" ${isLast ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+
+    // 初始化 Canvas
+    setTimeout(initWritingCanvas, 50);
+}
+
+/* ============================================
+   筆順動畫
+   ============================================ */
+
+function getWritingVideoUrl(item) {
+    // 根據當前語言選擇對應視頻
+    const isSimplified = AppState.language === 'zh-CN';
+    return isSimplified ? item.videoSimplified : item.videoTraditional;
+}
+
+function hideWritingVideo() {
+    const video = document.getElementById('writingStrokeVideo');
+    if (video) {
+        video.style.display = 'none';
+        video.pause();
+        video.currentTime = 0;
+    }
+    writingState.isAnimating = false;
+}
+
+function playWritingAnimation() {
+    const item = writingData[writingState.currentIndex];
+    const video = document.getElementById('writingStrokeVideo');
+    if (!video) {
+        console.error('找不到 video 元素 #writingStrokeVideo');
+        return;
+    }
+
+    const videoUrl = getWritingVideoUrl(item);
+    console.log('播放筆順動畫視頻:', videoUrl);
+
+    if (!videoUrl) {
+        console.error('找不到對應視頻路徑');
+        return;
+    }
+
+    // 如果正在播放，先停止
+    video.pause();
+    video.currentTime = 0;
+
+    // 設置新視頻源
+    video.src = videoUrl;
+    video.load();
+
+    // 顯示並播放
+    video.style.display = 'block';
+    writingState.isAnimating = true;
+
+    // 確保視頻加載後再播放
+    video.onloadeddata = function() {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.error('視頻播放失敗:', err);
+                hideWritingVideo();
+            });
+        }
+    };
+
+    video.onerror = function() {
+        console.error('視頻載入失敗:', videoUrl);
+        hideWritingVideo();
+    };
+}
+
+/* ============================================
+   Canvas 手寫功能
+   ============================================ */
+
+let writingCanvasCtx = null;
+let writingIsDrawing = false;
+
+function initWritingCanvas() {
+    const canvas = document.getElementById('writingCanvas');
+    const box = document.getElementById('writingCanvasBox');
+    if (!canvas || !box) return;
+
+    // 設置 Canvas 實際像素尺寸與顯示尺寸一致
+    const rect = box.getBoundingClientRect();
+    canvas.width = rect.width * 2;
+    canvas.height = rect.height * 2;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(2, 2);
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = '#333333';
+    writingCanvasCtx = ctx;
+
+    // 綁定事件
+    canvas.addEventListener('mousedown', writingStartDraw);
+    canvas.addEventListener('mousemove', writingDraw);
+    canvas.addEventListener('mouseup', writingEndDraw);
+    canvas.addEventListener('mouseleave', writingEndDraw);
+
+    // 觸摸事件
+    canvas.addEventListener('touchstart', writingTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', writingTouchMove, { passive: false });
+    canvas.addEventListener('touchend', writingEndDraw);
+}
+
+function getCanvasPos(e) {
+    const canvas = document.getElementById('writingCanvas');
+    const rect = canvas.getBoundingClientRect();
+    return {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+    };
+}
+
+function writingStartDraw(e) {
+    writingIsDrawing = true;
+    const pos = getCanvasPos(e);
+    if (writingCanvasCtx) {
+        writingCanvasCtx.beginPath();
+        writingCanvasCtx.moveTo(pos.x, pos.y);
+    }
+}
+
+function writingDraw(e) {
+    if (!writingIsDrawing || !writingCanvasCtx) return;
+    const pos = getCanvasPos(e);
+    writingCanvasCtx.lineTo(pos.x, pos.y);
+    writingCanvasCtx.stroke();
+}
+
+function writingEndDraw() {
+    writingIsDrawing = false;
+    if (writingCanvasCtx) {
+        writingCanvasCtx.beginPath();
+    }
+}
+
+function writingTouchStart(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const mouseEvent = new MouseEvent('mousedown', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+    });
+    e.target.dispatchEvent(mouseEvent);
+}
+
+function writingTouchMove(e) {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const mouseEvent = new MouseEvent('mousemove', {
+        clientX: touch.clientX,
+        clientY: touch.clientY
+    });
+    e.target.dispatchEvent(mouseEvent);
+}
+
+function clearWritingCanvas() {
+    const canvas = document.getElementById('writingCanvas');
+    if (!canvas || !writingCanvasCtx) return;
+    const rect = canvas.getBoundingClientRect();
+    writingCanvasCtx.clearRect(0, 0, rect.width * 2, rect.height * 2);
+}
+
+function nextWritingWord() {
+    if (writingState.currentIndex < writingData.length - 1) {
+        writingState.currentIndex++;
+        renderWriting();
+    }
+}
+
+function prevWritingWord() {
+    if (writingState.currentIndex > 0) {
+        writingState.currentIndex--;
+        renderWriting();
+    }
+}
+
+function goToWriting(index) {
+    if (index >= 0 && index < writingData.length) {
+        writingState.currentIndex = index;
+        renderWriting();
+    }
+}
