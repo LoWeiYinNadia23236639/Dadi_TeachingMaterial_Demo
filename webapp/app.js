@@ -686,9 +686,7 @@ function hideGuideSpeech() {
 
 // 更新引導對話（當切換section時）
 function updateGuideMessage() {
-    if (AppState.currentPage === 'learning') {
-        showGuideCharacter('learning');
-    }
+    // 學習夥伴已移除，不再顯示角色引導
 }
 
 // ============================================
@@ -917,10 +915,7 @@ function gotoSection(index) {
     // 如果是識圖部分，顯示子導航
     updateSubNavVisibility(index);
     
-    // 更新角色引導對話
-    setTimeout(() => {
-        updateGuideMessage();
-    }, 300);
+    // 學習夥伴已移除，不再更新引導對話
 }
 
 function nextSection() {
@@ -1331,7 +1326,7 @@ const gameMemoryData = [
 
 let gameState = {
     currentActivity: 'menu',
-    matching: { selectedImage: null, selectedText: null, matched: new Set() },
+    matching: { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [] },
     quiz: { currentQ: 0, selected: new Set(), answered: false },
     memory: { cards: [], flipped: [], matched: new Set(), canFlip: true },
     score: 0
@@ -1498,8 +1493,11 @@ function handleMatchingClick(el) {
     if (gameState.matching.selectedImage && gameState.matching.selectedText) {
         if (gameState.matching.selectedImage === gameState.matching.selectedText) {
             // Correct!
-            gameState.matching.matched.add(hanzi);
+            const matchedHanzi = hanzi;
+            gameState.matching.matched.add(matchedHanzi);
             gameState.matching.matchedPairs.push({ image: gameState.matching.selectedImage, text: gameState.matching.selectedText });
+            gameState.matching.selectedImage = null;
+            gameState.matching.selectedText = null;
             gameState.score++;
             playCorrectSound();
             renderMatchingGame();
