@@ -594,14 +594,14 @@
 
 .game-writing-card img {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 78vh;
     object-fit: contain;
     border-radius: 16px;
 }
 
 .game-writing-title {
-    margin-top: 24px;
-    font-size: 28px;
+    margin-top: 12px;
+    font-size: 36px;
     font-weight: bold;
     color: #5D3A1A;
     text-align: center;
