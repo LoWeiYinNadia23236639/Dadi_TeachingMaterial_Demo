@@ -596,7 +596,15 @@
     max-height: 100%;
     object-fit: contain;
     border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.game-writing-title {
+    margin-top: 24px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5D3A1A;
+    text-align: center;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
 }
 
 .game-writing-placeholder {
