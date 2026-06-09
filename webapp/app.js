@@ -1038,18 +1038,18 @@ function playStrokeAndSpeak() {
 // 唐詩數據
 // ============================================
 const poemData = [
-    { name: '靜夜思', videoId: 'ofZypMlVeLQ' },
-    { name: '春曉', videoId: 'KpZkzQOdv0Q' },
-    { name: '詠鵝', videoId: 't7q70yhQ3Ro' },
-    { name: '憫農', videoId: 'ayEPQu5o_X4' },
-    { name: '登鸛雀樓', videoId: 'z36Ib24Ggq0' },
-    { name: '江雪', videoId: '19VrhE3WpSE' },
-    { name: '問劉十九', videoId: 'mfSceN8bpcc' },
-    { name: '暮江吟', videoId: 'dhX2ZhGYAR0' },
-    { name: '望廬山瀑布', videoId: 'KXJTo_SVyF8' },
-    { name: '早發白帝城', videoId: 'C9i70cAOaXQ' },
-    { name: '黃鶴樓', videoId: 'lZG8gYtcDXM' },
-    { name: '山居秋暝', videoId: 'tQnYA_cQ2Ns' },
+    { name: '靜夜思', videoId: 'ofZypMlVeLQ', cover: '唐诗/静夜思.png' },
+    { name: '春曉', videoId: 'KpZkzQOdv0Q', cover: '唐诗/春晓.png' },
+    { name: '詠鵝', videoId: 't7q70yhQ3Ro', cover: '唐诗/咏鹅.png' },
+    { name: '憫農', videoId: 'ayEPQu5o_X4', cover: '唐诗/悯农.png' },
+    { name: '登鸛雀樓', videoId: 'z36Ib24Ggq0', cover: '唐诗/登鹳雀楼.png' },
+    { name: '江雪', videoId: '19VrhE3WpSE', cover: '唐诗/江雪.png' },
+    { name: '問劉十九', videoId: 'mfSceN8bpcc', cover: '唐诗/问刘十九.png' },
+    { name: '暮江吟', videoId: 'dhX2ZhGYAR0', cover: '唐诗/暮江吟.png' },
+    { name: '望廬山瀑布', videoId: 'KXJTo_SVyF8', cover: '唐诗/望庐山瀑布.png' },
+    { name: '早發白帝城', videoId: 'C9i70cAOaXQ', cover: '唐诗/早发白帝城.png' },
+    { name: '黃鶴樓', videoId: 'lZG8gYtcDXM', cover: '唐诗/黄鹤楼.png' },
+    { name: '山居秋暝', videoId: 'tQnYA_cQ2Ns', cover: '唐诗/山居秋暝.png' },
 ];
 
 function goToPoemPlayer(index) {

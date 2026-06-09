@@ -65,20 +65,30 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border: none;
     font-family: inherit;
-    padding: 10px;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
 }
 
 .poem-box:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
 }
 
-.poem-title {
+.poem-box .poem-title {
     font-size: 22px;
     font-weight: bold;
-    color: #4CAF50;
+    color: #ffffff;
     text-align: center;
     font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.8);
+    padding: 8px 12px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2;
 }
 
 /* ============================================
