@@ -155,17 +155,17 @@ const i18n = {
         
         // 詩歌名稱
         poem1: '靜夜思',
-        poem2: '春暃',
+        poem2: '春曉',
         poem3: '詠鵝',
-        poem4: '悯農',
-        poem5: '登鶓雀樓',
+        poem4: '憫農',
+        poem5: '登鸛雀樓',
         poem6: '江雪',
         poem7: '問劉十九',
         poem8: '暮江吟',
         poem9: '望廬山瀑布',
         poem10: '早發白帝城',
         poem11: '黃鶴樓',
-        poem12: '山居秀曦',
+        poem12: '山居秋暝',
         
         // 語言選擇
         langTW: '繁體中文',
@@ -294,15 +294,15 @@ const i18n = {
         poem1: '静夜思',
         poem2: '春晓',
         poem3: '咏鹅',
-        poem4: '怜农',
-        poem5: '登鹊鹊楼',
+        poem4: '悯农',
+        poem5: '登鹳雀楼',
         poem6: '江雪',
         poem7: '问刘十九',
         poem8: '暮江吟',
         poem9: '望庐山瀑布',
         poem10: '早发白帝城',
         poem11: '黄鹤楼',
-        poem12: '山居秋晨',
+        poem12: '山居秋暝',
         
         // 语言选择
         langTW: '繁体中文',
@@ -1032,6 +1032,51 @@ function clearCanvas() {
 
 function playStrokeAndSpeak() {
     // 佔位函數 - 待重新設計
+}
+
+// ============================================
+// 唐詩數據
+// ============================================
+const poemData = [
+    { name: '靜夜思', videoId: 'ofZypMlVeLQ' },
+    { name: '春曉', videoId: 'KpZkzQOdv0Q' },
+    { name: '詠鵝', videoId: 't7q70yhQ3Ro' },
+    { name: '憫農', videoId: 'ayEPQu5o_X4' },
+    { name: '登鸛雀樓', videoId: 'z36Ib24Ggq0' },
+    { name: '江雪', videoId: '19VrhE3WpSE' },
+    { name: '問劉十九', videoId: 'mfSceN8bpcc' },
+    { name: '暮江吟', videoId: 'dhX2ZhGYAR0' },
+    { name: '望廬山瀑布', videoId: 'KXJTo_SVyF8' },
+    { name: '早發白帝城', videoId: 'C9i70cAOaXQ' },
+    { name: '黃鶴樓', videoId: 'lZG8gYtcDXM' },
+    { name: '山居秋暝', videoId: 'tQnYA_cQ2Ns' },
+];
+
+function goToPoemPlayer(index) {
+    const poem = poemData[index];
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+    container.innerHTML = `
+        <div class="poem-player-page">
+            <button class="btn-back-player" onclick="closePoemPlayer()" title="返回">◀</button>
+            <div class="btn-logo-player">華</div>
+            <div class="poem-player-wrapper">
+                <iframe src="https://www.youtube.com/embed/${poem.videoId}?rel=0"
+                    allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+    `;
+    container.style.display = 'block';
+}
+
+function closePoemPlayer() {
+    const container = document.getElementById('gameContainer');
+    if (container) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+    }
 }
 
 function showVideoModal(videoUrl) {

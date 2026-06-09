@@ -1,198 +1,206 @@
 /* ============================================
-   唐詩精選頁面 (根據 6.png)
+   唐詩列表頁 (Poems List Page)
    ============================================ */
 
 .poems-page {
     width: 100vw;
     height: 100vh;
-    background: #81D4FA;
+    background: #6DAF6D;
     position: relative;
-    padding: 100px 60px 60px;
-    pointer-events: auto;
-}
-
-/* 藍色圓形按鈕 */
-.blue-circle-btn {
-    width: 60px;
-    height: 60px;
-    background: #29B6F6;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    position: absolute;
-    z-index: 100;
-}
-
-.btn-back-blue { top: 20px; left: 20px; }
-.btn-logo-blue { top: 20px; right: 20px; font-weight: bold; font-size: 32px; }
-
-/* 詩歌網格 */
-.poems-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-    pointer-events: auto;
-    position: relative;
-    z-index: 10;
-}
-
-.poem-box {
-    width: 160px;
-    height: 100px;
-    background: white;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 100px 40px 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 黃色圓形按鈕 */
+.yellow-circle-btn {
+    width: 52px;
+    height: 52px;
+    background: #FFD54F;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 15px;
-    text-decoration: none;
-    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    position: absolute;
+    z-index: 100;
+}
+
+.btn-back-poems { top: 20px; left: 20px; }
+.btn-logo-poems {
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 唐詩網格 */
+.poems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1000px;
+    width: 100%;
+    z-index: 10;
+}
+
+.poem-box {
+    aspect-ratio: 16 / 10;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border: none;
     font-family: inherit;
-    pointer-events: auto !important;
-    z-index: 50;
+    padding: 10px;
 }
 
 .poem-box:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    background: linear-gradient(135deg, #ffffff, #f0f8ff);
-}
-
-.poem-box::after {
-    content: '▶';
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 20px;
-    height: 20px;
-    background: #FF0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .poem-title {
     font-size: 22px;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.poem-author {
-    font-size: 14px;
-    color: #666;
+    color: #4CAF50;
+    text-align: center;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 /* ============================================
-   角色裝飾 - 唐詩頁面
+   唐詩播放頁 (Poem Player Page)
    ============================================ */
 
-/* 左下角獅子 */
-.poem-lion-left {
+.poem-player-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #6DAF6D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.btn-back-player {
     position: absolute;
-    bottom: 10px;
+    top: 20px;
     left: 20px;
-    width: 200px;
-    height: 250px;
-    z-index: 10;
+    width: 52px;
+    height: 52px;
+    background: #FFD54F;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100;
 }
 
-.poem-lion-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* 右下角角色5 */
-.poem-char-right {
+.btn-logo-player {
     position: absolute;
-    bottom: 10px;
+    top: 20px;
     right: 20px;
-    width: 150px;
-    height: 200px;
-    z-index: 10;
+    width: 52px;
+    height: 52px;
+    background: #FFD54F;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-.poem-char-right img {
+.poem-player-wrapper {
+    width: 70%;
+    max-width: 900px;
+    position: relative;
+    padding-bottom: 39.375%;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.poem-player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    border: none;
+    border-radius: 16px;
 }
 
-/* 響應式 */
+/* ============================================
+   響應式
+   ============================================ */
+
 @media (max-width: 1024px) {
     .poems-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 14px;
     }
-    
-    .poem-lion-left {
-        width: 150px;
-        height: 180px;
-    }
-    
-    .poem-char-right {
-        width: 120px;
-        height: 150px;
-    }
+    .poem-title { font-size: 20px; }
 }
 
 @media (max-width: 768px) {
     .poems-page {
-        padding: 80px 30px 30px;
+        padding: 80px 20px 20px;
     }
-    
-    .blue-circle-btn {
-        width: 50px;
-        height: 50px;
+    .yellow-circle-btn,
+    .btn-back-player,
+    .btn-logo-player {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+    .btn-logo-poems,
+    .btn-logo-player {
         font-size: 22px;
     }
-    
-    .btn-logo-blue {
-        font-size: 26px;
-    }
-    
     .poems-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 12px;
     }
-    
-    .poem-box {
-        border-radius: 15px;
+    .poem-title { font-size: 18px; }
+    .poem-player-wrapper {
+        width: 90%;
+        padding-bottom: 50.625%;
     }
-    
-    .poem-title {
-        font-size: 22px;
+}
+
+@media (max-width: 480px) {
+    .poems-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
     }
-    
-    .poem-author {
-        font-size: 14px;
-    }
-    
-    .poem-lion-left {
-        width: 120px;
-        height: 150px;
-    }
-    
-    .poem-char-right {
-        width: 100px;
-        height: 120px;
-    }
+    .poem-title { font-size: 16px; }
 }
