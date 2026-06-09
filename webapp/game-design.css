@@ -345,12 +345,6 @@
     transform-origin: left center;
     z-index: 10;
     pointer-events: none;
-    animation: connectGrow 0.3s ease forwards;
-}
-
-@keyframes connectGrow {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
 }
 
 /* 連線繪製動畫 */

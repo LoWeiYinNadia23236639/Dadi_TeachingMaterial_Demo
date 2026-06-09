@@ -1558,10 +1558,13 @@ function drawMatchingLines() {
         line.className = 'game-matching-connect';
         line.style.left = x1 + 'px';
         line.style.top = y1 + 'px';
-        line.style.width = length + 'px';
         line.style.transform = `rotate(${angle}deg)`;
-        line.style.animationDelay = (index * 0.05) + 's';
         area.appendChild(line);
+        // Animate width from 0 for visual effect
+        requestAnimationFrame(() => {
+            line.style.transition = 'width 0.3s ease';
+            line.style.width = length + 'px';
+        });
     });
 }
 
