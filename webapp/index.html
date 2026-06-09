@@ -137,34 +137,22 @@
         </div>
     </section>
 
-    <!-- PAGE 6: SONGS -->
+    <!-- PAGE 6: SONGS 選項頁 -->
     <section id="page-songs" class="page">
-        <link rel="stylesheet" href="songs-design.css?v=3">
-        <div class="songs-page">
-            <button class="yellow-circle-btn btn-back-songs" onclick="goTo('cats', event)">◀</button>
-            <div class="yellow-circle-btn btn-logo-songs">華</div>
-            
-            <div class="songs-grid">
-                <div class="song-box" onclick="playSong(1)"><span class="song-icon">🐯</span><span class="song-title" data-i18n="song1">两只老虎</span></div>
-                <div class="song-box" onclick="playSong(2)"><span class="song-icon">⭐</span><span class="song-title" data-i18n="song2">小星星</span></div>
-                <div class="song-box" onclick="playSong(3)"><span class="song-icon">🥕</span><span class="song-title" data-i18n="song3">拔萝卜</span></div>
-                <div class="song-box" onclick="playSong(4)"><span class="song-icon">🐰</span><span class="song-title" data-i18n="song4">小兔子</span></div>
-                <div class="song-box" onclick="playSong(5)"><span class="song-icon">👫</span><span class="song-title" data-i18n="song5">找朋友</span></div>
-                <div class="song-box" onclick="playSong(6)"><span class="song-icon">👩</span><span class="song-title" data-i18n="song6">好妈妈</span></div>
-                <div class="song-box" onclick="playSong(7)"><span class="song-icon">🎆</span><span class="song-title" data-i18n="song7">新年好</span></div>
-                <div class="song-box" onclick="playSong(8)"><span class="song-icon">🌸</span><span class="song-title" data-i18n="song8">春天</span></div>
-                <div class="song-box" onclick="playSong(9)"><span class="song-icon">🦆</span><span class="song-title" data-i18n="song9">数鸭子</span></div>
-                <div class="song-box" onclick="playSong(10)"><span class="song-icon">🪆</span><span class="song-title" data-i18n="song10">泥娃娃</span></div>
-                <div class="song-box" onclick="playSong(11)"><span class="song-icon">💰</span><span class="song-title" data-i18n="song11">一分钱</span></div>
-                <div class="song-box" onclick="playSong(12)"><span class="song-icon">🐦</span><span class="song-title" data-i18n="song12">小燕子</span></div>
-            </div>
-            
-            <!-- 角色裝飾 -->
-            <div class="song-char-left">
-                <img src="人8.png" alt="小朋友">
-            </div>
-            <div class="song-char-right">
-                <img src="人9.png" alt="小朋友">
+        <link rel="stylesheet" href="songs-design.css?v=4">
+        <div class="songs-menu-page">
+            <button class="song-blue-btn song-back-btn" onclick="goTo('cats', event)">◀</button>
+            <div class="song-blue-btn song-logo-btn">華</div>
+
+            <div class="songs-menu-grid">
+                <button class="songs-menu-card" onclick="goToCommonSongs()">
+                    <span class="songs-menu-icon">🎵</span>
+                    <span class="songs-menu-label" data-i18n="commonSongs">常用歌曲</span>
+                </button>
+                <button class="songs-menu-card" onclick="goToUnitSongs()">
+                    <span class="songs-menu-icon">📖</span>
+                    <span class="songs-menu-label" data-i18n="unitSongs">單元歌曲</span>
+                </button>
             </div>
         </div>
     </section>

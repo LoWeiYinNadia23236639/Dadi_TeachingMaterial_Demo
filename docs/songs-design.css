@@ -1,160 +1,319 @@
 /* ============================================
-   兒歌精選頁面 (根據 8.png)
+   兒歌模塊 - 淺藍色主題 #87CEEB
    ============================================ */
 
-.songs-page {
-    width: 100vw;
-    height: 100vh;
-    background: #66BB6A;
-    position: relative;
-    padding: 100px 60px 60px;
-}
+/* ============================================
+   共享組件
+   ============================================ */
 
-/* 黃色圓形按鈕 */
-.yellow-circle-btn {
-    width: 60px;
-    height: 60px;
-    background: #FFC107;
+.song-blue-btn {
+    width: 52px;
+    height: 52px;
+    background: #87CEEB;
     border: none;
     border-radius: 50%;
     color: white;
-    font-size: 28px;
+    font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     position: absolute;
     z-index: 100;
 }
 
-.btn-back-songs { top: 20px; left: 20px; }
-.btn-logo-songs { top: 20px; right: 20px; font-weight: bold; font-size: 32px; }
+.song-back-btn { top: 20px; left: 20px; }
+.song-logo-btn { top: 20px; right: 20px; font-weight: bold; font-size: 28px; font-family: "Noto Sans SC", sans-serif; }
 
-/* 兒歌網格 */
-.songs-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+.song-pill {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 2px solid #87CEEB;
+    color: #87CEEB;
+    padding: 10px 40px;
+    border-radius: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    z-index: 100;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    white-space: nowrap;
 }
 
-.song-box {
-    width: 160px;
-    height: 100px;
+/* ============================================
+   頁面1：兒歌選項頁
+   ============================================ */
+
+.songs-menu-page {
+    width: 100vw;
+    height: 100vh;
+    background: #87CEEB;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.songs-menu-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+.songs-menu-card {
+    flex: 1;
+    max-width: 380px;
+    aspect-ratio: 3 / 2;
     background: white;
-    border-radius: 15px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 15px;
+    transition: transform 0.25s, box-shadow 0.25s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    border: none;
+    font-family: inherit;
+    gap: 16px;
 }
 
-.song-box:hover {
+.songs-menu-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    background: white;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
 }
 
-.song-icon {
-    font-size: 40px;
-    margin-bottom: 8px;
+.songs-menu-icon {
+    font-size: 64px;
 }
 
-.song-title {
-    font-size: 18px;
+.songs-menu-label {
+    font-size: 28px;
     font-weight: bold;
-    color: #333;
+    color: #87CEEB;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 /* ============================================
-   角色裝飾 - 兒歌頁面
+   頁面2：常用歌曲列表頁
    ============================================ */
 
-/* 左下角角色8 */
-.song-char-left {
-    position: absolute;
-    bottom: 10px;
-    left: 30px;
-    width: 160px;
-    height: 200px;
+.song-list-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #87CEEB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 100px 40px 40px;
+    box-sizing: border-box;
+}
+
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.song-cell {
+    aspect-ratio: 16 / 10;
+    background: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: none;
+    font-family: inherit;
+    padding: 10px;
+}
+
+.song-cell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.song-cell-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4A90D9;
+    text-align: center;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ============================================
+   頁面3：單元歌曲選擇頁
+   ============================================ */
+
+.song-unit-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #87CEEB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 100px 40px 40px;
+    box-sizing: border-box;
+}
+
+.song-volume-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
     z-index: 10;
 }
 
-.song-char-left img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+.song-volume-tab {
+    padding: 10px 32px;
+    border-radius: 24px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
-/* 右下角角色9 */
-.song-char-right {
+.song-volume-tab.active {
+    background: white;
+    color: #87CEEB;
+}
+
+.song-volume-tab:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.song-volume-tab.active:hover {
+    background: white;
+}
+
+.song-unit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.song-unit-cell {
+    aspect-ratio: 16 / 10;
+    background: white;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: none;
+    font-family: inherit;
+    padding: 8px;
+}
+
+.song-unit-cell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.song-unit-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4A90D9;
+    text-align: center;
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* ============================================
+   頁面4：兒歌播放頁
+   ============================================ */
+
+.song-player-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #87CEEB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.song-player-wrapper {
+    width: 70%;
+    max-width: 900px;
+    position: relative;
+    padding-bottom: 39.375%;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.song-player-wrapper iframe {
     position: absolute;
-    bottom: 10px;
-    right: 30px;
-    width: 160px;
-    height: 200px;
-    z-index: 10;
-}
-
-.song-char-right img {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    border: none;
+    border-radius: 16px;
 }
 
-/* 響應式 */
+/* ============================================
+   響應式
+   ============================================ */
+
 @media (max-width: 1024px) {
-    .songs-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    
-    .song-char-left, .song-char-right {
-        width: 120px;
-        height: 150px;
-    }
+    .songs-menu-grid { gap: 24px; }
+    .songs-menu-card { max-width: 300px; }
+    .songs-menu-icon { font-size: 48px; }
+    .songs-menu-label { font-size: 22px; }
+    .song-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .song-unit-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
 }
 
 @media (max-width: 768px) {
-    .songs-page {
-        padding: 80px 30px 30px;
-    }
-    
-    .yellow-circle-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-    }
-    
-    .btn-logo-songs {
-        font-size: 26px;
-    }
-    
-    .songs-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    
-    .song-box {
-        border-radius: 15px;
-    }
-    
-    .song-icon {
-        font-size: 40px;
-    }
-    
-    .song-title {
-        font-size: 20px;
-    }
-    
-    .song-char-left, .song-char-right {
-        width: 100px;
-        height: 120px;
-    }
+    .songs-menu-page { padding: 80px 20px 20px; }
+    .songs-menu-grid { flex-direction: column; gap: 20px; }
+    .songs-menu-card { max-width: 100%; width: 80%; aspect-ratio: 16 / 9; }
+    .songs-menu-icon { font-size: 40px; }
+    .songs-menu-label { font-size: 20px; }
+    .song-blue-btn { width: 44px; height: 44px; font-size: 20px; }
+    .song-logo-btn { font-size: 22px; }
+    .song-pill { font-size: 18px; padding: 8px 28px; }
+    .song-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .song-cell-title { font-size: 18px; }
+    .song-unit-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .song-unit-title { font-size: 16px; }
+    .song-player-wrapper { width: 90%; padding-bottom: 50.625%; }
 }

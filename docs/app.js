@@ -1079,6 +1079,121 @@ function closePoemPlayer() {
     }
 }
 
+// ============================================
+// 兒歌數據
+// ============================================
+const commonSongData = [
+    { id: 1, name: '上學歌', videoId: '' },
+    { id: 2, name: '天氣歌', videoId: '' },
+];
+
+const unitSongData = [
+    // 上冊
+    { id: 1, name: '一家人', videoId: '' },
+    { id: 2, name: '幼兒園', videoId: '' },
+    { id: 3, name: '數字', videoId: '' },
+    { id: 4, name: '顏色', videoId: '' },
+    { id: 5, name: '動物', videoId: '' },
+    { id: 6, name: '水果', videoId: '' },
+    { id: 7, name: '天氣', videoId: '' },
+    { id: 8, name: '季節', videoId: '' },
+    { id: 9, name: '運動', videoId: '' },
+    { id: 10, name: '食物', videoId: '' },
+    { id: 11, name: '身體', videoId: '' },
+    // 下冊
+    { id: 12, name: '交通工具', videoId: '' },
+    { id: 13, name: '家庭成員', videoId: '' },
+    { id: 14, name: '日常用品', videoId: '' },
+    { id: 15, name: '蔬菜', videoId: '' },
+    { id: 16, name: '飲料', videoId: '' },
+    { id: 17, name: '職業', videoId: '' },
+    { id: 18, name: '國家', videoId: '' },
+    { id: 19, name: '節日', videoId: '' },
+    { id: 20, name: '情緒', videoId: '' },
+    { id: 21, name: '服裝', videoId: '' },
+    { id: 22, name: '時間', videoId: '' },
+    { id: 23, name: '自然', videoId: '' },
+];
+
+let currentSongBackPage = 'songs-menu';
+
+function goToCommonSongs() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+    currentSongBackPage = 'common-songs';
+    const cells = commonSongData.map((song, idx) =>
+        `<button class="song-cell" onclick="goToSongPlayer('common', ${idx})"><span class="song-cell-title">${song.name}</span></button>`
+    ).join('');
+    container.innerHTML = `
+        <div class="song-list-page">
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPlayer()" title="返回">◀</button>
+            <div class="song-blue-btn song-logo-btn">華</div>
+            <div class="song-pill" data-i18n="commonSongs">常用歌曲</div>
+            <div class="song-grid">${cells}</div>
+        </div>
+    `;
+    container.style.display = 'block';
+}
+
+function goToUnitSongs() {
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+    currentSongBackPage = 'unit-songs';
+    const upperCells = unitSongData.slice(0, 11).map((song, idx) =>
+        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx})"><span class="song-unit-title">${song.name}</span></button>`
+    ).join('');
+    const lowerCells = unitSongData.slice(11).map((song, idx) =>
+        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx + 11})"><span class="song-unit-title">${song.name}</span></button>`
+    ).join('');
+    container.innerHTML = `
+        <div class="song-unit-page">
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPlayer()" title="返回">◀</button>
+            <div class="song-blue-btn song-logo-btn">華</div>
+            <div class="song-pill" data-i18n="unitSongs">單元歌曲</div>
+            <div class="song-volume-tabs">
+                <button class="song-volume-tab active" onclick="switchSongVolume(1)">上冊</button>
+                <button class="song-volume-tab" onclick="switchSongVolume(2)">下冊</button>
+            </div>
+            <div class="song-unit-grid" id="songUnitGridUpper">${upperCells}</div>
+            <div class="song-unit-grid" id="songUnitGridLower" style="display:none;">${lowerCells}</div>
+        </div>
+    `;
+    container.style.display = 'block';
+}
+
+function switchSongVolume(vol) {
+    document.querySelectorAll('.song-volume-tab').forEach(t => t.classList.remove('active'));
+    if (event && event.target) event.target.classList.add('active');
+    const upper = document.getElementById('songUnitGridUpper');
+    const lower = document.getElementById('songUnitGridLower');
+    if (upper) upper.style.display = vol === 1 ? 'grid' : 'none';
+    if (lower) lower.style.display = vol === 2 ? 'grid' : 'none';
+}
+
+function goToSongPlayer(type, index) {
+    const song = type === 'common' ? commonSongData[index] : unitSongData[index];
+    if (!song.videoId) {
+        alert('影片連結待補');
+        return;
+    }
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+    container.innerHTML = `
+        <div class="song-player-page">
+            <button class="song-blue-btn song-back-btn" onclick="${currentSongBackPage === 'common-songs' ? 'goToCommonSongs()' : 'goToUnitSongs()'}" title="返回">◀</button>
+            <div class="song-blue-btn song-logo-btn">華</div>
+            <div class="song-pill">${song.name}</div>
+            <div class="song-player-wrapper">
+                <iframe src="https://www.youtube.com/embed/${song.videoId}?rel=0"
+                    allowfullscreen
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+            </div>
+        </div>
+    `;
+    container.style.display = 'block';
+}
+
 function showVideoModal(videoUrl) {
     console.log('Opening video:', videoUrl);
     let embedUrl = videoUrl;
