@@ -10,6 +10,7 @@
     overflow: hidden;
     box-sizing: border-box;
     font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    border: 16px solid #8B5CF6;
 }
 
 /* 頭部 */
