@@ -261,11 +261,6 @@
                 <!-- 由 JS 動態渲染 -->
             </div>
             
-            <!-- 遊戲活動區域 -->
-            <div id="gameContainer" style="width:100%;height:100%;display:none;">
-                <!-- 由 JS 動態渲染 -->
-            </div>
-            
             <!-- Main Content -->
             <main class="learn-main" style="display:none;">
                 <!-- 右側導航欄 - 5個主要部分 -->
@@ -426,6 +421,11 @@
             </footer>
         </div>
     </section>
+
+    <!-- 全站共用彈層容器（唐詩播放、遊戲活動等） -->
+    <div id="gameContainer" style="position:fixed;top:0;left:0;width:100vw;height:100vh;display:none;z-index:9999;">
+        <!-- 由 JS 動態渲染 -->
+    </div>
 
     <script src="app.js?v=20250331"></script>
 </body>
