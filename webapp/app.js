@@ -1809,7 +1809,7 @@ function renderWritingPage() {
         <div class="game-writing-page">
             <button class="game-writing-back-btn" onclick="backToGameMenu()" title="返回">◀</button>
             <div class="game-writing-card">
-                <img src="第六頁/練習寫字環節卡片.png" alt="練習寫字環節"
+                <img src="第六頁/練習寫字環節卡片.png?v=2" alt="練習寫字環節"
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>圖片待補</div>';">
             </div>
             <button class="game-writing-done-btn" onclick="goToLevels()" title="完成">✓</button>
