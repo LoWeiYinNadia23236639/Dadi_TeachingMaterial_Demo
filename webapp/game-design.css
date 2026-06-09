@@ -344,6 +344,7 @@
     border-radius: 2px;
     transform-origin: left center;
     z-index: 10;
+    pointer-events: none;
     animation: connectGrow 0.3s ease forwards;
 }
 
