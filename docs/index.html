@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大地幼教学材 - 学习平台</title>
+    <title data-i18n="siteTitle">大地幼教学材 - 学习平台</title>
     <link rel="stylesheet" href="new-design.css?v=27">
-    <script>
-        // 清除舊的 localStorage 緩存
-        localStorage.removeItem('preferredLanguage');
-    </script>
+
 </head>
 <body>
     <!-- PAGE 1: WELCOME -->
@@ -40,8 +37,8 @@
                 <input type="text" class="char2-name" placeholder="Enter your name" id="playerName" maxlength="8">
                 <div class="char2-lang-label">Select Language</div>
                 <div class="char2-lang">
-                    <button class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)">繁體中文</button>
-                    <button class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)">简体中文</button>
+                    <button class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)" data-i18n="langTW">繁體中文</button>
+                    <button class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)" data-i18n="langCN">简体中文</button>
                 </div>
             </div>
             
@@ -71,15 +68,15 @@
             
             <div class="level-cards-container">
                 <div class="level-card-new" onclick="selectLevel('kindergarten', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="幼兒園"></div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="kindergarten"></div>
                     <div class="level-name" data-i18n="kindergarten">幼兒園</div>
                 </div>
                 <div class="level-card-new" onclick="selectLevel('primary', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="小學"></div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="primary"></div>
                     <div class="level-name" data-i18n="primary">小學</div>
                 </div>
                 <div class="level-card-new" onclick="selectLevel('secondary', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="中學"></div>
+                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="secondary"></div>
                     <div class="level-name" data-i18n="secondary">中學</div>
                 </div>
             </div>
@@ -96,15 +93,15 @@
             
             <div class="content-cards-container">
                 <div class="content-card" onclick="goTo('chapters', event)">
-                    <div class="content-icon"><img src="icon-courseware.png" alt="課件"></div>
+                    <div class="content-icon"><img src="icon-courseware.png" alt="" data-i18n-alt="courseware"></div>
                     <div class="content-name" data-i18n="courseware">課件</div>
                 </div>
                 <div class="content-card" onclick="goTo('poems', event)">
-                    <div class="content-icon"><img src="icon-poems.png" alt="唐詩"></div>
+                    <div class="content-icon"><img src="icon-poems.png" alt="" data-i18n-alt="poems"></div>
                     <div class="content-name" data-i18n="poems">唐詩</div>
                 </div>
                 <div class="content-card" onclick="goTo('songs', event)">
-                    <div class="content-icon"><img src="icon-songs.png" alt="兒歌"></div>
+                    <div class="content-icon"><img src="icon-songs.png" alt="" data-i18n-alt="songs"></div>
                     <div class="content-name" data-i18n="songs">兒歌</div>
                 </div>
             </div>
@@ -170,34 +167,34 @@
             
             <div id="vol-content-1" class="volume-content active">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-num">01</span><span class="chapter-title">一家人</span></div>
-                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-num">02</span><span class="chapter-title">幼兒園</span></div>
-                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-num">03</span><span class="chapter-title">數字</span></div>
-                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-num">04</span><span class="chapter-title">顏色</span></div>
-                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-num">05</span><span class="chapter-title">動物</span></div>
-                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-num">06</span><span class="chapter-title">水果</span></div>
-                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-num">07</span><span class="chapter-title">天氣</span></div>
-                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-num">08</span><span class="chapter-title">季節</span></div>
-                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-num">09</span><span class="chapter-title">運動</span></div>
-                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-num">10</span><span class="chapter-title">食物</span></div>
-                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-num">11</span><span class="chapter-title">身體</span></div>
+                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-num">01</span><span class="chapter-title" data-i18n="chapter1">一家人</span></div>
+                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-num">02</span><span class="chapter-title" data-i18n="chapter2">幼兒園</span></div>
+                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-num">03</span><span class="chapter-title" data-i18n="chapter3">數字</span></div>
+                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-num">04</span><span class="chapter-title" data-i18n="chapter4">顏色</span></div>
+                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-num">05</span><span class="chapter-title" data-i18n="chapter5">動物</span></div>
+                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-num">06</span><span class="chapter-title" data-i18n="chapter6">水果</span></div>
+                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-num">07</span><span class="chapter-title" data-i18n="chapter7">天氣</span></div>
+                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-num">08</span><span class="chapter-title" data-i18n="chapter8">季節</span></div>
+                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-num">09</span><span class="chapter-title" data-i18n="chapter9">運動</span></div>
+                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-num">10</span><span class="chapter-title" data-i18n="chapter10">食物</span></div>
+                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-num">11</span><span class="chapter-title" data-i18n="chapter11">身體</span></div>
                 </div>
             </div>
             
             <div id="vol-content-2" class="volume-content">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-num">12</span><span class="chapter-title">交通工具</span></div>
-                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-num">13</span><span class="chapter-title">家庭成員</span></div>
-                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-num">14</span><span class="chapter-title">日常用品</span></div>
-                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-num">15</span><span class="chapter-title">蔬菜</span></div>
-                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-num">16</span><span class="chapter-title">飲料</span></div>
-                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-num">17</span><span class="chapter-title">職業</span></div>
-                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-num">18</span><span class="chapter-title">國家</span></div>
-                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-num">19</span><span class="chapter-title">節日</span></div>
-                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-num">20</span><span class="chapter-title">情緒</span></div>
-                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-num">21</span><span class="chapter-title">服裝</span></div>
-                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-num">22</span><span class="chapter-title">時間</span></div>
-                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-num">23</span><span class="chapter-title">自然</span></div>
+                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-num">12</span><span class="chapter-title" data-i18n="chapter12">交通工具</span></div>
+                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-num">13</span><span class="chapter-title" data-i18n="chapter13">家庭成員</span></div>
+                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-num">14</span><span class="chapter-title" data-i18n="chapter14">日常用品</span></div>
+                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-num">15</span><span class="chapter-title" data-i18n="chapter15">蔬菜</span></div>
+                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-num">16</span><span class="chapter-title" data-i18n="chapter16">飲料</span></div>
+                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-num">17</span><span class="chapter-title" data-i18n="chapter17">職業</span></div>
+                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-num">18</span><span class="chapter-title" data-i18n="chapter18">國家</span></div>
+                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-num">19</span><span class="chapter-title" data-i18n="chapter19">節日</span></div>
+                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-num">20</span><span class="chapter-title" data-i18n="chapter20">情緒</span></div>
+                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-num">21</span><span class="chapter-title" data-i18n="chapter21">服裝</span></div>
+                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-num">22</span><span class="chapter-title" data-i18n="chapter22">時間</span></div>
+                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-num">23</span><span class="chapter-title" data-i18n="chapter23">自然</span></div>
                 </div>
             </div>
             
@@ -213,7 +210,7 @@
             <button class="pink-circle-btn" onclick="goTo('chapters', event)">◀</button>
             
             <div class="intro-oval-area" onclick="goTo('learning', event)">
-                <img src="課程介紹頁按鈕.png" alt="進入學習">
+                <img src="課程介紹頁按鈕.png" alt="" data-i18n-alt="enterLearning">
                 <div class="intro-topic">第11課：身體</div>
             </div>
         </div>
@@ -370,9 +367,9 @@
             <header class="learn-header">
                 <button class="header-btn" onclick="closeStory()">◀</button>
                 <div class="header-title-box">
-                    <h2 id="storyTitle">故事繪本</h2>
+                    <h2 id="storyTitle" data-i18n="sectionStory">故事繪本</h2>
                 </div>
-                <div class="header-logo">華</div>
+                <div class="header-logo" data-i18n="logoChar">華</div>
             </header>
             
             <main class="learn-main">

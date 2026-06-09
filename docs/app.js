@@ -172,7 +172,204 @@ const i18n = {
         langCN: '简體中文',
         
         // 首頁
-        startLearning: '開始學習'
+        startLearning: '開始學習',
+        siteTitle: '大地幼教学材 - 学习平台',
+        // 課前提問
+        quizQ0: '小朋友，你知道我們的身體有哪些部位嗎？點擊正確的答案！',
+        quizQ0Opt0: '嘴巴',
+        quizQ0Opt1: '耳朵',
+        quizQ0Opt2: '眼睛',
+        quizQ0Opt3: '椅子',
+        quizQ1: '小鳥唱歌，我們用什麼來聽呢？',
+        quizQ1Opt0: '嘴巴',
+        quizQ1Opt1: '手',
+        quizQ1Opt2: '眼睛',
+        quizQ1Opt3: '耳朵',
+        quizQ2: '看美麗的花朵，我們用什麼來看呢？',
+        quizQ2Opt0: '鼻子',
+        quizQ2Opt1: '眼睛',
+        quizQ2Opt2: '耳朵',
+        quizQ2Opt3: '嘴巴',
+        quizQ3: '拿玩具、抱抱媽媽，我們用什麼呢？',
+        quizQ3Opt0: '腳',
+        quizQ3Opt1: '眼睛',
+        quizQ3Opt2: '手',
+        quizQ3Opt3: '耳朵',
+        quizQ4: '眉毛在那裡？',
+        quizQ4Btn0: '眉毛',
+        quizQ4Btn1: '眼睛',
+        quizQ4Btn2: '鼻子',
+        quizQ4Btn3: '耳朵',
+        quizQ4Btn4: '嘴巴',
+        quizQ5: '眼睛在那裡？',
+        quizQ5Btn0: '眉毛',
+        quizQ5Btn1: '眼睛',
+        quizQ5Btn2: '鼻子',
+        quizQ5Btn3: '耳朵',
+        quizQ5Btn4: '嘴巴',
+        quizQ6: '鼻子在那裡？',
+        quizQ6Btn0: '眉毛',
+        quizQ6Btn1: '眼睛',
+        quizQ6Btn2: '鼻子',
+        quizQ6Btn3: '耳朵',
+        quizQ6Btn4: '嘴巴',
+        quizQ7: '耳朵在那裡？',
+        quizQ7Btn0: '眉毛',
+        quizQ7Btn1: '眼睛',
+        quizQ7Btn2: '鼻子',
+        quizQ7Btn3: '耳朵',
+        quizQ7Btn4: '嘴巴',
+        quizQ8: '嘴巴在那裡？',
+        quizQ8Btn0: '眉毛',
+        quizQ8Btn1: '眼睛',
+        quizQ8Btn2: '鼻子',
+        quizQ8Btn3: '耳朵',
+        quizQ8Btn4: '嘴巴',
+        
+        // 識圖定義
+        recDef1: '我的頭在這裡。',
+        recDef2: '我的耳朵在這裡。',
+        recDef3: '我的腳在這裡。',
+        recDef4: '我的鼻子在這裡。',
+        recDef5: '我的眼睛在這裡。',
+        recDef6: '我的嘴巴在這裡。',
+        recDef7: '我的手在這裡。',
+        
+        // 故事繪本
+        storyBook1Title: '千變萬化的手',
+        storyBook1Page1Text: '我們每個人都有兩隻手。手可以做很多很多的事情。',
+        storyBook1Page2Text: '用手可以推門、拉窗，還可以握手打招呼。',
+        storyBook1Page2Q: '你能用手做一個推的動作給老師看嗎？',
+        storyBook1Page3Text: '手還可以畫畫、寫字、摺紙，做出美麗的作品。',
+        storyBook1Page4Text: '我們要愛護自己的雙手，保持乾淨，勤洗手。',
+        storyBook1Page4Q: '你知道什麼時候應該洗手嗎？',
+        storyBook2Title: '我的身體',
+        storyBook2Page1Text: '這是我的身體。我有頭、頸、軀幹、手和腳。',
+        storyBook2Page2Text: '頭上有眼睛、耳朵、鼻子和嘴巴，幫助我認識世界。',
+        storyBook2Page2Q: '你能指一指自己的眼睛在哪裡嗎？',
+        storyBook2Page3Text: '身體可以跑、跳、走、坐，讓我做各種運動。',
+        storyBook2Page4Text: '我們要好好照顧自己的身體，吃得健康、多運動。',
+        storyBook2Page4Q: '你喜歡做什麼運動呢？',
+        storyBook3Title: '眼睛的故事',
+        storyBook3Page1Text: '每個人都有兩隻眼睛。眼睛讓我們看到美麗的世界。',
+        storyBook3Page2Text: '眼睛可以看到紅的花、綠的樹、藍的天和白雲。',
+        storyBook3Page2Q: '你現在能看到什麼顏色？',
+        storyBook3Page3Text: '看書的時候要保持距離，不能靠得太近。',
+        storyBook3Page4Text: '看完電視或手機後，要讓眼睛休息一下，看看遠方。',
+        storyBook3Page4Q: '你知道怎樣做眼保健操嗎？',
+        
+        // 遊戲問題
+        gameQuizQ0: '小朋友，你知道我們的身體有哪些部位嗎？',
+        gameQuizQ0Opt0: '眼睛',
+        gameQuizQ0Opt1: '耳朵',
+        gameQuizQ0Opt2: '鼻子',
+        gameQuizQ0Opt3: '椅子',
+        gameQuizQ1: '小鳥唱歌，我們用什麼來聽呢？',
+        gameQuizQ1Opt0: '嘴巴',
+        gameQuizQ1Opt1: '手',
+        gameQuizQ1Opt2: '眼睛',
+        gameQuizQ1Opt3: '耳朵',
+        gameQuizQ2: '看美麗的花朵，我們用什麼來看呢？',
+        gameQuizQ2Opt0: '鼻子',
+        gameQuizQ2Opt1: '眼睛',
+        gameQuizQ2Opt2: '耳朵',
+        gameQuizQ2Opt3: '嘴巴',
+        gameQuizQ3: '拿玩具、抱抱媽媽，我們用什麼呢？',
+        gameQuizQ3Opt0: '腳',
+        gameQuizQ3Opt1: '眼睛',
+        gameQuizQ3Opt2: '手',
+        gameQuizQ3Opt3: '耳朵',
+        
+        // 其他
+        storyIllustration: '故事插圖',
+        realPhoto: '真人照片',
+        // 章節名稱（續）
+        chapter12: '交通工具',
+        chapter13: '家庭成員',
+        chapter14: '日常用品',
+        chapter15: '蔬菜',
+        chapter16: '飲料',
+        chapter17: '職業',
+        chapter18: '國家',
+        chapter19: '節日',
+        chapter20: '情緒',
+        chapter21: '服裝',
+        chapter22: '時間',
+        chapter23: '自然',
+        
+        // 課程標題前後綴
+        lessonPrefix: '第',
+        lessonSuffix: '課：',
+        
+        // 歌曲分類
+        commonSongs: '常用歌曲',
+        unitSongs: '單元歌曲',
+        
+        // 單元歌曲名稱
+        unitSong1: '一家人',
+        unitSong2: '幼兒園',
+        unitSong3: '數字',
+        unitSong4: '顏色',
+        unitSong5: '動物',
+        unitSong6: '水果',
+        unitSong7: '天氣',
+        unitSong8: '季節',
+        unitSong9: '運動',
+        unitSong10: '食物',
+        unitSong11: '身體',
+        unitSong12: '交通工具',
+        unitSong13: '家庭成員',
+        unitSong14: '日常用品',
+        unitSong15: '蔬菜',
+        unitSong16: '飲料',
+        unitSong17: '職業',
+        unitSong18: '國家',
+        unitSong19: '節日',
+        unitSong20: '情緒',
+        unitSong21: '服裝',
+        unitSong22: '時間',
+        unitSong23: '自然',
+        
+        // 常用兒歌
+        commonSong1: '上學歌',
+        commonSong2: '天氣歌',
+        
+        // 遊戲活動
+        gameMatching: '圖案和文字配對',
+        gameQuiz: '文字選擇題',
+        gameMemory: '記憶力翻牌子',
+        
+        // 按鈕與標籤
+        continueBtn: '繼續',
+        questionLabel: '題目',
+        multiSelectHint: '（可多選）',
+        
+        // 寫字頁面
+        writingPracticeTitle: '現在一起練習寫字吧',
+        strokeAnimation: '筆順動畫',
+        
+        // 提示文字
+        videoPending: '影片連結待補',
+        selectStoryBook: '請選擇一本故事書',
+        selectGameActivity: '請選擇一個遊戲活動',
+        coverPlaceholder: '封面圖片待補',
+        pagePlaceholder: '頁面圖片待補',
+        imagePlaceholder: '圖片待補',
+        bodyPartDiagram: '身體部位示意圖',
+        
+        // 遊戲完成訊息
+        allMatchedMatching: '太棒了！全部配對成功！',
+        allMatchedQuiz: '太棒了！全部答對了！',
+        matchInstruction: '請把圖案和文字配對起來！',
+        memoryInstruction: '翻開牌子，找出相同的圖案！',
+        
+        // Logo
+        logoChar: '華',
+        
+        // 故事書標題
+        storyBook1Title: '千變萬化的手',
+        storyBook2Title: '我的身體',
+        storyBook3Title: '眼睛的故事'
     },
     'zh-CN': {
         // 角色選擇頁面
@@ -200,7 +397,17 @@ const i18n = {
         head: '头',
         
         // 課程標題
-        lesson11Title: '第11課：身體',
+        // 身体部位单字
+        headChar: '头',
+        eyeChar: '眼',
+        earChar: '耳',
+        noseChar: '鼻',
+        mouthChar: '口',
+        handChar: '手',
+        footChar: '脚',
+        
+        // 课程标题
+        lesson11Title: '第11课：身体',
         
         // 按鈕文字
         playAudio: '播放发音',
@@ -309,7 +516,204 @@ const i18n = {
         langCN: '简体中文',
         
         // 首页
-        startLearning: '开始学习'
+        startLearning: '开始学习',
+        siteTitle: '大地幼教学材 - 学习平台',
+        // 课前提问
+        quizQ0: '小朋友，你知道我们的身体有哪些部位吗？点击正确的答案！',
+        quizQ0Opt0: '嘴巴',
+        quizQ0Opt1: '耳朵',
+        quizQ0Opt2: '眼睛',
+        quizQ0Opt3: '椅子',
+        quizQ1: '小鸟唱歌，我们用什么来听呢？',
+        quizQ1Opt0: '嘴巴',
+        quizQ1Opt1: '手',
+        quizQ1Opt2: '眼睛',
+        quizQ1Opt3: '耳朵',
+        quizQ2: '看美丽的花朵，我们用什么来看呢？',
+        quizQ2Opt0: '鼻子',
+        quizQ2Opt1: '眼睛',
+        quizQ2Opt2: '耳朵',
+        quizQ2Opt3: '嘴巴',
+        quizQ3: '拿玩具、抱抱妈妈，我们用什么呢？',
+        quizQ3Opt0: '脚',
+        quizQ3Opt1: '眼睛',
+        quizQ3Opt2: '手',
+        quizQ3Opt3: '耳朵',
+        quizQ4: '眉毛在那里？',
+        quizQ4Btn0: '眉毛',
+        quizQ4Btn1: '眼睛',
+        quizQ4Btn2: '鼻子',
+        quizQ4Btn3: '耳朵',
+        quizQ4Btn4: '嘴巴',
+        quizQ5: '眼睛在那里？',
+        quizQ5Btn0: '眉毛',
+        quizQ5Btn1: '眼睛',
+        quizQ5Btn2: '鼻子',
+        quizQ5Btn3: '耳朵',
+        quizQ5Btn4: '嘴巴',
+        quizQ6: '鼻子在那里？',
+        quizQ6Btn0: '眉毛',
+        quizQ6Btn1: '眼睛',
+        quizQ6Btn2: '鼻子',
+        quizQ6Btn3: '耳朵',
+        quizQ6Btn4: '嘴巴',
+        quizQ7: '耳朵在那里？',
+        quizQ7Btn0: '眉毛',
+        quizQ7Btn1: '眼睛',
+        quizQ7Btn2: '鼻子',
+        quizQ7Btn3: '耳朵',
+        quizQ7Btn4: '嘴巴',
+        quizQ8: '嘴巴在那里？',
+        quizQ8Btn0: '眉毛',
+        quizQ8Btn1: '眼睛',
+        quizQ8Btn2: '鼻子',
+        quizQ8Btn3: '耳朵',
+        quizQ8Btn4: '嘴巴',
+        
+        // 识图定义
+        recDef1: '我的头在这里。',
+        recDef2: '我的耳朵在这里。',
+        recDef3: '我的脚在这里。',
+        recDef4: '我的鼻子在这里。',
+        recDef5: '我的眼睛在这里。',
+        recDef6: '我的嘴巴在这里。',
+        recDef7: '我的手在这里。',
+        
+        // 故事绘本
+        storyBook1Title: '千变万化的手',
+        storyBook1Page1Text: '我们每个人都有两只手。手可以做很多很多的事情。',
+        storyBook1Page2Text: '用手可以推门、拉窗，还可以握手打招呼。',
+        storyBook1Page2Q: '你能用手做一个推的动作给老师看吗？',
+        storyBook1Page3Text: '手还可以画画、写字、折纸，做出美丽的作品。',
+        storyBook1Page4Text: '我们要爱护自己的双手，保持干净，勤洗手。',
+        storyBook1Page4Q: '你知道什么时候应该洗手吗？',
+        storyBook2Title: '我的身体',
+        storyBook2Page1Text: '这是我的身体。我有头、颈、躯干、手和脚。',
+        storyBook2Page2Text: '头上有眼睛、耳朵、鼻子和嘴巴，帮助我认识世界。',
+        storyBook2Page2Q: '你能指一指自己的眼睛在哪里吗？',
+        storyBook2Page3Text: '身体可以跑、跳、走、坐，让我做各种运动。',
+        storyBook2Page4Text: '我们要好好照顾自己的身体，吃得健康、多运动。',
+        storyBook2Page4Q: '你喜欢做什么运动呢？',
+        storyBook3Title: '眼睛的故事',
+        storyBook3Page1Text: '每个人都有两只眼睛。眼睛让我们看到美丽的世界。',
+        storyBook3Page2Text: '眼睛可以看到红的花、绿的树、蓝的天和白云。',
+        storyBook3Page2Q: '你现在能看到什么颜色？',
+        storyBook3Page3Text: '看书的时候要保持距离，不能靠得太近。',
+        storyBook3Page4Text: '看完电视或手机后，要让眼睛休息一下，看看远方。',
+        storyBook3Page4Q: '你知道怎样做眼保健操吗？',
+        
+        // 游戏问题
+        gameQuizQ0: '小朋友，你知道我们的身体有哪些部位吗？',
+        gameQuizQ0Opt0: '眼睛',
+        gameQuizQ0Opt1: '耳朵',
+        gameQuizQ0Opt2: '鼻子',
+        gameQuizQ0Opt3: '椅子',
+        gameQuizQ1: '小鸟唱歌，我们用什么来听呢？',
+        gameQuizQ1Opt0: '嘴巴',
+        gameQuizQ1Opt1: '手',
+        gameQuizQ1Opt2: '眼睛',
+        gameQuizQ1Opt3: '耳朵',
+        gameQuizQ2: '看美丽的花朵，我们用什么来看呢？',
+        gameQuizQ2Opt0: '鼻子',
+        gameQuizQ2Opt1: '眼睛',
+        gameQuizQ2Opt2: '耳朵',
+        gameQuizQ2Opt3: '嘴巴',
+        gameQuizQ3: '拿玩具、抱抱妈妈，我们用什么呢？',
+        gameQuizQ3Opt0: '脚',
+        gameQuizQ3Opt1: '眼睛',
+        gameQuizQ3Opt2: '手',
+        gameQuizQ3Opt3: '耳朵',
+        
+        // 其他
+        storyIllustration: '故事插图',
+        realPhoto: '真人照片',
+        // 章节名称（续）
+        chapter12: '交通工具',
+        chapter13: '家庭成员',
+        chapter14: '日常用品',
+        chapter15: '蔬菜',
+        chapter16: '饮料',
+        chapter17: '职业',
+        chapter18: '国家',
+        chapter19: '节日',
+        chapter20: '情绪',
+        chapter21: '服装',
+        chapter22: '时间',
+        chapter23: '自然',
+        
+        // 课程标题前后缀
+        lessonPrefix: '第',
+        lessonSuffix: '课：',
+        
+        // 歌曲分类
+        commonSongs: '常用歌曲',
+        unitSongs: '单元歌曲',
+        
+        // 单元歌曲名称
+        unitSong1: '一家人',
+        unitSong2: '幼儿园',
+        unitSong3: '数字',
+        unitSong4: '颜色',
+        unitSong5: '动物',
+        unitSong6: '水果',
+        unitSong7: '天气',
+        unitSong8: '季节',
+        unitSong9: '运动',
+        unitSong10: '食物',
+        unitSong11: '身体',
+        unitSong12: '交通工具',
+        unitSong13: '家庭成员',
+        unitSong14: '日常用品',
+        unitSong15: '蔬菜',
+        unitSong16: '饮料',
+        unitSong17: '职业',
+        unitSong18: '国家',
+        unitSong19: '节日',
+        unitSong20: '情绪',
+        unitSong21: '服装',
+        unitSong22: '时间',
+        unitSong23: '自然',
+        
+        // 常用儿歌
+        commonSong1: '上学歌',
+        commonSong2: '天气歌',
+        
+        // 游戏活动
+        gameMatching: '图案和文字配对',
+        gameQuiz: '文字选择题',
+        gameMemory: '记忆力翻牌子',
+        
+        // 按钮与标签
+        continueBtn: '继续',
+        questionLabel: '题目',
+        multiSelectHint: '（可多选）',
+        
+        // 写字页面
+        writingPracticeTitle: '现在一起练习写字吧',
+        strokeAnimation: '笔顺动画',
+        
+        // 提示文字
+        videoPending: '影片链接待补',
+        selectStoryBook: '请选择一本故事书',
+        selectGameActivity: '请选择一个游戏活动',
+        coverPlaceholder: '封面图片待补',
+        pagePlaceholder: '页面图片待补',
+        imagePlaceholder: '图片待补',
+        bodyPartDiagram: '身体部位示意图',
+        
+        // 游戏完成讯息
+        allMatchedMatching: '太棒了！全部配对成功！',
+        allMatchedQuiz: '太棒了！全部答对了！',
+        matchInstruction: '请把图案和文字配对起来！',
+        memoryInstruction: '翻开牌子，找出相同的图案！',
+        
+        // Logo
+        logoChar: '华',
+        
+        // 故事书标题
+        storyBook1Title: '千变万化的手',
+        storyBook2Title: '我的身体',
+        storyBook3Title: '眼睛的故事'
     }
 };
 
@@ -349,8 +753,53 @@ function selectLanguage(lang) {
         demoMeaning.textContent = t('head');
     }
     
+    // 重新渲染當前內容
+    refreshCurrentContent();
+    
     // 保存語言偏好
     localStorage.setItem('preferredLanguage', lang);
+}
+
+function refreshCurrentContent() {
+    // 重新渲染 gameContainer 覆蓋層內容
+    const container = document.getElementById('gameContainer');
+    if (container && container.style.display !== 'none' && container.innerHTML.trim()) {
+        // 根據當前活動重新渲染
+        if (AppState.currentPage === 'poems') {
+            // 詩詞頁面在 gameContainer 中沒有持久狀態，返回列表
+            const poemList = document.querySelector('.poems-page');
+            if (poemList) {
+                document.querySelectorAll('.poem-box span').forEach((el, i) => {
+                    if (i < 12) el.textContent = t('poem' + (i + 1));
+                });
+            }
+        }
+    }
+    
+    // 重新渲染學習模塊
+    if (AppState.currentPage === 'learning' && AppState.currentSection !== undefined) {
+        const section = AppState.currentSection;
+        if (section === 0) renderQuiz();
+        else if (section >= 1 && section <= 7) renderRecognition();
+        else if (section === 8) renderWriting();
+        else if (section === 9) renderStory();
+        else if (section === 10) {
+            if (gameState.currentActivity === 'menu') renderGameMenu();
+            else if (gameState.currentActivity === 'matching') renderMatchingGame();
+            else if (gameState.currentActivity === 'quiz') renderQuizGame();
+            else if (gameState.currentActivity === 'memory') renderMemoryGame();
+        }
+    }
+    
+    // 更新章節標題
+    if (AppState.currentPage === 'intro') {
+        updateIntroTitle();
+    }
+    
+    // 更新子導航
+    if (AppState.currentPage === 'learning') {
+        updateSubNavVisibility(AppState.currentSection);
+    }
 }
 
 // 更新所有文字
@@ -421,7 +870,7 @@ function updateAllText() {
     document.querySelectorAll('[data-i18n="volumeLower"]').forEach(el => el.textContent = t('volumeLower'));
     
     // 更新章節名稱
-    for (let i = 1; i <= 11; i++) {
+    for (let i = 1; i <= 23; i++) {
         document.querySelectorAll(`[data-i18n="chapter${i}"]`).forEach(el => el.textContent = t(`chapter${i}`));
     }
     
@@ -468,6 +917,29 @@ function updateAllText() {
         const key = btn.getAttribute('data-i18n');
         if (key) {
             btn.textContent = t(key);
+        }
+    });
+    
+    // 更新 alt 屬性
+    document.querySelectorAll('[data-i18n-alt]').forEach(el => {
+        const key = el.getAttribute('data-i18n-alt');
+        if (key) el.alt = t(key);
+    });
+    
+    // 更新 title 標籤
+    document.querySelectorAll('title[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key) el.textContent = t(key);
+    });
+    
+    // 通用 data-i18n 處理（僅處理無子元素的節點，避免破壞複雜結構）
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (key && el.children.length === 0) {
+            const translated = t(key);
+            if (translated !== key && el.textContent !== translated) {
+                el.textContent = translated;
+            }
         }
     });
 }
@@ -616,7 +1088,7 @@ function showGuideCharacter(pageId) {
             <button class="guide-close" onclick="hideGuideSpeech()">✕</button>
         </div>
         <div class="guide-character">
-            <img src="${charImg}" alt="學習夥伴">
+            <img src="${charImg}" alt="${t('selectCharHint')}">
         </div>
     `;
     
@@ -793,8 +1265,8 @@ function selectLevel(level) {
 // PAGE 5 & 6: POEMS & SONGS
 // ============================================
 function playSong(id) {
-    const songs = ['两只老虎', '小星星', '拔萝卜', '小兔子', '找朋友', '好妈妈', '新年好', '春天', '数鸭子', '泥娃娃', '一分钱', '小燕子'];
-    speakText('播放儿歌：' + songs[id - 1]);
+    const songs = [t('song1'), t('song2'), t('song3'), t('song4'), t('song5'), t('song6'), t('song7'), t('song8'), t('song9'), t('song10'), t('song11'), t('song12')];
+    speakText(t('playAudio') + '：' + songs[id - 1]);
 }
 
 // ============================================
@@ -823,11 +1295,15 @@ function openChapter(num) {
     goTo('intro');
 }
 
+function getChapterTitle(num) {
+    return t('chapter' + num);
+}
+
 function updateIntroTitle() {
     const titleEl = document.querySelector('.intro-topic');
     if (titleEl && AppState.currentChapter) {
-        const title = chapterTitles[AppState.currentChapter] || '';
-        titleEl.textContent = `第${AppState.currentChapter}課：${title}`;
+        const title = getChapterTitle(AppState.currentChapter) || '';
+        titleEl.textContent = t('lessonPrefix') + AppState.currentChapter + t('lessonSuffix') + title;
     }
 }
 
@@ -977,7 +1453,7 @@ function updateSubNavVisibility(index) {
     if (index >= 1 && index <= 7) {
         subNav.style.display = 'flex';
         // 更新子導航按鈕狀態
-        const bodyParts = ['眼睛', '耳朵', '鼻子', '嘴巴', '手', '腳', '頭'];
+        const bodyParts = [t('eye'), t('ear'), t('nose'), t('mouth'), t('hand'), t('foot'), t('head')];
         subNav.innerHTML = bodyParts.map((part, i) => 
             `<button class="sub-nav-btn ${index === i + 1 ? 'active' : ''}" onclick="gotoSection(${i + 1})">${part}</button>`
         ).join('');
@@ -1058,8 +1534,8 @@ function goToPoemPlayer(index) {
     if (!container) return;
     container.innerHTML = `
         <div class="poem-player-page">
-            <button class="btn-back-player" onclick="closePoemPlayer()" title="返回">◀</button>
-            <div class="btn-logo-player">華</div>
+            <button class="btn-back-player" onclick="closePoemPlayer()" title="${t('back')}">◀</button>
+            <div class="btn-logo-player">${t('logoChar')}</div>
             <div class="poem-player-wrapper">
                 <iframe src="https://www.youtube.com/embed/${poem.videoId}?rel=0"
                     allowfullscreen
@@ -1131,14 +1607,14 @@ function goToCommonSongs() {
     currentSongBackPage = 'common-songs';
     const cells = commonSongData.map((song, idx) =>
         `<button class="song-cell" onclick="goToSongPlayer('common', ${idx})">
-            <img class="song-cell-img" src="${song.cover}" alt="${song.name}" onerror="this.style.display='none'">
-            <span class="song-cell-title">${song.name}</span>
+            <img class="song-cell-img" src="${song.cover}" alt="${t('commonSong'+song.id)}" onerror="this.style.display='none'">
+            <span class="song-cell-title">${t('commonSong'+song.id)}</span>
         </button>`
     ).join('');
     container.innerHTML = `
         <div class="song-list-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="返回">◀</button>
-            <div class="song-blue-btn song-logo-btn">華</div>
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="${t('back')}">◀</button>
+            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
             <div class="song-pill" data-i18n="commonSongs">常用歌曲</div>
             <div class="song-grid">${cells}</div>
         </div>
@@ -1151,19 +1627,19 @@ function goToUnitSongs() {
     if (!container) return;
     currentSongBackPage = 'unit-songs';
     const upperCells = unitSongData.slice(0, 11).map((song, idx) =>
-        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx})"><span class="song-unit-title">${song.name}</span></button>`
+        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx})"><span class="song-unit-title">${t('unitSong'+song.id)}</span></button>`
     ).join('');
     const lowerCells = unitSongData.slice(11).map((song, idx) =>
-        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx + 11})"><span class="song-unit-title">${song.name}</span></button>`
+        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx + 11})"><span class="song-unit-title">${t('unitSong'+song.id)}</span></button>`
     ).join('');
     container.innerHTML = `
         <div class="song-unit-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="返回">◀</button>
-            <div class="song-blue-btn song-logo-btn">華</div>
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="${t('back')}">◀</button>
+            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
             <div class="song-pill" data-i18n="unitSongs">單元歌曲</div>
             <div class="song-volume-tabs">
-                <button class="song-volume-tab active" onclick="switchSongVolume(1)">上冊</button>
-                <button class="song-volume-tab" onclick="switchSongVolume(2)">下冊</button>
+                <button class="song-volume-tab active" onclick="switchSongVolume(1)">${t('volumeUpper')}</button>
+                <button class="song-volume-tab" onclick="switchSongVolume(2)">${t('volumeLower')}</button>
             </div>
             <div class="song-unit-grid" id="songUnitGridUpper">${upperCells}</div>
             <div class="song-unit-grid" id="songUnitGridLower" style="display:none;">${lowerCells}</div>
@@ -1184,16 +1660,16 @@ function switchSongVolume(vol) {
 function goToSongPlayer(type, index) {
     const song = type === 'common' ? commonSongData[index] : unitSongData[index];
     if (!song.videoId) {
-        alert('影片連結待補');
+        alert(t('videoPending'));
         return;
     }
     const container = document.getElementById('gameContainer');
     if (!container) return;
     container.innerHTML = `
         <div class="song-player-page">
-            <button class="song-blue-btn song-back-btn" onclick="${currentSongBackPage === 'common-songs' ? 'goToCommonSongs()' : 'goToUnitSongs()'}" title="返回">◀</button>
-            <div class="song-blue-btn song-logo-btn">華</div>
-            <div class="song-pill">${song.name}</div>
+            <button class="song-blue-btn song-back-btn" onclick="${currentSongBackPage === 'common-songs' ? 'goToCommonSongs()' : 'goToUnitSongs()'}" title="${t('back')}">◀</button>
+            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
+            <div class="song-pill">${type==='common'?t('commonSong'+song.id):t('unitSong'+song.id)}</div>
             <div class="song-player-wrapper">
                 <iframe src="https://www.youtube.com/embed/${song.videoId}?rel=0"
                     allowfullscreen
@@ -1309,9 +1785,9 @@ function renderStorySelection() {
     const booksHtml = storyBooks.map((book, index) => `
         <div class="story-book-card" onclick="goToStory(${index})">
             <div class="story-book-cover">
-                <img src="${book.cover}" alt="${book.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'story-page-placeholder\'><span class=\'placeholder-icon\'>📖</span><span>封面圖片待補</span></div>';">
+                <img src="${book.cover}" alt="${t('storyBook' + (index + 1) + 'Title')}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'story-page-placeholder\'><span class=\'placeholder-icon\'>📖</span><span>${t('coverPlaceholder')}</span></div>';">
             </div>
-            <div class="story-book-title">${book.title}</div>
+            <div class="story-book-title">${t('storyBook' + (index + 1) + 'Title')}</div>
         </div>
     `).join('');
 
@@ -1320,22 +1796,22 @@ function renderStorySelection() {
             <!-- 頭部 -->
             <div class="story-header">
                 <button class="story-green-circle" onclick="switchLearningModule('quiz')">◀</button>
-                <div class="story-title-pill">故事繪本</div>
-                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="story-title-pill">${t('sectionStory')}</div>
+                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
 
             <!-- 右側功能標籤 -->
             <div class="story-side-tabs">
-                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
 
             <!-- 主內容 -->
             <div class="story-selection">
-                <div class="story-selection-title">請選擇一本故事書</div>
+                <div class="story-selection-title">${t('selectStoryBook')}</div>
                 <div class="story-books-grid">
                     ${booksHtml}
                 </div>
@@ -1374,11 +1850,11 @@ function renderStoryReader() {
     const isLastPage = storyState.currentPageIndex === book.pages.length - 1;
 
     const imageHtml = page.image
-        ? `<img src="${page.image}" alt="故事插圖" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="story-page-placeholder" style="display:none;"><span class="placeholder-icon">🖼️</span><span>頁面圖片待補</span></div>`
-        : `<div class="story-page-placeholder"><span class="placeholder-icon">🖼️</span><span>頁面圖片待補</span></div>`;
+        ? `<img src="${page.image}" alt="${t('storyIllustration')}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="story-page-placeholder" style="display:none;"><span class="placeholder-icon">🖼️</span><span>${t('pagePlaceholder')}</span></div>`
+        : `<div class="story-page-placeholder"><span class="placeholder-icon">🖼️</span><span>${t('pagePlaceholder')}</span></div>`;
 
     const questionHtml = page.question
-        ? `<div class="story-page-question">${page.question}</div>`
+        ? `<div class="story-page-question">${t('storyBook' + (storyState.currentBookIndex + 1) + 'Page' + (storyState.currentPageIndex + 1) + 'Q')}</div>`
         : '';
 
     container.innerHTML = `
@@ -1386,17 +1862,17 @@ function renderStoryReader() {
             <!-- 頭部 -->
             <div class="story-header">
                 <button class="story-green-circle" onclick="backToStorySelection()">◀</button>
-                <div class="story-title-pill">${book.title}</div>
-                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="story-title-pill">${t('storyBook' + (storyState.currentBookIndex + 1) + 'Title')}</div>
+                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
 
             <!-- 右側功能標籤 -->
             <div class="story-side-tabs">
-                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
 
             <!-- 主內容 -->
@@ -1533,7 +2009,7 @@ function renderGameMenu() {
     const cardsHtml = gameActivities.map(act => `
         <div class="game-menu-card" onclick="startGameActivity('${act.id}')">
             <div class="game-menu-icon">${act.icon}</div>
-            <div class="game-menu-name">${act.name}</div>
+            <div class="game-menu-name">${t('game'+act.id.charAt(0).toUpperCase()+act.id.slice(1))}</div>
         </div>
     `).join('');
 
@@ -1541,18 +2017,18 @@ function renderGameMenu() {
         <div class="game-page">
             <div class="game-header">
                 <button class="game-purple-circle" onclick="switchLearningModule('story')">◀</button>
-                <div class="game-title-pill">遊戲活動</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="game-title-pill">${t('sectionGames')}</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
             <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
             <div class="game-menu">
-                <div class="game-menu-title">請選擇一個遊戲活動</div>
+                <div class="game-menu-title">${t('selectGameActivity')}</div>
                 <div class="game-menu-grid">${cardsHtml}</div>
             </div>
             <div class="game-bottom-nav">
@@ -1589,12 +2065,13 @@ function renderMatchingGame() {
     }
     const shuffledData = gameState.matching.imageOrder;
     const shuffledTexts = gameState.matching.textOrder;
+    const hanziKeyMap = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
 
     const imagesHtml = shuffledData.map((item, i) => `
         <div class="game-matching-image ${gameState.matching.matched.has(item.hanzi) ? 'matched' : ''}"
              data-hanzi="${item.hanzi}" data-side="image" data-idx="${i}"
              onclick="handleMatchingClick(this)">
-            <img src="${item.image}" alt="${item.hanzi}">
+            <img src="${item.image}" alt="${t(hanziKeyMap[item.hanzi] || item.hanzi)}">
         </div>
     `).join('');
 
@@ -1602,7 +2079,7 @@ function renderMatchingGame() {
         <div class="game-matching-text ${gameState.matching.matched.has(item.hanzi) ? 'matched' : ''}"
              data-hanzi="${item.hanzi}" data-side="text" data-idx="${i}"
              onclick="handleMatchingClick(this)">
-            ${item.hanzi}
+            ${t(hanziKeyMap[item.hanzi] || item.hanzi)}
         </div>
     `).join('');
 
@@ -1613,18 +2090,18 @@ function renderMatchingGame() {
         <div class="game-page">
             <div class="game-header">
                 <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">圖案和文字配對</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="game-title-pill">${t('gameMatching')}</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
             <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
             <div class="game-matching">
-                <div class="game-matching-title">請把圖案和文字配對起來！（${progress}/${total}）</div>
+                <div class="game-matching-title">${t('matchInstruction')}（${progress}/${total}）</div>
                 <div class="game-matching-area" id="matchingArea">
                     <div class="game-matching-col">${imagesHtml}</div>
                     <div class="game-matching-col">${textsHtml}</div>
@@ -1678,7 +2155,7 @@ function handleMatchingClick(el) {
             playCorrectSound();
             renderMatchingGame();
             if (gameState.matching.matched.size === gameMatchingData.length) {
-                setTimeout(() => showGameComplete('太棒了！全部配對成功！', () => {
+                setTimeout(() => showGameComplete(t('allMatchedMatching'), () => {
                     resetMatchingGame();
                     startGameActivity('quiz');
                 }), 600);
@@ -1746,6 +2223,7 @@ function renderQuizGame() {
     if (!container) return;
 
     const q = gameQuizQuestions[gameState.quiz.currentQ];
+    const gqi = gameState.quiz.currentQ;
     const isLast = gameState.quiz.currentQ === gameQuizQuestions.length - 1;
 
     const cardsHtml = q.options.map((opt, i) => {
@@ -1762,29 +2240,29 @@ function renderQuizGame() {
         } else if (gameState.quiz.selected.has(i)) {
             cls += ' selected';
         }
-        return `<div class="${cls}" data-idx="${i}" onclick="handleQuizClick(${i})">${opt}</div>`;
+        return `<div class="${cls}" data-idx="${i}" onclick="handleQuizClick(${i})">${t('gameQuizQ' + gqi + 'Opt' + i)}</div>`;
     }).join('');
 
-    const multiHint = q.type === 'multi' ? '<div style="font-size:14px;color:#888;margin-bottom:10px;text-align:center;">（可多選）</div>' : '';
+    const multiHint = q.type === 'multi' ? '<div style="font-size:14px;color:#888;margin-bottom:10px;text-align:center;">${t(\'multiSelectHint\')}</div>' : '';
 
     container.innerHTML = `
         <div class="game-page">
             <div class="game-header">
                 <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">文字選擇題</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="game-title-pill">${t('gameQuiz')}</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
             <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
             <div class="game-quiz">
-                <div style="font-size:16px;color:#8B5CF6;margin-bottom:8px;text-align:center;">題目 ${gameState.quiz.currentQ + 1} / ${gameQuizQuestions.length}</div>
+                <div style="font-size:16px;color:#8B5CF6;margin-bottom:8px;text-align:center;">${t('questionLabel')} ${gameState.quiz.currentQ + 1} / ${gameQuizQuestions.length}</div>
                 ${multiHint}
-                <div class="game-quiz-question">${q.question}</div>
+                <div class="game-quiz-question">${t('gameQuizQ' + gqi)}</div>
                 <div class="game-quiz-cards">${cardsHtml}</div>
             </div>
             <div class="game-bottom-nav">
@@ -1817,7 +2295,7 @@ function handleQuizClick(idx) {
                     gameState.quiz.answered = false;
                     renderQuizGame();
                 } else {
-                    showGameComplete('太棒了！全部答對了！', () => {
+                    showGameComplete(t('allMatchedQuiz'), () => {
                         resetQuizGame();
                         startGameActivity('memory');
                     });
@@ -1835,7 +2313,7 @@ function handleQuizClick(idx) {
                     gameState.quiz.answered = false;
                     renderQuizGame();
                 } else {
-                    showGameComplete('太棒了！全部答對了！', () => {
+                    showGameComplete(t('allMatchedQuiz'), () => {
                         resetQuizGame();
                         startGameActivity('memory');
                     });
@@ -1860,7 +2338,7 @@ function handleQuizClick(idx) {
                 gameState.quiz.answered = false;
                 renderQuizGame();
             } else {
-                showGameComplete('太棒了！全部答對了！', () => {
+                showGameComplete(t('allMatchedQuiz'), () => {
                     resetQuizGame();
                     startGameActivity('memory');
                 });
@@ -1878,7 +2356,8 @@ function renderMemoryGame() {
     // Initialize cards if empty
     if (gameState.memory.cards.length === 0) {
         const pairs = [...gameMemoryData].sort(() => Math.random() - 0.5).slice(0, 6);
-        const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i })).sort(() => Math.random() - 0.5);
+        const hzk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
+    const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i, displayHanzi: t(hzk[item.hanzi] || item.hanzi) })).sort(() => Math.random() - 0.5);
         gameState.memory.cards = deck;
     }
 
@@ -1905,18 +2384,18 @@ function renderMemoryGame() {
         <div class="game-page">
             <div class="game-header">
                 <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">記憶力翻牌子</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">華</div>
+                <div class="game-title-pill">${t('gameMemory')}</div>
+                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
             </div>
             <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
             <div class="game-memory">
-                <div class="game-memory-title">翻開牌子，找出相同的圖案！（${progress}/${total}）</div>
+                <div class="game-memory-title">${t('memoryInstruction')}（${progress}/${total}）</div>
                 <div class="game-memory-grid">${gridHtml}</div>
             </div>
             <div class="game-bottom-nav">
@@ -1953,7 +2432,7 @@ function handleMemoryClick(idx) {
                 playCorrectSound();
                 renderMemoryGame();
                 if (mem.matched.size === mem.cards.length) {
-                    setTimeout(() => showGameComplete('太棒了！全部配對成功！', () => {
+                    setTimeout(() => showGameComplete(t('allMatchedMatching'), () => {
                         resetMemoryGame();
                         renderWritingPage();
                     }), 600);
@@ -1978,13 +2457,13 @@ function renderWritingPage() {
 
     container.innerHTML = `
         <div class="game-writing-page">
-            <button class="game-writing-back-btn" onclick="backToGameMenu()" title="返回">◀</button>
+            <button class="game-writing-back-btn" onclick="backToGameMenu()" title="${t('back')}">◀</button>
             <div class="game-writing-card">
-                <img src="第六頁/練習寫字環節卡片.png?v=2" alt="練習寫字環節"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>圖片待補</div>';">
+                <img src="第六頁/練習寫字環節卡片.png?v=2" alt="${t('writingPracticeTitle')}"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>${t('imagePlaceholder')}</div>';">
             </div>
-            <h2 class="game-writing-title">現在一起練習寫字吧</h2>
-            <button class="game-writing-done-btn" onclick="goToLevels()" title="完成">✓</button>
+            <h2 class="game-writing-title">${t('writingPracticeTitle')}</h2>
+            <button class="game-writing-done-btn" onclick="goToLevels()" title="${t('complete')}">✓</button>
         </div>
     `;
 }
@@ -2025,7 +2504,7 @@ function showGameComplete(message, onNext) {
         <div class="game-complete-box">
             <div class="complete-icon">🎉</div>
             <div class="complete-text">${message}</div>
-            <button class="complete-btn" onclick="this.closest('.game-complete-overlay').remove();">繼續</button>
+            <button class="complete-btn" onclick="this.closest('.game-complete-overlay').remove();">${t('continueBtn')}</button>
         </div>
     `;
     overlay.querySelector('.complete-btn').addEventListener('click', onNext);
@@ -2475,15 +2954,15 @@ function renderQuiz() {
     let html = `
         <div class="quiz-header">
             <button class="quiz-pink-circle" onclick="goTo('intro', event)">◀</button>
-            <div class="quiz-title-pill">課前提問</div>
-            <div class="quiz-pink-circle" style="font-size:22px;font-weight:bold;">華</div>
+            <div class="quiz-title-pill">${t('sectionIntro')}</div>
+            <div class="quiz-pink-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
         </div>
         <div class="quiz-side-tabs">
-            <div class="quiz-side-tab active" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-            <div class="quiz-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-            <div class="quiz-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-            <div class="quiz-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-            <div class="quiz-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+            <div class="quiz-side-tab active" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+            <div class="quiz-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
         </div>
         <div class="quiz-star-score ${hasScore ? 'earned' : ''}" id="quizStar">⭐</div>
     `;
@@ -2505,6 +2984,7 @@ function renderQuiz() {
 }
 
 function renderChoiceQuestion(q) {
+    const qi = quizState.currentIndex;
     const cardsHtml = q.options.map((opt, i) => {
         let stateClass = '';
         const isSelected = quizState.selectedCards.has(i);
@@ -2514,23 +2994,25 @@ function renderChoiceQuestion(q) {
         return `
             <div class="quiz-card ${stateClass}" onclick="handleCardClick(${i}, ${opt.correct})">
                 <div class="quiz-card-icon">${opt.icon}</div>
-                <div class="quiz-card-label">${opt.label}</div>
+                <div class="quiz-card-label">${t('quizQ' + qi + 'Opt' + i)}</div>
             </div>
         `;
     }).join('');
     
     return `
         <div class="quiz-choice-mode">
-            <div class="quiz-question">${q.question}</div>
+            <div class="quiz-question">${t('quizQ' + qi)}</div>
             <div class="quiz-cards">${cardsHtml}</div>
         </div>
     `;
 }
 
 function renderPhotoQuestion(q) {
-    const buttonsHtml = q.buttons.map(btn => {
+    const qi = quizState.currentIndex;
+    const btnMap = {'眉毛': 'eyebrow', '眼睛': 'eye', '鼻子': 'nose', '耳朵': 'ear', '嘴巴': 'mouth'};
+    const buttonsHtml = q.buttons.map((btn, i) => {
         const isActive = btn === q.activeButton;
-        return `<div class="quiz-photo-btn ${isActive ? 'active' : ''}">${btn}</div>`;
+        return `<div class="quiz-photo-btn ${isActive ? 'active' : ''}">${t('quizQ' + qi + 'Btn' + i)}</div>`;
     }).join('');
     
     // 渲染所有已保存的標記
@@ -2540,10 +3022,10 @@ function renderPhotoQuestion(q) {
     
     return `
         <div class="quiz-photo-mode">
-            <div class="quiz-photo-question">${q.question}</div>
+            <div class="quiz-photo-question">${t('quizQ' + qi)}</div>
             <div class="quiz-photo-left">${buttonsHtml}</div>
             <div class="quiz-photo-area" id="photoArea" onclick="handlePhotoClick(event)">
-                <img src="真人圖片標記_11課身體.png" alt="真人照片">
+                <img src="真人圖片標記_11課身體.png" alt="${t('realPhoto')}">
                 ${markersHtml}
             </div>
         </div>
@@ -2722,53 +3204,52 @@ function renderRecognition() {
     const item = recognitionData[recognitionState.currentIndex];
     const isFirst = recognitionState.currentIndex === 0;
     const isLast = recognitionState.currentIndex === recognitionData.length - 1;
+    const hk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
 
     const html = `
         <div class="recognition-page">
             <!-- 頭部 -->
             <div class="rec-header">
                 <button class="rec-blue-circle" onclick="switchLearningModule('quiz')">◀</button>
-                <div class="rec-title-pill">識圖</div>
-                <div class="rec-blue-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">華</div>
+                <div class="rec-title-pill">${t('sectionLearning')}</div>
+                <div class="rec-blue-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">${t('logoChar')}</div>
             </div>
 
             <!-- 右側功能標籤 -->
             <div class="rec-side-tabs">
-                <div class="rec-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="rec-side-tab active" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="rec-side-tab active" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="rec-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
 
             <!-- 主內容 -->
             <div class="rec-content">
                 <!-- 詞彙導航 -->
                 <div class="rec-word-nav">
-                    ${recognitionData.map((w, i) => `
-                        <button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${w.hanzi}</button>
-                    `).join('')}
+                    ${recognitionData.map((w, i) => `<button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${t(hk[w.hanzi] || w.hanzi)}</button>`).join('')}
                 </div>
 
                 <!-- 圖片與文字區域 -->
                 <div class="rec-main-area">
                     <!-- 左側圖片 -->
                     <div class="rec-image-area">
-                        <img src="${item.image}" alt="${item.hanzi}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                        <img src="${item.image}" alt="${t(hk[item.hanzi] || item.hanzi)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                         <div style="width:100%;height:100%;border-radius:24px;display:none;align-items:center;justify-content:center;background:${item.color}22;border:4px dashed ${item.color};box-shadow:0 8px 30px rgba(0,0,0,0.12);">
                             <div style="text-align:center;">
-                                <div style="font-size:120px;color:${item.color};font-weight:bold;">${item.hanzi}</div>
-                                <div style="font-size:16px;color:#888;margin-top:10px;">身體部位示意圖</div>
+                                <div style="font-size:120px;color:${item.color};font-weight:bold;">${t(hk[item.hanzi] || item.hanzi)}</div>
+                                <div style="font-size:16px;color:#888;margin-top:10px;">${t('bodyPartDiagram')}</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- 右側文字 -->
                     <div class="rec-text-area">
-                        <button class="rec-speaker" onclick="playPronunciation()" title="朗讀">🔊</button>
+                        <button class="rec-speaker" onclick="playPronunciation()" title="${t('playAudio')}">🔊</button>
                         <div class="rec-pinyin">${item.pinyin}</div>
-                        <div class="rec-hanzi">${item.hanzi}</div>
-                        <div class="rec-definition">${item.definition}</div>
+                        <div class="rec-hanzi">${t(hk[item.hanzi] || item.hanzi)}</div>
+                        <div class="rec-definition">${t('recDef' + (recognitionState.currentIndex + 1))}</div>
                     </div>
                 </div>
             </div>
@@ -2917,38 +3398,38 @@ function switchLearningModule(module) {
 const writingData = [
     {
         hanzi: '頭', pinyin: 'tóu', simpleHanzi: '头',
-        videoTraditional: 'videos/stroke/tou_fanti.mp4',
-        videoSimplified: 'videos/stroke/tou_jianti.mp4'
+        videoTraditional: '../筆畫動畫/頭-繁體筆畫.mov',
+        videoSimplified: '../筆畫動畫/頭-簡體筆畫.mov'
     },
     {
         hanzi: '耳', pinyin: 'ěr', simpleHanzi: '耳',
-        videoTraditional: 'videos/stroke/er.mp4',
-        videoSimplified: 'videos/stroke/er.mp4'
+        videoTraditional: '../筆畫動畫/耳-繁體簡體筆畫.mov',
+        videoSimplified: '../筆畫動畫/耳-繁體簡體筆畫.mov'
     },
     {
         hanzi: '腳', pinyin: 'jiǎo', simpleHanzi: '脚',
-        videoTraditional: 'videos/stroke/jiao_fanti.mp4',
-        videoSimplified: 'videos/stroke/jiao_jianti.mp4'
+        videoTraditional: '../筆畫動畫/腳-繁體筆畫.mov',
+        videoSimplified: '../筆畫動畫/腳-簡體筆畫.mov'
     },
     {
         hanzi: '鼻', pinyin: 'bí', simpleHanzi: '鼻',
-        videoTraditional: 'videos/stroke/bi.mp4',
-        videoSimplified: 'videos/stroke/bi.mp4'
+        videoTraditional: '../筆畫動畫/鼻-繁體簡體.mov',
+        videoSimplified: '../筆畫動畫/鼻-繁體簡體.mov'
     },
     {
         hanzi: '眼', pinyin: 'yǎn', simpleHanzi: '眼',
-        videoTraditional: 'videos/stroke/yan.mp4',
-        videoSimplified: 'videos/stroke/yan.mp4'
+        videoTraditional: '../筆畫動畫/眼-繁體簡體.mov',
+        videoSimplified: '../筆畫動畫/眼-繁體簡體.mov'
     },
     {
         hanzi: '口', pinyin: 'kǒu', simpleHanzi: '口',
-        videoTraditional: 'videos/stroke/kou.mp4',
-        videoSimplified: 'videos/stroke/kou.mp4'
+        videoTraditional: '../筆畫動畫/口-繁體簡體.mov',
+        videoSimplified: '../筆畫動畫/口-繁體簡體.mov'
     },
     {
         hanzi: '手', pinyin: 'shǒu', simpleHanzi: '手',
-        videoTraditional: 'videos/stroke/shou.mp4',
-        videoSimplified: 'videos/stroke/shou.mp4'
+        videoTraditional: '../筆畫動畫/手-繁體簡體.mov',
+        videoSimplified: '../筆畫動畫/手-繁體簡體.mov'
     }
 ];
 
@@ -2970,32 +3451,33 @@ function renderWriting() {
     const item = writingData[writingState.currentIndex];
     const isFirst = writingState.currentIndex === 0;
     const isLast = writingState.currentIndex === writingData.length - 1;
+    const whk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
 
     const html = `
         <div class="writing-page">
             <!-- 頭部 -->
             <div class="writing-header">
                 <button class="writing-orange-circle" onclick="switchLearningModule('recognition')">◀</button>
-                <div class="writing-title-pill">書寫練習</div>
-                <div class="writing-orange-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">華</div>
+                <div class="writing-title-pill">${t('sectionWriting')}</div>
+                <div class="writing-orange-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">${t('logoChar')}</div>
             </div>
 
             <!-- 右側功能標籤 -->
             <div class="writing-side-tabs">
-                <div class="writing-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> 課前提問</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> 識圖</div>
-                <div class="writing-side-tab active" onclick="switchLearningModule('writing')"><span>✏️</span> 書寫練習</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('story')"><span>📚</span> 故事繪本</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> 遊戲活動</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
+                <div class="writing-side-tab active" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
+                <div class="writing-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
             </div>
 
             <!-- 主內容 -->
             <div class="writing-content">
                 <!-- 左側字詞選擇 -->
                 <div class="writing-word-grid">
-                    ${writingData.map((w, i) => `
-                        <button class="writing-grid-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${w.hanzi}</button>
-                    `).join('')}
+                    ${writingData.map((w, i) => {
+                        return `<button class="writing-grid-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${t(whk[w.hanzi] || w.hanzi)}</button>`;
+                    }).join('')}
                 </div>
 
                 <!-- 中間練習區 -->
@@ -3009,7 +3491,7 @@ function renderWriting() {
                                 <line x1="0" y1="0" x2="200" y2="200" />
                                 <line x1="200" y1="0" x2="0" y2="200" />
                             </svg>
-                            <div class="writing-model-char">${item.hanzi}</div>
+                            <div class="writing-model-char">${t(whk[item.hanzi] || item.hanzi)}</div>
                             <video 
                                 id="writingStrokeVideo"
                                 class="writing-stroke-video"
@@ -3021,7 +3503,7 @@ function renderWriting() {
                                 onended="hideWritingVideo()"
                             ></video>
                         </div>
-                        <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="筆順動畫">✏️</button>
+                        <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="${t('strokeAnimation')}">✏️</button>
                     </div>
 
                     <!-- 手寫練習區 -->
@@ -3030,8 +3512,8 @@ function renderWriting() {
                             <canvas id="writingCanvas" width="640" height="640"></canvas>
                         </div>
                         <div class="writing-action-btns">
-                            <button class="writing-btn-clear" onclick="clearWritingCanvas()">清除</button>
-                            <button class="writing-btn-done" onclick="nextWritingWord()">完成</button>
+                            <button class="writing-btn-clear" onclick="clearWritingCanvas()">${t('clear')}</button>
+                            <button class="writing-btn-done" onclick="nextWritingWord()">${t('complete')}</button>
                         </div>
                     </div>
                 </div>
