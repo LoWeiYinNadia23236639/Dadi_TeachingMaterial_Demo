@@ -1990,6 +1990,11 @@ function renderWritingPage() {
 }
 
 function goToLevels() {
+    const container = document.getElementById('gameContainer');
+    if (container) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+    }
     goTo('levels');
 }
 
