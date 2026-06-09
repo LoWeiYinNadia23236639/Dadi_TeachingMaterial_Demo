@@ -1811,8 +1811,8 @@ function renderWritingPage() {
             <div class="game-writing-card">
                 <img src="第六頁/練習寫字環節卡片.png?v=2" alt="練習寫字環節"
                      onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'game-writing-placeholder\\'>圖片待補</div>';">
-                <h2 class="game-writing-title">現在一起練習寫字吧</h2>
             </div>
+            <h2 class="game-writing-title">現在一起練習寫字吧</h2>
             <button class="game-writing-done-btn" onclick="goToLevels()" title="完成">✓</button>
         </div>
     `;
