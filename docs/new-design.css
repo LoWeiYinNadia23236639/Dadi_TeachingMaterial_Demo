@@ -425,12 +425,12 @@ body {
 .char2-hint {
     position: absolute;
     top: 62%;
-    right: 3%;
+    right: 10%;
     transform: translateY(-50%);
     z-index: 10;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
-    color: #000;
+    color: #444;
     animation: bounce 2s infinite;
     white-space: nowrap;
     writing-mode: horizontal-tb;
@@ -505,17 +505,17 @@ body {
 
 @media (max-width: 1024px) {
     .char2-item { max-width: 110px; }
-    .char2-hint { font-size: 18px; }
+    .char2-hint { font-size: 22px; }
 }
 @media (max-width: 768px) {
     .char2-name { width: 260px; padding: 14px 24px; font-size: 18px; }
     .char2-item { max-width: 80px; }
-    .char2-hint { font-size: 16px; }
+    .char2-hint { font-size: 20px; }
     .char2-confirm { padding: 12px 40px; font-size: 20px; }
 }
 @media (max-width: 480px) {
     .char2-item { max-width: 55px; }
-    .char2-hint { font-size: 14px; }
+    .char2-hint { font-size: 18px; }
     .char2-name { width: 220px; padding: 12px 20px; font-size: 16px; }
 }
 
