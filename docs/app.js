@@ -1990,7 +1990,7 @@ function renderWritingPage() {
 }
 
 function goToLevels() {
-    goTo('cats');
+    goTo('levels');
 }
 
 /* ---------- 通用輔助函數 ---------- */
