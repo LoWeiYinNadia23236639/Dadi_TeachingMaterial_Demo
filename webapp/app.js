@@ -1326,7 +1326,7 @@ const gameMemoryData = [
 
 let gameState = {
     currentActivity: 'menu',
-    matching: { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [] },
+    matching: { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [], imageOrder: null, textOrder: null },
     quiz: { currentQ: 0, selected: new Set(), answered: false },
     memory: { cards: [], flipped: [], matched: new Set(), canFlip: true },
     score: 0
@@ -1342,7 +1342,7 @@ function initGame() {
 }
 
 function resetMatchingGame() {
-    gameState.matching = { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [] };
+    gameState.matching = { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [], imageOrder: null, textOrder: null };
 }
 
 function resetQuizGame() {
@@ -1411,8 +1411,13 @@ function renderMatchingGame() {
     const container = document.getElementById('gameContainer');
     if (!container) return;
 
-    const shuffledData = [...gameMatchingData].sort(() => Math.random() - 0.5);
-    const shuffledTexts = [...gameMatchingData].sort(() => Math.random() - 0.5);
+    // Only shuffle on first render; keep stable order after matches to prevent jitter
+    if (!gameState.matching.imageOrder) {
+        gameState.matching.imageOrder = [...gameMatchingData].sort(() => Math.random() - 0.5);
+        gameState.matching.textOrder = [...gameMatchingData].sort(() => Math.random() - 0.5);
+    }
+    const shuffledData = gameState.matching.imageOrder;
+    const shuffledTexts = gameState.matching.textOrder;
 
     const imagesHtml = shuffledData.map((item, i) => `
         <div class="game-matching-image ${gameState.matching.matched.has(item.hanzi) ? 'matched' : ''}"
