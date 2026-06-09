@@ -1079,12 +1079,20 @@ function closePoemPlayer() {
     }
 }
 
+function closeSongPage() {
+    const container = document.getElementById('gameContainer');
+    if (container) {
+        container.innerHTML = '';
+        container.style.display = 'none';
+    }
+}
+
 // ============================================
 // 兒歌數據
 // ============================================
 const commonSongData = [
-    { id: 1, name: '上學歌', videoId: '' },
-    { id: 2, name: '天氣歌', videoId: '' },
+    { id: 1, name: '上學歌', videoId: '', cover: '兒歌/上學歌.png' },
+    { id: 2, name: '天氣歌', videoId: '', cover: '兒歌/天氣歌.png' },
 ];
 
 const unitSongData = [
@@ -1122,11 +1130,14 @@ function goToCommonSongs() {
     if (!container) return;
     currentSongBackPage = 'common-songs';
     const cells = commonSongData.map((song, idx) =>
-        `<button class="song-cell" onclick="goToSongPlayer('common', ${idx})"><span class="song-cell-title">${song.name}</span></button>`
+        `<button class="song-cell" onclick="goToSongPlayer('common', ${idx})">
+            <img class="song-cell-img" src="${song.cover}" alt="${song.name}" onerror="this.style.display='none'">
+            <span class="song-cell-title">${song.name}</span>
+        </button>`
     ).join('');
     container.innerHTML = `
         <div class="song-list-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPlayer()" title="返回">◀</button>
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="返回">◀</button>
             <div class="song-blue-btn song-logo-btn">華</div>
             <div class="song-pill" data-i18n="commonSongs">常用歌曲</div>
             <div class="song-grid">${cells}</div>
@@ -1147,7 +1158,7 @@ function goToUnitSongs() {
     ).join('');
     container.innerHTML = `
         <div class="song-unit-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPlayer()" title="返回">◀</button>
+            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="返回">◀</button>
             <div class="song-blue-btn song-logo-btn">華</div>
             <div class="song-pill" data-i18n="unitSongs">單元歌曲</div>
             <div class="song-volume-tabs">
