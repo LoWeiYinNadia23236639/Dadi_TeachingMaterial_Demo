@@ -3674,38 +3674,38 @@ function switchLearningModule(module) {
 const writingData = [
     {
         hanzi: '頭', pinyin: 'tóu', simpleHanzi: '头',
-        videoTraditional: '../筆畫動畫/頭-繁體筆畫.mov',
-        videoSimplified: '../筆畫動畫/頭-簡體筆畫.mov'
+        videoTraditional: '筆畫動畫/頭-繁體筆畫.mov',
+        videoSimplified: '筆畫動畫/頭-簡體筆畫.mov'
     },
     {
         hanzi: '耳', pinyin: 'ěr', simpleHanzi: '耳',
-        videoTraditional: '../筆畫動畫/耳-繁體簡體筆畫.mov',
-        videoSimplified: '../筆畫動畫/耳-繁體簡體筆畫.mov'
+        videoTraditional: '筆畫動畫/耳-繁體簡體筆畫.mov',
+        videoSimplified: '筆畫動畫/耳-繁體簡體筆畫.mov'
     },
     {
         hanzi: '腳', pinyin: 'jiǎo', simpleHanzi: '脚',
-        videoTraditional: '../筆畫動畫/腳-繁體筆畫.mov',
-        videoSimplified: '../筆畫動畫/腳-簡體筆畫.mov'
+        videoTraditional: '筆畫動畫/腳-繁體筆畫.mov',
+        videoSimplified: '筆畫動畫/腳-簡體筆畫.mov'
     },
     {
         hanzi: '鼻', pinyin: 'bí', simpleHanzi: '鼻',
-        videoTraditional: '../筆畫動畫/鼻-繁體簡體.mov',
-        videoSimplified: '../筆畫動畫/鼻-繁體簡體.mov'
+        videoTraditional: '筆畫動畫/鼻-繁體簡體.mov',
+        videoSimplified: '筆畫動畫/鼻-繁體簡體.mov'
     },
     {
         hanzi: '眼', pinyin: 'yǎn', simpleHanzi: '眼',
-        videoTraditional: '../筆畫動畫/眼-繁體簡體.mov',
-        videoSimplified: '../筆畫動畫/眼-繁體簡體.mov'
+        videoTraditional: '筆畫動畫/眼-繁體簡體.mov',
+        videoSimplified: '筆畫動畫/眼-繁體簡體.mov'
     },
     {
         hanzi: '口', pinyin: 'kǒu', simpleHanzi: '口',
-        videoTraditional: '../筆畫動畫/口-繁體簡體.mov',
-        videoSimplified: '../筆畫動畫/口-繁體簡體.mov'
+        videoTraditional: '筆畫動畫/口-繁體簡體.mov',
+        videoSimplified: '筆畫動畫/口-繁體簡體.mov'
     },
     {
         hanzi: '手', pinyin: 'shǒu', simpleHanzi: '手',
-        videoTraditional: '../筆畫動畫/手-繁體簡體.mov',
-        videoSimplified: '../筆畫動畫/手-繁體簡體.mov'
+        videoTraditional: '筆畫動畫/手-繁體簡體.mov',
+        videoSimplified: '筆畫動畫/手-繁體簡體.mov'
     }
 ];
 
