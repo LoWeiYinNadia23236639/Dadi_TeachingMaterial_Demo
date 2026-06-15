@@ -1,115 +1,56 @@
 /* ============================================
-   進入學習頁面
+   進入學習頁面（課程介紹頁）
+   基準畫布：1920 × 1080
    ============================================ */
 
 .intro-page {
-    width: 100vw;
-    height: 100vh;
-    background: #FFC107;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 40px 40px;
-}
-
-/* 粉紅色返回按鈕 */
-.pink-circle-btn {
-    width: 60px;
-    height: 60px;
-    background: #E91E63;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 1920px;
+    height: 1080px;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #fbce03;
 }
 
-/* 白色橢圓區域 */
-.intro-oval-area {
-    position: relative;
-    width: 80vw;
-    max-width: 1300px;
-    max-height: 78vh;
+/* 華字 Logo */
+.intro-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+/* 返回按鈕 */
+.intro-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
     cursor: pointer;
-    transition: all 0.3s;
+    z-index: 5;
+    transition: transform 0.2s;
 }
+.intro-back:hover { transform: scale(1.05); }
+.intro-back:active { transform: scale(0.95); }
 
-.intro-oval-area:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
-}
-
-.intro-oval-area img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+/* 進入學習主按鈕 */
+.intro-enter-btn {
+    position: absolute;
+    left: 377.1px;
+    top: 112.5px;
+    width: 1165.8px;
+    height: 855px;
+    cursor: pointer;
+    z-index: 5;
     display: block;
+    object-fit: contain;
+    transition: transform 0.2s;
 }
-
-/* 主題標題 */
-.intro-topic {
-    position: absolute;
-    bottom: 20%;
-    left: 0;
-    right: 0;
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    pointer-events: none;
-}
-
-/* 響應式 */
-@media (max-width: 1024px) {
-    .intro-oval-area {
-        width: 85vw;
-        max-width: 1000px;
-    }
-    
-    .intro-topic {
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 768px) {
-    .intro-page {
-        padding: 70px 20px 20px;
-    }
-    
-    .pink-circle-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-        top: 15px;
-        left: 15px;
-    }
-    
-    .intro-oval-area {
-        width: 90vw;
-        max-height: 65vh;
-    }
-    
-    .intro-topic {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 480px) {
-    .intro-oval-area {
-        width: 92vw;
-        max-height: 60vh;
-    }
-    
-    .intro-topic {
-        font-size: 18px;
-    }
-}
+.intro-enter-btn:hover { transform: scale(1.03); }
+.intro-enter-btn:active { transform: scale(0.98); }

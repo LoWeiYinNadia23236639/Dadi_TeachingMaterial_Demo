@@ -1,221 +1,97 @@
 /* ============================================
-   書寫練習頁面 (Writing Practice Page)
+   書寫練習頁面 (Writing Practice Page) - 精確定位 1920×1080
    ============================================ */
 
-.writing-page {
-    width: 100vw;
-    height: 100vh;
-    background: #E8E8E8;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
-}
-
-/* 橘黃色主題變量 */
-:root {
-    --writing-theme: #F5A623;
-}
-
-/* 頭部 */
-.writing-header {
+.cw-page .cw-content .writing-page {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    top: 16px;
+    top: 0;
     left: 0;
-    right: 0;
+    overflow: visible;
+}
+
+/* 上方 7 個詞彙圓圈 */
+.cw-page .cw-content .writing-word-nav {
+    position: absolute;
+    left: 639.2px;
+    top: 89.6px;
+    width: 641.6px;
+    height: 113.8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    z-index: 100;
+    z-index: 10;
 }
 
-/* 橘黃圓形按鈕 */
-.writing-orange-circle {
-    width: 48px;
-    height: 48px;
-    background: #F5A623;
-    border: none;
+.cw-page .cw-content .writing-word-btn {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    color: white;
-    font-size: 20px;
+    border: 4px solid #F5A623;
+    background: #fff;
+    color: #F5A623;
+    font-size: 32px;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-/* 頂部標題膠囊 */
-.writing-title-pill {
-    background: white;
-    border: 2px solid #F5A623;
-    color: #F5A623;
-    padding: 8px 36px;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    flex-shrink: 0;
+.cw-page .cw-content .writing-word-btn:hover {
+    transform: scale(1.08);
 }
 
-/* 右側功能標籤 */
-.writing-side-tabs {
-    position: absolute;
-    top: 80px;
-    right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 100;
-}
-
-.writing-side-tab {
-    padding: 14px 20px;
-    border-radius: 10px 0 0 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    text-align: left;
-    transition: all 0.3s;
-    min-width: 130px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.writing-side-tab.active {
+.cw-page .cw-content .writing-word-btn.active {
     background: #F5A623;
-    color: white;
+    color: #fff;
 }
 
-.writing-side-tab:not(.active) {
-    background: white;
-    color: #333;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* 底部導航 */
-.writing-bottom-nav {
+/* 左邊筆順展示區域 */
+.cw-page .cw-content .writing-stroke-area {
     position: absolute;
-    bottom: 38px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 100;
+    left: 437.3px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
 }
 
-/* ============================================
-   主內容區域
-   ============================================ */
-
-.writing-content {
+.cw-page .cw-content .writing-model-box {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 40px 80px 82px;
-    box-sizing: border-box;
-    gap: 40px;
-}
-
-/* 左側字詞選擇區 */
-.writing-word-grid {
-    flex: 0 0 auto;
-    width: 140px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    align-content: center;
-}
-
-.writing-grid-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 3px solid #F5A623;
-    background: white;
-    color: #F5A623;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.writing-grid-btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(245,166,35,0.25);
-}
-
-.writing-grid-btn.active {
-    background: #F5A623;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(245,166,35,0.35);
-}
-
-/* ============================================
-   中間範本區 + 右邊手寫區
-   ============================================ */
-
-.writing-practice-area {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 40px;
-}
-
-/* 範本區包裝（包含正方形 + 鉛筆按鈕） */
-.writing-model-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-}
-
-/* 大字範本區 */
-.writing-model-box {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
 /* 米字格 */
-.writing-rice-grid {
+.cw-page .cw-content .writing-rice-grid {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 1;
 }
 
-.writing-rice-grid line {
+.cw-page .cw-content .writing-rice-grid line {
     stroke: #F5A623;
-    stroke-width: 1;
-    stroke-dasharray: 6 4;
+    stroke-width: 1.5;
+    stroke-dasharray: 8 6;
     opacity: 0.5;
 }
 
-/* 範本大字 */
-.writing-model-char {
+/* 大字詞 */
+.cw-page .cw-content .writing-model-char {
     position: absolute;
     top: 0;
     left: 0;
@@ -224,146 +100,158 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 180px;
+    font-size: 220px;
     font-weight: bold;
-    color: #000000;
+    color: #000;
     line-height: 1;
-    z-index: 1;
+    z-index: 2;
     user-select: none;
     font-family: "Noto Serif SC", "SimSun", "KaiTi", serif;
     text-align: center;
 }
 
 /* 筆順動畫視頻 */
-.writing-stroke-video {
+.cw-page .cw-content .writing-stroke-video {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 24px;
+    z-index: 5;
+    display: none;
+}
+
+/* 鉛筆按鈕 */
+.cw-page .cw-content .writing-pencil-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #F5A623;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.cw-page .cw-content .writing-pencil-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* 右邊手寫練習區域 */
+.cw-page .cw-content .writing-canvas-area {
+    position: absolute;
+    left: 1001px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cw-page .cw-content .writing-canvas-box {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+/* Canvas 米字格 */
+.cw-page .cw-content .writing-canvas-grid {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 20px;
-    z-index: 5;
-    background: white;
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* 鉛筆按鈕 */
-.writing-pencil-btn {
-    width: 44px;
-    height: 44px;
-    background: #F5A623;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: all 0.3s;
-    flex-shrink: 0;
+.cw-page .cw-content .writing-canvas-grid line {
+    stroke: #F5A623;
+    stroke-width: 1.5;
+    stroke-dasharray: 8 6;
+    opacity: 0.5;
 }
 
-.writing-pencil-btn:hover {
-    background: #E09513;
-    transform: scale(1.1);
-}
-
-/* ============================================
-   手寫練習區
-   ============================================ */
-
-.writing-canvas-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.writing-canvas-box {
-    width: 320px;
-    height: 320px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    overflow: hidden;
-    cursor: crosshair;
-}
-
-.writing-canvas-box canvas {
+.cw-page .cw-content #writingCanvas {
+    position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
+    max-width: none;
+    max-height: none;
+    border: none;
+    background: transparent;
+    z-index: 2;
 }
 
-/* 清除/完成按鈕 */
-.writing-action-btns {
+/* 清除 / 完成 按鈕 */
+.cw-page .cw-content .writing-action-btns {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
     display: flex;
+    justify-content: center;
     gap: 20px;
+    z-index: 10;
 }
 
-.writing-btn-clear {
-    padding: 10px 32px;
-    border: 2px solid #F5A623;
-    background: white;
+.cw-page .cw-content .writing-btn-clear {
+    padding: 12px 36px;
+    border: 3px solid #F5A623;
+    background: #fff;
     color: #F5A623;
-    border-radius: 24px;
-    font-size: 16px;
+    border-radius: 28px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.2s;
 }
 
-.writing-btn-clear:hover {
-    background: #FFF8E7;
+.cw-page .cw-content .writing-btn-clear:hover {
     transform: scale(1.05);
 }
 
-.writing-btn-done {
-    padding: 10px 32px;
-    border: 2px solid #F5A623;
+.cw-page .cw-content .writing-btn-done {
+    padding: 12px 36px;
+    border: 3px solid #F5A623;
     background: #F5A623;
-    color: white;
-    border-radius: 24px;
-    font-size: 16px;
+    color: #fff;
+    border-radius: 28px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.2s;
 }
 
-.writing-btn-done:hover {
-    background: #E09513;
+.cw-page .cw-content .writing-btn-done:hover {
     transform: scale(1.05);
 }
 
-/* 響應式 */
-@media (max-width: 1024px) {
-    .writing-content { padding: 70px 30px 70px 60px; gap: 24px; }
-    .writing-model-box, .writing-canvas-box { width: 260px; height: 260px; }
-    .writing-model-char { font-size: 140px; }
-    .writing-practice-area { gap: 24px; }
-    .writing-word-grid { width: 120px; }
-    .writing-grid-btn { width: 52px; height: 52px; font-size: 20px; }
-}
-
-@media (max-width: 768px) {
-    .writing-content {
-        flex-direction: column;
-        padding: 70px 20px 70px 20px;
-        gap: 16px;
-        overflow-y: auto;
-    }
-    .writing-word-grid {
-        flex: none;
-        width: auto;
-        grid-template-columns: repeat(4, 1fr);
-    }
-    .writing-practice-area {
-        flex-direction: column;
-        align-items: center;
-    }
-    .writing-model-box, .writing-canvas-box { width: 240px; height: 240px; }
-    .writing-model-char { font-size: 120px; }
-    .writing-side-tabs { display: none; }
+/* 隱藏舊版元素（若仍留在 HTML 中） */
+.cw-page .cw-content .writing-header,
+.cw-page .cw-content .writing-side-tabs,
+.cw-page .cw-content .writing-bottom-nav {
+    display: none !important;
 }

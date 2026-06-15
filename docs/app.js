@@ -1,10 +1,12 @@
 // ============================================
 // 大地幼教学材 - Application Logic
+// App Version: 20250613v29
 // ============================================
 
 const AppState = {
     currentPage: 'welcome',
     selectedChar: null,
+    selectedLevel: null,
     playerName: '',
     currentSection: 0,
     currentChar: '头',
@@ -73,7 +75,7 @@ const i18n = {
         back: '返回',
         
         // 問題
-        question1: '小朋友，你知道我們的身體有哪些部位嗎？點擊正確的答案！',
+        question1: '小朋友，你知道我們的身體有哪些部位嗎？',
         
         // 描述文字
         descEye: '我們用眼睛來看東西',
@@ -175,7 +177,7 @@ const i18n = {
         startLearning: '開始學習',
         siteTitle: '大地幼教学材 - 学习平台',
         // 課前提問
-        quizQ0: '小朋友，你知道我們的身體有哪些部位嗎？點擊正確的答案！',
+        quizQ0: '小朋友，你知道我們的身體有哪些部位嗎？',
         quizQ0Opt0: '嘴巴',
         quizQ0Opt1: '耳朵',
         quizQ0Opt2: '眼睛',
@@ -335,9 +337,9 @@ const i18n = {
         commonSong2: '天氣歌',
         
         // 遊戲活動
-        gameMatching: '圖案和文字配對',
-        gameQuiz: '文字選擇題',
-        gameMemory: '記憶力翻牌子',
+        gameMatching: '圖案配對',
+        gameQuiz: '文字選擇',
+        gameMemory: '記憶翻牌',
         
         // 按鈕與標籤
         continueBtn: '繼續',
@@ -360,8 +362,8 @@ const i18n = {
         // 遊戲完成訊息
         allMatchedMatching: '太棒了！全部配對成功！',
         allMatchedQuiz: '太棒了！全部答對了！',
-        matchInstruction: '請把圖案和文字配對起來！',
-        memoryInstruction: '翻開牌子，找出相同的圖案！',
+        matchInstruction: '請把圖案和文字配對起來',
+        memoryInstruction: '翻開牌子，找出相同的圖案',
         
         // Logo
         logoChar: '華',
@@ -417,7 +419,7 @@ const i18n = {
         back: '返回',
         
         // 問題
-        question1: '小朋友，你知道我们的身体有哪些部位吗？点击正确的答案！',
+        question1: '小朋友，你知道我们的身体有哪些部位吗？',
         
         // 描述文字
         descEye: '我们用眼睛来看东西',
@@ -519,7 +521,7 @@ const i18n = {
         startLearning: '开始学习',
         siteTitle: '大地幼教学材 - 学习平台',
         // 课前提问
-        quizQ0: '小朋友，你知道我们的身体有哪些部位吗？点击正确的答案！',
+        quizQ0: '小朋友，你知道我们的身体有哪些部位吗？',
         quizQ0Opt0: '嘴巴',
         quizQ0Opt1: '耳朵',
         quizQ0Opt2: '眼睛',
@@ -679,9 +681,9 @@ const i18n = {
         commonSong2: '天气歌',
         
         // 游戏活动
-        gameMatching: '图案和文字配对',
-        gameQuiz: '文字选择题',
-        gameMemory: '记忆力翻牌子',
+        gameMatching: '图案配对',
+        gameQuiz: '文字选择',
+        gameMemory: '记忆翻牌',
         
         // 按钮与标签
         continueBtn: '继续',
@@ -704,8 +706,8 @@ const i18n = {
         // 游戏完成讯息
         allMatchedMatching: '太棒了！全部配对成功！',
         allMatchedQuiz: '太棒了！全部答对了！',
-        matchInstruction: '请把图案和文字配对起来！',
-        memoryInstruction: '翻开牌子，找出相同的图案！',
+        matchInstruction: '请把图案和文字配对起来',
+        memoryInstruction: '翻开牌子，找出相同的图案',
         
         // Logo
         logoChar: '华',
@@ -742,6 +744,21 @@ function selectLanguage(lang) {
     
     // 更新所有頁面的文字
     updateAllText();
+    
+    // 更新課件學習頁背景與功能標籤圖片
+    updateCoursewareImages();
+    
+    // 更新學段選擇頁按鈕圖片
+    updateLevelButtons();
+    
+    // 更新內容類型選擇頁按鈕圖片
+    updateCatButtons();
+    
+    // 更新唐詩列表頁圖片
+    updatePoemImages();
+    
+    // 更新兒歌選項頁按鈕圖片
+    updateSongMenuButtons();
     
     // 更新學習頁面默認顯示的字符
     const demoChar = document.getElementById('demoChar');
@@ -791,9 +808,9 @@ function refreshCurrentContent() {
         }
     }
     
-    // 更新章節標題
+    // 更新課程介紹頁圖片
     if (AppState.currentPage === 'intro') {
-        updateIntroTitle();
+        updateIntroImage();
     }
     
     // 更新子導航
@@ -989,7 +1006,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 設置語言按鈕狀態
-    document.querySelectorAll('.lang-btn').forEach(btn => {
+    document.querySelectorAll('.lang-btn, .char2-lang-btn').forEach(btn => {
         btn.classList.remove('active');
     });
     const activeBtn = document.getElementById('lang-' + (AppState.language === 'zh-TW' ? 'TW' : 'CN'));
@@ -1011,6 +1028,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 更新所有頁面文字
     updateAllText();
+    
+    // 更新課件學習頁背景與功能標籤圖片
+    updateCoursewareImages();
+    
+    // 更新學段選擇頁按鈕圖片
+    updateLevelButtons();
+    
+    // 更新內容類型選擇頁按鈕圖片
+    updateCatButtons();
+    
+    // 更新唐詩列表頁圖片
+    updatePoemImages();
+    
+    // 更新兒歌選項頁按鈕圖片
+    updateSongMenuButtons();
     
     // 更新學習頁面默認顯示的字符
     const demoChar = document.getElementById('demoChar');
@@ -1187,6 +1219,10 @@ function goTo(pageId) {
     const page = document.getElementById('page-' + pageId);
     if (page) page.classList.add('active');
     AppState.currentPage = pageId;
+
+    // 切換頁面時先隱藏遊戲全螢幕層，避免遮蓋目標頁面
+    const gameContainer = document.getElementById('gameContainer');
+    if (gameContainer) gameContainer.style.display = 'none';
     
     // 更新角色圖片
     updateCharacterImages(pageId);
@@ -1194,7 +1230,7 @@ function goTo(pageId) {
     // 學習夥伴已移除，不再顯示角色引導和問候語
     
     if (pageId === 'intro') {
-        updateIntroTitle();
+        updateIntroImage();
     }
     
     if (pageId === 'learning') {
@@ -1258,7 +1294,238 @@ function selectAvatar(id) {
 // PAGE 3: LEVEL SELECTION
 // ============================================
 function selectLevel(level) {
+    AppState.selectedLevel = level;
     goTo('cats');
+}
+
+// 根據語言更新學段選擇頁按鈕圖片
+function updateLevelButtons() {
+    document.querySelectorAll('.level-btn').forEach(btn => {
+        const src = AppState.language === 'zh-CN' ? btn.dataset.cn : btn.dataset.tw;
+        if (src) btn.src = src;
+    });
+}
+
+// 根據語言更新內容類型選擇頁按鈕圖片
+function updateCatButtons() {
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+        const src = AppState.language === 'zh-CN' ? btn.dataset.cn : btn.dataset.tw;
+        if (src) btn.src = src;
+    });
+}
+
+// 根據語言更新唐詩列表頁圖片
+function updatePoemImages() {
+    const title = document.querySelector('.poems-title-img');
+    if (title) {
+        title.src = AppState.language === 'zh-CN' ? title.dataset.cn : title.dataset.tw;
+    }
+    document.querySelectorAll('.poem-btn').forEach(btn => {
+        const src = AppState.language === 'zh-CN' ? btn.dataset.cn : btn.dataset.tw;
+        if (src) btn.src = src;
+    });
+}
+
+// 根據語言更新兒歌選項頁按鈕圖片
+function updateSongMenuButtons() {
+    document.querySelectorAll('.songs-type-btn').forEach(btn => {
+        const src = AppState.language === 'zh-CN' ? btn.dataset.cn : btn.dataset.tw;
+        if (src) btn.src = src;
+    });
+}
+
+// 課程介紹頁圖片映射（依單元與語言）
+const introImages = {
+    11: {
+        tw: '課程介紹頁更新版/進入學習繁體按鈕.png',
+        cn: '課程介紹頁更新版/進入學習簡體按鈕.png'
+    }
+};
+
+// 根據語言與單元更新課程介紹頁進入學習圖片
+function updateIntroImage() {
+    const img = document.querySelector('.intro-enter-btn');
+    if (!img) return;
+    const mapping = introImages[AppState.currentChapter];
+    if (mapping) {
+        img.dataset.tw = mapping.tw;
+        img.dataset.cn = mapping.cn;
+    }
+    const src = AppState.language === 'zh-CN' ? img.dataset.cn : img.dataset.tw;
+    if (src) img.src = src;
+}
+
+// ============================================
+// COURSEWARE COMMON SHELL
+// ============================================
+const coursewareConfig = {
+    quiz: {
+        bg: { tw: '課件背景/課前提問繁體背景.png', cn: '課件背景/課前提問簡體背景.png' },
+        logo: '課件logo按鈕/課前提問logo按鈕.png'
+    },
+    recognition: {
+        bg: { tw: '課件背景/識圖繁體背景.png', cn: '課件背景/識圖簡體背景.png' },
+        logo: '課件logo按鈕/識圖logo按鈕.png'
+    },
+    writing: {
+        bg: { tw: '課件背景/識字書寫繁體背景.png', cn: '課件背景/識字書寫簡體背景.png' },
+        logo: '課件logo按鈕/識字logo按鈕.png'
+    },
+    story: {
+        bg: { tw: '課件背景/故事繪本繁體背景.png', cn: '課件背景/故事繪本簡體背景.png' },
+        logo: '課件logo按鈕/遊戲繪本logo按鈕.png'
+    },
+    game: {
+        bg: { tw: '課件背景/遊戲繁體背景.png', cn: '課件背景/遊戲簡體背景.png' },
+        logo: '課件logo按鈕/課前提問logo按鈕.png'
+    }
+};
+
+const coursewareTabs = [
+    { key: 'quiz', y: 337.4, h: 90.7, twShort: '長短按鈕/課前提問繁體短按鈕.png', cnShort: '長短按鈕/課前提問簡體短按鈕.png', twLong: '長短按鈕/課前提問繁體長按鈕.png', cnLong: '長短按鈕/課前提問簡體長按鈕.png' },
+    { key: 'recognition', y: 426.9, h: 90.7, twShort: '長短按鈕/識圖繁體短按鈕.png', cnShort: '長短按鈕/識圖簡體短按鈕.png', twLong: '長短按鈕/識圖繁體長按鈕.png', cnLong: '長短按鈕/識圖簡體長按鈕.png' },
+    { key: 'writing', y: 516.4, h: 91.9, twShort: '長短按鈕/識字繁體短按鈕.png', cnShort: '長短按鈕/識字簡體短按鈕.png', twLong: '長短按鈕/識字繁體長按鈕.png', cnLong: '長短按鈕/識字簡體長按鈕.png' },
+    { key: 'story', y: 607.1, h: 90.7, twShort: '長短按鈕/繪本繁體短按鈕.png', cnShort: '長短按鈕/繪本簡體短按鈕.png', twLong: '長短按鈕/繪本繁體長按鈕.png', cnLong: '長短按鈕/繪本簡體長按鈕.png', twShortActive: '長短按鈕/繪本繁體短按鈕active.png', cnShortActive: '長短按鈕/繪本簡體短按鈕active.png', twLongActive: '長短按鈕/繪本繁體長按鈕active.png', cnLongActive: '長短按鈕/繪本簡體長按鈕active.png' },
+    { key: 'game', y: 696.6, h: 91.9, twShort: '長短按鈕/活動繁體短按鈕.png', cnShort: '長短按鈕/活動簡體短按鈕.png', twLong: '長短按鈕/活動繁體長按鈕.png', cnLong: '長短按鈕/活動簡體長按鈕.png' }
+];
+
+const coursewareContainerIds = {
+    quiz: 'quizContainer',
+    recognition: 'recognitionContainer',
+    writing: 'writingContainer',
+    story: 'storyContainer',
+    game: 'gameContainer'
+};
+
+function getCoursewareBgSrc(module) {
+    const cfg = coursewareConfig[module];
+    return AppState.language === 'zh-CN' ? cfg.bg.cn : cfg.bg.tw;
+}
+
+function getCoursewareTabSrc(tab, type) {
+    return AppState.language === 'zh-CN' ? tab['cn' + type] : tab['tw' + type];
+}
+
+function renderCoursewareTabs(activeKey) {
+    return `<div class="cw-tabs">` +
+        coursewareTabs.map(tab => {
+            const active = tab.key === activeKey ? 'active' : '';
+            const shortSrc = getCoursewareTabSrc(tab, 'Short');
+            const longSrc = active && tab.twLongActive ? getCoursewareTabSrc(tab, 'LongActive') : getCoursewareTabSrc(tab, 'Long');
+            const onclick = active ? '' : `onclick="switchLearningModule('${tab.key}')"`;
+            return `<div class="cw-tab ${active}" style="top:${tab.y}px;height:${tab.h}px;" ${onclick}>
+                <div class="cw-tab-long"><img src="${longSrc}" alt=""></div>
+                <div class="cw-tab-short" style="--tab-src:url('${shortSrc}')"><img src="${shortSrc}" alt=""></div>
+            </div>`;
+        }).join('') +
+    `</div>`;
+}
+
+function coursewareCanPrev(module) {
+    if (module === 'quiz') return quizState.currentIndex > 0;
+    if (module === 'recognition') return recognitionState.currentIndex > 0;
+    if (module === 'writing') return writingState.currentIndex > 0;
+    if (module === 'story' && storyState.view === 'reader') return storyState.currentPageIndex > 0;
+    if (module === 'game') return true;
+    return false;
+}
+
+function coursewareCanNext(module) {
+    if (module === 'quiz') return quizState.currentIndex < quizData.length - 1;
+    if (module === 'recognition') return recognitionState.currentIndex < recognitionData.length - 1;
+    if (module === 'writing') return writingState.currentIndex < writingData.length - 1;
+    if (module === 'story' && storyState.view === 'reader') {
+        const book = storyBooks[storyState.currentBookIndex];
+        return storyState.currentPageIndex < book.pages.length - 1;
+    }
+    if (module === 'game') return true;
+    return false;
+}
+
+function coursewarePrev(module) {
+    if (module === 'quiz') prevQuiz();
+    else if (module === 'recognition') prevRecognition();
+    else if (module === 'writing') prevWritingWord();
+    else if (module === 'story') {
+        if (storyState.view === 'reader') {
+            prevStoryPage();
+        } else if (storyState.currentBookIndex > 0) {
+            goToStory(storyState.currentBookIndex - 1);
+        }
+    } else if (module === 'game') {
+        if (gameState.currentActivity !== 'menu') {
+            backToGameMenu();
+        } else {
+            switchLearningModule('story');
+        }
+    }
+}
+
+function coursewareNext(module) {
+    if (module === 'quiz') nextQuiz();
+    else if (module === 'recognition') nextRecognition();
+    else if (module === 'writing') nextWritingWord();
+    else if (module === 'story') {
+        if (storyState.view === 'reader') nextStoryPage();
+        else if (storyState.currentBookIndex < storyBooks.length - 1) goToStory(storyState.currentBookIndex + 1);
+    } else if (module === 'game') {
+        if (gameState.currentActivity !== 'menu') {
+            backToGameMenu();
+        } else {
+            goToUnitEnd();
+        }
+    }
+}
+
+function applyCoursewareShell(moduleKey) {
+    const cfg = coursewareConfig[moduleKey];
+    const containerId = coursewareContainerIds[moduleKey];
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const content = container.innerHTML;
+    if (!content.trim()) return;
+
+    const prevDisabled = coursewareCanPrev(moduleKey) ? '' : 'disabled';
+    const nextDisabled = coursewareCanNext(moduleKey) ? '' : 'disabled';
+    const isGameMenu = moduleKey === 'game' && content.includes('game-menu-buttons');
+    const nextAction = isGameMenu
+        ? 'goToUnitEnd()'
+        : `coursewareNext('${moduleKey}')`;
+
+    container.innerHTML = `
+        <div class="cw-page cw-theme-${moduleKey}" data-module="${moduleKey}">
+            <img class="cw-bg" src="${getCoursewareBgSrc(moduleKey)}" alt="">
+            <img class="cw-back-logo" src="${cfg.logo}" onclick="goTo('chapters', event)" alt="返回">
+            ${renderCoursewareTabs(moduleKey)}
+            <div class="cw-prev-btn ${prevDisabled}" onclick="coursewarePrev('${moduleKey}')"></div>
+            <div class="cw-next-btn ${nextDisabled}" onclick="${nextAction}"></div>
+            <div class="cw-content">${content}</div>
+        </div>
+    `;
+
+    // 課件頁是動態生成的，必須重新計算縮放比例
+    if (typeof updateStageScale === 'function') {
+        updateStageScale('.cw-page', 1920, 1080);
+    }
+}
+
+function updateCoursewareImages() {
+    const page = document.querySelector('.cw-page');
+    if (!page) return;
+    const module = page.dataset.module;
+    if (!module || !coursewareConfig[module]) return;
+
+    const bg = page.querySelector('.cw-bg');
+    if (bg) bg.src = getCoursewareBgSrc(module);
+
+    page.querySelectorAll('.cw-tab').forEach((tabEl, i) => {
+        const tab = coursewareTabs[i];
+        if (!tab) return;
+        const short = tabEl.querySelector('.cw-tab-short');
+        const long = tabEl.querySelector('.cw-tab-long');
+        if (short) short.src = getCoursewareTabSrc(tab, 'Short');
+        if (long) long.src = getCoursewareTabSrc(tab, 'Long');
+    });
 }
 
 // ============================================
@@ -1272,9 +1539,10 @@ function playSong(id) {
 // ============================================
 // PAGE 7: CHAPTERS
 // ============================================
-function showVolume(vol) {
+function showVolume(vol, el) {
+    const target = el || event.currentTarget || event.target;
     document.querySelectorAll('.volume-tab').forEach(t => t.classList.remove('active'));
-    event.target.classList.add('active');
+    if (target) target.classList.add('active');
     document.querySelectorAll('.volume-content').forEach(c => c.classList.remove('active'));
     const content = document.getElementById('vol-content-' + vol);
     if (content) content.classList.add('active');
@@ -1291,7 +1559,7 @@ const chapterTitles = {
 
 function openChapter(num) {
     AppState.currentChapter = num;
-    updateIntroTitle();
+    updateIntroImage();
     goTo('intro');
 }
 
@@ -1532,15 +1800,18 @@ function goToPoemPlayer(index) {
     const poem = poemData[index];
     const container = document.getElementById('gameContainer');
     if (!container) return;
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     container.innerHTML = `
         <div class="poem-player-page">
-            <button class="btn-back-player" onclick="closePoemPlayer()" title="${t('back')}">◀</button>
-            <div class="btn-logo-player">${t('logoChar')}</div>
-            <div class="poem-player-wrapper">
-                <iframe src="https://www.youtube.com/embed/${poem.videoId}?rel=0"
-                    allowfullscreen
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                </iframe>
+            <div class="poem-player-stage" style="--scale: ${scale}">
+                <img class="poem-player-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+                <img class="poem-player-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="closePoemPlayer()">
+                <div class="poem-player-wrapper">
+                    <iframe src="https://www.youtube.com/embed/${poem.videoId}?rel=0"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
             </div>
         </div>
     `;
@@ -1726,33 +1997,82 @@ const storyBooks = [
         id: 'hands',
         title: '千變萬化的手',
         cover: '圖書封面/book_cover_hands.png',
+        card: {
+            tw: '故事繪本頁面更新版/故事卡片/11課故事一繁體.png',
+            cn: '故事繪本頁面更新版/故事卡片/11課故事一簡體.png',
+            width: 411.9, height: 587.3, x: 365.4, y: 247.5
+        },
         pages: [
-            { image: null, text: '我們每個人都有兩隻手。手可以做很多很多的事情。', question: null },
-            { image: null, text: '用手可以推門、拉窗，還可以握手打招呼。', question: '你能用手做一個推的動作給老師看嗎？' },
-            { image: null, text: '手還可以畫畫、寫字、摺紙，做出美麗的作品。', question: null },
-            { image: null, text: '我們要愛護自己的雙手，保持乾淨，勤洗手。', question: '你知道什麼時候應該洗手嗎？' }
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 1.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 2.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 3.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 4.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 5.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 6.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/千變萬化的手/11課故事1問題1繁體.png', cn: '故事繪本頁面更新版/千變萬化的手/11課故事1問題1簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 7.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 8.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 9.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/千變萬化的手/11課故事1問題2繁體.png', cn: '故事繪本頁面更新版/千變萬化的手/11課故事1問題2簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 10.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 11.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/千變萬化的手/Picture 12.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/千變萬化的手/11課故事1問題3繁體.png', cn: '故事繪本頁面更新版/千變萬化的手/11課故事1問題3簡體.png' } }
         ]
     },
     {
         id: 'body',
         title: '我的身體',
         cover: '圖書封面/book_cover_body.png',
+        card: {
+            tw: '故事繪本頁面更新版/故事卡片/11課故事二繁體.png',
+            cn: '故事繪本頁面更新版/故事卡片/11課故事二簡體.png',
+            width: 389.2, height: 587.3, x: 776.7, y: 247.5
+        },
         pages: [
-            { image: null, text: '這是我的身體。我有頭、頸、軀幹、手和腳。', question: null },
-            { image: null, text: '頭上有眼睛、耳朵、鼻子和嘴巴，幫助我認識世界。', question: '你能指一指自己的眼睛在哪裡嗎？' },
-            { image: null, text: '身體可以跑、跳、走、坐，讓我做各種運動。', question: null },
-            { image: null, text: '我們要好好照顧自己的身體，吃得健康、多運動。', question: '你喜歡做什麼運動呢？' }
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture a.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture b.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture c.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/我的身體/11課故事2問題1繁體.png', cn: '故事繪本頁面更新版/我的身體/11課故事2問題1簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture d.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/我的身體/11課故事2問題2繁體.png', cn: '故事繪本頁面更新版/我的身體/11課故事2問題2簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture e.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture f.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture g.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/我的身體/11課故事2問題3繁體.png', cn: '故事繪本頁面更新版/我的身體/11課故事2問題3簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture h.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture i.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture j.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/我的身體/Picture k.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/我的身體/11課故事2問題4繁體.png', cn: '故事繪本頁面更新版/我的身體/11課故事2問題4簡體.png' } }
         ]
     },
     {
         id: 'eyes',
         title: '眼睛的故事',
         cover: '圖書封面/book_cover_eyes.png',
+        card: {
+            tw: '故事繪本頁面更新版/故事卡片/11課故事三繁體.png',
+            cn: '故事繪本頁面更新版/故事卡片/11課故事三簡體.png',
+            width: 389.2, height: 587.3, x: 1165.4, y: 247.5
+        },
         pages: [
-            { image: null, text: '每個人都有兩隻眼睛。眼睛讓我們看到美麗的世界。', question: null },
-            { image: null, text: '眼睛可以看到紅的花、綠的樹、藍的天和白雲。', question: '你現在能看到什麼顏色？' },
-            { image: null, text: '看書的時候要保持距離，不能靠得太近。', question: null },
-            { image: null, text: '看完電視或手機後，要讓眼睛休息一下，看看遠方。', question: '你知道怎樣做眼保健操嗎？' }
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 一.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 二.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 三.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 四.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/眼睛的故事/11課故事3問題1繁體.png', cn: '故事繪本頁面更新版/眼睛的故事/11課故事3問題1簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 五.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/眼睛的故事/11課故事3問題2繁體.png', cn: '故事繪本頁面更新版/眼睛的故事/11課故事3問題2簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 六.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 七.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 八.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 九.jpg' },
+            { type: 'question', image: { tw: '故事繪本頁面更新版/眼睛的故事/11課故事3問題3繁體.png', cn: '故事繪本頁面更新版/眼睛的故事/11課故事3問題3簡體.png' } },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 十.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 十一.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 十二.jpg' },
+            { type: 'image', image: '故事繪本頁面更新版/眼睛的故事/Picture 十三.jpg' }
         ]
     }
 ];
@@ -1782,48 +2102,26 @@ function renderStorySelection() {
     const container = document.getElementById('storyContainer');
     if (!container) return;
 
-    const booksHtml = storyBooks.map((book, index) => `
-        <div class="story-book-card" onclick="goToStory(${index})">
-            <div class="story-book-cover">
-                <img src="${book.cover}" alt="${t('storyBook' + (index + 1) + 'Title')}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'story-page-placeholder\'><span class=\'placeholder-icon\'>📖</span><span>${t('coverPlaceholder')}</span></div>';">
+    const booksHtml = storyBooks.map((book, index) => {
+        const src = AppState.language === 'zh-CN' ? book.card.cn : book.card.tw;
+        const c = book.card;
+        return `
+            <div class="story-book-card" onclick="goToStory(${index})" style="left:${c.x}px;top:${c.y}px;width:${c.width}px;height:${c.height}px;">
+                <img src="${src}" alt="${book.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'story-page-placeholder\'><span class=\'placeholder-icon\'>📖</span><span>${t('coverPlaceholder')}</span></div>';">
             </div>
-            <div class="story-book-title">${t('storyBook' + (index + 1) + 'Title')}</div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     container.innerHTML = `
         <div class="story-page">
-            <!-- 頭部 -->
-            <div class="story-header">
-                <button class="story-green-circle" onclick="switchLearningModule('quiz')">◀</button>
-                <div class="story-title-pill">${t('sectionStory')}</div>
-                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-
-            <!-- 右側功能標籤 -->
-            <div class="story-side-tabs">
-                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
-
-            <!-- 主內容 -->
             <div class="story-selection">
-                <div class="story-selection-title">${t('selectStoryBook')}</div>
                 <div class="story-books-grid">
                     ${booksHtml}
                 </div>
             </div>
-
-            <!-- 底部導航 -->
-            <div class="story-bottom-nav">
-                <button class="story-green-circle" onclick="prevSection()">◀</button>
-                <button class="story-green-circle" onclick="nextSection()">▶</button>
-            </div>
         </div>
     `;
+    applyCoursewareShell('story');
 }
 
 function goToStory(index) {
@@ -1846,57 +2144,26 @@ function renderStoryReader() {
 
     const book = storyBooks[storyState.currentBookIndex];
     const page = book.pages[storyState.currentPageIndex];
-    const isFirstPage = storyState.currentPageIndex === 0;
-    const isLastPage = storyState.currentPageIndex === book.pages.length - 1;
 
-    const imageHtml = page.image
-        ? `<img src="${page.image}" alt="${t('storyIllustration')}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="story-page-placeholder" style="display:none;"><span class="placeholder-icon">🖼️</span><span>${t('pagePlaceholder')}</span></div>`
-        : `<div class="story-page-placeholder"><span class="placeholder-icon">🖼️</span><span>${t('pagePlaceholder')}</span></div>`;
-
-    const questionHtml = page.question
-        ? `<div class="story-page-question">${t('storyBook' + (storyState.currentBookIndex + 1) + 'Page' + (storyState.currentPageIndex + 1) + 'Q')}</div>`
-        : '';
+    let contentHtml = '';
+    if (page.type === 'question') {
+        const src = AppState.language === 'zh-CN' ? page.image.cn : page.image.tw;
+        contentHtml = `<img class="story-reader-question" src="${src}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'story-page-placeholder\\'><span class=\\'placeholder-icon\\'>🖼️</span><span>${t('pagePlaceholder')}</span></div>';">`;
+    } else {
+        contentHtml = `
+            <img class="story-reader-card" src="故事繪本頁面更新版/故事頁面卡片.png" alt="">
+            <img class="story-reader-image" src="${page.image}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'story-page-placeholder\\'><span class=\\'placeholder-icon\\'>🖼️</span><span>${t('pagePlaceholder')}</span></div>';">
+        `;
+    }
 
     container.innerHTML = `
         <div class="story-page">
-            <!-- 頭部 -->
-            <div class="story-header">
-                <button class="story-green-circle" onclick="backToStorySelection()">◀</button>
-                <div class="story-title-pill">${t('storyBook' + (storyState.currentBookIndex + 1) + 'Title')}</div>
-                <div class="story-green-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-
-            <!-- 右側功能標籤 -->
-            <div class="story-side-tabs">
-                <div class="story-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="story-side-tab active" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="story-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
-
-            <!-- 主內容 -->
             <div class="story-reader">
-                <div class="story-reader-content">
-                    <div class="story-page-card">
-                        <div class="story-page-image">
-                            ${imageHtml}
-                        </div>
-                        <div class="story-page-text-area">
-                            ${questionHtml}
-                            <div class="story-page-indicator">${storyState.currentPageIndex + 1} / ${book.pages.length}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 底部導航 -->
-            <div class="story-bottom-nav">
-                <button class="story-green-circle" onclick="prevStoryPage()" ${isFirstPage ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
-                <button class="story-green-circle" onclick="nextStoryPage()" ${isLastPage ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+                ${contentHtml}
             </div>
         </div>
     `;
+    applyCoursewareShell('story');
 }
 
 function nextStoryPage() {
@@ -1974,7 +2241,7 @@ const gameMemoryData = [
 let gameState = {
     currentActivity: 'menu',
     matching: { selectedImage: null, selectedText: null, matched: new Set(), matchedPairs: [], imageOrder: null, textOrder: null },
-    quiz: { currentQ: 0, selected: new Set(), answered: false },
+    quiz: { currentQ: 0, selected: new Set(), answered: false, correctCount: 0 },
     memory: { cards: [], flipped: [], matched: new Set(), canFlip: true },
     score: 0
 };
@@ -1993,11 +2260,30 @@ function resetMatchingGame() {
 }
 
 function resetQuizGame() {
-    gameState.quiz = { currentQ: 0, selected: new Set(), answered: false };
+    gameState.quiz = { currentQ: 0, selected: new Set(), answered: false, correctCount: 0 };
 }
 
 function resetMemoryGame() {
     gameState.memory = { cards: [], flipped: [], matched: new Set(), canFlip: true };
+}
+
+const gameStarConfigs = {
+    matching: { count: 7, x: 742.6, y: 902.6, gap: 7, w: 48.7, h: 46.4 },
+    quiz:     { count: 4, x: 851.9, y: 902.6, gap: 7, w: 48.7, h: 46.4 },
+    memory:   { count: 6, x: 798.4, y: 902.6, gap: 7, w: 48.7, h: 46.4 }
+};
+
+function renderGameStars(game, earned) {
+    const cfg = gameStarConfigs[game];
+    if (!cfg) return '';
+    const starPath = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+    let html = '';
+    for (let i = 0; i < cfg.count; i++) {
+        const x = cfg.x + i * (cfg.w + cfg.gap);
+        const fill = i < earned ? '#FFD700' : '#BDBDBD';
+        html += `<div class="game-star" style="left:${x}px;top:${cfg.y}px;width:${cfg.w}px;height:${cfg.h}px;"><svg viewBox="0 0 24 24" fill="${fill}"><path d="${starPath}"/></svg></div>`;
+    }
+    return `<div class="game-stars-bar">${html}</div>`;
 }
 
 /* ---------- 活動選擇菜單 ---------- */
@@ -2006,42 +2292,33 @@ function renderGameMenu() {
     const container = document.getElementById('gameContainer');
     if (!container) return;
 
-    const cardsHtml = gameActivities.map(act => `
-        <div class="game-menu-card" onclick="startGameActivity('${act.id}')">
-            <div class="game-menu-icon">${act.icon}</div>
-            <div class="game-menu-name">${t('game'+act.id.charAt(0).toUpperCase()+act.id.slice(1))}</div>
+    gameState.currentActivity = 'menu';
+
+    const isCN = AppState.language === 'zh-CN';
+    const suffix = isCN ? '簡體' : '繁體';
+    const btns = [
+        { id: 'matching', src: `遊戲頁面更新版/圖案匹配${suffix}按鈕.png`, w: 411.9, h: 587.3, x: 365.4, y: 247.5 },
+        { id: 'quiz',     src: `遊戲頁面更新版/文字選擇${suffix}按鈕.png`, w: 389.2, h: 587.3, x: 776.7, y: 247.5 },
+        { id: 'memory',   src: `遊戲頁面更新版/記憶翻牌${suffix}按鈕.png`, w: 389.2, h: 587.3, x: 1165.4, y: 247.5 }
+    ];
+
+    const btnsHtml = btns.map(b => `
+        <div class="game-menu-btn" onclick="startGameActivity('${b.id}')" style="left:${b.x}px;top:${b.y}px;width:${b.w}px;height:${b.h}px;">
+            <img src="${b.src}" alt="">
         </div>
     `).join('');
 
     container.innerHTML = `
         <div class="game-page">
-            <div class="game-header">
-                <button class="game-purple-circle" onclick="switchLearningModule('story')">◀</button>
-                <div class="game-title-pill">${t('sectionGames')}</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-            <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
-            <div class="game-menu">
-                <div class="game-menu-title">${t('selectGameActivity')}</div>
-                <div class="game-menu-grid">${cardsHtml}</div>
-            </div>
-            <div class="game-bottom-nav">
-                <button class="game-purple-circle" onclick="prevSection()">◀</button>
-                <button class="game-purple-circle" onclick="nextSection()">▶</button>
-            </div>
-            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}" id="gameStar">⭐</div>
+            <div class="game-menu-buttons">${btnsHtml}</div>
         </div>
     `;
+    applyCoursewareShell('game');
 }
 
 function startGameActivity(id) {
     gameState.currentActivity = id;
+    document.querySelectorAll('.game-matching-lines').forEach(el => el.remove());
     if (id === 'matching') renderMatchingGame();
     else if (id === 'quiz') renderQuizGame();
     else if (id === 'memory') renderMemoryGame();
@@ -2049,7 +2326,17 @@ function startGameActivity(id) {
 
 function backToGameMenu() {
     gameState.currentActivity = 'menu';
+    document.querySelectorAll('.game-matching-lines').forEach(el => el.remove());
     renderGameMenu();
+}
+
+function goToUnitEnd() {
+    goTo('unit-end');
+}
+
+function unitEndBackToPrevious() {
+    goTo('learning');
+    switchLearningModule('game');
 }
 
 /* ---------- 活動1：圖案和文字配對 ---------- */
@@ -2084,39 +2371,28 @@ function renderMatchingGame() {
     `).join('');
 
     const progress = gameState.matching.matched.size;
-    const total = gameMatchingData.length;
 
     container.innerHTML = `
         <div class="game-page">
-            <div class="game-header">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">${t('gameMatching')}</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-            <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
             <div class="game-matching">
-                <div class="game-matching-title">${t('matchInstruction')}（${progress}/${total}）</div>
                 <div class="game-matching-area" id="matchingArea">
-                    <div class="game-matching-col">${imagesHtml}</div>
-                    <div class="game-matching-col">${textsHtml}</div>
+                    <div class="game-matching-row images">${imagesHtml}</div>
+                    <div class="game-matching-row texts">${textsHtml}</div>
                 </div>
             </div>
-            <div class="game-bottom-nav">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <button class="game-purple-circle" onclick="startGameActivity('quiz')">▶</button>
-            </div>
-            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+            ${renderGameStars('matching', progress)}
         </div>
     `;
 
-    // Draw connection lines for matched pairs
     requestAnimationFrame(() => drawMatchingLines());
+    applyCoursewareShell('game');
+
+    if (window.__matchingLinesResize) window.removeEventListener('resize', window.__matchingLinesResize);
+    window.__matchingLinesResize = () => {
+        if (gameState.currentActivity === 'matching') drawMatchingLines();
+        else document.querySelectorAll('.game-matching-lines').forEach(el => el.remove());
+    };
+    window.addEventListener('resize', window.__matchingLinesResize);
 }
 
 function handleMatchingClick(el) {
@@ -2162,6 +2438,7 @@ function handleMatchingClick(el) {
             }
         } else {
             // Wrong
+            playWrongSound();
             const imgEl = document.querySelector(`[data-hanzi="${gameState.matching.selectedImage}"][data-side="image"]`);
             const txtEl = document.querySelector(`[data-hanzi="${gameState.matching.selectedText}"][data-side="text"]`);
             if (imgEl) { imgEl.classList.add('game-shake'); setTimeout(() => imgEl.classList.remove('game-shake'), 400); }
@@ -2175,45 +2452,57 @@ function handleMatchingClick(el) {
     }
 }
 
+function getOffsetRelativeTo(el, ancestor) {
+    let x = 0;
+    let y = 0;
+    let cur = el;
+    while (cur && cur !== ancestor) {
+        x += cur.offsetLeft;
+        y += cur.offsetTop;
+        cur = cur.offsetParent;
+    }
+    return { x, y, w: el.offsetWidth, h: el.offsetHeight };
+}
+
 function drawMatchingLines() {
+    document.querySelectorAll('.game-matching-lines').forEach(el => el.remove());
+
+    if (gameState.matching.matchedPairs.length === 0) return;
+
     const area = document.getElementById('matchingArea');
     if (!area) return;
+    const page = area.closest('.game-page');
+    if (!page) return;
 
-    // Remove old lines
-    area.querySelectorAll('.game-matching-connect').forEach(el => el.remove());
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'game-matching-lines');
+    svg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10;overflow:visible;';
 
-    const areaRect = area.getBoundingClientRect();
-
-    gameState.matching.matchedPairs.forEach((pair, index) => {
+    gameState.matching.matchedPairs.forEach((pair) => {
         const imgEl = document.querySelector(`.game-matching-image[data-hanzi="${pair.image}"]`);
         const txtEl = document.querySelector(`.game-matching-text[data-hanzi="${pair.text}"]`);
         if (!imgEl || !txtEl) return;
 
-        const imgRect = imgEl.getBoundingClientRect();
-        const txtRect = txtEl.getBoundingClientRect();
+        const imgOff = getOffsetRelativeTo(imgEl, page);
+        const txtOff = getOffsetRelativeTo(txtEl, page);
 
-        const x1 = imgRect.right - areaRect.left;
-        const y1 = imgRect.top + imgRect.height / 2 - areaRect.top;
-        const x2 = txtRect.left - areaRect.left;
-        const y2 = txtRect.top + txtRect.height / 2 - areaRect.top;
+        const x1 = imgOff.x + imgOff.w / 2;
+        const y1 = imgOff.y + imgOff.h;
+        const x2 = txtOff.x + txtOff.w / 2;
+        const y2 = txtOff.y;
 
-        const dx = x2 - x1;
-        const dy = y2 - y1;
-        const length = Math.sqrt(dx * dx + dy * dy);
-        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-
-        const line = document.createElement('div');
-        line.className = 'game-matching-connect';
-        line.style.left = x1 + 'px';
-        line.style.top = y1 + 'px';
-        line.style.transform = `rotate(${angle}deg)`;
-        area.appendChild(line);
-        // Animate width from 0 for visual effect
-        requestAnimationFrame(() => {
-            line.style.transition = 'width 0.3s ease';
-            line.style.width = length + 'px';
-        });
+        const line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', x1);
+        line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2);
+        line.setAttribute('y2', y2);
+        line.setAttribute('stroke', '#E91E63');
+        line.setAttribute('stroke-width', '4');
+        svg.appendChild(line);
     });
+
+    page.appendChild(svg);
 }
 
 /* ---------- 活動2：文字選擇題 ---------- */
@@ -2224,54 +2513,40 @@ function renderQuizGame() {
 
     const q = gameQuizQuestions[gameState.quiz.currentQ];
     const gqi = gameState.quiz.currentQ;
-    const isLast = gameState.quiz.currentQ === gameQuizQuestions.length - 1;
 
     const cardsHtml = q.options.map((opt, i) => {
         let cls = 'game-quiz-card';
+        let mark = '';
         if (gameState.quiz.answered) {
-            if (Array.isArray(q.correct)) {
-                if (q.correct.includes(i)) cls += ' correct';
-                else if (gameState.quiz.selected.has(i)) cls += ' wrong';
-            } else {
-                if (i === q.correct) cls += ' correct';
-                else if (gameState.quiz.selected.has(i)) cls += ' wrong';
+            const isCorrect = Array.isArray(q.correct) ? q.correct.includes(i) : i === q.correct;
+            if (isCorrect) {
+                cls += ' correct';
+                mark = '<div class="game-quiz-mark">✓</div>';
+            } else if (gameState.quiz.selected.has(i)) {
+                cls += ' wrong';
+                mark = '<div class="game-quiz-mark">✗</div>';
             }
             cls += ' disabled';
         } else if (gameState.quiz.selected.has(i)) {
             cls += ' selected';
         }
-        return `<div class="${cls}" data-idx="${i}" onclick="handleQuizClick(${i})">${t('gameQuizQ' + gqi + 'Opt' + i)}</div>`;
+        return `<div class="${cls}" data-idx="${i}" onclick="handleQuizClick(${i})"><span>${t('gameQuizQ' + gqi + 'Opt' + i)}</span>${mark}</div>`;
     }).join('');
 
-    const multiHint = q.type === 'multi' ? '<div style="font-size:14px;color:#888;margin-bottom:10px;text-align:center;">${t(\'multiSelectHint\')}</div>' : '';
+    const multiHint = q.type === 'multi' ? `<div class="game-quiz-hint">${t('multiSelectHint')}</div>` : '';
 
     container.innerHTML = `
         <div class="game-page">
-            <div class="game-header">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">${t('gameQuiz')}</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-            <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
+            <div class="game-page-title">${t('gameQuiz')}</div>
             <div class="game-quiz">
-                <div style="font-size:16px;color:#8B5CF6;margin-bottom:8px;text-align:center;">${t('questionLabel')} ${gameState.quiz.currentQ + 1} / ${gameQuizQuestions.length}</div>
-                ${multiHint}
                 <div class="game-quiz-question">${t('gameQuizQ' + gqi)}</div>
+                ${multiHint}
                 <div class="game-quiz-cards">${cardsHtml}</div>
             </div>
-            <div class="game-bottom-nav">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <button class="game-purple-circle" onclick="startGameActivity('memory')">▶</button>
-            </div>
-            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+            ${renderGameStars('quiz', gameState.quiz.correctCount || 0)}
         </div>
     `;
+    applyCoursewareShell('game');
 }
 
 function handleQuizClick(idx) {
@@ -2287,6 +2562,7 @@ function handleQuizClick(idx) {
 
         if (anyWrongSelected) {
             gameState.quiz.answered = true;
+            playWrongSound();
             renderQuizGame();
             setTimeout(() => {
                 if (gameState.quiz.currentQ < gameQuizQuestions.length - 1) {
@@ -2304,6 +2580,7 @@ function handleQuizClick(idx) {
         } else if (allCorrectSelected) {
             gameState.quiz.answered = true;
             gameState.score++;
+            gameState.quiz.correctCount = (gameState.quiz.correctCount || 0) + 1;
             playCorrectSound();
             renderQuizGame();
             setTimeout(() => {
@@ -2328,7 +2605,10 @@ function handleQuizClick(idx) {
         gameState.quiz.answered = true;
         if (idx === q.correct) {
             gameState.score++;
+            gameState.quiz.correctCount = (gameState.quiz.correctCount || 0) + 1;
             playCorrectSound();
+        } else {
+            playWrongSound();
         }
         renderQuizGame();
         setTimeout(() => {
@@ -2353,20 +2633,25 @@ function renderMemoryGame() {
     const container = document.getElementById('gameContainer');
     if (!container) return;
 
-    // Initialize cards if empty
     if (gameState.memory.cards.length === 0) {
         const pairs = [...gameMemoryData].sort(() => Math.random() - 0.5).slice(0, 6);
         const hzk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
-    const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i, displayHanzi: t(hzk[item.hanzi] || item.hanzi) })).sort(() => Math.random() - 0.5);
+        const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i, displayHanzi: t(hzk[item.hanzi] || item.hanzi) })).sort(() => Math.random() - 0.5);
         gameState.memory.cards = deck;
     }
 
+    const tops = [227.4, 442.9, 658.4];
     const gridHtml = gameState.memory.cards.map((card, i) => {
         const isFlipped = gameState.memory.flipped.includes(i) || gameState.memory.matched.has(i);
         const isMatched = gameState.memory.matched.has(i);
+        const col = i % 4;
+        const row = Math.floor(i / 4);
+        const left = 538.5 + col * 213.2;
+        const top = tops[row];
         return `
             <div class="game-memory-card ${isFlipped ? 'flipped' : ''} ${isMatched ? 'matched' : ''}"
-                 data-idx="${i}" onclick="handleMemoryClick(${i})">
+                 data-idx="${i}" onclick="handleMemoryClick(${i})"
+                 style="left:${left}px;top:${top}px;">
                 <div class="game-memory-card-inner">
                     <div class="game-memory-front">?</div>
                     <div class="game-memory-back">
@@ -2377,34 +2662,17 @@ function renderMemoryGame() {
         `;
     }).join('');
 
-    const progress = gameState.memory.matched.size;
-    const total = gameState.memory.cards.length;
+    const pairsMatched = gameState.memory.matched.size / 2;
 
     container.innerHTML = `
         <div class="game-page">
-            <div class="game-header">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <div class="game-title-pill">${t('gameMemory')}</div>
-                <div class="game-purple-circle" style="font-size:22px;font-weight:bold;">${t('logoChar')}</div>
-            </div>
-            <div class="game-side-tabs">
-                <div class="game-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="game-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="game-side-tab active" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
             <div class="game-memory">
-                <div class="game-memory-title">${t('memoryInstruction')}（${progress}/${total}）</div>
                 <div class="game-memory-grid">${gridHtml}</div>
             </div>
-            <div class="game-bottom-nav">
-                <button class="game-purple-circle" onclick="backToGameMenu()">◀</button>
-                <button class="game-purple-circle" onclick="renderWritingPage()">▶</button>
-            </div>
-            <div class="game-star-score ${gameState.score > 0 ? 'earned' : ''}">⭐</div>
+            ${renderGameStars('memory', pairsMatched)}
         </div>
     `;
+    applyCoursewareShell('game');
 }
 
 function handleMemoryClick(idx) {
@@ -2440,6 +2708,7 @@ function handleMemoryClick(idx) {
             }, 600);
         } else {
             // No match
+            playWrongSound();
             setTimeout(() => {
                 mem.flipped = [];
                 mem.canFlip = true;
@@ -2466,6 +2735,7 @@ function renderWritingPage() {
             <button class="game-writing-done-btn" onclick="goToLevels()" title="${t('complete')}">✓</button>
         </div>
     `;
+    applyCoursewareShell('game');
 }
 
 function goToLevels() {
@@ -2480,19 +2750,18 @@ function goToLevels() {
 /* ---------- 通用輔助函數 ---------- */
 
 function playCorrectSound() {
-    // 使用 Web Audio API 播放簡單的正確音效
     try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.frequency.value = 880;
-        osc.type = 'sine';
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
-        osc.start(ctx.currentTime);
-        osc.stop(ctx.currentTime + 0.3);
+        const audio = new Audio('音效/correct_answer copy.mp3');
+        audio.volume = 0.5;
+        audio.play().catch(() => {});
+    } catch(e) {}
+}
+
+function playWrongSound() {
+    try {
+        const audio = new Audio('音效/wrong_answer copy.mp3');
+        audio.volume = 0.5;
+        audio.play().catch(() => {});
     } catch(e) {}
 }
 
@@ -2814,7 +3083,7 @@ const quizData = [
     {
         type: 'choice',
         mode: 'multi',
-        question: '小朋友，你知道我們的身體有哪些部位嗎？點擊正確的答案！',
+        question: '小朋友，你知道我們的身體有哪些部位嗎？',
         options: [
             { icon: '👄', label: '嘴巴', correct: true },
             { icon: '👂', label: '耳朵', correct: true },
@@ -2861,9 +3130,9 @@ const quizData = [
         question: '眉毛在那裡？',
         buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
         activeButton: '眉毛',
-        regions: [
-            { x1: 33, y1: 38.5, x2: 43, y2: 41.5, cx: 38, cy: 40 },
-            { x1: 56.5, y1: 38.5, x2: 66.5, y2: 41.5, cx: 62, cy: 40 }
+        landmarks: [
+            { cx: 38.0, cy: 42.0, w: 50, h: 20 },
+            { cx: 61.0, cy: 42.0, w: 50, h: 20 }
         ]
     },
     {
@@ -2872,9 +3141,9 @@ const quizData = [
         question: '眼睛在那裡？',
         buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
         activeButton: '眼睛',
-        regions: [
-            { x1: 35.5, y1: 43, x2: 43.5, y2: 48.5, cx: 39.5, cy: 46 },
-            { x1: 56.5, y1: 43, x2: 64.5, y2: 48.5, cx: 60.5, cy: 46 }
+        landmarks: [
+            { cx: 40.0, cy: 49.0, w: 45, h: 30 },
+            { cx: 59.0, cy: 49.0, w: 45, h: 30 }
         ]
     },
     {
@@ -2883,8 +3152,8 @@ const quizData = [
         question: '鼻子在那裡？',
         buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
         activeButton: '鼻子',
-        regions: [
-            { x1: 47, y1: 50, x2: 53, y2: 57.5, cx: 50, cy: 53.5 }
+        landmarks: [
+            { cx: 50.0, cy: 55.0, w: 40, h: 55 }
         ]
     },
     {
@@ -2893,9 +3162,9 @@ const quizData = [
         question: '耳朵在那裡？',
         buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
         activeButton: '耳朵',
-        regions: [
-            { x1: 23, y1: 47.5, x2: 30, y2: 58, cx: 26.5, cy: 52.5 },
-            { x1: 70.5, y1: 47.5, x2: 77.5, y2: 58, cx: 73.5, cy: 52.5 }
+        landmarks: [
+            { cx: 27.0, cy: 54.0, w: 38, h: 75 },
+            { cx: 72.0, cy: 54.0, w: 38, h: 75 }
         ]
     },
     {
@@ -2904,8 +3173,8 @@ const quizData = [
         question: '嘴巴在那裡？',
         buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
         activeButton: '嘴巴',
-        regions: [
-            { x1: 45.5, y1: 62, x2: 54.5, y2: 67, cx: 50, cy: 64.5 }
+        landmarks: [
+            { cx: 50.0, cy: 66.0, w: 58, h: 32 }
         ]
     }
 ];
@@ -2964,7 +3233,6 @@ function renderQuiz() {
             <div class="quiz-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
             <div class="quiz-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
         </div>
-        <div class="quiz-star-score ${hasScore ? 'earned' : ''}" id="quizStar">⭐</div>
     `;
     
     if (q.type === 'choice') {
@@ -2981,6 +3249,7 @@ function renderQuiz() {
     `;
     
     container.innerHTML = html;
+    applyCoursewareShell('quiz');
 }
 
 function renderChoiceQuestion(q) {
@@ -3036,10 +3305,17 @@ function handleCardClick(index, isCorrect) {
     const q = quizData[quizState.currentIndex];
     
     if (q.mode === 'multi') {
-        if (quizState.selectedCards.has(index)) {
+        const wasSelected = quizState.selectedCards.has(index);
+        if (wasSelected) {
             quizState.selectedCards.delete(index);
         } else {
             quizState.selectedCards.add(index);
+            // 每選擇一個正確答案播放一次答對音效；選到錯誤選項播放答錯音效
+            if (q.options[index].correct) {
+                playCorrectSound();
+            } else {
+                playWrongSound();
+            }
         }
         
         const correctIndices = q.options.map((o, i) => o.correct ? i : -1).filter(i => i !== -1);
@@ -3059,10 +3335,12 @@ function handleCardClick(index, isCorrect) {
             quizState.selectedCards = new Set([index]);
             if (!quizState.scores[quizState.currentIndex]) {
                 quizState.scores[quizState.currentIndex] = true;
+                playCorrectSound();
                 playConfetti();
             }
         } else {
             quizState.selectedCards = new Set([index]);
+            playWrongSound();
         }
         renderQuiz();
     }
@@ -3071,68 +3349,88 @@ function handleCardClick(index, isCorrect) {
 function handlePhotoClick(event) {
     const q = quizData[quizState.currentIndex];
     const area = document.getElementById('photoArea');
-    if (!area || !q.regions) return;
-    
-    const rect = area.getBoundingClientRect();
-    const xPct = ((event.clientX - rect.left) / rect.width) * 100;
-    const yPct = ((event.clientY - rect.top) / rect.height) * 100;
-    
-    // 檢查是否落在正確區域內
-    let matchedRegion = null;
-    for (const r of q.regions) {
-        if (xPct >= r.x1 && xPct <= r.x2 && yPct >= r.y1 && yPct <= r.y2) {
-            matchedRegion = r;
-            break;
+    if (!area || !q.landmarks || q.landmarks.length === 0) return;
+
+    // 容器設計尺寸與圖片實際顯示尺寸（object-fit: contain）
+    const AREA_W = 750;
+    const AREA_H = 580;
+    const IMG_SIZE = 580;
+    const IMG_OFFSET_X = 85;
+
+    const areaRect = area.getBoundingClientRect();
+    const scale = areaRect.width / AREA_W;
+
+    // 把點擊位置換算成容器設計座標
+    const xDesign = (event.clientX - areaRect.left) / scale;
+    const yDesign = (event.clientY - areaRect.top) / scale;
+
+    // 換算成相對於 580×580 圖片區域的座標與百分比
+    const imgX = xDesign - IMG_OFFSET_X;
+    const imgY = yDesign;
+    if (imgX < 0 || imgX > IMG_SIZE || imgY < 0 || imgY > IMG_SIZE) return;
+
+    const xPct = (imgX / IMG_SIZE) * 100;
+    const yPct = (imgY / IMG_SIZE) * 100;
+
+    // 找到最近的五官中心點
+    let nearest = null;
+    let minDist = Infinity;
+    for (const lm of q.landmarks) {
+        const dx = xPct - lm.cx;
+        const dy = yPct - lm.cy;
+        const dist = dx * dx + dy * dy;
+        if (dist < minDist) {
+            minDist = dist;
+            nearest = lm;
         }
     }
-    
-    if (matchedRegion) {
-        // 正確！
-        playPopSound();
-        
-        // 保存標記
-        quizState.markers.push({
-            left: matchedRegion.cx,
-            top: matchedRegion.cy,
-            w: 80,
-            h: 50
-        });
-        
-        if (!quizState.scores[quizState.currentIndex]) {
-            quizState.scores[quizState.currentIndex] = true;
-        }
-        
-        renderQuiz();
-        
-        // 最後一題播放紙屑並清除標記
-        if (quizState.currentIndex === quizData.length - 1) {
-            setTimeout(() => {
-                playConfetti();
-                setTimeout(() => {
-                    quizState.markers = [];
-                    renderQuiz();
-                }, 3000);
-            }, 400);
-        } else {
-            // 自動進入下一題
-            setTimeout(() => {
-                nextQuiz();
-            }, 800);
-        }
-    } else {
-        // 錯誤！顯示紅叉 + 震動
-        const wrongEl = document.createElement('div');
-        wrongEl.className = 'quiz-photo-wrong';
-        wrongEl.textContent = '✕';
-        wrongEl.style.left = xPct + '%';
-        wrongEl.style.top = yPct + '%';
-        area.appendChild(wrongEl);
-        
-        area.classList.add('shake');
+
+    if (!nearest) return;
+
+    // 判斷點擊位置是否在該五官的標記範圍內
+    const halfWPct = (nearest.w / 2 / IMG_SIZE) * 100;
+    const halfHPct = (nearest.h / 2 / IMG_SIZE) * 100;
+    const threshold = halfWPct * halfWPct + halfHPct * halfHPct;
+    const isCorrect = minDist <= threshold;
+
+    if (!isCorrect) {
+        playWrongSound();
+        return;
+    }
+
+    // 把中心點轉回容器百分比，讓標記正確貼在圖片上
+    const leftPct = ((nearest.cx / 100) * IMG_SIZE + IMG_OFFSET_X) / AREA_W * 100;
+    const topPct = (nearest.cy / 100) * IMG_SIZE / AREA_H * 100;
+
+    playCorrectSound();
+
+    quizState.markers.push({
+        left: leftPct,
+        top: topPct,
+        w: nearest.w,
+        h: nearest.h
+    });
+
+    if (!quizState.scores[quizState.currentIndex]) {
+        quizState.scores[quizState.currentIndex] = true;
+    }
+
+    renderQuiz();
+
+    // 最後一題播放紙屑並清除標記
+    if (quizState.currentIndex === quizData.length - 1) {
         setTimeout(() => {
-            area.classList.remove('shake');
-            wrongEl.remove();
-        }, 600);
+            playConfetti();
+            setTimeout(() => {
+                quizState.markers = [];
+                renderQuiz();
+            }, 3000);
+        }, 400);
+    } else {
+        // 自動進入下一題
+        setTimeout(() => {
+            nextQuiz();
+        }, 800);
     }
 }
 
@@ -3202,67 +3500,38 @@ function renderRecognition() {
     if (!container) return;
 
     const item = recognitionData[recognitionState.currentIndex];
-    const isFirst = recognitionState.currentIndex === 0;
-    const isLast = recognitionState.currentIndex === recognitionData.length - 1;
     const hk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
 
     const html = `
         <div class="recognition-page">
-            <!-- 頭部 -->
-            <div class="rec-header">
-                <button class="rec-blue-circle" onclick="switchLearningModule('quiz')">◀</button>
-                <div class="rec-title-pill">${t('sectionLearning')}</div>
-                <div class="rec-blue-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">${t('logoChar')}</div>
+            <!-- 上方 7 個詞彙圓圈 -->
+            <div class="rec-word-nav">
+                ${recognitionData.map((w, i) => `<button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${t(hk[w.hanzi] || w.hanzi)}</button>`).join('')}
             </div>
 
-            <!-- 右側功能標籤 -->
-            <div class="rec-side-tabs">
-                <div class="rec-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="rec-side-tab active" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="rec-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
-
-            <!-- 主內容 -->
-            <div class="rec-content">
-                <!-- 詞彙導航 -->
-                <div class="rec-word-nav">
-                    ${recognitionData.map((w, i) => `<button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${t(hk[w.hanzi] || w.hanzi)}</button>`).join('')}
-                </div>
-
-                <!-- 圖片與文字區域 -->
-                <div class="rec-main-area">
-                    <!-- 左側圖片 -->
-                    <div class="rec-image-area">
-                        <img src="${item.image}" alt="${t(hk[item.hanzi] || item.hanzi)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-                        <div style="width:100%;height:100%;border-radius:24px;display:none;align-items:center;justify-content:center;background:${item.color}22;border:4px dashed ${item.color};box-shadow:0 8px 30px rgba(0,0,0,0.12);">
-                            <div style="text-align:center;">
-                                <div style="font-size:120px;color:${item.color};font-weight:bold;">${t(hk[item.hanzi] || item.hanzi)}</div>
-                                <div style="font-size:16px;color:#888;margin-top:10px;">${t('bodyPartDiagram')}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 右側文字 -->
-                    <div class="rec-text-area">
-                        <button class="rec-speaker" onclick="playPronunciation()" title="${t('playAudio')}">🔊</button>
-                        <div class="rec-pinyin">${item.pinyin}</div>
-                        <div class="rec-hanzi">${t(hk[item.hanzi] || item.hanzi)}</div>
-                        <div class="rec-definition">${t('recDef' + (recognitionState.currentIndex + 1))}</div>
+            <!-- 左側圖片 -->
+            <div class="rec-image-area">
+                <img src="${item.image}" alt="${t(hk[item.hanzi] || item.hanzi)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="rec-image-fallback" style="background:${item.color}22;border:4px dashed ${item.color};">
+                    <div style="text-align:center;">
+                        <div style="font-size:120px;color:${item.color};font-weight:bold;">${t(hk[item.hanzi] || item.hanzi)}</div>
+                        <div style="font-size:16px;color:#888;margin-top:10px;">${t('bodyPartDiagram')}</div>
                     </div>
                 </div>
             </div>
 
-            <!-- 底部導航 -->
-            <div class="rec-bottom-nav">
-                <button class="rec-blue-circle" onclick="prevRecognition()" ${recognitionState.currentIndex === 0 ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
-                <button class="rec-blue-circle" onclick="nextRecognition()" ${recognitionState.currentIndex === recognitionData.length - 1 ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+            <!-- 右側文字 -->
+            <div class="rec-text-area">
+                <button class="rec-speaker" onclick="playPronunciation()" title="${t('playAudio')}">🔊</button>
+                <div class="rec-pinyin">${item.pinyin}</div>
+                <div class="rec-hanzi">${t(hk[item.hanzi] || item.hanzi)}</div>
+                <div class="rec-definition">${t('recDef' + (recognitionState.currentIndex + 1))}</div>
             </div>
         </div>
     `;
 
     container.innerHTML = html;
+    applyCoursewareShell('recognition');
 }
 
 let recCurrentAudio = null;
@@ -3334,6 +3603,13 @@ function switchLearningModule(module) {
     const learningPage = document.getElementById('learningPage');
 
     if (!quizContainer || !recognitionContainer) return;
+
+    // 更新全局狀態
+    const sectionMap = { quiz: 0, recognition: 1, writing: 8, story: 9, game: 10 };
+    const mainMap = { quiz: 'intro', recognition: 'learning', writing: 'writing', story: 'story', game: 'games' };
+    AppState.currentSection = sectionMap[module] ?? 0;
+    currentMainSection = mainMap[module] ?? 'intro';
+    AppState.currentLearningModule = module;
 
     // 全部隱藏
     quizContainer.style.display = 'none';
@@ -3449,85 +3725,63 @@ function renderWriting() {
     if (!container) return;
 
     const item = writingData[writingState.currentIndex];
-    const isFirst = writingState.currentIndex === 0;
-    const isLast = writingState.currentIndex === writingData.length - 1;
     const whk = {'頭': 'headChar', '耳': 'earChar', '腳': 'footChar', '鼻': 'noseChar', '眼': 'eyeChar', '口': 'mouthChar', '手': 'handChar'};
+    const riceGridSvg = `<svg class="writing-rice-grid" viewBox="0 0 200 200" preserveAspectRatio="none">
+        <line x1="100" y1="0" x2="100" y2="200" />
+        <line x1="0" y1="100" x2="200" y2="100" />
+        <line x1="0" y1="0" x2="200" y2="200" />
+        <line x1="200" y1="0" x2="0" y2="200" />
+    </svg>`;
 
     const html = `
         <div class="writing-page">
-            <!-- 頭部 -->
-            <div class="writing-header">
-                <button class="writing-orange-circle" onclick="switchLearningModule('recognition')">◀</button>
-                <div class="writing-title-pill">${t('sectionWriting')}</div>
-                <div class="writing-orange-circle" style="font-size:22px;font-weight:bold;margin-right:12px;">${t('logoChar')}</div>
+            <!-- 上方 7 個詞彙圓圈 -->
+            <div class="writing-word-nav">
+                ${writingData.map((w, i) =>
+                    `<button class="writing-word-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${t(whk[w.hanzi] || w.hanzi)}</button>`
+                ).join('')}
             </div>
 
-            <!-- 右側功能標籤 -->
-            <div class="writing-side-tabs">
-                <div class="writing-side-tab" onclick="switchLearningModule('quiz')"><span>❓</span> ${t('sectionIntro')}</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('recognition')"><span>👁️</span> ${t('sectionLearning')}</div>
-                <div class="writing-side-tab active" onclick="switchLearningModule('writing')"><span>✏️</span> ${t('sectionWriting')}</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('story')"><span>📚</span> ${t('sectionStory')}</div>
-                <div class="writing-side-tab" onclick="switchLearningModule('game')"><span>🎮</span> ${t('sectionGames')}</div>
-            </div>
-
-            <!-- 主內容 -->
-            <div class="writing-content">
-                <!-- 左側字詞選擇 -->
-                <div class="writing-word-grid">
-                    ${writingData.map((w, i) => {
-                        return `<button class="writing-grid-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${t(whk[w.hanzi] || w.hanzi)}</button>`;
-                    }).join('')}
+            <!-- 左邊筆順展示區域 -->
+            <div class="writing-stroke-area">
+                <div class="writing-model-box" id="writingModelBox">
+                    ${riceGridSvg}
+                    <div class="writing-model-char">${t(whk[item.hanzi] || item.hanzi)}</div>
+                    <video 
+                        id="writingStrokeVideo"
+                        class="writing-stroke-video"
+                        style="display:none;"
+                        preload="auto"
+                        autoplay
+                        playsinline
+                        muted
+                        onended="hideWritingVideo()"
+                    ></video>
                 </div>
-
-                <!-- 中間練習區 -->
-                <div class="writing-practice-area">
-                    <!-- 大字範本區 -->
-                    <div class="writing-model-wrapper">
-                        <div class="writing-model-box" id="writingModelBox">
-                            <svg class="writing-rice-grid" viewBox="0 0 200 200">
-                                <line x1="100" y1="0" x2="100" y2="200" />
-                                <line x1="0" y1="100" x2="200" y2="100" />
-                                <line x1="0" y1="0" x2="200" y2="200" />
-                                <line x1="200" y1="0" x2="0" y2="200" />
-                            </svg>
-                            <div class="writing-model-char">${t(whk[item.hanzi] || item.hanzi)}</div>
-                            <video 
-                                id="writingStrokeVideo"
-                                class="writing-stroke-video"
-                                style="display:none;"
-                                preload="auto"
-                                autoplay
-                                playsinline
-                                muted
-                                onended="hideWritingVideo()"
-                            ></video>
-                        </div>
-                        <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="${t('strokeAnimation')}">✏️</button>
-                    </div>
-
-                    <!-- 手寫練習區 -->
-                    <div class="writing-canvas-area">
-                        <div class="writing-canvas-box" id="writingCanvasBox">
-                            <canvas id="writingCanvas" width="640" height="640"></canvas>
-                        </div>
-                        <div class="writing-action-btns">
-                            <button class="writing-btn-clear" onclick="clearWritingCanvas()">${t('clear')}</button>
-                            <button class="writing-btn-done" onclick="nextWritingWord()">${t('complete')}</button>
-                        </div>
-                    </div>
-                </div>
+                <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="${t('strokeAnimation')}">✏️</button>
             </div>
 
-            <!-- 底部導航 -->
-            <div class="writing-bottom-nav">
-                <button class="writing-orange-circle" onclick="prevWritingWord()" ${isFirst ? 'style="opacity:0.3;pointer-events:none;"' : ''}>◀</button>
-                <button class="writing-orange-circle" onclick="nextWritingWord()" ${isLast ? 'style="opacity:0.3;pointer-events:none;"' : ''}>▶</button>
+            <!-- 右邊手寫練習區域 -->
+            <div class="writing-canvas-area">
+                <div class="writing-canvas-box" id="writingCanvasBox">
+                    <svg class="writing-canvas-grid" viewBox="0 0 200 200" preserveAspectRatio="none">
+                        <line x1="100" y1="0" x2="100" y2="200" />
+                        <line x1="0" y1="100" x2="200" y2="100" />
+                        <line x1="0" y1="0" x2="200" y2="200" />
+                        <line x1="200" y1="0" x2="0" y2="200" />
+                    </svg>
+                    <canvas id="writingCanvas" width="640" height="640"></canvas>
+                </div>
+                <div class="writing-action-btns">
+                    <button class="writing-btn-clear" onclick="clearWritingCanvas()">${t('clear')}</button>
+                    <button class="writing-btn-done" onclick="nextWritingWord()">${t('complete')}</button>
+                </div>
             </div>
         </div>
     `;
 
     container.innerHTML = html;
+    applyCoursewareShell('writing');
 
     // 初始化 Canvas
     setTimeout(initWritingCanvas, 50);
@@ -3610,7 +3864,7 @@ function initWritingCanvas() {
     const box = document.getElementById('writingCanvasBox');
     if (!canvas || !box) return;
 
-    // 設置 Canvas 實際像素尺寸與顯示尺寸一致
+    // 設置 Canvas 實際像素尺寸為顯示尺寸的 2 倍（Retina 清晰）
     const rect = box.getBoundingClientRect();
     canvas.width = rect.width * 2;
     canvas.height = rect.height * 2;
@@ -3618,10 +3872,9 @@ function initWritingCanvas() {
     canvas.style.height = rect.height + 'px';
 
     const ctx = canvas.getContext('2d');
-    ctx.scale(2, 2);
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 8;
     ctx.strokeStyle = '#333333';
     writingCanvasCtx = ctx;
 
@@ -3640,9 +3893,12 @@ function initWritingCanvas() {
 function getCanvasPos(e) {
     const canvas = document.getElementById('writingCanvas');
     const rect = canvas.getBoundingClientRect();
+    // 考慮 Canvas 實際像素與顯示尺寸的縮放比例（適用 Retina 及 CSS transform 縮放）
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     return {
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
     };
 }
 
@@ -3692,8 +3948,7 @@ function writingTouchMove(e) {
 function clearWritingCanvas() {
     const canvas = document.getElementById('writingCanvas');
     if (!canvas || !writingCanvasCtx) return;
-    const rect = canvas.getBoundingClientRect();
-    writingCanvasCtx.clearRect(0, 0, rect.width * 2, rect.height * 2);
+    writingCanvasCtx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function nextWritingWord() {
@@ -3716,3 +3971,16 @@ function goToWriting(index) {
         renderWriting();
     }
 }
+
+// 備援：遊戲活動選擇頁面的右箭嘴點擊直接進入單元結束頁面
+document.addEventListener('click', function(e) {
+    const nextBtn = e.target.closest('.cw-next-btn');
+    if (!nextBtn) return;
+    const page = nextBtn.closest('.cw-page');
+    if (!page || page.dataset.module !== 'game') return;
+    const menu = page.querySelector('.game-menu-buttons');
+    if (!menu) return;
+    e.preventDefault();
+    e.stopPropagation();
+    goToUnitEnd();
+}, true);

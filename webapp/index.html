@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title data-i18n="siteTitle">大地幼教学材 - 学习平台</title>
-    <link rel="stylesheet" href="new-design.css?v=27">
+    <link rel="stylesheet" href="new-design.css?v=44">
+    <script>
+        (function() {
+            function updateStageScale(selector, width, height) {
+                document.querySelectorAll(selector).forEach(stage => {
+                    const scale = Math.min(window.innerWidth / width, window.innerHeight / height);
+                    stage.style.setProperty('--scale', scale);
+                });
+            }
+            window.updateStageScale = updateStageScale;
+            function updateAllStages() {
+                updateStageScale('.home-page-new', 1920, 1080);
+                updateStageScale('.char-page-v2', 1920, 1080);
+                updateStageScale('.levels-page', 1920, 1080);
+                updateStageScale('.cats-page', 1920, 1080);
+                updateStageScale('.poems-page', 1920, 1080);
+                updateStageScale('.poem-player-stage', 1920, 1080);
+                updateStageScale('.songs-menu-page', 1920, 1080);
+                updateStageScale('.intro-page', 1920, 1080);
+                updateStageScale('.chapters-page', 1920, 1080);
+                updateStageScale('.cw-page', 1920, 1080);
+                updateStageScale('.unit-end-page', 1920, 1080);
+            }
+            window.addEventListener('DOMContentLoaded', updateAllStages);
+            window.addEventListener('resize', updateAllStages);
+        })();
+    </script>
 
 </head>
 <body>
@@ -17,213 +46,215 @@
             </div>
             
             <!-- 開始學習按鈕 -->
-            <button class="start-learning-btn" onclick="goToChars()">
-                <span class="btn-text" data-i18n="startLearning">開始學習</span>
-            </button>
+            <img class="start-learning-btn" src="第一頁元素更新版/首頁進入按鈕.png" alt="開始學習" onclick="goToChars()">
         </div>
     </section>
 
     <!-- PAGE 2: CHARACTER SELECTION -->
     <section id="page-chars" class="page">
         <div class="char-page-v2">
-            <!-- Background -->
-            <img src="page2-bg-new.png" class="char2-bg" alt="background">
-            
-            <!-- Back button -->
-            <button class="char2-back" onclick="goTo('welcome', event)">◀</button>
-            
-            <!-- Name + Language inputs (center, slightly upper) -->
-            <div class="char2-inputs">
-                <input type="text" class="char2-name" placeholder="Enter your name" id="playerName" maxlength="8">
-                <div class="char2-lang-label">Select Language</div>
-                <div class="char2-lang">
-                    <button class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)" data-i18n="langTW">繁體中文</button>
-                    <button class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)" data-i18n="langCN">简体中文</button>
-                </div>
-            </div>
-            
-            <!-- Hint on the right -->
-            <div class="char2-hint" id="charSelectHint">Choose a learning partner!</div>
-            
-            <!-- 9 Characters on the light gray ground -->
-            <div class="char2-row">
-                <div class="char2-item" onclick="selectCharAuto(this, '人1', event)"><img src="人1.png" alt="人1"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人2', event)"><img src="人2.png" alt="人2"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人3', event)"><img src="人3.png" alt="人3"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人4', event)"><img src="人4.png" alt="人4"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人5', event)"><img src="人5.png" alt="人5"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人6', event)"><img src="人6.png" alt="人6"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人7', event)"><img src="人7.png" alt="人7"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人8', event)"><img src="人8.png" alt="人8"></div>
-                <div class="char2-item" onclick="selectCharAuto(this, '人9', event)"><img src="人9.png" alt="人9"></div>
+            <!-- 背景 -->
+            <img class="char2-bg" src="第二頁元素更新版/第二頁背景.png" alt="background">
+
+            <!-- 華字 Logo -->
+            <img class="char2-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="char2-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('welcome', event)">
+
+            <!-- 紅色「你好」提示 -->
+            <img class="char2-hint" src="第二頁元素更新版/第二頁選擇角色按鈕.png" alt="你好">
+
+            <!-- 名字與語言卡片 -->
+            <div class="char2-card"></div>
+            <input type="text" class="char2-name" id="playerName" maxlength="8" placeholder="Enter your name">
+            <img class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)" src="第二頁元素更新版/第二頁繁體中文按鈕.png" alt="繁體中文">
+            <img class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)" src="第二頁元素更新版/第二頁簡體中文按鈕.png" alt="簡體中文">
+
+            <!-- 9個角色 -->
+            <div class="char2-characters">
+                <div class="char2-item" data-char="人1" onclick="selectCharAuto(this, '人1', event)"><img src="人1.png" alt="亞洲男孩"></div>
+                <div class="char2-item" data-char="人2" onclick="selectCharAuto(this, '人2', event)"><img src="人2.png" alt="中東男孩"></div>
+                <div class="char2-item" data-char="人3" onclick="selectCharAuto(this, '人3', event)"><img src="人3.png" alt="中國女孩"></div>
+                <div class="char2-item" data-char="人4" onclick="selectCharAuto(this, '人4', event)"><img src="人4.png" alt="黑人男孩"></div>
+                <div class="char2-item" data-char="人5" onclick="selectCharAuto(this, '人5', event)"><img src="人5.png" alt="粉紅頭髮女孩"></div>
+                <div class="char2-item" data-char="人6" onclick="selectCharAuto(this, '人6', event)"><img src="人6.png" alt="蘇格蘭男孩"></div>
+                <div class="char2-item" data-char="人7" onclick="selectCharAuto(this, '人7', event)"><img src="人7.png" alt="紅髮女孩"></div>
+                <div class="char2-item" data-char="人8" onclick="selectCharAuto(this, '人8', event)"><img src="人8.png" alt="綠衣女孩"></div>
+                <div class="char2-item" data-char="人9" onclick="selectCharAuto(this, '人9', event)"><img src="人9.png" alt="最右男孩"></div>
             </div>
         </div>
     </section>
 
     <!-- PAGE 3: LEVEL SELECTION -->
     <section id="page-levels" class="page">
-        <link rel="stylesheet" href="levels-design.css?v=5">
         <div class="levels-page">
-            <button class="green-btn btn-back" onclick="goTo('chars', event)">◀</button>
-            
-            <div class="level-cards-container">
-                <div class="level-card-new" onclick="selectLevel('kindergarten', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="kindergarten"></div>
-                    <div class="level-name" data-i18n="kindergarten">幼兒園</div>
-                </div>
-                <div class="level-card-new" onclick="selectLevel('primary', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="primary"></div>
-                    <div class="level-name" data-i18n="primary">小學</div>
-                </div>
-                <div class="level-card-new" onclick="selectLevel('secondary', event)">
-                    <div class="level-lion-img"><img src="選擇程度獅子.png" alt="" data-i18n-alt="secondary"></div>
-                    <div class="level-name" data-i18n="secondary">中學</div>
-                </div>
-            </div>
-            
-            <!-- 學習夥伴已移除 -->
+            <!-- 華字 Logo -->
+            <img class="levels-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="levels-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('chars', event)">
+
+            <!-- 三個學段按鈕 -->
+            <img class="level-btn" id="level-kindergarten"
+                 data-tw="第三頁元素更新版/幼兒園繁體按鈕.png"
+                 data-cn="第三頁元素更新版/幼兒園簡體按鈕.png"
+                 onclick="selectLevel('kindergarten', event)" alt="幼兒園">
+            <img class="level-btn" id="level-primary"
+                 data-tw="第三頁元素更新版/小學繁體按鈕.png"
+                 data-cn="第三頁元素更新版/小學簡體按鈕.png"
+                 onclick="selectLevel('primary', event)" alt="小學">
+            <img class="level-btn" id="level-secondary"
+                 data-tw="第三頁元素更新版/中學繁體按鈕.png"
+                 data-cn="第三頁元素更新版/中學簡體按鈕.png"
+                 onclick="selectLevel('secondary', event)" alt="中學">
         </div>
     </section>
 
     <!-- PAGE 4: CATEGORY -->
     <section id="page-cats" class="page">
-        <link rel="stylesheet" href="cats-design.css?v=5">
         <div class="cats-page">
-            <button class="yellow-circle-btn btn-back-yellow" onclick="goTo('levels', event)">◀</button>
-            
-            <div class="content-cards-container">
-                <div class="content-card" onclick="goTo('chapters', event)">
-                    <div class="content-icon"><img src="icon-courseware.png" alt="" data-i18n-alt="courseware"></div>
-                    <div class="content-name" data-i18n="courseware">課件</div>
-                </div>
-                <div class="content-card" onclick="goTo('poems', event)">
-                    <div class="content-icon"><img src="icon-poems.png" alt="" data-i18n-alt="poems"></div>
-                    <div class="content-name" data-i18n="poems">唐詩</div>
-                </div>
-                <div class="content-card" onclick="goTo('songs', event)">
-                    <div class="content-icon"><img src="icon-songs.png" alt="" data-i18n-alt="songs"></div>
-                    <div class="content-name" data-i18n="songs">兒歌</div>
-                </div>
-            </div>
-            
-            <!-- 學習夥伴已移除 -->
+            <!-- 華字 Logo -->
+            <img class="cats-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="cats-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('levels', event)">
+
+            <!-- 三個內容類型按鈕 -->
+            <img class="cat-btn" id="cat-courseware" data-tw="第四頁元素更新版/第四頁課件繁體按鈕.png" data-cn="第四頁元素更新版/第四頁課件簡體按鈕.png" onclick="goTo('chapters', event)" alt="課件">
+            <img class="cat-btn" id="cat-poems" data-tw="第四頁元素更新版/第四頁唐詩繁體按鈕.png" data-cn="第四頁元素更新版/第四頁唐詩簡體按鈕.png" onclick="goTo('poems', event)" alt="唐詩">
+            <img class="cat-btn" id="cat-songs" data-tw="第四頁元素更新版/第四頁兒歌繁體按鈕.png" data-cn="第四頁元素更新版/第四頁兒歌簡體按鈕.png" onclick="goTo('songs', event)" alt="兒歌">
         </div>
     </section>
 
     <!-- PAGE 5: POEMS -->
     <section id="page-poems" class="page">
-        <link rel="stylesheet" href="poems-design.css?v=9">
         <div class="poems-page">
-            <button class="yellow-circle-btn btn-back-poems" onclick="goTo('cats', event)">◀</button>
-            <div class="yellow-circle-btn btn-logo-poems">華</div>
+            <!-- 華字 Logo -->
+            <img class="poems-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
 
+            <!-- 返回按鈕 -->
+            <img class="poems-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('cats', event)">
+
+            <!-- 標題圖片 -->
+            <img class="poems-title-img" data-tw="唐詩列表頁更新版/唐詩頁面繁體標籤.png" data-cn="唐詩列表頁更新版/唐詩頁面簡體標籤.png" alt="唐詩">
+
+            <!-- 12個唐詩按鈕 -->
             <div class="poems-grid">
-                <button type="button" class="poem-box" style="background-image:url('唐诗/静夜思.png')" onclick="goToPoemPlayer(0)"><span class="poem-title" data-i18n="poem1">靜夜思</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/春晓.png')" onclick="goToPoemPlayer(1)"><span class="poem-title" data-i18n="poem2">春曉</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/咏鹅.png')" onclick="goToPoemPlayer(2)"><span class="poem-title" data-i18n="poem3">詠鵝</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/悯农.png')" onclick="goToPoemPlayer(3)"><span class="poem-title" data-i18n="poem4">憫農</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/登鹳雀楼.png')" onclick="goToPoemPlayer(4)"><span class="poem-title" data-i18n="poem5">登鸛雀樓</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/江雪.png')" onclick="goToPoemPlayer(5)"><span class="poem-title" data-i18n="poem6">江雪</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/问刘十九.png')" onclick="goToPoemPlayer(6)"><span class="poem-title" data-i18n="poem7">問劉十九</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/暮江吟.png')" onclick="goToPoemPlayer(7)"><span class="poem-title" data-i18n="poem8">暮江吟</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/望庐山瀑布.png')" onclick="goToPoemPlayer(8)"><span class="poem-title" data-i18n="poem9">望廬山瀑布</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/早发白帝城.png')" onclick="goToPoemPlayer(9)"><span class="poem-title" data-i18n="poem10">早發白帝城</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/黄鹤楼.png')" onclick="goToPoemPlayer(10)"><span class="poem-title" data-i18n="poem11">黃鶴樓</span></button>
-                <button type="button" class="poem-box" style="background-image:url('唐诗/山居秋暝.png')" onclick="goToPoemPlayer(11)"><span class="poem-title" data-i18n="poem12">山居秋暝</span></button>
+                <img class="poem-btn" data-poem="1" data-tw="唐詩列表頁更新版/靜夜思繁體按鈕.png" data-cn="唐詩列表頁更新版/靜夜思簡體按鈕.png" onclick="goToPoemPlayer(0)" alt="靜夜思">
+                <img class="poem-btn" data-poem="2" data-tw="唐詩列表頁更新版/春曉繁體按鈕.png" data-cn="唐詩列表頁更新版/春曉簡體按鈕.png" onclick="goToPoemPlayer(1)" alt="春曉">
+                <img class="poem-btn" data-poem="3" data-tw="唐詩列表頁更新版/詠鵝繁體按鈕.png" data-cn="唐詩列表頁更新版/詠鵝簡體按鈕.png" onclick="goToPoemPlayer(2)" alt="詠鵝">
+                <img class="poem-btn" data-poem="4" data-tw="唐詩列表頁更新版/憫農繁體按鈕.png" data-cn="唐詩列表頁更新版/憫農簡體按鈕.png" onclick="goToPoemPlayer(3)" alt="憫農">
+                <img class="poem-btn" data-poem="5" data-tw="唐詩列表頁更新版/登鶴雀樓繁體按鈕.png" data-cn="唐詩列表頁更新版/登鶴雀樓簡體按鈕.png" onclick="goToPoemPlayer(4)" alt="登鸛雀樓">
+                <img class="poem-btn" data-poem="6" data-tw="唐詩列表頁更新版/江雪繁體按鈕.png" data-cn="唐詩列表頁更新版/江雪簡體按鈕.png" onclick="goToPoemPlayer(5)" alt="江雪">
+                <img class="poem-btn" data-poem="7" data-tw="唐詩列表頁更新版/問劉十九繁體按鈕.png" data-cn="唐詩列表頁更新版/問劉十九簡體按鈕.png" onclick="goToPoemPlayer(6)" alt="問劉十九">
+                <img class="poem-btn" data-poem="8" data-tw="唐詩列表頁更新版/暮江吟繁體按鈕.png" data-cn="唐詩列表頁更新版/暮江吟簡體按鈕.png" onclick="goToPoemPlayer(7)" alt="暮江吟">
+                <img class="poem-btn" data-poem="9" data-tw="唐詩列表頁更新版/望廬山瀑布.png" data-cn="唐詩列表頁更新版/望廬山瀑布簡體按鈕.png" onclick="goToPoemPlayer(8)" alt="望廬山瀑布">
+                <img class="poem-btn" data-poem="10" data-tw="唐詩列表頁更新版/早發白帝城繁體按鈕.png" data-cn="唐詩列表頁更新版/早發白帝城簡體按鈕.png" onclick="goToPoemPlayer(9)" alt="早發白帝城">
+                <img class="poem-btn" data-poem="11" data-tw="唐詩列表頁更新版/黃鶴樓繁體按鈕.png" data-cn="唐詩列表頁更新版/黃鶴樓簡體按鈕.png" onclick="goToPoemPlayer(10)" alt="黃鶴樓">
+                <img class="poem-btn" data-poem="12" data-tw="唐詩列表頁更新版/山居秋暝繁體按鈕.png" data-cn="唐詩列表頁更新版/山居秋暝簡體按鈕.png" onclick="goToPoemPlayer(11)" alt="山居秋暝">
             </div>
         </div>
     </section>
 
     <!-- PAGE 6: SONGS 選項頁 -->
     <section id="page-songs" class="page">
-        <link rel="stylesheet" href="songs-design.css?v=4">
         <div class="songs-menu-page">
-            <button class="song-blue-btn song-back-btn" onclick="goTo('cats', event)">◀</button>
-            <div class="song-blue-btn song-logo-btn">華</div>
+            <!-- 華字 Logo -->
+            <img class="songs-menu-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
 
-            <div class="songs-menu-grid">
-                <button class="songs-menu-card" onclick="goToCommonSongs()">
-                    <span class="songs-menu-icon">🎵</span>
-                    <span class="songs-menu-label" data-i18n="commonSongs">常用歌曲</span>
-                </button>
-                <button class="songs-menu-card" onclick="goToUnitSongs()">
-                    <span class="songs-menu-icon">📖</span>
-                    <span class="songs-menu-label" data-i18n="unitSongs">單元歌曲</span>
-                </button>
-            </div>
+            <!-- 返回按鈕 -->
+            <img class="songs-menu-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('cats', event)">
+
+            <!-- 兩個兒歌類型按鈕 -->
+            <img class="songs-type-btn" id="songs-common" data-tw="兒歌頁面更新版/兒歌按鈕繁體.png" data-cn="兒歌頁面更新版/兒歌按鈕簡體.png" onclick="goToCommonSongs()" alt="常用歌曲">
+            <img class="songs-type-btn" id="songs-unit" data-tw="兒歌頁面更新版/單元歌按鈕繁體.png" data-cn="兒歌頁面更新版/單元歌按鈕簡體.png" onclick="goToUnitSongs()" alt="單元歌曲">
         </div>
     </section>
 
     <!-- PAGE 7: CHAPTERS -->
     <section id="page-chapters" class="page">
-        <link rel="stylesheet" href="chapters-design.css?v=6">
+        <link rel="stylesheet" href="chapters-design.css?v=14">
         <div class="chapters-page">
-            <button class="back-btn-yellow" onclick="goTo('cats', event)">◀</button>
+            <div class="chapters-logo">
+                <img src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+            </div>
+            <div class="chapters-back" onclick="goTo('cats', event)">
+                <img src="第四頁元素更新版/綠色返回logo.png" alt="返回">
+            </div>
             
-            <div class="volume-tabs">
-                <button class="volume-tab active" onclick="showVolume(1)" data-i18n="volumeUpper">上冊</button>
-                <button class="volume-tab" onclick="showVolume(2)" data-i18n="volumeLower">下冊</button>
+            <div class="volume-bar">
+                <div class="volume-tab active" onclick="showVolume(1, this)">
+                    <span data-i18n="volumeUpper">上冊</span>
+                </div>
+                <div class="volume-separator">/</div>
+                <div class="volume-tab" onclick="showVolume(2, this)">
+                    <span data-i18n="volumeLower">下冊</span>
+                </div>
             </div>
             
             <div id="vol-content-1" class="volume-content active">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-num">01</span><span class="chapter-title" data-i18n="chapter1">一家人</span></div>
-                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-num">02</span><span class="chapter-title" data-i18n="chapter2">幼兒園</span></div>
-                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-num">03</span><span class="chapter-title" data-i18n="chapter3">數字</span></div>
-                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-num">04</span><span class="chapter-title" data-i18n="chapter4">顏色</span></div>
-                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-num">05</span><span class="chapter-title" data-i18n="chapter5">動物</span></div>
-                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-num">06</span><span class="chapter-title" data-i18n="chapter6">水果</span></div>
-                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-num">07</span><span class="chapter-title" data-i18n="chapter7">天氣</span></div>
-                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-num">08</span><span class="chapter-title" data-i18n="chapter8">季節</span></div>
-                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-num">09</span><span class="chapter-title" data-i18n="chapter9">運動</span></div>
-                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-num">10</span><span class="chapter-title" data-i18n="chapter10">食物</span></div>
-                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-num">11</span><span class="chapter-title" data-i18n="chapter11">身體</span></div>
+                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-label"><span class="chapter-num">1</span> <span class="chapter-title" data-i18n="chapter1">一家人</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-label"><span class="chapter-num">2</span> <span class="chapter-title" data-i18n="chapter2">幼兒園</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-label"><span class="chapter-num">3</span> <span class="chapter-title" data-i18n="chapter3">數字</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-label"><span class="chapter-num">4</span> <span class="chapter-title" data-i18n="chapter4">顏色</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-label"><span class="chapter-num">5</span> <span class="chapter-title" data-i18n="chapter5">動物</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-label"><span class="chapter-num">6</span> <span class="chapter-title" data-i18n="chapter6">水果</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-label"><span class="chapter-num">7</span> <span class="chapter-title" data-i18n="chapter7">天氣</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-label"><span class="chapter-num">8</span> <span class="chapter-title" data-i18n="chapter8">季節</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-label"><span class="chapter-num">9</span> <span class="chapter-title" data-i18n="chapter9">運動</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-label"><span class="chapter-num">10</span> <span class="chapter-title" data-i18n="chapter10">食物</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-label"><span class="chapter-num">11</span> <span class="chapter-title" data-i18n="chapter11">身體</span></span></div>
                 </div>
             </div>
             
             <div id="vol-content-2" class="volume-content">
                 <div class="chapters-grid">
-                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-num">12</span><span class="chapter-title" data-i18n="chapter12">交通工具</span></div>
-                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-num">13</span><span class="chapter-title" data-i18n="chapter13">家庭成員</span></div>
-                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-num">14</span><span class="chapter-title" data-i18n="chapter14">日常用品</span></div>
-                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-num">15</span><span class="chapter-title" data-i18n="chapter15">蔬菜</span></div>
-                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-num">16</span><span class="chapter-title" data-i18n="chapter16">飲料</span></div>
-                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-num">17</span><span class="chapter-title" data-i18n="chapter17">職業</span></div>
-                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-num">18</span><span class="chapter-title" data-i18n="chapter18">國家</span></div>
-                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-num">19</span><span class="chapter-title" data-i18n="chapter19">節日</span></div>
-                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-num">20</span><span class="chapter-title" data-i18n="chapter20">情緒</span></div>
-                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-num">21</span><span class="chapter-title" data-i18n="chapter21">服裝</span></div>
-                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-num">22</span><span class="chapter-title" data-i18n="chapter22">時間</span></div>
-                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-num">23</span><span class="chapter-title" data-i18n="chapter23">自然</span></div>
+                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-label"><span class="chapter-num">12</span> <span class="chapter-title" data-i18n="chapter12">交通工具</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-label"><span class="chapter-num">13</span> <span class="chapter-title" data-i18n="chapter13">家庭成員</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-label"><span class="chapter-num">14</span> <span class="chapter-title" data-i18n="chapter14">日常用品</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-label"><span class="chapter-num">15</span> <span class="chapter-title" data-i18n="chapter15">蔬菜</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-label"><span class="chapter-num">16</span> <span class="chapter-title" data-i18n="chapter16">飲料</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-label"><span class="chapter-num">17</span> <span class="chapter-title" data-i18n="chapter17">職業</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-label"><span class="chapter-num">18</span> <span class="chapter-title" data-i18n="chapter18">國家</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-label"><span class="chapter-num">19</span> <span class="chapter-title" data-i18n="chapter19">節日</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-label"><span class="chapter-num">20</span> <span class="chapter-title" data-i18n="chapter20">情緒</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-label"><span class="chapter-num">21</span> <span class="chapter-title" data-i18n="chapter21">服裝</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-label"><span class="chapter-num">22</span> <span class="chapter-title" data-i18n="chapter22">時間</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-label"><span class="chapter-num">23</span> <span class="chapter-title" data-i18n="chapter23">自然</span></span></div>
                 </div>
             </div>
-            
-            <!-- 學習夥伴問候 -->
-            <!-- 學習夥伴已移除 -->
         </div>
     </section>
 
     <!-- PAGE 8: CHAPTER INTRO -->
     <section id="page-intro" class="page">
-        <link rel="stylesheet" href="intro-design.css?v=7">
+        <link rel="stylesheet" href="intro-design.css?v=11">
         <div class="intro-page">
-            <button class="pink-circle-btn" onclick="goTo('chapters', event)">◀</button>
-            
-            <div class="intro-oval-area" onclick="goTo('learning', event)">
-                <img src="課程介紹頁按鈕.png" alt="" data-i18n-alt="enterLearning">
-                <div class="intro-topic">第11課：身體</div>
-            </div>
+            <!-- 華字 Logo -->
+            <img class="intro-logo" src="第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="intro-back" src="第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('chapters', event)">
+
+            <!-- 進入學習按鈕（根據語言與單元切換圖片） -->
+            <img class="intro-enter-btn"
+                 src="課程介紹頁更新版/進入學習繁體按鈕.png"
+                 data-tw="課程介紹頁更新版/進入學習繁體按鈕.png"
+                 data-cn="課程介紹頁更新版/進入學習簡體按鈕.png"
+                 onclick="goTo('learning', event)"
+                 alt="進入學習">
         </div>
     </section>
 
     <!-- PAGE 9: LEARNING MODULE - REDESIGNED -->
     <section id="page-learning" class="page">
-        <link rel="stylesheet" href="learning-design.css?v=15">
-        <link rel="stylesheet" href="quiz-design.css?v=1">
-        <link rel="stylesheet" href="recognition-design.css?v=1">
-        <link rel="stylesheet" href="writing-design.css?v=1">
-        <link rel="stylesheet" href="story-design.css?v=1">
-        <link rel="stylesheet" href="game-design.css?v=1">
+        <link rel="stylesheet" href="learning-design.css?v=48">
+        <link rel="stylesheet" href="quiz-design.css?v=3">
+        <link rel="stylesheet" href="recognition-design.css?v=9">
+        <link rel="stylesheet" href="writing-design.css?v=5">
+        <link rel="stylesheet" href="game-design.css?v=12">
         <div class="learning-page theme-pink" id="learningPage">
             
             <!-- 課前提問區域 -->
@@ -360,9 +391,18 @@
         </div>
     </section>
 
+    <!-- PAGE 10: UNIT END -->
+    <section id="page-unit-end" class="page">
+        <div class="unit-end-page">
+            <img class="unit-end-bg" src="單元結束頁面更新版/單元結束頁面背景.png" alt="單元結束">
+            <img class="unit-end-btn-levels" src="單元結束頁面更新版/返回學段選擇頁按鈕.png" alt="返回學段選擇頁" onclick="goTo('levels')">
+            <img class="unit-end-btn-prev" src="單元結束頁面更新版/返回上一頁按鈕.png" alt="返回上一頁" onclick="unitEndBackToPrevious()">
+        </div>
+    </section>
+
     <!-- PAGE 10: STORY READER -->
     <section id="page-story" class="page">
-        <link rel="stylesheet" href="learning-design.css?v=2">
+        <link rel="stylesheet" href="learning-design.css?v=47">
         <div class="learning-page theme-green" id="storyPage">
             <header class="learn-header">
                 <button class="header-btn" onclick="closeStory()">◀</button>
@@ -412,6 +452,7 @@
         <!-- 由 JS 動態渲染 -->
     </div>
 
-    <script src="app.js?v=20250331"></script>
+    <script src="app.js?v=20250613v30"></script>
+    <script>setTimeout(function(){ if(typeof switchLearningModule==='function') switchLearningModule('quiz'); }, 500);</script>
 </body>
 </html>

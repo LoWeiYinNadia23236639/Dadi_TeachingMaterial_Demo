@@ -1,239 +1,155 @@
 /* ============================================
-   識圖頁面 (Recognition Page)
+   識圖頁面 (Recognition Page) - 精確定位 1920×1080
    ============================================ */
 
-.recognition-page {
-    width: 100vw;
-    height: 100vh;
-    background: #E8E8E8;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+.cw-page .cw-content .recognition-page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
 }
 
-/* 頭部 */
-.rec-header {
+/* 上方 7 個詞彙圓圈 */
+.cw-page .cw-content .rec-word-nav {
     position: absolute;
-    top: 16px;
-    left: 0;
-    right: 0;
+    left: 639.2px;
+    top: 89.6px;
+    width: 641.6px;
+    height: 113.8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    z-index: 100;
+    z-index: 10;
 }
 
-/* 藍色圓形按鈕 */
-.rec-blue-circle {
-    width: 48px;
-    height: 48px;
-    background: #0054a6;
-    border: none;
+.cw-page .cw-content .rec-word-btn {
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    flex-shrink: 0;
-}
-
-/* 頂部標題膠囊 */
-.rec-title-pill {
-    background: white;
-    border: 2px solid #0054a6;
+    border: 4px solid #0054a6;
+    background: #fff;
     color: #0054a6;
-    padding: 8px 36px;
-    border-radius: 30px;
-    font-size: 18px;
+    font-size: 32px;
     font-weight: bold;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-/* 右側功能標籤 */
-.rec-side-tabs {
-    position: absolute;
-    top: 80px;
-    right: 30px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 100;
-}
-
-.rec-side-tab {
-    padding: 14px 20px;
-    border-radius: 10px 0 0 10px;
-    font-size: 16px;
-    font-weight: bold;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    border: none;
-    text-align: left;
-    transition: all 0.3s;
-    min-width: 130px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-.rec-side-tab.active {
+.cw-page .cw-content .rec-word-btn:hover {
+    transform: scale(1.08);
+}
+
+.cw-page .cw-content .rec-word-btn.active {
     background: #0054a6;
-    color: white;
-}
-
-.rec-side-tab:not(.active) {
-    background: white;
-    color: #333;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* 主內容區域 */
-.rec-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 80px 40px 80px 82px;
-    box-sizing: border-box;
-}
-
-/* 詞彙導航 */
-.rec-word-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 20px;
-    flex-shrink: 0;
-    z-index: 100;
-}
-
-.rec-word-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 3px solid #0054a6;
-    background: white;
-    color: #0054a6;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.rec-word-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0,84,166,0.25);
-}
-
-.rec-word-btn.active {
-    background: #0054a6;
-    color: white;
-    transform: scale(1.15);
-    box-shadow: 0 4px 16px rgba(0,84,166,0.35);
-}
-
-/* 主內容（圖片+文字） */
-.rec-main-area {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
+    color: #fff;
 }
 
 /* 左側圖片區域 */
-.rec-image-area {
-    flex: 0 0 32%;
-    height: 85%;
+.cw-page .cw-content .rec-image-area {
+    position: absolute;
+    left: 437.3px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-.rec-image-area img {
-    width: 100%;
-    height: 100%;
-    border-radius: 24px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+.cw-page .cw-content .rec-image-area img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
+.cw-page .cw-content .rec-image-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+}
+
 /* 右側文字區域 */
-.rec-text-area {
-    flex: 0 0 36%;
-    height: 85%;
+.cw-page .cw-content .rec-text-area {
+    position: absolute;
+    left: 1001px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    gap: 10px;
+    gap: 16px;
+    padding: 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* 拼音 */
-.rec-pinyin {
-    font-size: 32px;
+.cw-page .cw-content .rec-pinyin {
+    font-size: 36px;
     color: #0054a6;
     font-weight: 500;
     text-align: center;
 }
 
-/* 漢字（超大） */
-.rec-hanzi {
-    font-size: 185px;
+.cw-page .cw-content .rec-hanzi {
+    font-size: 220px;
     font-weight: bold;
     color: #333;
     text-align: center;
-    line-height: 1.1;
-    margin: 6px 0;
+    line-height: 1;
 }
 
-/* 定義句子 */
-.rec-definition {
-    font-size: 26px;
-    color: #555;
+.cw-page .cw-content .rec-definition {
+    font-size: 38px;
+    color: #333;
     text-align: center;
-    line-height: 1.6;
-    font-weight: 500;
+    line-height: 1.5;
+    padding: 0 40px;
 }
 
-/* 小喇叭按鈕 */
-.rec-speaker {
+/* 喇叭按鈕 */
+.cw-page .cw-content .rec-speaker {
     position: absolute;
-    top: 0;
-    right: 55px;
-    width: 70px;
-    height: 70px;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
     background: #0054a6;
     border: none;
     border-radius: 50%;
-    color: white;
-    font-size: 32px;
+    color: #fff;
+    font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,84,166,0.3);
-    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 84, 166, 0.3);
+    transition: transform 0.2s;
 }
 
-.rec-speaker:hover {
+.cw-page .cw-content .rec-speaker:hover {
     transform: scale(1.1);
 }
 
-.rec-speaker.playing {
+.cw-page .cw-content .rec-speaker.playing {
     animation: speakerPulse 0.6s ease-in-out infinite;
 }
 
@@ -242,49 +158,9 @@
     50% { transform: scale(1.15); }
 }
 
-/* 底部導航 */
-.rec-bottom-nav {
-    position: absolute;
-    bottom: 38px;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 0 40px;
-    z-index: 100;
-}
-
-/* 響應式 */
-@media (max-width: 1024px) {
-    .rec-hanzi { font-size: 130px; }
-    .rec-pinyin { font-size: 26px; }
-    .rec-definition { font-size: 22px; }
-    .rec-word-nav { gap: 10px; }
-    .rec-word-btn { width: 42px; height: 42px; font-size: 18px; }
-}
-
-@media (max-width: 768px) {
-    .rec-content {
-        flex-direction: column;
-        padding: 70px 20px 70px 60px;
-    }
-    .rec-main-area {
-        flex-direction: column;
-    }
-    .rec-image-area {
-        flex: 0 0 38%;
-        height: auto;
-    }
-    .rec-hanzi { font-size: 100px; }
-    .rec-pinyin { font-size: 22px; }
-    .rec-definition { font-size: 18px; }
-    .rec-side-tabs { display: none; }
-    .rec-speaker {
-        width: 44px;
-        height: 44px;
-        font-size: 20px;
-    }
-    .rec-word-nav { gap: 8px; }
-    .rec-word-btn { width: 38px; height: 38px; font-size: 16px; border-width: 2px; }
+/* 隱藏舊版元素（若仍留在 HTML 中） */
+.cw-page .cw-content .rec-header,
+.cw-page .cw-content .rec-side-tabs,
+.cw-page .cw-content .rec-bottom-nav {
+    display: none !important;
 }

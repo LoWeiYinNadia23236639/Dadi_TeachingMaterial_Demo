@@ -1,103 +1,130 @@
 /* ============================================
-   課文學習頁面 (根據 10.png)
+   單元選擇頁 (Chapters / Unit Selection)
+   設計基準：1920×1080，透過 JS updateStageScale 縮放
    ============================================ */
 
+@font-face {
+    font-family: 'FZY3K';
+    src: url('網頁字體/FZY3K.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .chapters-page {
-    width: 100vw;
-    height: 100vh;
-    background: #E91E63;
-    position: relative;
-    padding: 80px 40px 40px;
-}
-
-/* 黃色返回按鈕 */
-.back-btn-yellow {
+    width: 1920px;
+    height: 1080px;
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    background: #FFC107;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    background: #e6609b;
+    overflow: hidden;
+    font-family: 'FZY3K', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
 }
 
-/* 標籤容器 */
-.volume-tabs {
+/* 左上角華字 Logo */
+.chapters-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.chapters-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 右上角返回按鈕 */
+.chapters-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s ease;
+}
+
+.chapters-back:hover {
+    transform: scale(1.05);
+}
+
+.chapters-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 上冊 / 下冊切換列 */
+.volume-bar {
+    position: absolute;
+    left: 370.05px;
+    top: 99px;
+    width: 1179.9px;
+    height: 94.4px;
+    background: #fecd00;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
+    z-index: 10;
 }
 
 .volume-tab {
-    background: white;
-    color: #E91E63;
-    padding: 15px 60px;
-    border-radius: 50px;
-    font-size: 24px;
-    font-weight: bold;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
     cursor: pointer;
-    border: none;
-    transition: all 0.3s;
-}
-
-.volume-tab.active {
-    background: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.volume-tab:not(.active) {
-    opacity: 0.7;
-}
-
-/* 章節網格 */
-.chapters-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.chapter-box {
-    width: 125px;
-    height: 125px;
-    background: white;
-    border-radius: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    margin: 0 auto;
 }
 
-.chapter-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+.volume-tab:nth-child(1) {
+    left: 0;
 }
 
-.chapter-num {
-    font-size: 24px;
+.volume-tab:nth-child(3) {
+    left: 50%;
+}
+
+.volume-tab span {
+    font-size: 42px;
     font-weight: bold;
-    color: #E91E63;
+    color: #333333;
+    pointer-events: none;
+    transition: all 0.2s ease;
 }
 
-.chapter-title {
-    font-size: 14px;
-    color: #333;
-    margin-top: 3px;
+.volume-tab.active span {
+    color: #000000;
+    transform: scale(1.08);
 }
 
-/* 隱藏的內容 */
+.volume-tab:not(.active) span {
+    opacity: 0.55;
+}
+
+.volume-separator {
+    font-size: 42px;
+    font-weight: bold;
+    color: #333333;
+    pointer-events: none;
+    margin: 0 12px;
+}
+
+/* 單元內容切換層 */
 .volume-content {
     display: none;
 }
@@ -106,154 +133,91 @@
     display: block;
 }
 
-/* 響應式 */
-@media (max-width: 1024px) {
-    .chapters-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 600px;
-    }
-    .chapter-box {
-        width: 110px;
-        height: 110px;
-    }
+/* 單元按鈕網格定位容器 */
+.chapters-grid {
+    position: static;
 }
 
-@media (max-width: 768px) {
-    .chapters-page {
-        padding: 70px 20px 20px;
-    }
-    
-    .volume-tabs {
-        gap: 20px;
-    }
-    
-    .volume-tab {
-        padding: 12px 40px;
-        font-size: 20px;
-    }
-    
-    .chapters-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
-    
-    .chapter-box {
-        width: 90px;
-        height: 90px;
-        border-radius: 15px;
-    }
-    
-    .chapter-num {
-        font-size: 20px;
-    }
-    
-    .chapter-title {
-        font-size: 12px;
-    }
-}
-
-
-/* ============================================
-   CHAPTERS PAGE - LEARNING PARTNER
-   ============================================ */
-
-.chapters-partner {
+.chapter-box {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
-}
-
-.chapters-partner-avatar {
-    width: 120px;
-    height: 150px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.chapters-partner-avatar:hover {
-    transform: scale(1.05);
-}
-
-.chapters-partner-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.chapters-partner-speech {
-    position: relative;
-    background: white;
-    border-radius: 20px;
-    padding: 14px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    max-width: 220px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    transition: all 0.3s ease;
-}
-
-/* 氣泡尾巴指向角色 */
-.chapters-partner-speech::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    right: 30px;
-    border-width: 12px 12px 0;
-    border-style: solid;
-    border-color: white transparent transparent;
-}
-
-.chapters-partner-speech.hidden {
-    opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-}
-
-.chapters-partner-close {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #999;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 0;
-    width: 20px;
-    height: 20px;
+    width: 337.3px;
+    height: 147.7px;
+    left: 370.05px;
+    top: 314.3px;
+    border-radius: 24px;
+    background: #fecd00;
+    color: #333333;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chapter-box:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
+/* 左上角橘色緞帶 */
+.chapter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 28px;
+    height: 42px;
+    background: #ff9800;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+    border-radius: 0 0 4px 4px;
+    pointer-events: none;
+}
+
+/* 第 2 欄 */
+.chapter-box:nth-child(3n+2) {
+    left: 791.35px;
+}
+
+/* 第 3 欄 */
+.chapter-box:nth-child(3n+3) {
+    left: 1212.65px;
+}
+
+/* 第 2 列 */
+.chapter-box:nth-child(n+4):nth-child(-n+6) {
+    top: 480px;
+}
+
+/* 第 3 列 */
+.chapter-box:nth-child(n+7):nth-child(-n+9) {
+    top: 645.7px;
+}
+
+/* 第 4 列 */
+.chapter-box:nth-child(n+10):nth-child(-n+12) {
+    top: 811.4px;
+}
+
+.chapter-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
     line-height: 1;
+    white-space: nowrap;
+    z-index: 1;
 }
 
-.chapters-partner-close:hover {
-    color: #333;
+.chapter-num {
+    font-weight: bold;
+    color: #333333;
 }
 
-.chapters-partner-speech span {
-    display: block;
-    padding-right: 16px;
-}
-
-/* 響應式 */
-@media (max-width: 768px) {
-    .chapters-partner-avatar {
-        width: 90px;
-        height: 110px;
-    }
-    
-    .chapters-partner-speech {
-        font-size: 14px;
-        padding: 12px 16px;
-        max-width: 180px;
-    }
+.chapter-title {
+    font-weight: bold;
+    color: #333333;
 }

@@ -25,13 +25,14 @@ body {
    PAGE 1: 首頁 (根據 2.png)
    ============================================ */
 .home-page-new {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .home-background {
@@ -52,30 +53,18 @@ body {
 /* 開始學習按鈕 */
 .start-learning-btn {
     position: absolute;
-    top: calc(46% + 15px);
-    left: calc(72% + 22px);
+    left: 1417.3px;
+    top: 495.1px;
     z-index: 10;
-    padding: 20px 40px;
-    background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
-    border: none;
-    border-radius: 30px;
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
+    width: 207px;
+    height: 90.8px;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.5);
-    transition: all 0.3s ease;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: block;
+    object-fit: contain;
+    transition: transform 0.2s;
 }
-
-.start-learning-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(232, 90, 156, 0.6);
-}
-
-.start-learning-btn:active {
-    transform: translateY(-2px) scale(1.02);
-}
+.start-learning-btn:hover { transform: scale(1.05); }
+.start-learning-btn:active { transform: scale(0.95); }
 
 /* 舊版首頁樣式（保留以備用） */
 .home-page {
@@ -315,9 +304,13 @@ body {
    PAGE 2: 角色選擇 V2 (新設計)
    ============================================ */
 .char-page-v2 {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
     overflow: hidden;
 }
 
@@ -331,193 +324,445 @@ body {
     z-index: 1;
 }
 
-/* Back button */
+/* 華字 Logo */
+.char2-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+/* 返回按鈕 */
 .char2-back {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #8BC34A;
-    border: none;
-    color: white;
-    font-size: 20px;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
     cursor: pointer;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: all 0.3s;
+    z-index: 5;
+    transition: transform 0.2s;
 }
-.char2-back:hover { transform: scale(1.1); }
+.char2-back:hover { transform: scale(1.05); }
+.char2-back:active { transform: scale(0.95); }
 
-/* Logo */
-/* Input area (center, slightly upper) */
-.char2-inputs {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    background: rgba(255,255,255,0.88);
-    padding: 24px 36px;
-    border-radius: 24px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    backdrop-filter: blur(4px);
-}
-
-.char2-name {
-    width: 300px;
-    padding: 16px 28px;
-    border: 3px solid #8BC34A;
-    border-radius: 35px;
-    font-size: 20px;
-    text-align: center;
-    background: white;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    outline: none;
-}
-.char2-name::placeholder { color: #aaa; }
-
-/* Language buttons */
-.char2-lang-label {
-    font-size: 22px;
-    color: #333;
-    font-weight: bold;
-    text-align: center;
-}
-
-.char2-lang {
-    display: flex;
-    gap: 16px;
-}
-
-.char2-lang-btn {
-    padding: 14px 32px;
-    border: 2px solid #ddd;
-    background: white;
-    color: #666;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.char2-lang-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-.char2-lang-btn.active {
-    background: linear-gradient(135deg, #8BC34A, #689F38);
-    color: white;
-    border-color: #8BC34A;
-    box-shadow: 0 4px 15px rgba(139,195,74,0.4);
-}
-
-/* Hint on the right */
+/* 紅色「你好」提示 */
 .char2-hint {
     position: absolute;
-    top: 62%;
-    right: 10%;
-    transform: translateY(-50%);
-    z-index: 10;
-    font-size: 26px;
-    font-weight: bold;
-    color: #444;
-    animation: bounce 2s infinite;
-    white-space: nowrap;
-    writing-mode: horizontal-tb;
+    left: 1438.9px;
+    top: 494.6px;
+    width: 183.8px;
+    height: 113.7px;
+    z-index: 5;
 }
 
-/* Character row on light gray ground */
-.char2-row {
+/* 名字與語言卡片 */
+.char2-card {
     position: absolute;
-    bottom: 8%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 8px;
-    padding: 0 2%;
-    z-index: 10;
-    height: 26%;
+    left: 685.5px;
+    top: 179px;
+    width: 549.1px;
+    height: 316.9px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    z-index: 5;
 }
 
-.char2-item {
-    flex: 1;
-    max-width: 140px;
+/* 輸入名字框 */
+.char2-name {
+    position: absolute;
+    left: 731.5px;
+    top: 246.7px;
+    width: 457.1px;
+    height: 68.9px;
+    padding: 0 20px;
+    background: #F0F0F0;
+    border: none;
+    border-radius: 16px;
+    font-size: 22px;
+    text-align: center;
+    color: #333;
+    outline: none;
+    z-index: 6;
+}
+.char2-name::placeholder { color: #999; }
+
+/* 語言按鈕 */
+.char2-lang-btn {
+    position: absolute;
+    top: 337.4px;
+    width: 228.6px;
+    height: 90.7px;
     cursor: pointer;
-    transition: all 0.3s;
-    position: relative;
+    z-index: 6;
+    transition: transform 0.2s;
+}
+.char2-lang-btn:hover { transform: scale(1.03); }
+.char2-lang-btn.active { transform: scale(1.05); filter: brightness(1.1); }
+#lang-TW { left: 731.4px; }
+#lang-CN { left: 960px; }
+
+/* 角色容器 */
+.char2-characters {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+/* 角色（絕對定位） */
+.char2-item {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.3s;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 100%;
 }
-
-/* Character height adjustments (人6 Scottish boy = 100% baseline) */
-.char2-item:nth-child(1) { height: 77%; }   /* 人1 - 最右男孩 */
-.char2-item:nth-child(2) { height: 90%; }   /* 人2 - 中東男孩 */
-.char2-item:nth-child(3) { height: 88%; }   /* 人3 - 紅髮女孩 */
-.char2-item:nth-child(4) { height: 83%; }   /* 人4 - 黑人男孩 */
-.char2-item:nth-child(5) { height: 88%; }   /* 人5 - 粉紅頭髮女孩 */
-.char2-item:nth-child(6) { height: 100%; }  /* 人6 - 蘇格蘭男孩 (基準) */
-.char2-item:nth-child(7) { height: 88%; }   /* 人7 - 中國女孩 */
-.char2-item:nth-child(8) { height: 87%; }   /* 人8 - 綠衣女孩 */
-.char2-item:nth-child(9) { height: 86%; }   /* 人9 - 亞洲男孩 */
-
 .char2-item img {
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: contain;
     display: block;
 }
-
-.char2-item:hover { transform: translateY(-10px); }
-.char2-item.selected { transform: translateY(-15px); }
+.char2-item:hover { transform: scale(1.05); }
+.char2-item.selected { transform: scale(1.08); }
 .char2-item.selected::after {
     content: '✓';
     position: absolute;
-    top: -5px;
-    right: 5px;
-    width: 30px;
-    height: 30px;
+    top: -10px;
+    right: -10px;
+    width: 36px;
+    height: 36px;
     background: #4CAF50;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* Confirm button */
+/* 角色個別位置與尺寸 */
+.char2-item[data-char="人1"] { left: 114.7px; top: 607.0px; width: 160.8px; height: 360.4px; }
+.char2-item[data-char="人2"] { left: 297.3px; top: 607.1px; width: 183.8px; height: 360.4px; }
+.char2-item[data-char="人3"] { left: 479.9px; top: 651.8px; width: 229.8px; height: 315.6px; }
+.char2-item[data-char="人4"] { left: 708.5px; top: 628.9px; width: 160.8px; height: 338.6px; }
+.char2-item[data-char="人5"] { left: 891.1px; top: 607.1px; width: 206.8px; height: 360.4px; }
+.char2-item[data-char="人6"] { left: 1096.7px; top: 562.3px; width: 229.8px; height: 405.1px; }
+.char2-item[data-char="人7"] { left: 1301.9px; top: 607.1px; width: 206.8px; height: 360.4px; }
+.char2-item[data-char="人8"] { left: 1507.9px; top: 607.1px; width: 160.8px; height: 360.4px; }
+.char2-item[data-char="人9"] { left: 1690.3px; top: 651.8px; width: 160.8px; height: 315.6px; }
 
-@media (max-width: 1024px) {
-    .char2-item { max-width: 110px; }
-    .char2-hint { font-size: 22px; }
+/* ============================================
+   PAGE 3: 學段選擇
+   ============================================ */
+.levels-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #FFC107;
 }
-@media (max-width: 768px) {
-    .char2-name { width: 260px; padding: 14px 24px; font-size: 18px; }
-    .char2-item { max-width: 80px; }
-    .char2-hint { font-size: 20px; }
-    .char2-confirm { padding: 12px 40px; font-size: 20px; }
+
+.levels-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
 }
-@media (max-width: 480px) {
-    .char2-item { max-width: 55px; }
-    .char2-hint { font-size: 18px; }
-    .char2-name { width: 220px; padding: 12px 20px; font-size: 16px; }
+
+/* 返回按鈕 */
+.levels-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
 }
+.levels-back:hover { transform: scale(1.05); }
+.levels-back:active { transform: scale(0.95); }
+
+.level-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+}
+.level-btn:hover { transform: scale(1.03); }
+.level-btn:active { transform: scale(0.98); }
+
+#level-kindergarten { left: 213.4px; top: 187.9px; width: 516.1px; height: 709.1px; }
+#level-primary { left: 713.2px; top: 187.9px; width: 500.6px; height: 709.1px; }
+#level-secondary { left: 1216.1px; top: 187.9px; width: 490.5px; height: 709.1px; }
+
+/* ============================================
+   PAGE 4: 內容類型選擇
+   ============================================ */
+.cats-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #8BC34A;
+}
+
+.cats-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+.cats-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+}
+.cats-back:hover { transform: scale(1.05); }
+
+.cat-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+}
+.cat-btn:hover { transform: scale(1.03); }
+.cat-btn:active { transform: scale(0.98); }
+
+#cat-courseware { left: 217px; top: 213.4px; width: 480.4px; height: 654.1px; }
+#cat-poems { left: 720.1px; top: 213.4px; width: 480.4px; height: 654.1px; }
+#cat-songs { left: 1245.2px; top: 213.4px; width: 457.8px; height: 654.1px; }
+
+/* ============================================
+   PAGE 5: 唐詩列表
+   ============================================ */
+.poems-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #96dcfb;
+}
+
+.poems-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+.poems-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+}
+.poems-back:hover { transform: scale(1.05); }
+
+.poems-title-img {
+    position: absolute;
+    left: 297.3px;
+    top: 90.6px;
+    width: 1279.5px;
+    height: 113.7px;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+}
+
+.poems-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+.poem-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+}
+.poem-btn:hover { transform: scale(1.03); }
+.poem-btn:active { transform: scale(0.98); }
+
+.poem-btn[data-poem="1"] { left: 320.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="2"] { left: 639.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="3"] { left: 960.3px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="4"] { left: 1281px; top: 264.5px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="5"] { left: 320.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="6"] { left: 639.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="7"] { left: 960.3px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="8"] { left: 1281px; top: 490.7px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="9"] { left: 320.6px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="10"] { left: 639.6px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="11"] { left: 960.3px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn[data-poem="12"] { left: 1281px; top: 718px; width: 298.7px; height: 206.9px; }
+
+/* ============================================
+   唐詩播放頁覆蓋層
+   ============================================ */
+.poem-player-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #96dcfb;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.poem-player-stage {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+}
+
+.poem-player-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+.poem-player-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+}
+.poem-player-back:hover { transform: scale(1.05); }
+
+.poem-player-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 900px;
+    padding-bottom: 39.375%;
+    background: #000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.poem-player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+}
+
+/* ============================================
+   PAGE 6: 兒歌選項頁
+   ============================================ */
+.songs-menu-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #96dcfb;
+}
+
+.songs-menu-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+}
+
+.songs-menu-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s;
+}
+.songs-menu-back:hover { transform: scale(1.05); }
+
+.songs-type-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 5;
+    display: block;
+    object-fit: contain;
+}
+.songs-type-btn:hover { transform: scale(1.03); }
+.songs-type-btn:active { transform: scale(0.98); }
+
+#songs-common { left: 411.2px; top: 224.6px; width: 457.6px; height: 676.6px; }
+#songs-unit { left: 1051.2px; top: 224.6px; width: 480.3px; height: 676.6px; }
 
 /* ============================================
    PARTNER GREETING (學習夥伴問候語)
@@ -1109,9 +1354,58 @@ body {
     }
     
     .start-learning-btn {
-        padding: 15px 30px;
-        font-size: 20px;
-        top: calc(48% + 12px);
-        left: calc(68% + 19px);
+        left: 1417.3px;
+        top: 495.1px;
+        width: 207px;
+        height: 90.8px;
     }
+}
+
+/* ============================================
+   PAGE 10: UNIT END (單元結束頁面)
+   ============================================ */
+
+.unit-end-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #FFF8E1;
+}
+
+.unit-end-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.unit-end-btn-levels,
+.unit-end-btn-prev {
+    position: absolute;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.unit-end-btn-levels:hover,
+.unit-end-btn-prev:hover {
+    transform: scale(1.05);
+}
+
+.unit-end-btn-levels {
+    left: 134.2px;
+    top: 99.6px;
+    width: 95.9px;
+    height: 96px;
+}
+
+.unit-end-btn-prev {
+    left: 137.8px;
+    top: 883px;
+    width: 95.9px;
+    height: 94.8px;
 }
