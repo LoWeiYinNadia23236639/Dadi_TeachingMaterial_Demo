@@ -1,0 +1,435 @@
+/* ============================================
+   課前提問頁面 (Quiz Page)
+   ============================================ */
+
+/* 覆蓋學習頁背景 */
+.learning-page {
+    width: 100vw;
+    height: 100vh;
+    background: #E8E8E8;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 16px solid #F06292;
+}
+
+/* 頭部 */
+.quiz-header {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 100;
+}
+
+/* 粉紅圓形按鈕 */
+.quiz-pink-circle {
+    width: 48px;
+    height: 48px;
+    background: #F06292;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+}
+
+/* 頂部標題膠囊 */
+.quiz-title-pill {
+    background: white;
+    border: 2px solid #F06292;
+    color: #F06292;
+    padding: 8px 36px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* 右側功能標籤 */
+.quiz-side-tabs {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.quiz-side-tab {
+    padding: 14px 20px;
+    border-radius: 10px 0 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    transition: all 0.3s;
+    min-width: 130px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quiz-side-tab.active {
+    background: #F06292;
+    color: white;
+}
+
+.quiz-side-tab:not(.active) {
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 底部導航 */
+.quiz-bottom-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 100;
+}
+
+/* 星形得分 */
+.quiz-star-score {
+    position: absolute;
+    bottom: 80px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    z-index: 100;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.quiz-star-score.earned {
+    color: #F06292;
+    filter: drop-shadow(0 2px 4px rgba(240,98,146,0.4));
+}
+
+.quiz-star-score:not(.earned) {
+    color: #BDBDBD;
+}
+
+/* ============================================
+   選擇題模式
+   ============================================ */
+
+.quiz-choice-mode {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 80px 82px;
+    box-sizing: border-box;
+}
+
+.quiz-question {
+    font-size: 34px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.quiz-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.quiz-card {
+    flex: 0 0 auto;
+    width: 185px;
+    height: 320px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 4px solid transparent;
+    position: relative;
+    gap: 20px;
+}
+
+.quiz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.quiz-card-icon {
+    font-size: 72px;
+    line-height: 1;
+}
+
+.quiz-card-label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 正確 */
+.quiz-card.correct {
+    border-color: #4CAF50;
+}
+
+.quiz-card.correct::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 錯誤 */
+.quiz-card.wrong {
+    border-color: #F44336;
+}
+
+.quiz-card.wrong::after {
+    content: '✕';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    background: #F44336;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ============================================
+   真人圖片標記模式
+   ============================================ */
+
+.quiz-photo-mode {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 40px 80px 82px;
+    box-sizing: border-box;
+    gap: 30px;
+    position: relative;
+}
+
+.quiz-photo-question {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 34px;
+    font-weight: bold;
+    color: #000000;
+    text-align: center;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+.quiz-photo-left {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 14px;
+    width: 400px;
+    height: 500px;
+}
+
+.quiz-photo-btn {
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    min-width: 120px;
+    text-align: center;
+}
+
+.quiz-photo-btn.active {
+    background: #F06292;
+    color: white;
+}
+
+.quiz-photo-btn:not(.active) {
+    background: white;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.quiz-photo-area {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    flex-shrink: 0;
+    cursor: crosshair;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.quiz-photo-area img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 標記橢圓圈 */
+.quiz-marker {
+    position: absolute;
+    border: 4px solid #F06292;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: markerPop 0.4s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes markerPop {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* 錯誤紅叉 */
+.quiz-photo-wrong {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #F44336;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: wrongPop 0.4s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes wrongPop {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    60% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* 震動動畫 */
+.quiz-photo-area.shake {
+    animation: photoShake 0.4s ease-in-out;
+}
+
+@keyframes photoShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
+
+/* 紙屑動畫 */
+.confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    z-index: 9999;
+    animation: confettiFall 2s ease-out forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .learning-page {
+        border-width: 10px;
+    }
+    .quiz-question {
+        font-size: 26px;
+    }
+    .quiz-card {
+        width: 150px;
+        height: 270px;
+    }
+    .quiz-card-icon {
+        font-size: 56px;
+    }
+    .quiz-card-label {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .quiz-choice-mode,
+    .quiz-photo-mode {
+        padding: 70px 20px 70px 60px;
+    }
+    .quiz-side-tabs {
+        display: none;
+    }
+    .quiz-cards {
+        gap: 12px;
+    }
+    .quiz-card {
+        width: 110px;
+        height: 200px;
+        border-radius: 14px;
+    }
+    .quiz-card-icon {
+        font-size: 40px;
+    }
+    .quiz-card-label {
+        font-size: 16px;
+    }
+    .quiz-question {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+}

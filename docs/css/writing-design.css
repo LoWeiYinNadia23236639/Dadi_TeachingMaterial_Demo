@@ -1,0 +1,272 @@
+/* ============================================
+   書寫練習頁面 (Writing Practice Page) - 精確定位 1920×1080
+   ============================================ */
+
+.cw-page .cw-content .writing-page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+}
+
+/* 上方詞彙圓圈 */
+.cw-page .cw-content .writing-word-nav {
+    position: absolute;
+    left: 385px;
+    top: 95px;
+    width: 1150px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    z-index: 10;
+}
+
+.cw-page .cw-content .writing-word-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 4px solid #F5A623;
+    background: #fff;
+    color: #F5A623;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.cw-page .cw-content .writing-word-btn:hover {
+    transform: scale(1.08);
+}
+
+.cw-page .cw-content .writing-word-btn.active {
+    background: #F5A623;
+    color: #fff;
+}
+
+/* 左邊筆順展示區域 */
+.cw-page .cw-content .writing-stroke-area {
+    position: absolute;
+    left: 437.3px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.cw-page .cw-content .writing-model-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 米字格 */
+.cw-page .cw-content .writing-rice-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cw-page .cw-content .writing-rice-grid line {
+    stroke: #F5A623;
+    stroke-width: 1.5;
+    stroke-dasharray: 8 6;
+    opacity: 0.5;
+}
+
+/* 大字詞 */
+.cw-page .cw-content .writing-model-char {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 220px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1;
+    z-index: 2;
+    user-select: none;
+    font-family: "Noto Serif SC", "SimSun", "KaiTi", serif;
+    text-align: center;
+}
+
+/* 筆順動畫視頻 */
+.cw-page .cw-content .writing-stroke-video {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 24px;
+    z-index: 5;
+    display: none;
+}
+
+/* 筆順動畫 GIF */
+.cw-page .cw-content .writing-stroke-gif {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 24px;
+    z-index: 5;
+    display: none;
+}
+
+/* 鉛筆按鈕 */
+.cw-page .cw-content .writing-pencil-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: #F5A623;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.cw-page .cw-content .writing-pencil-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* 右邊手寫練習區域 */
+.cw-page .cw-content .writing-canvas-area {
+    position: absolute;
+    left: 1001px;
+    top: 298px;
+    width: 496.4px;
+    height: 535.9px;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cw-page .cw-content .writing-canvas-box {
+    position: relative;
+    width: 420px;
+    height: 420px;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+/* Canvas 米字格 */
+.cw-page .cw-content .writing-canvas-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cw-page .cw-content .writing-canvas-grid line {
+    stroke: #F5A623;
+    stroke-width: 1.5;
+    stroke-dasharray: 8 6;
+    opacity: 0.5;
+}
+
+.cw-page .cw-content #writingCanvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border: none;
+    background: transparent;
+    z-index: 2;
+}
+
+/* 清除 / 完成 按鈕 */
+.cw-page .cw-content .writing-action-btns {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.cw-page .cw-content .writing-btn-clear {
+    padding: 12px 36px;
+    border: 3px solid #F5A623;
+    background: #fff;
+    color: #F5A623;
+    border-radius: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cw-page .cw-content .writing-btn-clear:hover {
+    transform: scale(1.05);
+}
+
+.cw-page .cw-content .writing-btn-done {
+    padding: 12px 36px;
+    border: 3px solid #F5A623;
+    background: #F5A623;
+    color: #fff;
+    border-radius: 28px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cw-page .cw-content .writing-btn-done:hover {
+    transform: scale(1.05);
+}
+
+/* 隱藏舊版元素（若仍留在 HTML 中） */
+.cw-page .cw-content .writing-header,
+.cw-page .cw-content .writing-side-tabs,
+.cw-page .cw-content .writing-bottom-nav {
+    display: none !important;
+}

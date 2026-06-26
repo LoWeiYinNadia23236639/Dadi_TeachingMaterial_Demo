@@ -1,0 +1,221 @@
+/* ============================================
+   單元選擇頁 (Chapters / Unit Selection)
+   設計基準：1920×1080，透過 JS updateStageScale 縮放
+   ============================================ */
+
+@font-face {
+    font-family: 'FZY3K';
+    src: url('../assets/fonts/網頁字體/FZY3K.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.chapters-page {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    background: #e6609b;
+    overflow: hidden;
+    font-family: 'FZY3K', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* 左上角華字 Logo */
+.chapters-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.chapters-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 右上角返回按鈕 */
+.chapters-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s ease;
+}
+
+.chapters-back:hover {
+    transform: scale(1.05);
+}
+
+.chapters-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 上冊 / 下冊切換列 */
+.volume-bar {
+    position: absolute;
+    left: 370.05px;
+    top: 99px;
+    width: 1179.9px;
+    height: 94.4px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    z-index: 10;
+}
+
+.volume-tab {
+    width: 500px;
+    height: 94.4px;
+    background: #fecd00;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.volume-tab:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.volume-tab.active {
+    background: #ffab00;
+}
+
+.volume-tab span {
+    font-size: 42px;
+    font-weight: bold;
+    color: #333333;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.volume-tab.active span {
+    color: #000000;
+    transform: scale(1.08);
+}
+
+.volume-tab:not(.active) span {
+    opacity: 0.7;
+}
+
+.volume-separator {
+    display: none;
+}
+
+/* 單元內容切換層 */
+.volume-content {
+    display: none;
+}
+
+.volume-content.active {
+    display: block;
+}
+
+/* 單元按鈕網格定位容器 */
+.chapters-grid {
+    position: static;
+}
+
+.chapter-box {
+    position: absolute;
+    width: 337.3px;
+    height: 147.7px;
+    left: 370.05px;
+    top: 314.3px;
+    border-radius: 24px;
+    background: #fecd00;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chapter-box:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+}
+
+/* 左上角橘色緞帶 */
+.chapter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 28px;
+    height: 42px;
+    background: #ff9800;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+    border-radius: 0 0 4px 4px;
+    pointer-events: none;
+}
+
+/* 第 2 欄 */
+.chapter-box:nth-child(3n+2) {
+    left: 791.35px;
+}
+
+/* 第 3 欄 */
+.chapter-box:nth-child(3n+3) {
+    left: 1212.65px;
+}
+
+/* 第 2 列 */
+.chapter-box:nth-child(n+4):nth-child(-n+6) {
+    top: 480px;
+}
+
+/* 第 3 列 */
+.chapter-box:nth-child(n+7):nth-child(-n+9) {
+    top: 645.7px;
+}
+
+/* 第 4 列 */
+.chapter-box:nth-child(n+10):nth-child(-n+12) {
+    top: 811.4px;
+}
+
+.chapter-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+    line-height: 1;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.chapter-num {
+    font-weight: bold;
+    color: #333333;
+}
+
+.chapter-title {
+    font-weight: bold;
+    color: #333333;
+}
