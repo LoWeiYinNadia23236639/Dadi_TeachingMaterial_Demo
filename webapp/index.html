@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title data-i18n="siteTitle">大地幼教学材 - 学习平台</title>
-    <link rel="stylesheet" href="css/new-design.css?v=57">
+    <link rel="stylesheet" href="css/new-design.css?v=58">
     <script>
         (function() {
             function updateStageScale(selector, width, height) {
@@ -29,6 +29,7 @@
                 updateStageScale('.chapters-page', 1920, 1080);
                 updateStageScale('.cw-page', 1920, 1080);
                 updateStageScale('.unit-end-page', 1920, 1080);
+                updateStageScale('.guide-character-container', 1920, 1080);
             }
             window.addEventListener('DOMContentLoaded', updateAllStages);
             window.addEventListener('resize', updateAllStages);
@@ -452,7 +453,7 @@
         <!-- 由 JS 動態渲染 -->
     </div>
 
-    <script src="app.js?v=20250623v82"></script>
+    <script src="app.js?v=20250623v83"></script>
     <script>setTimeout(function(){ if(typeof switchLearningModule==='function') switchLearningModule('quiz'); }, 500);</script>
 </body>
 </html>
