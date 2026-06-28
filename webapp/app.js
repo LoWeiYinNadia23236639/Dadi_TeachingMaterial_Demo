@@ -1927,14 +1927,17 @@ function renderCoursewareTabs(activeKey) {
     return `<div class="cw-tabs">` +
         coursewareTabs.map(tab => {
             const active = tab.key === activeKey ? 'active' : '';
+            // img src 路徑相對於 index.html，不需要 ../
+            const shortSrc = getCoursewareTabSrc(tab, 'Short');
+            const longSrc = getCoursewareTabSrc(tab, 'Long');
             // CSS 變數中的 url() 會相對於引用它的 CSS 檔案（css/learning-design.css）解析，
             // 因此需要加上 ../ 讓路徑回到專案根目錄的 assets/ 資料夾
-            const shortSrc = '../' + getCoursewareTabSrc(tab, 'Short');
-            const longSrc = '../' + getCoursewareTabSrc(tab, 'Long');
+            const shortSrcCss = '../' + shortSrc;
+            const longSrcCss = '../' + longSrc;
             const onclick = `onclick="switchLearningModule('${tab.key}', true)"`;
             return `<div class="cw-tab ${active}" style="top:${tab.y}px;height:${tab.h}px;" ${onclick}>
-                <div class="cw-tab-long" style="--tab-long-src:url('${longSrc}')"><img src="${longSrc}" alt=""></div>
-                <div class="cw-tab-short" style="--tab-src:url('${shortSrc}')"><img src="${shortSrc}" alt=""></div>
+                <div class="cw-tab-long" style="--tab-long-src:url('${longSrcCss}')"><img src="${longSrc}" alt=""></div>
+                <div class="cw-tab-short" style="--tab-src:url('${shortSrcCss}')"><img src="${shortSrc}" alt=""></div>
             </div>`;
         }).join('') +
     `</div>`;
