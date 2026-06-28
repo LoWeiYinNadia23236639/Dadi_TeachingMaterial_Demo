@@ -4299,7 +4299,7 @@ function renderMemoryGame() {
     if (!container) return;
 
     if (gameState.memory.cards.length === 0) {
-        const pairs = shuffleArray([...gameState.currentData.memory]);
+        const pairs = shuffleArray([...gameState.currentData.memory]).slice(0, 6);
         const deck = [...pairs, ...pairs].map((item, i) => ({ ...item, id: i, displayHanzi: t(item.hanziKey || item.hanzi) })).sort(() => Math.random() - 0.5);
         gameState.memory.cards = deck;
     }
