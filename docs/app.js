@@ -5441,7 +5441,7 @@ function renderPhotoQuestion(q) {
         return `<div class="quiz-photo-btn ${isActive ? 'active' : ''}">${t(getQuizI18nKey('Q' + qi + 'Btn' + i))}</div>`;
     }).join('');
     
-    const imgSrc = q.image || '真人圖片標記_11課身體.png';
+    const imgSrc = q.image || 'assets/images/courseware/真人圖片標記_11課身體.png';
     
     // 渲染所有已保存的標記
     const markersHtml = quizState.markers.map(m => {
