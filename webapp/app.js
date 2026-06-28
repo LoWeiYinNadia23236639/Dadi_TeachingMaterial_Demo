@@ -307,7 +307,7 @@ const i18n = {
         quiz7Q5Opt1: '小貓',
         quiz7Q5Opt2: '小狗',
         quiz7Q5Opt3: '小雞',
-        quiz7Q6: '動物園裡有隻大大的動物，牠有長長的鼻子，是誰呢？',
+        quiz7Q6: '動物園裡有隻動物，牠有長長的鼻子，是誰呢？',
         quiz7Q6Opt0: '小豬',
         quiz7Q6Opt1: '小狗',
         quiz7Q6Opt2: '大象',
@@ -870,7 +870,7 @@ const i18n = {
         quiz7Q5Opt1: '小猫',
         quiz7Q5Opt2: '小狗',
         quiz7Q5Opt3: '小鸡',
-        quiz7Q6: '动物园里有只大大的动物，它有长长的鼻子，是谁呢？',
+        quiz7Q6: '动物园里有只动物，它有长长的鼻子，是谁呢？',
         quiz7Q6Opt0: '小猪',
         quiz7Q6Opt1: '小狗',
         quiz7Q6Opt2: '大象',
@@ -5122,7 +5122,7 @@ const quizDataByChapter = {
         {
             type: 'choice',
             mode: 'single',
-            question: '動物園裡有隻大大的動物，牠有長長的鼻子，是誰呢？',
+            question: '動物園裡有隻動物，牠有長長的鼻子，是誰呢？',
             options: [
                 { icon: '🐷', label: '小豬', correct: false },
                 { icon: '🐕', label: '小狗', correct: false },
