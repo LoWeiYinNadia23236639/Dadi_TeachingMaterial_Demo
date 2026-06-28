@@ -2453,8 +2453,8 @@ function goToUnitSongs() {
             <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
             <div class="song-pill" data-i18n="unitSongs">單元歌曲</div>
             <div class="song-volume-tabs">
-                <button class="song-volume-tab active" onclick="switchSongVolume(1)">${t('volumeUpper')}</button>
-                <button class="song-volume-tab" onclick="switchSongVolume(2)">${t('volumeLower')}</button>
+                <button class="song-volume-tab active" onclick="switchSongVolume(1, event)">${t('volumeUpper')}</button>
+                <button class="song-volume-tab" onclick="switchSongVolume(2, event)">${t('volumeLower')}</button>
             </div>
             <div class="song-unit-grid" id="songUnitGridUpper">${upperCells}</div>
             <div class="song-unit-grid" id="songUnitGridLower" style="display:none;">${lowerCells}</div>
@@ -2463,9 +2463,9 @@ function goToUnitSongs() {
     container.style.display = 'block';
 }
 
-function switchSongVolume(vol) {
+function switchSongVolume(vol, evt) {
     document.querySelectorAll('.song-volume-tab').forEach(t => t.classList.remove('active'));
-    if (event && event.target) event.target.classList.add('active');
+    if (evt && evt.target) evt.target.classList.add('active');
     const upper = document.getElementById('songUnitGridUpper');
     const lower = document.getElementById('songUnitGridLower');
     if (upper) upper.style.display = vol === 1 ? 'grid' : 'none';
