@@ -1,5 +1,5 @@
 // ============================================
-// 大地幼教学材 - Application Logic
+// 大地幼教學材 - Application Logic
 // App Version: 20250613v29
 // ============================================
 
@@ -9,7 +9,7 @@ const AppState = {
     selectedLevel: null,
     playerName: '',
     currentSection: 0,
-    currentChar: '头',
+    currentChar: '頭',
     currentPinyin: 'tóu',
     currentMeaning: '頭部',
     score: 0,
@@ -111,6 +111,101 @@ const i18n = {
         familyCharIt: '它',
         familyCharAnimalIt: '牠',
         
+        // 第8課：動物（二）
+        animalWordMonkey: '猴子',
+        animalWordLion: '獅子',
+        animalWordMouse: '老鼠',
+        animalWordTurtle: '烏龜',
+        animalWordPanda: '熊貓',
+        animalWordKangaroo: '袋鼠',
+        animalWordGiraffe: '長頸鹿',
+        animalWordOwl: '貓頭鷹',
+        animalWordBear: '熊',
+        animalWordZebra: '斑馬',
+        // 第8課：動物（二）例句
+        animalDefMonkey: '猴子愛吃香蕉跳來跳去。',
+        animalDefLion: '獅子張開大嘴吼聲響亮。',
+        animalDefMouse: '老鼠拖著長尾巴躲貓貓。',
+        animalDefTurtle: '烏龜背著硬殼慢慢散步。',
+        animalDefPanda: '熊貓抱著竹子開心吃飯。',
+        animalDefKangaroo: '袋鼠跳著走路肚袋搖搖。',
+        animalDefGiraffe: '長頸鹿伸長脖子吃樹葉。',
+        animalDefOwl: '貓頭鷹睜大眼在夜裡飛。',
+        animalDefBear: '小熊抱著蜂蜜舔得開心。',
+        animalDefZebra: '斑馬身上條紋黑白分明。',
+        // 第14課：顏色
+        colorCharRed: '紅',
+        colorCharBlue: '藍',
+        colorCharGreen: '綠',
+        colorCharYellow: '黃',
+        colorCharWhite: '白',
+        colorCharPurple: '紫',
+        colorCharBlack: '黑',
+        colorCharBrown: '棕',
+        colorCharGray: '灰',
+        colorWordPaint: '畫畫',
+        colorWordColor: '顏色',
+        colorWordRainbow: '彩虹',
+        // 第14課：顏色例句
+        colorDefRed: '紅紅的蘋果又香又甜。',
+        colorDefBlue: '藍藍的天空像大海一樣。',
+        colorDefGreen: '綠綠的草地軟軟又舒服。',
+        colorDefYellow: '黃黃的香蕉彎彎像月亮。',
+        colorDefWhite: '白白的雲朵飄在天空中。',
+        colorDefPurple: '紫色的葡萄一串又一串。',
+        colorDefBlack: '黑色鋼琴彈出好聽音樂。',
+        colorDefBrown: '棕色的巧克力香香甜甜。',
+        colorDefGray: '灰色小象在沙灘上散步。',
+        colorDefPaint: '彩色畫筆畫出美麗圖畫。',
+        colorDefColor: '世界有許多漂亮的顏色。',
+        colorDefRainbow: '彩虹有七種顏色掛天上。',
+        // 第15課：學校（一）
+        schoolWordSchool: '學校',
+        schoolWordClassroom: '教室',
+        schoolWordComputer: '電腦',
+        schoolWordChair: '椅子',
+        schoolWordDesk: '桌子',
+        schoolWordBook: '書本',
+        schoolWordWhiteboard: '白板',
+        schoolWordPencil: '鉛筆',
+        schoolWordEraser: '橡皮',
+        schoolWordRuler: '尺子',
+        schoolWordScissors: '剪刀',
+        // 第15課：學校（一）例句
+        schoolDefSchool: '學校裡有好多小朋友玩。',
+        schoolDefClassroom: '教室裡同學們認真上課。',
+        schoolDefComputer: '電腦可以玩有趣的遊戲。',
+        schoolDefChair: '小椅子坐好準備聽故事。',
+        schoolDefDesk: '桌子上放著課本和鉛筆。',
+        schoolDefBook: '翻開書本可以看到故事。',
+        schoolDefWhiteboard: '老師在白板上寫下生字。',
+        schoolDefPencil: '鉛筆幫我寫出漂亮文字。',
+        schoolDefEraser: '橡皮擦把錯字輕輕擦掉。',
+        schoolDefRuler: '尺子是畫直線的小幫手。',
+        schoolDefScissors: '剪刀咔嚓剪出可愛圖形。',
+        // 第19課：食物
+        foodCharEat: '吃',
+        foodCharDrink: '喝',
+        foodWordMilk: '牛奶',
+        foodWordChocolate: '巧克力',
+        foodWordBread: '麵包',
+        foodWordCookie: '餅乾',
+        foodWordNoodles: '麵條',
+        foodWordRice: '米飯',
+        foodWordCandy: '糖果',
+        foodWordCake: '蛋糕',
+        // 第19課：食物例句
+        foodDefEat: '吃東西時要細細咀嚼喔。',
+        foodDefDrink: '口渴了端起杯子喝水水。',
+        foodDefMilk: '牛奶白白香香好喝又營養。',
+        foodDefChocolate: '巧克力甜甜小朋友都愛吃。',
+        foodDefBread: '麵包鬆鬆軟軟香氣撲鼻。',
+        foodDefCookie: '餅乾脆脆咬下去會掉屑。',
+        foodDefNoodles: '麵條長長的吸溜吸溜吃。',
+        foodDefRice: '米飯一粒粒白白又飽飽。',
+        foodDefCandy: '糖果五顏六色又香又甜。',
+        foodDefCake: '蛋糕上有奶油還有水果。',
+
         // 課程標題
         lesson11Title: '第11課：身體',
         
@@ -120,6 +215,8 @@ const i18n = {
         clear: '清除',
         complete: '完成',
         back: '返回',
+        prevChar: '上一字',
+        nextChar: '下一字',
         
         // 問題
         question1: '小朋友，你知道我們的身體有哪些部位嗎？',
@@ -172,7 +269,7 @@ const i18n = {
         chapter5: '家人（一）',
         chapter6: '水果',
         chapter7: '動物（一）',
-        chapter8: '季節',
+        chapter8: '動物（二）',
         chapter9: '動物（三）',
         chapter10: '食物',
         chapter11: '身體',
@@ -219,11 +316,11 @@ const i18n = {
         
         // 語言選擇
         langTW: '繁體中文',
-        langCN: '简體中文',
+        langCN: '简体中文',
         
         // 首頁
         startLearning: '開始學習',
-        siteTitle: '大地幼教学材 - 学习平台',
+        siteTitle: '大地幼教學材 - 學習平台',
         // 課前提問
         quizQ0: '小朋友，你知道我們的身體有哪些部位嗎？',
         quizQ0Opt0: '嘴巴',
@@ -245,7 +342,7 @@ const i18n = {
         quizQ3Opt1: '眼睛',
         quizQ3Opt2: '手',
         quizQ3Opt3: '耳朵',
-        quizQ4: '眉毛在那裡？',
+        quizQ4: '請點一點身體的部位',
         quizQ4Btn0: '眉毛',
         quizQ4Btn1: '眼睛',
         quizQ4Btn2: '鼻子',
@@ -400,6 +497,114 @@ const i18n = {
         quiz5Q4Opt2: '小貓',
         quiz5Q4Opt3: '大樹',
         
+        // 第8課課前提問
+        quiz8Q0: '哪種動物住在媽媽的肚子口袋裡？',
+        quiz8Q0Opt0: '猴子',
+        quiz8Q0Opt1: '獅子',
+        quiz8Q0Opt2: '袋鼠',
+        quiz8Q0Opt3: '熊',
+        quiz8Q1: '哪種動物的脖子最長？',
+        quiz8Q1Opt0: '長頸鹿',
+        quiz8Q1Opt1: '斑馬',
+        quiz8Q1Opt2: '熊貓',
+        quiz8Q1Opt3: '烏龜',
+        quiz8Q2: '哪種動物身上有黑白條紋？',
+        quiz8Q2Opt0: '獅子',
+        quiz8Q2Opt1: '斑馬',
+        quiz8Q2Opt2: '老鼠',
+        quiz8Q2Opt3: '貓頭鷹',
+        quiz8Q3: '貓頭鷹什麼時候出來活動？',
+        quiz8Q3Opt0: '白天',
+        quiz8Q3Opt1: '晚上',
+        quiz8Q3Opt2: '早上',
+        quiz8Q3Opt3: '下雨天',
+        quiz8Q4: '中國的國寶動物是什麼？',
+        quiz8Q4Opt0: '獅子',
+        quiz8Q4Opt1: '熊',
+        quiz8Q4Opt2: '熊貓',
+        quiz8Q4Opt3: '猴子',
+        
+        // 第14課課前提問
+        quiz14Q0: '蘋果是什麼顏色的？',
+        quiz14Q0Opt0: '藍色',
+        quiz14Q0Opt1: '紅色',
+        quiz14Q0Opt2: '黃色',
+        quiz14Q0Opt3: '黑色',
+        quiz14Q1: '香蕉是什麼顏色的？',
+        quiz14Q1Opt0: '綠色',
+        quiz14Q1Opt1: '紫色',
+        quiz14Q1Opt2: '黃色',
+        quiz14Q1Opt3: '白色',
+        quiz14Q2: '葡萄是什麼顏色的？',
+        quiz14Q2Opt0: '紫色',
+        quiz14Q2Opt1: '棕色',
+        quiz14Q2Opt2: '黑色',
+        quiz14Q2Opt3: '紅色',
+        quiz14Q3: '天空是什麼顏色的？',
+        quiz14Q3Opt0: '黑色',
+        quiz14Q3Opt1: '藍色',
+        quiz14Q3Opt2: '綠色',
+        quiz14Q3Opt3: '白色',
+        quiz14Q4: '熊貓是什麼顏色的？',
+        quiz14Q4Opt0: '紅色和白色',
+        quiz14Q4Opt1: '白色和黑色',
+        quiz14Q4Opt2: '綠色和棕色',
+        quiz14Q4Opt3: '藍色和紫色',
+        
+        // 第15課課前提問
+        quiz15Q0: '我們上課的地方在哪裡？',
+        quiz15Q0Opt0: '窗戶',
+        quiz15Q0Opt1: '門',
+        quiz15Q0Opt2: '課室',
+        quiz15Q0Opt3: '電腦',
+        quiz15Q1: '寫字要用什麼文具？',
+        quiz15Q1Opt0: '鉛筆',
+        quiz15Q1Opt1: '尺子',
+        quiz15Q1Opt2: '書包',
+        quiz15Q1Opt3: '剪刀',
+        quiz15Q2: '我們上課時坐在什麼上面？',
+        quiz15Q2Opt0: '床',
+        quiz15Q2Opt1: '椅子',
+        quiz15Q2Opt2: '箱子',
+        quiz15Q2Opt3: '玩具',
+        quiz15Q3: '畫直線要用什麼文具？',
+        quiz15Q3Opt0: '書包',
+        quiz15Q3Opt1: '尺子',
+        quiz15Q3Opt2: '剪刀',
+        quiz15Q3Opt3: '花朵',
+        quiz15Q4: '學習知識要看什麼？',
+        quiz15Q4Opt0: '電視',
+        quiz15Q4Opt1: '手機',
+        quiz15Q4Opt2: '書本',
+        quiz15Q4Opt3: '遊戲機',
+        
+        // 第19課課前提問
+        quiz19Q0: '每天早上喝什麼最有營養？',
+        quiz19Q0Opt0: '汽水',
+        quiz19Q0Opt1: '牛奶',
+        quiz19Q0Opt2: '果汁',
+        quiz19Q0Opt3: '咖啡',
+        quiz19Q1: '生日時大家會一起分什麼吃？',
+        quiz19Q1Opt0: '麵條',
+        quiz19Q1Opt1: '米飯',
+        quiz19Q1Opt2: '蛋糕',
+        quiz19Q1Opt3: '麵包',
+        quiz19Q2: '中國人每天吃的主食是什麼？',
+        quiz19Q2Opt0: '麵包',
+        quiz19Q2Opt1: '漢堡',
+        quiz19Q2Opt2: '米飯',
+        quiz19Q2Opt3: '披薩',
+        quiz19Q3: '巧克力是什麼顏色的？',
+        quiz19Q3Opt0: '白色',
+        quiz19Q3Opt1: '黃色',
+        quiz19Q3Opt2: '棕色',
+        quiz19Q3Opt3: '綠色',
+        quiz19Q4: '肚子餓了要做什麼？',
+        quiz19Q4Opt0: '睡覺',
+        quiz19Q4Opt1: '吃東西',
+        quiz19Q4Opt2: '跑步',
+        quiz19Q4Opt3: '唱歌',
+        
         // 識圖定義
         recDef1: '我的頭在這裡。',
         recDef2: '我的耳朵在這裡。',
@@ -410,7 +615,7 @@ const i18n = {
         recDef7: '我的手在這裡。',
         
         // 動物識圖例句
-        recDefChick: '小雞會叽叽叫。',
+        recDefChick: '小雞會嘰嘰叫。',
         recDefLamb: '小羊有軟軟的毛。',
         recDefCalf: '小牛喜歡吃草。',
         recDefPony: '小馬跑得很快。',
@@ -507,12 +712,12 @@ const i18n = {
         // 章節名稱（續）
         chapter12: '交通工具',
         chapter13: '家庭成員',
-        chapter14: '日常用品',
-        chapter15: '蔬菜',
+        chapter14: '顏色',
+        chapter15: '學校（一）',
         chapter16: '飲料',
         chapter17: '職業',
         chapter18: '國家',
-        chapter19: '節日',
+        chapter19: '食物',
         chapter20: '情緒',
         chapter21: '服裝',
         chapter22: '時間',
@@ -534,18 +739,18 @@ const i18n = {
         unitSong5: '家人（一）',
         unitSong6: '水果',
         unitSong7: '動物（一）',
-        unitSong8: '季節',
+        unitSong8: '動物（二）',
         unitSong9: '動物（三）',
         unitSong10: '食物',
         unitSong11: '身體',
         unitSong12: '交通工具',
         unitSong13: '家庭成員',
-        unitSong14: '日常用品',
-        unitSong15: '蔬菜',
+        unitSong14: '顏色',
+        unitSong15: '學校（一）',
         unitSong16: '飲料',
         unitSong17: '職業',
         unitSong18: '國家',
-        unitSong19: '節日',
+        unitSong19: '食物',
         unitSong20: '情緒',
         unitSong21: '服裝',
         unitSong22: '時間',
@@ -674,6 +879,101 @@ const i18n = {
         familyCharIt: '它',
         familyCharAnimalIt: '它',
         
+        // 第8课：動物（二）
+        animalWordMonkey: '猴子',
+        animalWordLion: '狮子',
+        animalWordMouse: '老鼠',
+        animalWordTurtle: '乌龟',
+        animalWordPanda: '熊猫',
+        animalWordKangaroo: '袋鼠',
+        animalWordGiraffe: '长颈鹿',
+        animalWordOwl: '猫头鹰',
+        animalWordBear: '熊',
+        animalWordZebra: '斑马',
+        // 第8课：動物（二）例句
+        animalDefMonkey: '猴子爱吃香蕉跳来跳去。',
+        animalDefLion: '狮子张开大嘴吼声响亮。',
+        animalDefMouse: '老鼠拖着长尾巴躲猫猫。',
+        animalDefTurtle: '乌龟背着硬壳慢慢散步。',
+        animalDefPanda: '熊猫抱着竹子开心吃饭。',
+        animalDefKangaroo: '袋鼠跳着走路肚袋摇摇。',
+        animalDefGiraffe: '长颈鹿伸长脖子吃树叶。',
+        animalDefOwl: '猫头鹰睁大眼在夜里飞。',
+        animalDefBear: '小熊抱着蜂蜜舔得开心。',
+        animalDefZebra: '斑马身上条纹黑白分明。',
+        // 第14课：顏色
+        colorCharRed: '红',
+        colorCharBlue: '蓝',
+        colorCharGreen: '绿',
+        colorCharYellow: '黄',
+        colorCharWhite: '白',
+        colorCharPurple: '紫',
+        colorCharBlack: '黑',
+        colorCharBrown: '棕',
+        colorCharGray: '灰',
+        colorWordPaint: '画画',
+        colorWordColor: '颜色',
+        colorWordRainbow: '彩虹',
+        // 第14课：顏色例句
+        colorDefRed: '红红的苹果又香又甜。',
+        colorDefBlue: '蓝蓝的天空像大海一样。',
+        colorDefGreen: '绿绿的草地软软又舒服。',
+        colorDefYellow: '黄黄的香蕉弯弯像月亮。',
+        colorDefWhite: '白白的云朵飘在天空中。',
+        colorDefPurple: '紫色的葡萄一串又一串。',
+        colorDefBlack: '黑色钢琴弹出好听音乐。',
+        colorDefBrown: '棕色的巧克力香香甜甜。',
+        colorDefGray: '灰色小象在沙滩上散步。',
+        colorDefPaint: '彩色画笔画出美丽图画。',
+        colorDefColor: '世界有许多漂亮的颜色。',
+        colorDefRainbow: '彩虹有七种颜色挂天上。',
+        // 第15课：學校（一）
+        schoolWordSchool: '学校',
+        schoolWordClassroom: '教室',
+        schoolWordComputer: '电脑',
+        schoolWordChair: '椅子',
+        schoolWordDesk: '桌子',
+        schoolWordBook: '书本',
+        schoolWordWhiteboard: '白板',
+        schoolWordPencil: '铅笔',
+        schoolWordEraser: '橡皮',
+        schoolWordRuler: '尺子',
+        schoolWordScissors: '剪刀',
+        // 第15课：學校（一）例句
+        schoolDefSchool: '学校里有好多小朋友玩。',
+        schoolDefClassroom: '教室里同学们认真上课。',
+        schoolDefComputer: '电脑可以玩有趣的游戏。',
+        schoolDefChair: '小椅子坐好准备听故事。',
+        schoolDefDesk: '桌子上放着课本和铅笔。',
+        schoolDefBook: '翻开书本可以看到故事。',
+        schoolDefWhiteboard: '老师在白板上写下生字。',
+        schoolDefPencil: '铅笔帮我写出漂亮文字。',
+        schoolDefEraser: '橡皮擦把错字轻轻擦掉。',
+        schoolDefRuler: '尺子是画直线的小帮手。',
+        schoolDefScissors: '剪刀咔嚓剪出可爱图形。',
+        // 第19课：食物
+        foodCharEat: '吃',
+        foodCharDrink: '喝',
+        foodWordMilk: '牛奶',
+        foodWordChocolate: '巧克力',
+        foodWordBread: '面包',
+        foodWordCookie: '饼干',
+        foodWordNoodles: '面条',
+        foodWordRice: '米饭',
+        foodWordCandy: '糖果',
+        foodWordCake: '蛋糕',
+        // 第19课：食物例句
+        foodDefEat: '吃东西时要细细咀嚼喔。',
+        foodDefDrink: '口渴了端起杯子喝水水。',
+        foodDefMilk: '牛奶白白香香好喝又营养。',
+        foodDefChocolate: '巧克力甜甜小朋友都爱吃。',
+        foodDefBread: '面包松松软软香气扑鼻。',
+        foodDefCookie: '饼干脆脆咬下去会掉屑。',
+        foodDefNoodles: '面条长长的吸溜吸溜吃。',
+        foodDefRice: '米饭一粒粒白白又饱饱。',
+        foodDefCandy: '糖果五颜六色又香又甜。',
+        foodDefCake: '蛋糕上有奶油还有水果。',
+
         // 课程标题
         lesson11Title: '第11课：身体',
         
@@ -683,6 +983,8 @@ const i18n = {
         clear: '清除',
         complete: '完成',
         back: '返回',
+        prevChar: '上一字',
+        nextChar: '下一字',
         
         // 問題
         question1: '小朋友，你知道我们的身体有哪些部位吗？',
@@ -735,7 +1037,7 @@ const i18n = {
         chapter5: '家人（一）',
         chapter6: '水果',
         chapter7: '动物（一）',
-        chapter8: '季节',
+        chapter8: '动物（二）',
         chapter9: '动物（三）',
         chapter10: '食物',
         chapter11: '身体',
@@ -781,7 +1083,7 @@ const i18n = {
         poem12: '咏鹅',
         
         // 语言选择
-        langTW: '繁体中文',
+        langTW: '繁體中文',
         langCN: '简体中文',
         
         // 首页
@@ -808,7 +1110,7 @@ const i18n = {
         quizQ3Opt1: '眼睛',
         quizQ3Opt2: '手',
         quizQ3Opt3: '耳朵',
-        quizQ4: '眉毛在那里？',
+        quizQ4: '请点一点身体的部位',
         quizQ4Btn0: '眉毛',
         quizQ4Btn1: '眼睛',
         quizQ4Btn2: '鼻子',
@@ -963,6 +1265,114 @@ const i18n = {
         quiz5Q4Opt2: '小猫',
         quiz5Q4Opt3: '大树',
         
+        // 第8课课前提问
+        quiz8Q0: '哪种动物住在妈妈的肚子口袋里？',
+        quiz8Q0Opt0: '猴子',
+        quiz8Q0Opt1: '狮子',
+        quiz8Q0Opt2: '袋鼠',
+        quiz8Q0Opt3: '熊',
+        quiz8Q1: '哪种动物的脖子最长？',
+        quiz8Q1Opt0: '长颈鹿',
+        quiz8Q1Opt1: '斑马',
+        quiz8Q1Opt2: '熊猫',
+        quiz8Q1Opt3: '乌龟',
+        quiz8Q2: '哪种动物身上有黑白条纹？',
+        quiz8Q2Opt0: '狮子',
+        quiz8Q2Opt1: '斑马',
+        quiz8Q2Opt2: '老鼠',
+        quiz8Q2Opt3: '猫头鹰',
+        quiz8Q3: '猫头鹰什么时候出来活动？',
+        quiz8Q3Opt0: '白天',
+        quiz8Q3Opt1: '晚上',
+        quiz8Q3Opt2: '早上',
+        quiz8Q3Opt3: '下雨天',
+        quiz8Q4: '中国的国宝动物是什么？',
+        quiz8Q4Opt0: '狮子',
+        quiz8Q4Opt1: '熊',
+        quiz8Q4Opt2: '熊猫',
+        quiz8Q4Opt3: '猴子',
+        
+        // 第14课课前提问
+        quiz14Q0: '苹果是什么颜色的？',
+        quiz14Q0Opt0: '蓝色',
+        quiz14Q0Opt1: '红色',
+        quiz14Q0Opt2: '黄色',
+        quiz14Q0Opt3: '黑色',
+        quiz14Q1: '香蕉是什么颜色的？',
+        quiz14Q1Opt0: '绿色',
+        quiz14Q1Opt1: '紫色',
+        quiz14Q1Opt2: '黄色',
+        quiz14Q1Opt3: '白色',
+        quiz14Q2: '葡萄是什么颜色的？',
+        quiz14Q2Opt0: '紫色',
+        quiz14Q2Opt1: '棕色',
+        quiz14Q2Opt2: '黑色',
+        quiz14Q2Opt3: '红色',
+        quiz14Q3: '天空是什么颜色的？',
+        quiz14Q3Opt0: '黑色',
+        quiz14Q3Opt1: '蓝色',
+        quiz14Q3Opt2: '绿色',
+        quiz14Q3Opt3: '白色',
+        quiz14Q4: '熊猫是什么颜色的？',
+        quiz14Q4Opt0: '红色和白色',
+        quiz14Q4Opt1: '白色和黑色',
+        quiz14Q4Opt2: '绿色和棕色',
+        quiz14Q4Opt3: '蓝色和紫色',
+        
+        // 第15课课前提问
+        quiz15Q0: '我们上课的地方在哪里？',
+        quiz15Q0Opt0: '窗户',
+        quiz15Q0Opt1: '门',
+        quiz15Q0Opt2: '教室',
+        quiz15Q0Opt3: '电脑',
+        quiz15Q1: '写字要用什么文具？',
+        quiz15Q1Opt0: '铅笔',
+        quiz15Q1Opt1: '尺子',
+        quiz15Q1Opt2: '书包',
+        quiz15Q1Opt3: '剪刀',
+        quiz15Q2: '我们上课时坐在什么上面？',
+        quiz15Q2Opt0: '床',
+        quiz15Q2Opt1: '椅子',
+        quiz15Q2Opt2: '箱子',
+        quiz15Q2Opt3: '玩具',
+        quiz15Q3: '画直线要用什么文具？',
+        quiz15Q3Opt0: '书包',
+        quiz15Q3Opt1: '尺子',
+        quiz15Q3Opt2: '剪刀',
+        quiz15Q3Opt3: '花朵',
+        quiz15Q4: '学习知识要看什么？',
+        quiz15Q4Opt0: '电视',
+        quiz15Q4Opt1: '手机',
+        quiz15Q4Opt2: '书本',
+        quiz15Q4Opt3: '游戏机',
+        
+        // 第19课课前提问
+        quiz19Q0: '每天早上喝什么最有营养？',
+        quiz19Q0Opt0: '汽水',
+        quiz19Q0Opt1: '牛奶',
+        quiz19Q0Opt2: '果汁',
+        quiz19Q0Opt3: '咖啡',
+        quiz19Q1: '生日时大家会一起分什么吃？',
+        quiz19Q1Opt0: '面条',
+        quiz19Q1Opt1: '米饭',
+        quiz19Q1Opt2: '蛋糕',
+        quiz19Q1Opt3: '面包',
+        quiz19Q2: '中国人每天吃的主食是什么？',
+        quiz19Q2Opt0: '面包',
+        quiz19Q2Opt1: '汉堡',
+        quiz19Q2Opt2: '米饭',
+        quiz19Q2Opt3: '披萨',
+        quiz19Q3: '巧克力是什么颜色的？',
+        quiz19Q3Opt0: '白色',
+        quiz19Q3Opt1: '黄色',
+        quiz19Q3Opt2: '棕色',
+        quiz19Q3Opt3: '绿色',
+        quiz19Q4: '肚子饿了要做什么？',
+        quiz19Q4Opt0: '睡觉',
+        quiz19Q4Opt1: '吃东西',
+        quiz19Q4Opt2: '跑步',
+        quiz19Q4Opt3: '唱歌',
+        
         // 识图定义
         recDef1: '我的头在这里。',
         recDef2: '我的耳朵在这里。',
@@ -1070,12 +1480,12 @@ const i18n = {
         // 章节名称（续）
         chapter12: '交通工具',
         chapter13: '家庭成员',
-        chapter14: '日常用品',
-        chapter15: '蔬菜',
+        chapter14: '颜色',
+        chapter15: '学校（一）',
         chapter16: '饮料',
         chapter17: '职业',
         chapter18: '国家',
-        chapter19: '节日',
+        chapter19: '食物',
         chapter20: '情绪',
         chapter21: '服装',
         chapter22: '时间',
@@ -1097,18 +1507,18 @@ const i18n = {
         unitSong5: '家人（一）',
         unitSong6: '水果',
         unitSong7: '动物（一）',
-        unitSong8: '季节',
+        unitSong8: '动物（二）',
         unitSong9: '动物（三）',
         unitSong10: '食物',
         unitSong11: '身体',
         unitSong12: '交通工具',
         unitSong13: '家庭成员',
-        unitSong14: '日常用品',
-        unitSong15: '蔬菜',
+        unitSong14: '颜色',
+        unitSong15: '学校（一）',
         unitSong16: '饮料',
         unitSong17: '职业',
         unitSong18: '国家',
-        unitSong19: '节日',
+        unitSong19: '食物',
         unitSong20: '情绪',
         unitSong21: '服装',
         unitSong22: '时间',
@@ -1856,6 +2266,22 @@ const introImages = {
     11: {
         tw: 'assets/images/courseware/課程介紹頁更新版/進入學習繁體按鈕.png',
         cn: 'assets/images/courseware/課程介紹頁更新版/進入學習簡體按鈕.png'
+    },
+    8: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第8課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第8課進入學習簡體按鈕.png'
+    },
+    14: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第14課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第14課進入學習簡體按鈕.png'
+    },
+    15: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第15課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第15課進入學習簡體按鈕.png'
+    },
+    19: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第19課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第19課進入學習簡體按鈕.png'
     }
 };
 
@@ -2087,10 +2513,10 @@ function showVolume(vol, el) {
 // 章節標題數據
 const chapterTitles = {
     1: '一家人', 2: '幼兒園', 3: '數字', 4: '顏色', 5: '家人（一）',
-    6: '水果', 7: '動物（一）', 8: '季節', 9: '動物（三）', 10: '食物',
+    6: '水果', 7: '動物（一）', 8: '動物（二）', 9: '動物（三）', 10: '食物',
 
-    11: '身體', 12: '交通工具', 13: '家庭成員', 14: '日常用品', 15: '蔬菜',
-    16: '飲料', 17: '職業', 18: '國家', 19: '節日', 20: '情緒',
+    11: '身體', 12: '交通工具', 13: '家庭成員', 14: '顏色', 15: '學校（一）',
+    16: '飲料', 17: '職業', 18: '國家', 19: '食物', 20: '情緒',
     21: '服裝', 22: '時間', 23: '自然'
 };
 
@@ -2398,19 +2824,19 @@ const unitSongData = [
     { id: 5, name: '家人（一）', videoId: '' },
     { id: 6, name: '水果', videoId: '' },
     { id: 7, name: '動物（一）', videoId: '' },
-    { id: 8, name: '季節', videoId: '' },
+    { id: 8, name: '動物（二）', videoId: '' },
     { id: 9, name: '動物（三）', videoId: '' },
     { id: 10, name: '食物', videoId: '' },
     { id: 11, name: '身體', videoId: '' },
     // 下冊
     { id: 12, name: '交通工具', videoId: '' },
     { id: 13, name: '家庭成員', videoId: '' },
-    { id: 14, name: '日常用品', videoId: '' },
-    { id: 15, name: '蔬菜', videoId: '' },
+    { id: 14, name: '顏色', videoId: '' },
+    { id: 15, name: '學校（一）', videoId: '' },
     { id: 16, name: '飲料', videoId: '' },
     { id: 17, name: '職業', videoId: '' },
     { id: 18, name: '國家', videoId: '' },
-    { id: 19, name: '節日', videoId: '' },
+    { id: 19, name: '食物', videoId: '' },
     { id: 20, name: '情緒', videoId: '' },
     { id: 21, name: '服裝', videoId: '' },
     { id: 22, name: '時間', videoId: '' },
@@ -3337,7 +3763,388 @@ const storyBooksByChapter = {
             { type: 'image', image: 'assets/images/stories/故事繪本頁面更新版/眼睛的故事/Picture 十三.jpg' }
         ]
     }
-]
+],
+    8: [
+        {
+            id: "lesson8-story1",
+            title: "小熊的野餐",
+            cover: "assets/images/stories/圖書封面/第8課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第8課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第8課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事1/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事1/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事1/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事1/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事1/第8課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson8-story2",
+            title: "小獅子不刷牙",
+            cover: "assets/images/stories/圖書封面/第8課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第8課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第8課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事2/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事2/第8課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson8-story3",
+            title: "小鼴鼠的布娃娃",
+            cover: "assets/images/stories/圖書封面/第8課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第8課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第8課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第8課故事3/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第8課故事3/第8課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    14: [
+        {
+            id: "lesson14-story1",
+            title: "棕色的熊你在看什麼？",
+            cover: "assets/images/stories/圖書封面/第14課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第14課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第14課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事1/page12.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事1/第14課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson14-story2",
+            title: "自己的顏色",
+            cover: "assets/images/stories/圖書封面/第14課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第14課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第14課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page16.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page17.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page18.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page19.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事2/page20.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事2/第14課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson14-story3",
+            title: "彩虹色的故事",
+            cover: "assets/images/stories/圖書封面/第14課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第14課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第14課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第14課故事3/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第14課故事3/第14課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    15: [
+        {
+            id: "lesson15-story1",
+            title: "樂樂上幼兒園",
+            cover: "assets/images/stories/圖書封面/第15課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第15課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第15課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事1/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事1/第15課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson15-story2",
+            title: "我絕對絕對不去上學",
+            cover: "assets/images/stories/圖書封面/第15課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第15課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第15課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page14.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事2/page16.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事2/第15課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson15-story3",
+            title: "古里古怪的幼兒園",
+            cover: "assets/images/stories/圖書封面/第15課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第15課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第15課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第15課故事3/page15.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第15課故事3/第15課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    19: [
+        {
+            id: "lesson19-story1",
+            title: "這是什麼？",
+            cover: "assets/images/stories/圖書封面/第19課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第19課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第19課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page09.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事1/page16.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事1/第19課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson19-story2",
+            title: "米飯的花樣",
+            cover: "assets/images/stories/圖書封面/第19課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第19課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第19課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事2/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事2/第19課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson19-story3",
+            title: "熊熊麵包店",
+            cover: "assets/images/stories/圖書封面/第19課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第19課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第19課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page13.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第19課故事3/page16.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第19課故事3/第19課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
 };
 
 function getStoryBooks() {
@@ -3792,8 +4599,8 @@ const gameDataByChapter = {
             { hanzi: '你', simpleHanzi: '你', hanziKey: 'familyCharYou', image: 'lessons/第5課/第5課-識圖部分素材/fam_you.png' },
             { hanzi: '她', simpleHanzi: '她', hanziKey: 'familyCharShe', image: 'lessons/第5課/第5課-識圖部分素材/fam_she.png' },
             { hanzi: '他', simpleHanzi: '他', hanziKey: 'familyCharHe', image: 'lessons/第5課/第5課-識圖部分素材/fam_he.png' },
-            { hanzi: '它', simpleHanzi: '它', hanziKey: 'familyCharIt', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_beast.png' },
-            { hanzi: '牠', simpleHanzi: '它', hanziKey: 'familyCharAnimalIt', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_animal.png' }
+            { hanzi: '它', simpleHanzi: '它', hanziKey: 'familyCharIt', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_animal.png' },
+            { hanzi: '牠', simpleHanzi: '它', hanziKey: 'familyCharAnimalIt', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_beast.png' }
         ]
     }
 };
@@ -3882,6 +4689,34 @@ function generateChapter9GameData() {
     return { matching, quiz, memory };
 }
 
+function generateChapterPoolGameData(chapter) {
+    const recs = recognitionDataByChapter[chapter];
+    if (!recs || recs.length === 0) return gameDataByChapter[11];
+
+    const pool = recs.map(item => ({
+        hanzi: (i18n['zh-TW'] && i18n['zh-TW'][item.hanziKey]) || item.hanziKey,
+        simpleHanzi: (i18n['zh-CN'] && i18n['zh-CN'][item.hanziKey]) || item.hanziKey,
+        hanziKey: item.hanziKey,
+        image: item.image
+    }));
+
+    const matching = shuffleArray(pool).slice(0, 7);
+    const memory = shuffleArray(pool).slice(0, 6);
+    const quizTargets = shuffleArray(pool).slice(0, 4);
+    const quiz = quizTargets.map(target => {
+        const distractors = shuffleArray(pool.filter(a => a.hanzi !== target.hanzi)).slice(0, 3);
+        const options = shuffleArray([target, ...distractors]);
+        return {
+            type: 'single',
+            question: { tw: `哪一個是${target.hanzi}？`, cn: `哪一个是${target.simpleHanzi}？` },
+            options: options.map(a => ({ tw: a.hanzi, cn: a.simpleHanzi, key: a.hanziKey, image: a.image })),
+            correct: options.findIndex(a => a.hanzi === target.hanzi)
+        };
+    });
+
+    return { matching, quiz, memory };
+}
+
 function getGameData() {
     if (AppState.currentChapter === 7) {
         return generateChapter7GameData();
@@ -3891,6 +4726,9 @@ function getGameData() {
     }
     if (AppState.currentChapter === 5) {
         return generateChapter9GameData();
+    }
+    if ([8, 14, 15, 19].includes(AppState.currentChapter)) {
+        return generateChapterPoolGameData(AppState.currentChapter);
     }
     return gameDataByChapter[11];
 }
@@ -5003,55 +5841,17 @@ const quizDataByChapter = {
         },
         {
             type: 'photo',
-            target: '眉毛',
-            question: '眉毛在那裡？',
+            question: '請點一點身體的部位',
             buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
-            activeButton: '眉毛',
             landmarks: [
-                { cx: 38.0, cy: 42.0, w: 50, h: 20 },
-                { cx: 61.0, cy: 42.0, w: 50, h: 20 }
-            ]
-        },
-        {
-            type: 'photo',
-            target: '眼睛',
-            question: '眼睛在那裡？',
-            buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
-            activeButton: '眼睛',
-            landmarks: [
-                { cx: 40.0, cy: 49.0, w: 45, h: 30 },
-                { cx: 59.0, cy: 49.0, w: 45, h: 30 }
-            ]
-        },
-        {
-            type: 'photo',
-            target: '鼻子',
-            question: '鼻子在那裡？',
-            buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
-            activeButton: '鼻子',
-            landmarks: [
-                { cx: 50.0, cy: 55.0, w: 40, h: 55 }
-            ]
-        },
-        {
-            type: 'photo',
-            target: '耳朵',
-            question: '耳朵在那裡？',
-            buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
-            activeButton: '耳朵',
-            landmarks: [
-                { cx: 27.0, cy: 54.0, w: 38, h: 75 },
-                { cx: 72.0, cy: 54.0, w: 38, h: 75 }
-            ]
-        },
-        {
-            type: 'photo',
-            target: '嘴巴',
-            question: '嘴巴在那裡？',
-            buttons: ['眉毛', '眼睛', '鼻子', '耳朵', '嘴巴'],
-            activeButton: '嘴巴',
-            landmarks: [
-                { cx: 50.0, cy: 66.0, w: 58, h: 32 }
+                { cx: 38.0, cy: 42.0, w: 50, h: 20, target: '眉毛' },
+                { cx: 61.0, cy: 42.0, w: 50, h: 20, target: '眉毛' },
+                { cx: 40.0, cy: 49.0, w: 45, h: 30, target: '眼睛' },
+                { cx: 59.0, cy: 49.0, w: 45, h: 30, target: '眼睛' },
+                { cx: 50.0, cy: 55.0, w: 40, h: 55, target: '鼻子' },
+                { cx: 27.0, cy: 54.0, w: 38, h: 75, target: '耳朵' },
+                { cx: 72.0, cy: 54.0, w: 38, h: 75, target: '耳朵' },
+                { cx: 50.0, cy: 66.0, w: 58, h: 32, target: '嘴巴' }
             ]
         }
     ],
@@ -5313,7 +6113,235 @@ const quizDataByChapter = {
                 { target: '十', cx: 65.95, cy: 87.07, w: 25.86, h: 25.86 }
             ]
         }
-    ]
+    ],
+    8: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種動物住在媽媽的肚子口袋裡？',
+            options: [
+                { icon: '🐒', label: '猴子', correct: false },
+                { icon: '🦁', label: '獅子', correct: false },
+                { icon: '🦘', label: '袋鼠', correct: true },
+                { icon: '🐻', label: '熊', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種動物的脖子最長？',
+            options: [
+                { icon: '🦒', label: '長頸鹿', correct: true },
+                { icon: '🦓', label: '斑馬', correct: false },
+                { icon: '🐼', label: '熊貓', correct: false },
+                { icon: '🐢', label: '烏龜', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種動物身上有黑白條紋？',
+            options: [
+                { icon: '🦁', label: '獅子', correct: false },
+                { icon: '🦓', label: '斑馬', correct: true },
+                { icon: '🐭', label: '老鼠', correct: false },
+                { icon: '🦉', label: '貓頭鷹', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '貓頭鷹什麼時候出來活動？',
+            options: [
+                { icon: '☀️', label: '白天', correct: false },
+                { icon: '🌙', label: '晚上', correct: true },
+                { icon: '🌅', label: '早上', correct: false },
+                { icon: '🌧️', label: '下雨天', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '中國的國寶動物是什麼？',
+            options: [
+                { icon: '🦁', label: '獅子', correct: false },
+                { icon: '🐻', label: '熊', correct: false },
+                { icon: '🐼', label: '熊貓', correct: true },
+                { icon: '🐒', label: '猴子', correct: false }
+            ]
+        }
+    ],
+    14: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '蘋果是什麼顏色的？',
+            options: [
+                { icon: '🔵', label: '藍色', correct: false },
+                { icon: '🔴', label: '紅色', correct: true },
+                { icon: '🟡', label: '黃色', correct: false },
+                { icon: '⚫', label: '黑色', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '香蕉是什麼顏色的？',
+            options: [
+                { icon: '🟢', label: '綠色', correct: false },
+                { icon: '🟣', label: '紫色', correct: false },
+                { icon: '🟡', label: '黃色', correct: true },
+                { icon: '⚪', label: '白色', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '葡萄是什麼顏色的？',
+            options: [
+                { icon: '🟣', label: '紫色', correct: true },
+                { icon: '🟤', label: '棕色', correct: false },
+                { icon: '⚫', label: '黑色', correct: false },
+                { icon: '🔴', label: '紅色', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '天空是什麼顏色的？',
+            options: [
+                { icon: '⚫', label: '黑色', correct: false },
+                { icon: '🔵', label: '藍色', correct: true },
+                { icon: '🟢', label: '綠色', correct: false },
+                { icon: '⚪', label: '白色', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '熊貓是什麼顏色的？',
+            options: [
+                { icon: '🔴⚪', label: '紅色和白色', correct: false },
+                { icon: '⚪⚫', label: '白色和黑色', correct: true },
+                { icon: '🟢🟤', label: '綠色和棕色', correct: false },
+                { icon: '🔵🟣', label: '藍色和紫色', correct: false }
+            ]
+        }
+    ],
+    15: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '我們上課的地方在哪裡？',
+            options: [
+                { icon: '🪟', label: '窗戶', correct: false },
+                { icon: '🚪', label: '門', correct: false },
+                { icon: '🏫', label: '課室', correct: true },
+                { icon: '🖥️', label: '電腦', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '寫字要用什麼文具？',
+            options: [
+                { icon: '✏️', label: '鉛筆', correct: true },
+                { icon: '📏', label: '尺子', correct: false },
+                { icon: '🎒', label: '書包', correct: false },
+                { icon: '✂️', label: '剪刀', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '我們上課時坐在什麼上面？',
+            options: [
+                { icon: '🛏️', label: '床', correct: false },
+                { icon: '🪑', label: '椅子', correct: true },
+                { icon: '📦', label: '箱子', correct: false },
+                { icon: '🧸', label: '玩具', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '畫直線要用什麼文具？',
+            options: [
+                { icon: '🎒', label: '書包', correct: false },
+                { icon: '📏', label: '尺子', correct: true },
+                { icon: '✂️', label: '剪刀', correct: false },
+                { icon: '🌸', label: '花朵', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '學習知識要看什麼？',
+            options: [
+                { icon: '📺', label: '電視', correct: false },
+                { icon: '📱', label: '手機', correct: false },
+                { icon: '📚', label: '書本', correct: true },
+                { icon: '🎮', label: '遊戲機', correct: false }
+            ]
+        }
+    ],
+    19: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '每天早上喝什麼最有營養？',
+            options: [
+                { icon: '🥤', label: '汽水', correct: false },
+                { icon: '🥛', label: '牛奶', correct: true },
+                { icon: '🧃', label: '果汁', correct: false },
+                { icon: '☕', label: '咖啡', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '生日時大家會一起分什麼吃？',
+            options: [
+                { icon: '🍜', label: '麵條', correct: false },
+                { icon: '🍚', label: '米飯', correct: false },
+                { icon: '🎂', label: '蛋糕', correct: true },
+                { icon: '🍞', label: '麵包', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '中國人每天吃的主食是什麼？',
+            options: [
+                { icon: '🍞', label: '麵包', correct: false },
+                { icon: '🍔', label: '漢堡', correct: false },
+                { icon: '🍚', label: '米飯', correct: true },
+                { icon: '🍕', label: '披薩', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '巧克力是什麼顏色的？',
+            options: [
+                { icon: '⚪', label: '白色', correct: false },
+                { icon: '🟡', label: '黃色', correct: false },
+                { icon: '🟤', label: '棕色', correct: true },
+                { icon: '🟢', label: '綠色', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '肚子餓了要做什麼？',
+            options: [
+                { icon: '🛏️', label: '睡覺', correct: false },
+                { icon: '🍽️', label: '吃東西', correct: true },
+                { icon: '🏃', label: '跑步', correct: false },
+                { icon: '🎵', label: '唱歌', correct: false }
+            ]
+        }
+    ],
 };
 
 function getQuizData() {
@@ -5332,7 +6360,8 @@ let quizState = {
     selectedCards: new Set(),
     photoMarked: false,
     markers: [],
-    photoProgress: {}
+    photoProgress: {},
+    photoSelected: {}
 };
 
 function playPopSound() {
@@ -5358,6 +6387,7 @@ function initQuiz() {
     quizState.photoMarked = false;
     quizState.markers = [];
     quizState.photoProgress = {};
+    quizState.photoSelected = {};
     renderQuiz();
 }
 
@@ -5402,6 +6432,14 @@ function renderQuiz() {
     applyCoursewareShell('quiz');
 }
 
+function renderQuizIcon(icon) {
+    if (!icon) return '';
+    // ⚫ / ⚪ 在某些字型會渲染成小黑點，統一用 CSS 圓圈替代
+    return icon
+        .replace(/⚫/g, '<span class="quiz-color-circle" style="background:#000;"></span>')
+        .replace(/⚪/g, '<span class="quiz-color-circle" style="background:#fff;border:2px solid #ccc;"></span>');
+}
+
 function renderChoiceQuestion(q) {
     const quizData = getQuizData();
     q = quizData[quizState.currentIndex];
@@ -5412,7 +6450,7 @@ function renderChoiceQuestion(q) {
         if (isSelected) {
             stateClass = opt.correct ? 'correct' : 'wrong';
         }
-        const iconHtml = opt.icon ? `<div class="quiz-card-icon">${opt.icon}</div>` : '';
+        const iconHtml = opt.icon ? `<div class="quiz-card-icon">${renderQuizIcon(opt.icon)}</div>` : '';
         return `
             <div class="quiz-card ${stateClass}" onclick="handleCardClick(${i}, ${opt.correct})">
                 ${iconHtml}
@@ -5435,28 +6473,31 @@ function renderPhotoQuestion(q) {
     const qi = quizState.currentIndex;
     const found = quizState.photoProgress[qi] || new Set();
     const remaining = q.buttons.filter(btn => !found.has(btn));
-    const activeButton = remaining.length > 0 ? remaining[0] : q.activeButton;
+    const selected = quizState.photoSelected[qi];
+    const activeButton = (selected && remaining.includes(selected)) ? selected : (remaining[0] || null);
+
     const buttonsHtml = q.buttons.map((btn, i) => {
+        const isFound = found.has(btn);
         const isActive = btn === activeButton;
-        return `<div class="quiz-photo-btn ${isActive ? 'active' : ''}">${t(getQuizI18nKey('Q' + qi + 'Btn' + i))}</div>`;
+        const label = t(getQuizI18nKey('Q' + qi + 'Btn' + i));
+        const clickAttr = isFound ? '' : `onclick="selectPhotoTarget('${btn}')"`;
+        return `<div class="quiz-photo-btn ${isActive ? 'active' : ''} ${isFound ? 'found' : ''}" ${clickAttr}>${label}</div>`;
     }).join('');
-    
+
     const imgSrc = q.image || 'assets/images/courseware/真人圖片標記_11課身體.png';
-    
-    // 渲染所有已保存的標記
-    const markersHtml = quizState.markers.map(m => {
-        const w = m.unit === 'percent' ? `${m.w}%` : `${m.w}px`;
-        const h = m.unit === 'percent' ? `${m.h}%` : `${m.h}px`;
-        return `<div class="quiz-marker" style="width:${w};height:${h};left:${m.left}%;top:${m.top}%;"></div>`;
+
+    // 渲染已找到的打勾標記
+    const checkmarksHtml = quizState.markers.map(m => {
+        return `<div class="quiz-photo-checkmark" style="left:${m.left}%;top:${m.top}%;">✓</div>`;
     }).join('');
-    
+
     return `
         <div class="quiz-photo-mode">
             <div class="quiz-photo-question">${t(getQuizI18nKey('Q' + qi))}</div>
             <div class="quiz-photo-left">${buttonsHtml}</div>
             <div class="quiz-photo-area" id="photoArea" onclick="handlePhotoClick(event)">
                 <img src="${imgSrc}" alt="${t('realPhoto')}">
-                ${markersHtml}
+                ${checkmarksHtml}
             </div>
         </div>
     `;
@@ -5505,6 +6546,15 @@ function handleCardClick(index, isCorrect) {
         }
         renderQuiz();
     }
+}
+
+function selectPhotoTarget(target) {
+    const q = getQuizData()[quizState.currentIndex];
+    if (!q || q.type !== 'photo') return;
+    const found = quizState.photoProgress[quizState.currentIndex] || new Set();
+    if (found.has(target)) return;
+    quizState.photoSelected[quizState.currentIndex] = target;
+    renderQuiz();
 }
 
 function handlePhotoClick(event) {
@@ -5596,22 +6646,32 @@ function handlePhotoClick(event) {
         return;
     }
 
-    // 多目標題型：檢查是否點到還沒找過的動物
-    const isMultiTarget = q.landmarks.some(lm => lm.target);
-    if (isMultiTarget) {
-        const found = quizState.photoProgress[quizState.currentIndex] || new Set();
-        if (found.has(nearest.target)) {
-            // 已經找過了，不再重複計算
-            return;
-        }
-        found.add(nearest.target);
-        quizState.photoProgress[quizState.currentIndex] = found;
+    const qi = quizState.currentIndex;
+    const target = nearest.target || q.target || q.activeButton;
+    if (!target) return;
+
+    const found = quizState.photoProgress[qi] || new Set();
+    if (found.has(target)) return;
+
+    // 如果用戶先點了左邊標籤，必須點對應位置；沒有選標籤則接受該位置的目標
+    const selectedTarget = quizState.photoSelected[qi];
+    const remaining = q.buttons.filter(btn => !found.has(btn));
+    const activeButton = (selectedTarget && remaining.includes(selectedTarget)) ? selectedTarget : remaining[0];
+    const expectedTarget = selectedTarget || activeButton || target;
+    if (target !== expectedTarget) {
+        playWrongSound();
+        return;
     }
+
+    found.add(target);
+    quizState.photoProgress[qi] = found;
+    quizState.photoSelected[qi] = null;
 
     playCorrectSound();
 
+    // 計算打勾標記位置
+    let leftPct, topPct;
     if (q.imageSize) {
-        // 把標記轉回容器百分比，讓標記正確貼在圖片上
         const cw = areaRect.width;
         const ch = areaRect.height;
         const iw = q.imageSize.width;
@@ -5630,66 +6690,36 @@ function handlePhotoClick(event) {
             offsetX = (cw - displayW) / 2;
             offsetY = 0;
         }
-
-        const leftPct = (offsetX + (nearest.cx / 100) * displayW) / cw * 100;
-        const topPct = (offsetY + (nearest.cy / 100) * displayH) / ch * 100;
-        const wPct = (nearest.w / 100) * displayW / cw * 100;
-        const hPct = (nearest.h / 100) * displayH / ch * 100;
-
-        quizState.markers.push({
-            left: leftPct,
-            top: topPct,
-            w: wPct,
-            h: hPct,
-            unit: 'percent'
-        });
+        leftPct = (offsetX + (nearest.cx / 100) * displayW) / cw * 100;
+        topPct = (offsetY + (nearest.cy / 100) * displayH) / ch * 100;
     } else {
         const AREA_W = 750;
         const AREA_H = 580;
         const IMG_SIZE = 580;
         const IMG_OFFSET_X = 85;
-
-        const leftPct = ((nearest.cx / 100) * IMG_SIZE + IMG_OFFSET_X) / AREA_W * 100;
-        const topPct = (nearest.cy / 100) * IMG_SIZE / AREA_H * 100;
-
-        quizState.markers.push({
-            left: leftPct,
-            top: topPct,
-            w: nearest.w,
-            h: nearest.h
-        });
+        leftPct = ((nearest.cx / 100) * IMG_SIZE + IMG_OFFSET_X) / AREA_W * 100;
+        topPct = (nearest.cy / 100) * IMG_SIZE / AREA_H * 100;
     }
 
-    // 多目標題型：尚未找完所有動物則停留在同一題
-    if (isMultiTarget) {
-        const found = quizState.photoProgress[quizState.currentIndex];
-        if (found && found.size < q.buttons.length) {
-            // 先短暫顯示本次標記圈，再清空並切換到下一個動物
-            renderQuiz();
-            setTimeout(() => {
-                quizState.markers = [];
-                renderQuiz();
-            }, 1200);
-            return;
-        }
-        // 全部完成，重置進度
-        quizState.photoProgress[quizState.currentIndex] = new Set();
+    quizState.markers.push({ left: leftPct, top: topPct });
+
+    // 多目標題型：尚未找完則停留在同一題
+    const isMultiTarget = q.landmarks.some(lm => lm.target);
+    if (isMultiTarget && found.size < q.buttons.length) {
+        renderQuiz();
+        return;
     }
 
-    if (!quizState.scores[quizState.currentIndex]) {
-        quizState.scores[quizState.currentIndex] = true;
+    if (!quizState.scores[qi]) {
+        quizState.scores[qi] = true;
     }
 
     renderQuiz();
 
-    // 最後一題播放紙屑並清除標記
+    // 最後一題播放紙屑
     if (quizState.currentIndex === getQuizData().length - 1) {
         setTimeout(() => {
             playConfetti();
-            setTimeout(() => {
-                quizState.markers = [];
-                renderQuiz();
-            }, 3000);
         }, 400);
     } else {
         // 自動進入下一題
@@ -5702,10 +6732,12 @@ function handlePhotoClick(event) {
 function nextQuiz() {
     if (quizState.currentIndex < getQuizData().length - 1) {
         quizState.photoProgress[quizState.currentIndex] = new Set();
+        quizState.photoSelected[quizState.currentIndex] = null;
         quizState.currentIndex++;
         quizState.selectedCards = new Set();
         quizState.photoMarked = false;
         quizState.markers = [];
+        quizState.photoSelected[quizState.currentIndex] = null;
         renderQuiz();
     }
 }
@@ -5713,10 +6745,12 @@ function nextQuiz() {
 function prevQuiz() {
     if (quizState.currentIndex > 0) {
         quizState.photoProgress[quizState.currentIndex] = new Set();
+        quizState.photoSelected[quizState.currentIndex] = null;
         quizState.currentIndex--;
         quizState.selectedCards = new Set();
         quizState.photoMarked = false;
         quizState.markers = [];
+        quizState.photoSelected[quizState.currentIndex] = null;
         renderQuiz();
     }
 }
@@ -5979,8 +7013,8 @@ const recognitionDataByChapter = {
         { hanziKey: 'familyCharYou', pinyin: 'nǐ', defKey: 'recDefFamilyYou', color: '#FF8C00', image: 'lessons/第5課/第5課-識圖部分素材/fam_you.png', audio: 'lessons/第5課/第5課-識圖部分錄音/你.mp3' },
         { hanziKey: 'familyCharShe', pinyin: 'tā', defKey: 'recDefFamilyShe', color: '#66BB6A', image: 'lessons/第5課/第5課-識圖部分素材/fam_she.png', audio: 'lessons/第5課/第5課-識圖部分錄音/她.mp3' },
         { hanziKey: 'familyCharHe', pinyin: 'tā', defKey: 'recDefFamilyHe', color: '#42A5F5', image: 'lessons/第5課/第5課-識圖部分素材/fam_he.png', audio: 'lessons/第5課/第5課-識圖部分錄音/他.mp3' },
-        { hanziKey: 'familyCharIt', pinyin: 'tā', defKey: 'recDefFamilyIt', color: '#AB47BC', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_beast.png', audio: 'lessons/第5課/第5課-識圖部分錄音/它.mp3' },
-        { hanziKey: 'familyCharAnimalIt', pinyin: 'tā', defKey: 'recDefFamilyAnimalIt', color: '#EF5350', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_animal.png', audio: 'lessons/第5課/第5課-識圖部分錄音/牠.mp3' }
+        { hanziKey: 'familyCharIt', pinyin: 'tā', defKey: 'recDefFamilyIt', color: '#AB47BC', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_animal.png', audio: 'lessons/第5課/第5課-識圖部分錄音/它.mp3' },
+        { hanziKey: 'familyCharAnimalIt', pinyin: 'tā', defKey: 'recDefFamilyAnimalIt', color: '#EF5350', image: 'lessons/第5課/第5課-識圖部分素材/fam_it_beast.png', audio: 'lessons/第5課/第5課-識圖部分錄音/牠.mp3' }
     ],
     1: [
         { hanziKey: 'numberCharOne', pinyin: 'yī', defKey: 'recDefOne', color: '#FF6B6B', image: 'lessons/第1課/第1課-識圖部分素材/num1.png', audio: 'lessons/第1課/第1課-識圖部分錄音/一.mp3' },
@@ -5993,7 +7027,58 @@ const recognitionDataByChapter = {
         { hanziKey: 'numberCharEight', pinyin: 'bā', defKey: 'recDefEight', color: '#F7DC6F', image: 'lessons/第1課/第1課-識圖部分素材/num8.png', audio: 'lessons/第1課/第1課-識圖部分錄音/八.mp3' },
         { hanziKey: 'numberCharNine', pinyin: 'jiǔ', defKey: 'recDefNine', color: '#BB8FCE', image: 'lessons/第1課/第1課-識圖部分素材/num9.png', audio: 'lessons/第1課/第1課-識圖部分錄音/九.mp3' },
         { hanziKey: 'numberCharTen', pinyin: 'shí', defKey: 'recDefTen', color: '#85C1E9', image: 'lessons/第1課/第1課-識圖部分素材/num10.png', audio: 'lessons/第1課/第1課-識圖部分錄音/十.mp3' }
-    ]
+    ],
+    8: [
+        { hanziKey: 'animalWordMonkey', pinyin: 'hóu zi', defKey: 'animalDefMonkey', color: '#FF8C00', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_猴子.png', audio: 'lessons/第8課/第8課-識圖部分錄音/猴子.mp3' },
+        { hanziKey: 'animalWordLion', pinyin: 'shī zi', defKey: 'animalDefLion', color: '#DAA520', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_獅子.png', audio: 'lessons/第8課/第8課-識圖部分錄音/狮子.mp3' },
+        { hanziKey: 'animalWordMouse', pinyin: 'lǎo shǔ', defKey: 'animalDefMouse', color: '#A9A9A9', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_老鼠.png', audio: 'lessons/第8課/第8課-識圖部分錄音/老鼠.mp3' },
+        { hanziKey: 'animalWordTurtle', pinyin: 'wū guī', defKey: 'animalDefTurtle', color: '#556B2F', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_烏龜.png', audio: 'lessons/第8課/第8課-識圖部分錄音/乌龟.mp3' },
+        { hanziKey: 'animalWordPanda', pinyin: 'xióng māo', defKey: 'animalDefPanda', color: '#32CD32', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_熊貓.png', audio: 'lessons/第8課/第8課-識圖部分錄音/熊猫.mp3' },
+        { hanziKey: 'animalWordKangaroo', pinyin: 'dài shǔ', defKey: 'animalDefKangaroo', color: '#CD853F', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_袋鼠.png', audio: 'lessons/第8課/第8課-識圖部分錄音/袋鼠.mp3' },
+        { hanziKey: 'animalWordGiraffe', pinyin: 'cháng jǐng lù', defKey: 'animalDefGiraffe', color: '#FFD700', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_長頸鹿.png', audio: 'lessons/第8課/第8課-識圖部分錄音/长颈鹿.mp3' },
+        { hanziKey: 'animalWordOwl', pinyin: 'māo tóu yīng', defKey: 'animalDefOwl', color: '#4682B4', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_貓頭鷹.png', audio: 'lessons/第8課/第8課-識圖部分錄音/猫头鹰.mp3' },
+        { hanziKey: 'animalWordBear', pinyin: 'xióng', defKey: 'animalDefBear', color: '#8B4513', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_熊.png', audio: 'lessons/第8課/第8課-識圖部分錄音/熊.mp3' },
+        { hanziKey: 'animalWordZebra', pinyin: 'bān mǎ', defKey: 'animalDefZebra', color: '#708090', image: 'lessons/第8課/第8課-識圖部分素材/lesson8_斑馬.png', audio: 'lessons/第8課/第8課-識圖部分錄音/斑马.mp3' },
+    ],
+    14: [
+        { hanziKey: 'colorCharRed', pinyin: 'hóng', defKey: 'colorDefRed', color: '#FF0000', image: 'lessons/第14課/第14課-識圖部分素材/color_red.png', audio: 'lessons/第14課/第14課-識圖部分錄音/红.mp3' },
+        { hanziKey: 'colorCharBlue', pinyin: 'lán', defKey: 'colorDefBlue', color: '#0000FF', image: 'lessons/第14課/第14課-識圖部分素材/color_blue.png', audio: 'lessons/第14課/第14課-識圖部分錄音/蓝.mp3' },
+        { hanziKey: 'colorCharGreen', pinyin: 'lǜ', defKey: 'colorDefGreen', color: '#00FF00', image: 'lessons/第14課/第14課-識圖部分素材/color_green.png', audio: 'lessons/第14課/第14課-識圖部分錄音/绿.mp3' },
+        { hanziKey: 'colorCharYellow', pinyin: 'huáng', defKey: 'colorDefYellow', color: '#FFFF00', image: 'lessons/第14課/第14課-識圖部分素材/color_yellow.png', audio: 'lessons/第14課/第14課-識圖部分錄音/黄.mp3' },
+        { hanziKey: 'colorCharWhite', pinyin: 'bái', defKey: 'colorDefWhite', color: '#FFFFFF', image: 'lessons/第14課/第14課-識圖部分素材/color_white.png', audio: 'lessons/第14課/第14課-識圖部分錄音/白.mp3' },
+        { hanziKey: 'colorCharPurple', pinyin: 'zǐ', defKey: 'colorDefPurple', color: '#800080', image: 'lessons/第14課/第14課-識圖部分素材/color_purple.png', audio: 'lessons/第14課/第14課-識圖部分錄音/紫.mp3' },
+        { hanziKey: 'colorCharBlack', pinyin: 'hēi', defKey: 'colorDefBlack', color: '#000000', image: 'lessons/第14課/第14課-識圖部分素材/color_black.png', audio: 'lessons/第14課/第14課-識圖部分錄音/黑.mp3' },
+        { hanziKey: 'colorCharBrown', pinyin: 'zōng', defKey: 'colorDefBrown', color: '#8B4513', image: 'lessons/第14課/第14課-識圖部分素材/color_brown.png', audio: 'lessons/第14課/第14課-識圖部分錄音/棕.mp3' },
+        { hanziKey: 'colorCharGray', pinyin: 'huī', defKey: 'colorDefGray', color: '#808080', image: 'lessons/第14課/第14課-識圖部分素材/color_gray.png', audio: 'lessons/第14課/第14課-識圖部分錄音/灰.mp3' },
+        { hanziKey: 'colorWordPaint', pinyin: 'huà huà', defKey: 'colorDefPaint', color: '#FF6B6B', image: 'lessons/第14課/第14課-識圖部分素材/color_word_paint.png', audio: 'lessons/第14課/第14課-識圖部分錄音/画画.mp3' },
+        { hanziKey: 'colorWordColor', pinyin: 'yán sè', defKey: 'colorDefColor', color: '#4ECDC4', image: 'lessons/第14課/第14課-識圖部分素材/color_word_color.png', audio: 'lessons/第14課/第14課-識圖部分錄音/颜色.mp3' },
+        { hanziKey: 'colorWordRainbow', pinyin: 'cǎi hóng', defKey: 'colorDefRainbow', color: '#9B59B6', image: 'lessons/第14課/第14課-識圖部分素材/color_word_rainbow.png', audio: 'lessons/第14課/第14課-識圖部分錄音/彩虹.mp3' },
+    ],
+    15: [
+        { hanziKey: 'schoolWordSchool', pinyin: 'xué xiào', defKey: 'schoolDefSchool', color: '#FF6B6B', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_學校.png', audio: 'lessons/第15課/第15課-識圖部分錄音/学校.mp3' },
+        { hanziKey: 'schoolWordClassroom', pinyin: 'jiào shì', defKey: 'schoolDefClassroom', color: '#4ECDC4', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_教室.png', audio: 'lessons/第15課/第15課-識圖部分錄音/教室.mp3' },
+        { hanziKey: 'schoolWordComputer', pinyin: 'diàn nǎo', defKey: 'schoolDefComputer', color: '#45B7D1', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_電腦.png', audio: 'lessons/第15課/第15課-識圖部分錄音/电脑.mp3' },
+        { hanziKey: 'schoolWordChair', pinyin: 'yǐ zi', defKey: 'schoolDefChair', color: '#96CEB4', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_椅子.png', audio: 'lessons/第15課/第15課-識圖部分錄音/椅子.mp3' },
+        { hanziKey: 'schoolWordDesk', pinyin: 'zhuō zi', defKey: 'schoolDefDesk', color: '#FFEAA7', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_桌子.png', audio: 'lessons/第15課/第15課-識圖部分錄音/桌子.mp3' },
+        { hanziKey: 'schoolWordBook', pinyin: 'shū běn', defKey: 'schoolDefBook', color: '#DDA0DD', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_書本.png', audio: 'lessons/第15課/第15課-識圖部分錄音/书本.mp3' },
+        { hanziKey: 'schoolWordWhiteboard', pinyin: 'bái bǎn', defKey: 'schoolDefWhiteboard', color: '#98D8C8', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_白板.png', audio: 'lessons/第15課/第15課-識圖部分錄音/白板.mp3' },
+        { hanziKey: 'schoolWordPencil', pinyin: 'qiān bǐ', defKey: 'schoolDefPencil', color: '#F7DC6F', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_鉛筆.png', audio: 'lessons/第15課/第15課-識圖部分錄音/铅笔.mp3' },
+        { hanziKey: 'schoolWordEraser', pinyin: 'xiàng pí', defKey: 'schoolDefEraser', color: '#BB8FCE', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_橡皮.png', audio: 'lessons/第15課/第15課-識圖部分錄音/橡皮.mp3' },
+        { hanziKey: 'schoolWordRuler', pinyin: 'chǐ zi', defKey: 'schoolDefRuler', color: '#85C1E9', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_尺子.png', audio: 'lessons/第15課/第15課-識圖部分錄音/尺子.mp3' },
+        { hanziKey: 'schoolWordScissors', pinyin: 'jiǎn dāo', defKey: 'schoolDefScissors', color: '#F06292', image: 'lessons/第15課/第15課-識圖部分素材/lesson15_剪刀.png', audio: 'lessons/第15課/第15課-識圖部分錄音/剪刀.mp3' },
+    ],
+    19: [
+        { hanziKey: 'foodCharEat', pinyin: 'chī', defKey: 'foodDefEat', color: '#FF6B6B', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_吃.png', audio: 'lessons/第19課/第19課-識圖部分錄音/吃.mp3' },
+        { hanziKey: 'foodCharDrink', pinyin: 'hē', defKey: 'foodDefDrink', color: '#4ECDC4', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_喝.png', audio: 'lessons/第19課/第19課-識圖部分錄音/喝.mp3' },
+        { hanziKey: 'foodWordMilk', pinyin: 'niú nǎi', defKey: 'foodDefMilk', color: '#45B7D1', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_牛奶.png', audio: 'lessons/第19課/第19課-識圖部分錄音/牛奶.mp3' },
+        { hanziKey: 'foodWordChocolate', pinyin: 'qiǎo kè lì', defKey: 'foodDefChocolate', color: '#8B4513', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_巧克力.png', audio: 'lessons/第19課/第19課-識圖部分錄音/巧克力.mp3' },
+        { hanziKey: 'foodWordBread', pinyin: 'miàn bāo', defKey: 'foodDefBread', color: '#DAA520', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_麵包.png', audio: 'lessons/第19課/第19課-識圖部分錄音/面包.mp3' },
+        { hanziKey: 'foodWordCookie', pinyin: 'bǐng gān', defKey: 'foodDefCookie', color: '#CD853F', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_餅乾.png', audio: 'lessons/第19課/第19課-識圖部分錄音/饼干.mp3' },
+        { hanziKey: 'foodWordNoodles', pinyin: 'miàn tiáo', defKey: 'foodDefNoodles', color: '#FFD700', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_麵條.png', audio: 'lessons/第19課/第19課-識圖部分錄音/面条.mp3' },
+        { hanziKey: 'foodWordRice', pinyin: 'mǐ fàn', defKey: 'foodDefRice', color: '#F5F5DC', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_米飯.png', audio: 'lessons/第19課/第19課-識圖部分錄音/米饭.mp3' },
+        { hanziKey: 'foodWordCandy', pinyin: 'táng guǒ', defKey: 'foodDefCandy', color: '#FF69B4', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_糖果.png', audio: 'lessons/第19課/第19課-識圖部分錄音/糖果.mp3' },
+        { hanziKey: 'foodWordCake', pinyin: 'dàn gāo', defKey: 'foodDefCake', color: '#FF8C00', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_蛋糕.png', audio: 'lessons/第19課/第19課-識圖部分錄音/蛋糕.mp3' },
+    ],
 };
 
 function getRecognitionData() {
@@ -6009,6 +7094,20 @@ function initRecognition() {
     renderRecognition();
 }
 
+function getHanziDisplayClass(hanzi) {
+    const len = Array.from(hanzi).length;
+    if (len >= 3) return 'hanzi-length-3';
+    if (len === 2) return 'hanzi-length-2';
+    return 'hanzi-length-1';
+}
+
+function getHanziFallbackSize(hanzi) {
+    const len = Array.from(hanzi).length;
+    if (len >= 3) return '60px';
+    if (len === 2) return '80px';
+    return '120px';
+}
+
 function renderRecognition() {
     const container = document.getElementById('recognitionContainer');
     if (!container) return;
@@ -6016,12 +7115,14 @@ function renderRecognition() {
     const data = getRecognitionData();
     const item = data[recognitionState.currentIndex];
     const hanzi = t(item.hanziKey);
+    const hanziClass = getHanziDisplayClass(hanzi);
+    const fallbackSize = getHanziFallbackSize(hanzi);
 
     const html = `
         <div class="recognition-page">
             <!-- 上方詞彙圓圈 -->
             <div class="rec-word-nav">
-                ${data.map((w, i) => `<button class="rec-word-btn ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${t(w.hanziKey)}</button>`).join('')}
+                ${data.map((w, i) => `<button class="rec-word-btn ${getHanziDisplayClass(t(w.hanziKey))} ${i === recognitionState.currentIndex ? 'active' : ''}" onclick="goToRecognition(${i})">${t(w.hanziKey)}</button>`).join('')}
             </div>
 
             <!-- 左側圖片 -->
@@ -6029,7 +7130,7 @@ function renderRecognition() {
                 <img src="${item.image}" alt="${hanzi}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
                 <div class="rec-image-fallback" style="background:${item.color}22;border:4px dashed ${item.color};">
                     <div style="text-align:center;">
-                        <div style="font-size:120px;color:${item.color};font-weight:bold;">${hanzi}</div>
+                        <div style="font-size:${fallbackSize};color:${item.color};font-weight:bold;">${hanzi}</div>
                         <div style="font-size:16px;color:#888;margin-top:10px;">${t('bodyPartDiagram')}</div>
                     </div>
                 </div>
@@ -6039,7 +7140,7 @@ function renderRecognition() {
             <div class="rec-text-area">
                 <button class="rec-speaker" onclick="playPronunciation()" title="${t('playAudio')}">🔊</button>
                 <div class="rec-pinyin">${item.pinyin}</div>
-                <div class="rec-hanzi">${hanzi}</div>
+                <div class="rec-hanzi ${hanziClass}">${hanzi}</div>
                 <div class="rec-definition">${t(item.defKey)}</div>
             </div>
         </div>
@@ -6447,7 +7548,58 @@ const writingDataByChapter = {
         { hanziKey: 'familyCharHe', pinyin: 'tā', animationTraditional: 'lessons/第5課/第5課-識字部分gif/第5課-他.gif', animationSimplified: 'lessons/第5課/第5課-識字部分gif/第5課-他.gif', gifDuration: 9400 },
         { hanziKey: 'familyCharIt', pinyin: 'tā', animationTraditional: 'lessons/第5課/第5課-識字部分gif/第5課-它.gif', animationSimplified: 'lessons/第5課/第5課-識字部分gif/第5課-它.gif', gifDuration: 8600 },
         { hanziKey: 'familyCharAnimalIt', pinyin: 'tā', animationTraditional: 'lessons/第5課/第5課-識字部分gif/第5課-牠.gif', animationSimplified: 'lessons/第5課/第5課-識字部分gif/第5課-它.gif', gifDuration: 12000 }
-    ]
+    ],
+    8: [
+        { hanziKey: 'animalWordMonkey', pinyin: 'hóu zi', animationTraditional: ["lessons/第8課/第8課-識字部分gif/猴.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/猴.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordLion', pinyin: 'shī zi', animationTraditional: ["lessons/第8課/第8課-識字部分gif/獅.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/獅.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordMouse', pinyin: 'lǎo shǔ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/老.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/老.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordTurtle', pinyin: 'wū guī', animationTraditional: ["lessons/第8課/第8課-識字部分gif/烏.gif", "lessons/第8課/第8課-識字部分gif/龜.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/烏.gif", "lessons/第8課/第8課-識字部分gif/龟.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordPanda', pinyin: 'xióng māo', animationTraditional: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/貓.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/貓.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordKangaroo', pinyin: 'dài shǔ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/袋.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/袋.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordGiraffe', pinyin: 'cháng jǐng lù', animationTraditional: ["lessons/第8課/第8課-識字部分gif/長.gif", "lessons/第8課/第8課-識字部分gif/頸.gif", "lessons/第8課/第8課-識字部分gif/鹿.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/长.gif", "lessons/第8課/第8課-識字部分gif/颈.gif", "lessons/第8課/第8課-識字部分gif/鹿.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordOwl', pinyin: 'māo tóu yīng', animationTraditional: ["lessons/第8課/第8課-識字部分gif/貓.gif", "lessons/第8課/第8課-識字部分gif/頭.gif", "lessons/第8課/第8課-識字部分gif/鷹.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/貓.gif", "lessons/第8課/第8課-識字部分gif/头.gif", "lessons/第8課/第8課-識字部分gif/鹰.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordBear', pinyin: 'xióng', animationTraditional: ["lessons/第8課/第8課-識字部分gif/熊.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/熊.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordZebra', pinyin: 'bān mǎ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/斑.gif", "lessons/第8課/第8課-識字部分gif/馬.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/斑.gif", "lessons/第8課/第8課-識字部分gif/马.gif"], gifDuration: 5000 },
+    ],
+    14: [
+        { hanziKey: 'colorCharRed', pinyin: 'hóng', animationTraditional: ["lessons/第14課/第14課-識字部分gif/紅.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/红.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharBlue', pinyin: 'lán', animationTraditional: ["lessons/第14課/第14課-識字部分gif/藍.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/蓝.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharGreen', pinyin: 'lǜ', animationTraditional: ["lessons/第14課/第14課-識字部分gif/綠.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/绿.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharYellow', pinyin: 'huáng', animationTraditional: ["lessons/第14課/第14課-識字部分gif/黃.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/黄.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharWhite', pinyin: 'bái', animationTraditional: ["lessons/第14課/第14課-識字部分gif/白.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/白.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharPurple', pinyin: 'zǐ', animationTraditional: ["lessons/第14課/第14課-識字部分gif/紫.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/紫.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharBlack', pinyin: 'hēi', animationTraditional: ["lessons/第14課/第14課-識字部分gif/黑.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/黑.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharBrown', pinyin: 'zōng', animationTraditional: ["lessons/第14課/第14課-識字部分gif/棕.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/棕.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorCharGray', pinyin: 'huī', animationTraditional: ["lessons/第14課/第14課-識字部分gif/灰.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/灰.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorWordPaint', pinyin: 'huà huà', animationTraditional: ["lessons/第14課/第14課-識字部分gif/畫.gif", "lessons/第14課/第14課-識字部分gif/畫.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/画.gif", "lessons/第14課/第14課-識字部分gif/画.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorWordColor', pinyin: 'yán sè', animationTraditional: ["lessons/第14課/第14課-識字部分gif/顏.gif", "lessons/第14課/第14課-識字部分gif/色.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/颜.gif", "lessons/第14課/第14課-識字部分gif/色.gif"], gifDuration: 5000 },
+        { hanziKey: 'colorWordRainbow', pinyin: 'cǎi hóng', animationTraditional: ["lessons/第14課/第14課-識字部分gif/彩.gif", "lessons/第14課/第14課-識字部分gif/虹.gif"], animationSimplified: ["lessons/第14課/第14課-識字部分gif/彩.gif", "lessons/第14課/第14課-識字部分gif/虹.gif"], gifDuration: 5000 },
+    ],
+    15: [
+        { hanziKey: 'schoolWordSchool', pinyin: 'xué xiào', animationTraditional: ["lessons/第15課/第15課-識字部分gif/學.gif", "lessons/第15課/第15課-識字部分gif/校.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/学.gif", "lessons/第15課/第15課-識字部分gif/校.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordClassroom', pinyin: 'jiào shì', animationTraditional: ["lessons/第15課/第15課-識字部分gif/教.gif", "lessons/第15課/第15課-識字部分gif/室.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/教.gif", "lessons/第15課/第15課-識字部分gif/室.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordComputer', pinyin: 'diàn nǎo', animationTraditional: ["lessons/第15課/第15課-識字部分gif/電.gif", "lessons/第15課/第15課-識字部分gif/腦.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/电.gif", "lessons/第15課/第15課-識字部分gif/脑.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordChair', pinyin: 'yǐ zi', animationTraditional: ["lessons/第15課/第15課-識字部分gif/椅.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/椅.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordDesk', pinyin: 'zhuō zi', animationTraditional: ["lessons/第15課/第15課-識字部分gif/桌.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/桌.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordBook', pinyin: 'shū běn', animationTraditional: ["lessons/第15課/第15課-識字部分gif/書.gif", "lessons/第15課/第15課-識字部分gif/本.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/书.gif", "lessons/第15課/第15課-識字部分gif/本.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordWhiteboard', pinyin: 'bái bǎn', animationTraditional: ["lessons/第15課/第15課-識字部分gif/白.gif", "lessons/第15課/第15課-識字部分gif/板.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/白.gif", "lessons/第15課/第15課-識字部分gif/板.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordPencil', pinyin: 'qiān bǐ', animationTraditional: ["lessons/第15課/第15課-識字部分gif/鉛.gif", "lessons/第15課/第15課-識字部分gif/筆.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/铅.gif", "lessons/第15課/第15課-識字部分gif/笔.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordEraser', pinyin: 'xiàng pí', animationTraditional: ["lessons/第15課/第15課-識字部分gif/橡.gif", "lessons/第15課/第15課-識字部分gif/皮.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/橡.gif", "lessons/第15課/第15課-識字部分gif/皮.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordRuler', pinyin: 'chǐ zi', animationTraditional: ["lessons/第15課/第15課-識字部分gif/尺.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/尺.gif", "lessons/第15課/第15課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'schoolWordScissors', pinyin: 'jiǎn dāo', animationTraditional: ["lessons/第15課/第15課-識字部分gif/剪.gif", "lessons/第15課/第15課-識字部分gif/刀.gif"], animationSimplified: ["lessons/第15課/第15課-識字部分gif/剪.gif", "lessons/第15課/第15課-識字部分gif/刀.gif"], gifDuration: 5000 },
+    ],
+    19: [
+        { hanziKey: 'foodCharEat', pinyin: 'chī', animationTraditional: ["lessons/第19課/第19課-識字部分gif/吃.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/吃.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodCharDrink', pinyin: 'hē', animationTraditional: ["lessons/第19課/第19課-識字部分gif/喝.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/喝.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordMilk', pinyin: 'niú nǎi', animationTraditional: ["lessons/第19課/第19課-識字部分gif/牛.gif", "lessons/第19課/第19課-識字部分gif/奶.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/牛.gif", "lessons/第19課/第19課-識字部分gif/奶.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordChocolate', pinyin: 'qiǎo kè lì', animationTraditional: ["lessons/第19課/第19課-識字部分gif/巧.gif", "lessons/第19課/第19課-識字部分gif/克.gif", "lessons/第19課/第19課-識字部分gif/力.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/巧.gif", "lessons/第19課/第19課-識字部分gif/克.gif", "lessons/第19課/第19課-識字部分gif/力.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordBread', pinyin: 'miàn bāo', animationTraditional: ["lessons/第19課/第19課-識字部分gif/麵.gif", "lessons/第19課/第19課-識字部分gif/包.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/面.gif", "lessons/第19課/第19課-識字部分gif/包.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordCookie', pinyin: 'bǐng gān', animationTraditional: ["lessons/第19課/第19課-識字部分gif/餅.gif", "lessons/第19課/第19課-識字部分gif/乾.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/饼.gif", "lessons/第19課/第19課-識字部分gif/干.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordNoodles', pinyin: 'miàn tiáo', animationTraditional: ["lessons/第19課/第19課-識字部分gif/麵.gif", "lessons/第19課/第19課-識字部分gif/條.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/面.gif", "lessons/第19課/第19課-識字部分gif/条.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordRice', pinyin: 'mǐ fàn', animationTraditional: ["lessons/第19課/第19課-識字部分gif/米.gif", "lessons/第19課/第19課-識字部分gif/飯.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/米.gif", "lessons/第19課/第19課-識字部分gif/饭.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordCandy', pinyin: 'táng guǒ', animationTraditional: ["lessons/第19課/第19課-識字部分gif/糖.gif", "lessons/第19課/第19課-識字部分gif/果.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/糖.gif", "lessons/第19課/第19課-識字部分gif/果.gif"], gifDuration: 5000 },
+        { hanziKey: 'foodWordCake', pinyin: 'dàn gāo', animationTraditional: ["lessons/第19課/第19課-識字部分gif/蛋.gif", "lessons/第19課/第19課-識字部分gif/糕.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/蛋.gif", "lessons/第19課/第19課-識字部分gif/糕.gif"], gifDuration: 5000 },
+    ],
 };
 
 function getWritingData() {
@@ -6456,12 +7608,14 @@ function getWritingData() {
 
 let writingState = {
     currentIndex: 0,
+    charIndex: 0,
     isAnimating: false,
     gifTimeout: null
 };
 
 function initWriting() {
     writingState.currentIndex = 0;
+    writingState.charIndex = 0;
     writingState.isAnimating = false;
     if (writingState.gifTimeout) {
         clearTimeout(writingState.gifTimeout);
@@ -6470,13 +7624,31 @@ function initWriting() {
     renderWriting();
 }
 
+function getWritingCharInfo(item, charIndex) {
+    const fullHanzi = t(item.hanziKey);
+    const chars = Array.from(fullHanzi);
+    const urls = AppState.language === 'zh-CN' ? item.animationSimplified : item.animationTraditional;
+    const urlList = Array.isArray(urls) ? urls.filter(u => u) : (urls ? [urls] : []);
+    const totalChars = urlList.length || 1;
+    const safeIndex = Math.min(Math.max(charIndex, 0), Math.max(0, totalChars - 1));
+    return {
+        fullHanzi,
+        char: chars[safeIndex] || fullHanzi,
+        url: urlList[safeIndex] || urlList[0],
+        totalChars,
+        hasNext: safeIndex < totalChars - 1,
+        hasPrev: safeIndex > 0
+    };
+}
+
 function renderWriting() {
     const container = document.getElementById('writingContainer');
     if (!container) return;
 
     const data = getWritingData();
     const item = data[writingState.currentIndex];
-    const hanzi = t(item.hanziKey);
+    const charInfo = getWritingCharInfo(item, writingState.charIndex);
+    const currentChar = charInfo.char;
     const riceGridSvg = `<svg class="writing-rice-grid" viewBox="0 0 200 200" preserveAspectRatio="none">
         <line x1="100" y1="0" x2="100" y2="200" />
         <line x1="0" y1="100" x2="200" y2="100" />
@@ -6489,7 +7661,7 @@ function renderWriting() {
             <!-- 上方詞彙圓圈 -->
             <div class="writing-word-nav">
                 ${data.map((w, i) =>
-                    `<button class="writing-word-btn ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${t(w.hanziKey)}</button>`
+                    `<button class="writing-word-btn ${getHanziDisplayClass(t(w.hanziKey))} ${i === writingState.currentIndex ? 'active' : ''}" onclick="goToWriting(${i})">${t(w.hanziKey)}</button>`
                 ).join('')}
             </div>
 
@@ -6497,12 +7669,12 @@ function renderWriting() {
             <div class="writing-stroke-area">
                 <div class="writing-model-box" id="writingModelBox">
                     ${riceGridSvg}
-                    <div class="writing-model-char">${hanzi}</div>
+                    <div class="writing-model-char ${getHanziDisplayClass(currentChar)}">${currentChar}</div>
                     <img 
                         id="writingStrokeGif"
                         class="writing-stroke-gif"
                         style="display:none;"
-                        alt="${hanzi} 筆順"
+                        alt="${currentChar} 筆順"
                     >
                     <video 
                         id="writingStrokeVideo"
@@ -6515,7 +7687,11 @@ function renderWriting() {
                         onended="hideWritingAnimation()"
                     ></video>
                 </div>
-                <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="${t('strokeAnimation')}">✏️</button>
+                <div class="writing-stroke-btns">
+                    ${charInfo.hasPrev ? `<button class="writing-prev-char-btn" onclick="prevWritingChar()" title="${t('prevChar')}">${t('prevChar')}</button>` : ''}
+                    <button class="writing-pencil-btn" onclick="playWritingAnimation()" title="${t('strokeAnimation')}">✏️</button>
+                    ${charInfo.hasNext ? `<button class="writing-next-char-btn" onclick="nextWritingChar()" title="${t('nextChar')}">${t('nextChar')}</button>` : ''}
+                </div>
             </div>
 
             <!-- 右邊手寫練習區域 -->
@@ -6573,7 +7749,8 @@ function hideWritingAnimation() {
 
 function playWritingAnimation() {
     const item = getWritingData()[writingState.currentIndex];
-    const url = getWritingAnimationUrl(item);
+    const charInfo = getWritingCharInfo(item, writingState.charIndex);
+    const url = charInfo.url;
 
     if (!url) {
         console.error('找不到對應筆順動畫路徑');
@@ -6584,51 +7761,78 @@ function playWritingAnimation() {
     hideWritingAnimation();
 
     if (isGifUrl(url)) {
-        const gif = document.getElementById('writingStrokeGif');
-        if (!gif) {
-            console.error('找不到 img 元素 #writingStrokeGif');
-            return;
-        }
-
-        // 重新載入 GIF 確保從頭播放
-        gif.src = url + '?t=' + Date.now();
-        gif.style.display = 'block';
-        writingState.isAnimating = true;
-
-        // 播放一次後自動隱藏
-        const duration = item.gifDuration || 3000;
-        if (writingState.gifTimeout) {
-            clearTimeout(writingState.gifTimeout);
-        }
-        writingState.gifTimeout = setTimeout(() => {
-            hideWritingAnimation();
-        }, duration);
+        playWritingGif(url, item.gifDuration || 3000);
     } else {
-        const video = document.getElementById('writingStrokeVideo');
-        if (!video) {
-            console.error('找不到 video 元素 #writingStrokeVideo');
-            return;
+        playWritingVideo(url);
+    }
+}
+
+function playWritingGif(url, duration) {
+    const gif = document.getElementById('writingStrokeGif');
+    if (!gif) {
+        console.error('找不到 img 元素 #writingStrokeGif');
+        return;
+    }
+
+    // 重新載入 GIF 確保從頭播放
+    gif.src = url + '?t=' + Date.now();
+    gif.style.display = 'block';
+    writingState.isAnimating = true;
+
+    // 播放一次後自動隱藏
+    if (writingState.gifTimeout) {
+        clearTimeout(writingState.gifTimeout);
+    }
+    writingState.gifTimeout = setTimeout(() => {
+        hideWritingAnimation();
+    }, duration);
+}
+
+function playWritingVideo(url) {
+    const video = document.getElementById('writingStrokeVideo');
+    if (!video) {
+        console.error('找不到 video 元素 #writingStrokeVideo');
+        return;
+    }
+
+    video.src = url;
+    video.load();
+    video.style.display = 'block';
+    writingState.isAnimating = true;
+
+    video.onloadeddata = function() {
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(err => {
+                console.error('視頻播放失敗:', err);
+                hideWritingAnimation();
+            });
         }
+    };
 
-        video.src = url;
-        video.load();
-        video.style.display = 'block';
-        writingState.isAnimating = true;
+    video.onerror = function() {
+        console.error('視頻載入失敗:', url);
+        hideWritingAnimation();
+    };
+}
 
-        video.onloadeddata = function() {
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(err => {
-                    console.error('視頻播放失敗:', err);
-                    hideWritingAnimation();
-                });
-            }
-        };
+function prevWritingChar() {
+    const item = getWritingData()[writingState.currentIndex];
+    const charInfo = getWritingCharInfo(item, writingState.charIndex);
+    if (charInfo.hasPrev) {
+        writingState.charIndex--;
+        renderWriting();
+        // 切換後只顯示上一個字，不自動播放筆順，需用戶點擊筆順按鈕
+    }
+}
 
-        video.onerror = function() {
-            console.error('視頻載入失敗:', url);
-            hideWritingAnimation();
-        };
+function nextWritingChar() {
+    const item = getWritingData()[writingState.currentIndex];
+    const charInfo = getWritingCharInfo(item, writingState.charIndex);
+    if (charInfo.hasNext) {
+        writingState.charIndex++;
+        renderWriting();
+        // 切換後只顯示下一個字，不自動播放筆順，需用戶點擊筆順按鈕
     }
 }
 
@@ -6734,6 +7938,7 @@ function clearWritingCanvas() {
 function nextWritingWord() {
     if (writingState.currentIndex < getWritingData().length - 1) {
         writingState.currentIndex++;
+        writingState.charIndex = 0;
         renderWriting();
     }
 }
@@ -6741,6 +7946,7 @@ function nextWritingWord() {
 function prevWritingWord() {
     if (writingState.currentIndex > 0) {
         writingState.currentIndex--;
+        writingState.charIndex = 0;
         renderWriting();
     }
 }
@@ -6748,6 +7954,7 @@ function prevWritingWord() {
 function goToWriting(index) {
     if (index >= 0 && index < getWritingData().length) {
         writingState.currentIndex = index;
+        writingState.charIndex = 0;
         renderWriting();
     }
 }

@@ -188,6 +188,15 @@
     line-height: 1;
 }
 
+.quiz-color-circle {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
 .quiz-card-label {
     font-size: 24px;
     font-weight: bold;
@@ -353,6 +362,29 @@
     transform: translate(-50%, -50%);
 }
 
+/* 正確打勾標記 */
+.quiz-photo-checkmark {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: #4CAF50;
+    font-size: 32px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: checkPop 0.4s ease-out;
+    text-shadow: 0 2px 4px rgba(255,255,255,0.9);
+}
+
+@keyframes checkPop {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    60% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.quiz-photo-btn.found {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 @keyframes wrongPop {
     0% { transform: translate(-50%, -50%) scale(0); }
     60% { transform: translate(-50%, -50%) scale(1.2); }
@@ -401,6 +433,10 @@
     .quiz-card-icon {
         font-size: 56px;
     }
+    .quiz-color-circle {
+        width: 48px;
+        height: 48px;
+    }
     .quiz-card-label {
         font-size: 18px;
     }
@@ -424,6 +460,10 @@
     }
     .quiz-card-icon {
         font-size: 40px;
+    }
+    .quiz-color-circle {
+        width: 34px;
+        height: 34px;
     }
     .quiz-card-label {
         font-size: 16px;

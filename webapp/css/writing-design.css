@@ -51,6 +51,25 @@
     color: #fff;
 }
 
+.cw-page .cw-content .writing-word-btn.hanzi-length-2 {
+    width: 80px;
+    font-size: 20px;
+}
+
+.cw-page .cw-content .writing-word-btn.hanzi-length-3 {
+    width: 110px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.cw-page .cw-content .writing-model-char.hanzi-length-2 {
+    font-size: 140px;
+}
+
+.cw-page .cw-content .writing-model-char.hanzi-length-3 {
+    font-size: 100px;
+}
+
 /* 左邊筆順展示區域 */
 .cw-page .cw-content .writing-stroke-area {
     position: absolute;
@@ -139,30 +158,57 @@
     display: none;
 }
 
-/* 鉛筆按鈕 */
-.cw-page .cw-content .writing-pencil-btn {
+/* 筆順按鈕區域 */
+.cw-page .cw-content .writing-stroke-btns {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.cw-page .cw-content .writing-pencil-btn,
+.cw-page .cw-content .writing-prev-char-btn,
+.cw-page .cw-content .writing-next-char-btn {
+    position: relative;
     width: 60px;
     height: 60px;
-    background: #F5A623;
     border: none;
     border-radius: 50%;
     color: #fff;
-    font-size: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s;
-    z-index: 10;
 }
 
-.cw-page .cw-content .writing-pencil-btn:hover {
-    transform: translateX(-50%) scale(1.1);
+.cw-page .cw-content .writing-pencil-btn {
+    background: #F5A623;
+    font-size: 26px;
+}
+
+.cw-page .cw-content .writing-prev-char-btn {
+    background: #9B59B6;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cw-page .cw-content .writing-next-char-btn {
+    background: #4ECDC4;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cw-page .cw-content .writing-pencil-btn:hover,
+.cw-page .cw-content .writing-prev-char-btn:hover,
+.cw-page .cw-content .writing-next-char-btn:hover {
+    transform: scale(1.1);
 }
 
 /* 右邊手寫練習區域 */

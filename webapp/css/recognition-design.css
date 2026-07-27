@@ -51,6 +51,25 @@
     color: #fff;
 }
 
+.cw-page .cw-content .rec-word-btn.hanzi-length-2 {
+    width: 80px;
+    font-size: 20px;
+}
+
+.cw-page .cw-content .rec-word-btn.hanzi-length-3 {
+    width: 110px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.cw-page .cw-content .rec-hanzi.hanzi-length-2 {
+    font-size: 140px;
+}
+
+.cw-page .cw-content .rec-hanzi.hanzi-length-3 {
+    font-size: 100px;
+}
+
 /* 左側圖片區域 */
 .cw-page .cw-content .rec-image-area {
     position: absolute;
