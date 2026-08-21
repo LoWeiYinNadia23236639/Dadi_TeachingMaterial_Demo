@@ -2788,6 +2788,13 @@ const guideMessages = {
 // 引導角色自動隱藏計時器
 let guideHideTimeout = null;
 
+// 確保引導角色存在（用於子頁面切換時補建）
+function ensureGuideCharacter() {
+    if (!document.querySelector('.guide-character-container')) {
+        showGuideCharacter('songs');
+    }
+}
+
 // 顯示引導角色
 function showGuideCharacter(pageId) {
     // 移除舊的角色引導
@@ -3826,6 +3833,7 @@ function goToCommonSongs() {
         </div>
     `;
     container.style.display = 'block';
+    ensureGuideCharacter();
 }
 
 function renderUnitChapterBox(group, gIdx) {
@@ -3863,6 +3871,7 @@ function goToUnitSongs() {
         </div>
     `;
     container.style.display = 'block';
+    ensureGuideCharacter();
 }
 
 function switchSongUnitVolume(vol, evt) {
@@ -3900,6 +3909,7 @@ function goToUnitSongList(groupIndex) {
         </div>
     `;
     container.style.display = 'block';
+    ensureGuideCharacter();
 }
 
 function handleSongPlayerBack() {
@@ -3949,6 +3959,7 @@ function goToSongPlayer(type, index1, index2) {
         </div>
     `;
     container.style.display = 'block';
+    ensureGuideCharacter();
 }
 
 
