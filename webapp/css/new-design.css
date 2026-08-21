@@ -1080,7 +1080,7 @@ body {
 /* 播放頁 */
 .song-player-wrapper {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1200px;
@@ -1571,10 +1571,10 @@ body {
 .guide-character-container {
     position: fixed;
     bottom: 100px;
-    right: 60px;
+    right: 5%;
     width: 240px;
     height: 330px;
-    z-index: 1100;
+    z-index: 10000;
     opacity: 0;
     transform: translateY(20px) scale(calc(var(--scale, 1) * 1.4));
     transform-origin: bottom right;
@@ -1686,7 +1686,7 @@ body {
 @media (max-width: 768px) {
     .guide-character-container {
         bottom: 80px;
-        right: 45px;
+        right: 5%;
     }
     
     .guide-character {
