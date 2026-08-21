@@ -1080,7 +1080,7 @@ body {
 /* 播放頁 */
 .song-player-wrapper {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1200px;
