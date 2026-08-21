@@ -3940,7 +3940,7 @@ function goToSongPlayer(type, index1, index2) {
                 <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="handleSongPlayerBack()">
                 <div class="song-pill">${title}</div>
                 <div class="song-player-wrapper">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.videoId}?rel=0&playsinline=1&origin=${encodeURIComponent(window.location.origin || '')}"
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.videoId}?rel=0&playsinline=1&modestbranding=1"
                         title="YouTube video player"
                         frameborder="0"
                         allowfullscreen
