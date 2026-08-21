@@ -601,15 +601,22 @@ body {
 }
 .poems-back:hover { transform: scale(1.05); }
 
-.poems-title-img {
+.poems-pill {
     position: absolute;
-    left: 297.3px;
-    top: 90.6px;
-    width: 1279.5px;
-    height: 113.7px;
+    left: 320px;
+    top: 105px;
+    width: 1280px;
+    height: 90px;
     z-index: 5;
-    display: block;
-    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8E8ED;
+    color: #5A3A2A;
+    border-radius: 45px;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 .poems-grid {
@@ -763,6 +770,336 @@ body {
 
 #songs-common { left: 411.2px; top: 224.6px; width: 457.6px; height: 676.6px; }
 #songs-unit { left: 1051.2px; top: 224.6px; width: 480.3px; height: 676.6px; }
+
+/* ============================================
+   兒歌列表頁 / 單元歌曲頁 / 播放頁（共用彈層）
+   ============================================ */
+.song-list-page,
+.song-unit-page,
+.song-player-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.song-stage {
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center center;
+    overflow: hidden;
+    background: #ffab00;
+}
+
+.song-page-logo {
+    position: absolute;
+    left: 153.6px;
+    top: 106.5px;
+    width: 97.4px;
+    height: 97.4px;
+    z-index: 10;
+    cursor: default;
+}
+
+.song-page-back {
+    position: absolute;
+    left: 1657.9px;
+    top: 106.5px;
+    width: 98.1px;
+    height: 98.1px;
+    z-index: 10;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.song-page-back:hover { transform: scale(1.05); }
+
+.song-pill {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 3px solid #6BBF59;
+    color: #6BBF59;
+    padding: 14px 60px;
+    border-radius: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 10;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    white-space: nowrap;
+}
+
+/* 常用/單元清單頁：唐詩頁面同款 heading */
+.song-list-page .song-pill,
+.song-unit-page .song-pill {
+    top: 105px;
+    left: 320px;
+    transform: none;
+    width: 1280px;
+    height: 114px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8E8ED;
+    border: none;
+    color: #5A3A2A;
+    border-radius: 57px;
+    padding: 0;
+}
+
+.song-list-page .song-pill { font-size: 35px; height: 90px; border-radius: 45px; }
+.song-unit-page .song-pill { font-size: 35px; height: 90px; border-radius: 45px; }
+
+/* 兒歌播放頁：唐詩頁面同款 heading */
+.song-player-page .song-pill {
+    top: 105px;
+    left: 320px;
+    transform: none;
+    width: 1280px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E8E8ED;
+    border: none;
+    color: #5A3A2A;
+    border-radius: 45px;
+    padding: 0;
+    font-size: 35px;
+}
+
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+}
+
+.song-card {
+    width: 300px;
+    height: 340px;
+    background: white;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border: none;
+    font-family: inherit;
+    padding: 0;
+    overflow: hidden;
+}
+.song-card:hover { transform: scale(1.05); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+.song-card:active { transform: scale(0.98); }
+
+.song-card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    object-position: center;
+    padding: 16px 16px 0;
+    box-sizing: border-box;
+}
+
+.song-card-title {
+    flex: 1;
+    width: 100%;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    box-sizing: border-box;
+}
+
+/* 常用歌曲列表 */
+.song-list-page .song-grid {
+    position: absolute;
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1320px;
+}
+
+/* 單元歌曲分類頁 */
+.song-unit-category-grid {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1320px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    justify-content: center;
+    align-items: start;
+}
+
+/* 單元歌曲分類頁：選擇單元頁面同款 */
+.song-unit-volume-bar {
+    position: absolute;
+    left: 370.05px;
+    top: 99px;
+    width: 1179.9px;
+    height: 94.4px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    z-index: 10;
+}
+
+.song-unit-volume-tab {
+    width: 500px;
+    height: 94.4px;
+    background: #fecd00;
+    border-radius: 9999px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.song-unit-volume-tab:hover { transform: scale(1.03); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+.song-unit-volume-tab.active { background: #ffab00; }
+.song-unit-volume-tab span {
+    font-size: 42px;
+    font-weight: bold;
+    color: #333333;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+.song-unit-volume-tab.active span { color: #000000; transform: scale(1.08); }
+.song-unit-volume-tab:not(.active) span { opacity: 0.7; }
+
+.song-unit-chapters-grid {
+    display: none;
+    position: static;
+}
+.song-unit-chapters-grid.active { display: grid; }
+
+.song-unit-chapter-box {
+    position: absolute;
+    width: 400px;
+    height: 170px;
+    left: 320px;
+    top: 300px;
+    border-radius: 24px;
+    background: #fecd00;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    padding: 0;
+    flex-direction: column;
+    gap: 6px;
+}
+.song-unit-chapter-box:hover { transform: scale(1.04); box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+
+/* 左上角橘色緞帶 */
+.song-unit-chapter-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 32px;
+    height: 48px;
+    background: #ff9800;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+    border-radius: 0 0 4px 4px;
+    pointer-events: none;
+}
+
+/* 第 2 欄 */
+.song-unit-chapter-box:nth-child(3n+2) { left: 760px; }
+/* 第 3 欄 */
+.song-unit-chapter-box:nth-child(3n+3) { left: 1200px; }
+/* 第 2 列 */
+.song-unit-chapter-box:nth-child(n+4):nth-child(-n+6) { top: 500px; }
+/* 第 3 列 */
+.song-unit-chapter-box:nth-child(n+7):nth-child(-n+9) { top: 700px; }
+/* 第 4 列 */
+.song-unit-chapter-box:nth-child(n+10):nth-child(-n+12) { top: 900px; }
+
+.song-unit-chapter-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    z-index: 1;
+}
+
+.song-unit-chapter-title {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.song-unit-chapter-count {
+    font-size: 22px;
+    color: #555555;
+    text-align: center;
+    font-family: 'FZY3K', "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 單元歌曲清單頁 */
+.song-unit-page .song-grid {
+    position: absolute;
+    top: 240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1320px;
+}
+
+/* 播放頁 */
+.song-player-wrapper {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 675px;
+    background: #000;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.song-player-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+}
 
 /* ============================================
    PARTNER GREETING (學習夥伴問候語)
