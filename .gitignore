@@ -1,0 +1,13 @@
+# Backups and temp files
+*.bak
+*.tmp
+.DS_Store
+
+# Test files
+test-quiz-size.html
+
+# Python virtual environment (if placed inside repo)
+.venv/
+
+# Storybook cover backup folder
+.storybook_covers_backup/

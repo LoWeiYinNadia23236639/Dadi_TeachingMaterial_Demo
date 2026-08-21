@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title data-i18n="siteTitle">大地幼教學材 - 學習平台</title>
-    <link rel="stylesheet" href="css/new-design.css?v=63">
+    <link rel="stylesheet" href="css/new-design.css?v=76">
     <script>
         (function() {
             function updateStageScale(selector, width, height) {
@@ -25,6 +25,7 @@
                 updateStageScale('.poems-page', 1920, 1080);
                 updateStageScale('.poem-player-stage', 1920, 1080);
                 updateStageScale('.songs-menu-page', 1920, 1080);
+                updateStageScale('.song-stage', 1920, 1080);
                 updateStageScale('.intro-page', 1920, 1080);
                 updateStageScale('.chapters-page', 1920, 1080);
                 updateStageScale('.cw-page', 1920, 1080);
@@ -137,8 +138,8 @@
             <!-- 返回按鈕 -->
             <img class="poems-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('cats', event)">
 
-            <!-- 標題圖片 -->
-            <img class="poems-title-img" data-tw="assets/images/poems/唐詩列表頁更新版/唐詩頁面繁體標籤.png" data-cn="assets/images/poems/唐詩列表頁更新版/唐詩頁面簡體標籤.png" alt="唐詩">
+            <!-- 標題 -->
+            <div class="poems-pill" data-i18n="poems">唐詩</div>
 
             <!-- 12個唐詩按鈕 -->
             <div class="poems-grid">
@@ -453,7 +454,7 @@
         <!-- 由 JS 動態渲染 -->
     </div>
 
-    <script src="app.js?v=20250623v104"></script>
+    <script src="app.js?v=20250623v111"></script>
     <script>setTimeout(function(){ if(typeof switchLearningModule==='function') switchLearningModule('quiz'); }, 500);</script>
 </body>
 </html>

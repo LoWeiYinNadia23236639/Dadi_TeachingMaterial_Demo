@@ -206,8 +206,208 @@ const i18n = {
         foodDefCandy: '糖果五顏六色又香又甜。',
         foodDefCake: '蛋糕上有奶油還有水果。',
 
+        // 第2課：大自然（一）
+        natureCharGrass: '草',
+        natureCharStone: '石',
+        natureCharMountain: '山',
+        natureCharFire: '火',
+        natureCharFlower: '花',
+        natureCharSun: '日',
+        natureCharEarth: '地',
+        natureCharWood: '木',
+        natureCharField: '田',
+        natureCharSoil: '土',
+        natureCharSky: '天',
+        natureCharMoon: '月',
+        natureCharHuman: '人',
+        natureCharWater: '水',
+        // 第2課：大自然（一）例句
+        natureDefGrass: '這是草。',
+        natureDefStone: '這是石。',
+        natureDefMountain: '這是山。',
+        natureDefFire: '這是火。',
+        natureDefFlower: '這是花。',
+        natureDefSun: '這是日。',
+        natureDefEarth: '這是地。',
+        natureDefWood: '這是木。',
+        natureDefField: '這是田。',
+        natureDefSoil: '這是土。',
+        natureDefSky: '這是天。',
+        natureDefMoon: '這是月。',
+        natureDefHuman: '這是人。',
+        natureDefWater: '這是水。',
+        // 第8課：動物（二）
+        animalWordMonkey: '猴子',
+        animalWordLion: '獅子',
+        animalWordMouse: '老鼠',
+        animalWordTurtle: '烏龜',
+        animalWordPanda: '熊貓',
+        animalWordKangaroo: '袋鼠',
+        animalWordGiraffe: '長頸鹿',
+        animalWordOwl: '貓頭鷹',
+        animalWordBear: '熊',
+        animalWordZebra: '斑馬',
+        // 第8課：動物（二）例句
+        animalDefMonkey: '這是猴子。',
+        animalDefLion: '這是獅子。',
+        animalDefMouse: '這是老鼠。',
+        animalDefTurtle: '這是烏龜。',
+        animalDefPanda: '這是熊貓。',
+        animalDefKangaroo: '這是袋鼠。',
+        animalDefGiraffe: '這是長頸鹿。',
+        animalDefOwl: '這是貓頭鷹。',
+        animalDefBear: '這是熊。',
+        animalDefZebra: '這是斑馬。',
+        // 第12課：交通（一）
+        transportWordTrain: '火車',
+        transportWordBus: '巴士',
+        transportWordSubway: '地鐵',
+        transportWordCar: '汽車',
+        transportWordShip: '船',
+        transportWordPlane: '飛機',
+        transportWordTaxi: '的士',
+        transportWordBike: '自行車',
+        transportWordCareful: '小心',
+        transportWordSchoolBus: '校車',
+        transportWordRide: '騎',
+        transportWordSit: '坐',
+        transportWordDrive: '開',
+        // 第12課：交通（一）例句
+        transportDefTrain: '這是火車。',
+        transportDefBus: '這是巴士。',
+        transportDefSubway: '這是地鐵。',
+        transportDefCar: '這是汽車。',
+        transportDefShip: '這是船。',
+        transportDefPlane: '這是飛機。',
+        transportDefTaxi: '這是的士。',
+        transportDefBike: '這是自行車。',
+        transportDefCareful: '這是小心。',
+        transportDefSchoolBus: '這是校車。',
+        transportDefRide: '這是騎。',
+        transportDefSit: '這是坐。',
+        transportDefDrive: '這是開。',
+        // 第14課：顏色
+        colorCharRed: '紅',
+        colorCharBlue: '藍',
+        colorCharGreen: '綠',
+        colorCharYellow: '黃',
+        colorCharWhite: '白',
+        colorCharPurple: '紫',
+        colorCharBlack: '黑',
+        colorCharBrown: '棕',
+        colorCharGray: '灰',
+        colorWordPaint: '画画',
+        colorWordColor: '顏色',
+        colorWordRainbow: '彩虹',
+        // 第14課：顏色例句
+        colorDefRed: '這是紅。',
+        colorDefBlue: '這是藍。',
+        colorDefGreen: '這是綠。',
+        colorDefYellow: '這是黃。',
+        colorDefWhite: '這是白。',
+        colorDefPurple: '這是紫。',
+        colorDefBlack: '這是黑。',
+        colorDefBrown: '這是棕。',
+        colorDefGray: '這是灰。',
+        colorDefPaint: '這是画画。',
+        colorDefColor: '這是顏色。',
+        colorDefRainbow: '這是彩虹。',
+        // 第15課：學校（一）
+        schoolWordSchool: '學校',
+        schoolWordClassroom: '教室',
+        schoolWordComputer: '電腦',
+        schoolWordChair: '椅子',
+        schoolWordDesk: '桌子',
+        schoolWordBook: '書本',
+        schoolWordWhiteboard: '白板',
+        schoolWordPencil: '鉛筆',
+        schoolWordEraser: '橡皮',
+        schoolWordRuler: '尺子',
+        schoolWordScissors: '剪刀',
+        // 第15課：學校（一）例句
+        schoolDefSchool: '這是學校。',
+        schoolDefClassroom: '這是教室。',
+        schoolDefComputer: '這是電腦。',
+        schoolDefChair: '這是椅子。',
+        schoolDefDesk: '這是桌子。',
+        schoolDefBook: '這是書本。',
+        schoolDefWhiteboard: '這是白板。',
+        schoolDefPencil: '這是鉛筆。',
+        schoolDefEraser: '這是橡皮。',
+        schoolDefRuler: '這是尺子。',
+        schoolDefScissors: '這是剪刀。',
+        // 第18課：節日
+        festivalWordHoliday: '放假',
+        festivalWordDragonBoat: '端午節',
+        festivalWordSpring: '春節',
+        festivalWordHalloween: '萬聖節',
+        festivalWordMidAutumn: '中秋節',
+        festivalWordChristmas: '聖誕節',
+        festivalWordEaster: '復活節',
+        // 第18課：節日例句
+        festivalDefHoliday: '這是放假。',
+        festivalDefDragonBoat: '這是端午節。',
+        festivalDefSpring: '這是春節。',
+        festivalDefHalloween: '這是萬聖節。',
+        festivalDefMidAutumn: '這是中秋節。',
+        festivalDefChristmas: '這是聖誕節。',
+        festivalDefEaster: '這是復活節。',
+        // 第19課：食物
+        foodCharEat: '吃',
+        foodCharDrink: '喝',
+        foodWordMilk: '牛奶',
+        foodWordChocolate: '巧克力',
+        foodWordBread: '麵包',
+        foodWordCookie: '餅乾',
+        foodWordNoodles: '麵條',
+        foodWordRice: '米飯',
+        foodWordCandy: '糖果',
+        foodWordCake: '蛋糕',
+        // 第19課：食物例句
+        foodDefEat: '這是吃。',
+        foodDefDrink: '這是喝。',
+        foodDefMilk: '這是牛奶。',
+        foodDefChocolate: '這是巧克力。',
+        foodDefBread: '這是麵包。',
+        foodDefCookie: '這是餅乾。',
+        foodDefNoodles: '這是麵條。',
+        foodDefRice: '這是米飯。',
+        foodDefCandy: '這是糖果。',
+        foodDefCake: '這是蛋糕。',
+        // 第20課：水果
+        fruitWordMany: '多',
+        fruitWordFew: '少',
+        fruitWordCherry: '櫻桃',
+        fruitWordStrawberry: '草莓',
+        fruitWordPeach: '桃子',
+        fruitWordOrange: '橙子',
+        fruitWordBlueberry: '藍莓',
+        fruitWordPear: '梨',
+        fruitWordApple: '蘋果',
+        fruitWordMango: '芒果',
+        fruitWordGrape: '葡萄',
+        fruitWordBanana: '香蕉',
+        fruitWordWatermelon: '西瓜',
+        fruitWordKiwi: '奇異果',
+        // 第20課：水果例句
+        fruitDefMany: '這是多。',
+        fruitDefFew: '這是少。',
+        fruitDefCherry: '這是櫻桃。',
+        fruitDefStrawberry: '這是草莓。',
+        fruitDefPeach: '這是桃子。',
+        fruitDefOrange: '這是橙子。',
+        fruitDefBlueberry: '這是藍莓。',
+        fruitDefPear: '這是梨。',
+        fruitDefApple: '這是蘋果。',
+        fruitDefMango: '這是芒果。',
+        fruitDefGrape: '這是葡萄。',
+        fruitDefBanana: '這是香蕉。',
+        fruitDefWatermelon: '這是西瓜。',
+        fruitDefKiwi: '這是奇異果。',
+
         // 課程標題
         lesson11Title: '第11課：身體',
+
         
         // 按鈕文字
         playAudio: '播放發音',
@@ -263,7 +463,7 @@ const i18n = {
         
         // 章節名稱
         chapter1: '數字',
-        chapter2: '幼兒園',
+        chapter2: '大自然（一）',
         chapter3: '數字',
         chapter4: '顏色',
         chapter5: '家人（一）',
@@ -604,6 +804,214 @@ const i18n = {
         quiz19Q4Opt1: '吃東西',
         quiz19Q4Opt2: '跑步',
         quiz19Q4Opt3: '唱歌',
+        // 第2課課前提問
+        quiz2Q0: '我們住在哪裡？',
+        quiz2Q0Opt0: '天上',
+        quiz2Q0Opt1: '地上',
+        quiz2Q0Opt2: '水裡',
+        quiz2Q0Opt3: '火裡',
+        quiz2Q1: '白天，天上最亮的是什麼？',
+        quiz2Q1Opt0: '月亮',
+        quiz2Q1Opt1: '太陽',
+        quiz2Q1Opt2: '星星',
+        quiz2Q1Opt3: '雲朵',
+        quiz2Q2: '晚上天上亮亮的是什麼？',
+        quiz2Q2Opt0: '太陽',
+        quiz2Q2Opt1: '月亮',
+        quiz2Q2Opt2: '雲朵',
+        quiz2Q2Opt3: '彩虹',
+        quiz2Q3: '小樹長大需要什麼？',
+        quiz2Q3Opt0: '火',
+        quiz2Q3Opt1: '水',
+        quiz2Q3Opt2: '石頭',
+        quiz2Q3Opt3: '沙子',
+        quiz2Q4: '高高山上有什麼？',
+        quiz2Q4Opt0: '很多汽車',
+        quiz2Q4Opt1: '草和樹',
+        quiz2Q4Opt2: '火車',
+        quiz2Q4Opt3: '飛機',
+        quiz2Q5: '下雨天後，地上濕濕的，這是什麼？',
+        quiz2Q5Opt0: '油',
+        quiz2Q5Opt1: '水',
+        quiz2Q5Opt2: '火',
+        quiz2Q5Opt3: '土',
+        quiz2Q6: '農夫在什麼地方種稻子？',
+        quiz2Q6Opt0: '山上',
+        quiz2Q6Opt1: '海裡',
+        quiz2Q6Opt2: '田裡',
+        quiz2Q6Opt3: '天上',
+        quiz2Q7: '公園裡綠綠軟軟的是什麼？',
+        quiz2Q7Opt0: '石頭',
+        quiz2Q7Opt1: '木頭',
+        quiz2Q7Opt2: '草',
+        quiz2Q7Opt3: '火',
+        quiz2Q8: '河邊有好多什麼東西？（圓圓硬硬的）',
+        quiz2Q8Opt0: '花',
+        quiz2Q8Opt1: '石頭',
+        quiz2Q8Opt2: '草',
+        quiz2Q8Opt3: '雲',
+        quiz2Q9: '哪一個不是我們在大自然看到的？',
+        quiz2Q9Opt0: '花',
+        quiz2Q9Opt1: '山',
+        quiz2Q9Opt2: '飛機',
+        quiz2Q9Opt3: '水',
+        
+        // 第12課課前提問
+        quiz12Q0: '在鐵軌上跑的是什麼？',
+        quiz12Q0Opt0: '汽車',
+        quiz12Q0Opt1: '火車',
+        quiz12Q0Opt2: '飛機',
+        quiz12Q0Opt3: '船',
+        quiz12Q1: '很多座位，可以載很多人的是什麼？',
+        quiz12Q1Opt0: '自行車',
+        quiz12Q1Opt1: '的士',
+        quiz12Q1Opt2: '巴士',
+        quiz12Q1Opt3: '飛機',
+        quiz12Q2: '早上上學，我們坐什麼車？',
+        quiz12Q2Opt0: '校車',
+        quiz12Q2Opt1: '消防車',
+        quiz12Q2Opt2: '救護車',
+        quiz12Q2Opt3: '警車',
+        quiz12Q3: '過馬路的時候要怎樣？',
+        quiz12Q3Opt0: '唱歌',
+        quiz12Q3Opt1: '跑步',
+        quiz12Q3Opt2: '小心',
+        quiz12Q3Opt3: '睡覺',
+        quiz12Q4: '在地下跑的交通工具是什麼？',
+        quiz12Q4Opt0: '巴士',
+        quiz12Q4Opt1: '地鐵',
+        quiz12Q4Opt2: '飛機',
+        quiz12Q4Opt3: '船',
+        quiz12Q5: '爸爸媽媽開什麼送你上學？',
+        quiz12Q5Opt0: '火車',
+        quiz12Q5Opt1: '汽車',
+        quiz12Q5Opt2: '飛機',
+        quiz12Q5Opt3: '船',
+        quiz12Q6: '可以在海上航行的交通工具是什麼？',
+        quiz12Q6Opt0: '火車',
+        quiz12Q6Opt1: '巴士',
+        quiz12Q6Opt2: '飛機',
+        quiz12Q6Opt3: '船',
+        quiz12Q7: '兩個輪子，要踩踏板的是什麼？',
+        quiz12Q7Opt0: '汽車',
+        quiz12Q7Opt1: '自行車',
+        quiz12Q7Opt2: '飛機',
+        quiz12Q7Opt3: '船',
+        quiz12Q8: '爸爸開車的時候，手握著什麼？',
+        quiz12Q8Opt0: '椅子',
+        quiz12Q8Opt1: '窗戶',
+        quiz12Q8Opt2: '方向盤',
+        quiz12Q8Opt3: '門',
+        quiz12Q9: '哪一個不是在天上飛的？',
+        quiz12Q9Opt0: '飛機',
+        quiz12Q9Opt1: '小鳥',
+        quiz12Q9Opt2: '地鐵',
+        quiz12Q9Opt3: '直升機',
+        
+        // 第18課課前提問
+        quiz18Q0: '春節時，中國人喜歡吃什麼？',
+        quiz18Q0Opt0: '粽子',
+        quiz18Q0Opt1: '月餅',
+        quiz18Q0Opt2: '餃子',
+        quiz18Q0Opt3: '火雞',
+        quiz18Q1: '中秋節晚上，我們會看什麼？',
+        quiz18Q1Opt0: '太陽',
+        quiz18Q1Opt1: '月亮',
+        quiz18Q1Opt2: '星星',
+        quiz18Q1Opt3: '雲朵',
+        quiz18Q2: '聖誕節時，誰會送禮物給小朋友？',
+        quiz18Q2Opt0: '嫦娥',
+        quiz18Q2Opt1: '聖誕老人',
+        quiz18Q2Opt2: '屈原',
+        quiz18Q2Opt3: '財神爺',
+        quiz18Q3: '端午節可以看什麼比賽？',
+        quiz18Q3Opt0: '足球',
+        quiz18Q3Opt1: '籃球',
+        quiz18Q3Opt2: '龍舟',
+        quiz18Q3Opt3: '跑步',
+        quiz18Q4: '新年時，大人會給小朋友什麼？',
+        quiz18Q4Opt0: '粽子',
+        quiz18Q4Opt1: '紅包',
+        quiz18Q4Opt2: '月餅',
+        quiz18Q4Opt3: '南瓜',
+        quiz18Q5: '萬聖節小朋友會穿上什麼？',
+        quiz18Q5Opt0: '新衣服',
+        quiz18Q5Opt1: '鬼怪衣服',
+        quiz18Q5Opt2: '校服',
+        quiz18Q5Opt3: '泳衣',
+        quiz18Q6: '復活節可以找到什麼東西？',
+        quiz18Q6Opt0: '粽子',
+        quiz18Q6Opt1: '月餅',
+        quiz18Q6Opt2: '彩蛋',
+        quiz18Q6Opt3: '餃子',
+        quiz18Q7: '放假不用上學的時候，你最想做什麼？',
+        quiz18Q7Opt0: '寫功課',
+        quiz18Q7Opt1: '出去玩',
+        quiz18Q7Opt2: '上學',
+        quiz18Q7Opt3: '考試',
+        quiz18Q8: '中秋節要吃什麼圓圓的食物？',
+        quiz18Q8Opt0: '粽子',
+        quiz18Q8Opt1: '餃子',
+        quiz18Q8Opt2: '月餅',
+        quiz18Q8Opt3: '湯圓',
+        quiz18Q9: '哪一個不是中國傳統節日？',
+        quiz18Q9Opt0: '春節',
+        quiz18Q9Opt1: '中秋節',
+        quiz18Q9Opt2: '聖誕節',
+        quiz18Q9Opt3: '端午節',
+        
+        // 第20課課前提問
+        quiz20Q0: '哪種水果是紅色的，有綠色的葉子？',
+        quiz20Q0Opt0: '香蕉',
+        quiz20Q0Opt1: '西瓜',
+        quiz20Q0Opt2: '蘋果',
+        quiz20Q0Opt3: '葡萄',
+        quiz20Q1: '哪種水果有很多小籽，是紅色的？',
+        quiz20Q1Opt0: '蘋果',
+        quiz20Q1Opt1: '草莓',
+        quiz20Q1Opt2: '橙子',
+        quiz20Q1Opt3: '芒果',
+        quiz20Q2: '哪種水果是黃色的，彎彎的像月亮？',
+        quiz20Q2Opt0: '蘋果',
+        quiz20Q2Opt1: '橙子',
+        quiz20Q2Opt2: '香蕉',
+        quiz20Q2Opt3: '西瓜',
+        quiz20Q3: '哪種水果最大，切開裡面是紅色的？',
+        quiz20Q3Opt0: '蘋果',
+        quiz20Q3Opt1: '西瓜',
+        quiz20Q3Opt2: '葡萄',
+        quiz20Q3Opt3: '櫻桃',
+        quiz20Q4: '哪種水果是紫色的，一顆一顆連在一起？',
+        quiz20Q4Opt0: '蘋果',
+        quiz20Q4Opt1: '香蕉',
+        quiz20Q4Opt2: '葡萄',
+        quiz20Q4Opt3: '橙子',
+        quiz20Q5: '哪種水果外皮是橙色的，剝開一瓣一瓣的？',
+        quiz20Q5Opt0: '蘋果',
+        quiz20Q5Opt1: '西瓜',
+        quiz20Q5Opt2: '橙子',
+        quiz20Q5Opt3: '葡萄',
+        quiz20Q6: '哪種水果小小的，藍色的？',
+        quiz20Q6Opt0: '草莓',
+        quiz20Q6Opt1: '藍莓',
+        quiz20Q6Opt2: '西瓜',
+        quiz20Q6Opt3: '芒果',
+        quiz20Q7: '桌上有5個蘋果和2個香蕉，哪個比較多？',
+        quiz20Q7Opt0: '蘋果',
+        quiz20Q7Opt1: '香蕉',
+        quiz20Q7Opt2: '一樣多',
+        quiz20Q7Opt3: '不知道',
+        quiz20Q8: '哪種水果是黃色的，有很多毛？',
+        quiz20Q8Opt0: '蘋果',
+        quiz20Q8Opt1: '橙子',
+        quiz20Q8Opt2: '芒果',
+        quiz20Q8Opt3: '西瓜',
+        quiz20Q9: '哪一個不是水果？',
+        quiz20Q9Opt0: '蘋果',
+        quiz20Q9Opt1: '香蕉',
+        quiz20Q9Opt2: '白菜',
+        quiz20Q9Opt3: '西瓜',
+        
         
         // 識圖定義
         recDef1: '我的頭在這裡。',
@@ -710,15 +1118,15 @@ const i18n = {
         storyIllustration: '故事插圖',
         realPhoto: '真人照片',
         // 章節名稱（續）
-        chapter12: '交通工具',
+        chapter12: '交通（一）',
         chapter13: '家庭成員',
         chapter14: '顏色',
         chapter15: '學校（一）',
         chapter16: '飲料',
         chapter17: '職業',
-        chapter18: '國家',
+        chapter18: '節日',
         chapter19: '食物',
-        chapter20: '情緒',
+        chapter20: '水果',
         chapter21: '服裝',
         chapter22: '時間',
         chapter23: '自然',
@@ -733,7 +1141,7 @@ const i18n = {
         
         // 單元歌曲名稱
         unitSong1: '一家人',
-        unitSong2: '幼兒園',
+        unitSong2: '大自然（一）',
         unitSong3: '數字',
         unitSong4: '顏色',
         unitSong5: '家人（一）',
@@ -743,15 +1151,15 @@ const i18n = {
         unitSong9: '動物（三）',
         unitSong10: '食物',
         unitSong11: '身體',
-        unitSong12: '交通工具',
+        unitSong12: '交通（一）',
         unitSong13: '家庭成員',
         unitSong14: '顏色',
         unitSong15: '學校（一）',
         unitSong16: '飲料',
         unitSong17: '職業',
-        unitSong18: '國家',
+        unitSong18: '節日',
         unitSong19: '食物',
-        unitSong20: '情緒',
+        unitSong20: '水果',
         unitSong21: '服裝',
         unitSong22: '時間',
         unitSong23: '自然',
@@ -759,6 +1167,14 @@ const i18n = {
         // 常用兒歌
         commonSong1: '上學歌',
         commonSong2: '天氣歌',
+        commonSong3: '再見歌',
+        commonSong4: '星期歌',
+        commonSong5: '聲母歌',
+        commonSong6: '韻母歌',
+        commonSong7: '聲調歌',
+        commonSong8: '你好歌',
+        songCountSuffix: '首',
+        watchOnYouTube: '在 YouTube 觀看',
         
         // 遊戲活動
         gameMatching: '圖案配對',
@@ -974,8 +1390,208 @@ const i18n = {
         foodDefCandy: '糖果五颜六色又香又甜。',
         foodDefCake: '蛋糕上有奶油还有水果。',
 
+        // 第2课：大自然（一）
+        natureCharGrass: '草',
+        natureCharStone: '石',
+        natureCharMountain: '山',
+        natureCharFire: '火',
+        natureCharFlower: '花',
+        natureCharSun: '日',
+        natureCharEarth: '地',
+        natureCharWood: '木',
+        natureCharField: '田',
+        natureCharSoil: '土',
+        natureCharSky: '天',
+        natureCharMoon: '月',
+        natureCharHuman: '人',
+        natureCharWater: '水',
+        // 第2课：大自然（一）例句
+        natureDefGrass: '这是草。',
+        natureDefStone: '这是石。',
+        natureDefMountain: '这是山。',
+        natureDefFire: '这是火。',
+        natureDefFlower: '这是花。',
+        natureDefSun: '这是日。',
+        natureDefEarth: '这是地。',
+        natureDefWood: '这是木。',
+        natureDefField: '这是田。',
+        natureDefSoil: '这是土。',
+        natureDefSky: '这是天。',
+        natureDefMoon: '这是月。',
+        natureDefHuman: '这是人。',
+        natureDefWater: '这是水。',
+        // 第8课：動物（二）
+        animalWordMonkey: '猴子',
+        animalWordLion: '狮子',
+        animalWordMouse: '老鼠',
+        animalWordTurtle: '乌龟',
+        animalWordPanda: '熊猫',
+        animalWordKangaroo: '袋鼠',
+        animalWordGiraffe: '长颈鹿',
+        animalWordOwl: '猫头鹰',
+        animalWordBear: '熊',
+        animalWordZebra: '斑马',
+        // 第8课：動物（二）例句
+        animalDefMonkey: '这是猴子。',
+        animalDefLion: '这是狮子。',
+        animalDefMouse: '这是老鼠。',
+        animalDefTurtle: '这是乌龟。',
+        animalDefPanda: '这是熊猫。',
+        animalDefKangaroo: '这是袋鼠。',
+        animalDefGiraffe: '这是长颈鹿。',
+        animalDefOwl: '这是猫头鹰。',
+        animalDefBear: '这是熊。',
+        animalDefZebra: '这是斑马。',
+        // 第12课：交通（一）
+        transportWordTrain: '火车',
+        transportWordBus: '巴士',
+        transportWordSubway: '地铁',
+        transportWordCar: '汽车',
+        transportWordShip: '船',
+        transportWordPlane: '飞机',
+        transportWordTaxi: '的士',
+        transportWordBike: '自行车',
+        transportWordCareful: '小心',
+        transportWordSchoolBus: '校车',
+        transportWordRide: '骑',
+        transportWordSit: '坐',
+        transportWordDrive: '开',
+        // 第12课：交通（一）例句
+        transportDefTrain: '这是火车。',
+        transportDefBus: '这是巴士。',
+        transportDefSubway: '这是地铁。',
+        transportDefCar: '这是汽车。',
+        transportDefShip: '这是船。',
+        transportDefPlane: '这是飞机。',
+        transportDefTaxi: '这是的士。',
+        transportDefBike: '这是自行车。',
+        transportDefCareful: '这是小心。',
+        transportDefSchoolBus: '这是校车。',
+        transportDefRide: '这是骑。',
+        transportDefSit: '这是坐。',
+        transportDefDrive: '这是开。',
+        // 第14课：顏色
+        colorCharRed: '红',
+        colorCharBlue: '蓝',
+        colorCharGreen: '绿',
+        colorCharYellow: '黄',
+        colorCharWhite: '白',
+        colorCharPurple: '紫',
+        colorCharBlack: '黑',
+        colorCharBrown: '棕',
+        colorCharGray: '灰',
+        colorWordPaint: '画画',
+        colorWordColor: '颜色',
+        colorWordRainbow: '彩虹',
+        // 第14课：顏色例句
+        colorDefRed: '这是红。',
+        colorDefBlue: '这是蓝。',
+        colorDefGreen: '这是绿。',
+        colorDefYellow: '这是黄。',
+        colorDefWhite: '这是白。',
+        colorDefPurple: '这是紫。',
+        colorDefBlack: '这是黑。',
+        colorDefBrown: '这是棕。',
+        colorDefGray: '这是灰。',
+        colorDefPaint: '这是画画。',
+        colorDefColor: '这是颜色。',
+        colorDefRainbow: '这是彩虹。',
+        // 第15课：學校（一）
+        schoolWordSchool: '学校',
+        schoolWordClassroom: '教室',
+        schoolWordComputer: '电脑',
+        schoolWordChair: '椅子',
+        schoolWordDesk: '桌子',
+        schoolWordBook: '书本',
+        schoolWordWhiteboard: '白板',
+        schoolWordPencil: '铅笔',
+        schoolWordEraser: '橡皮',
+        schoolWordRuler: '尺子',
+        schoolWordScissors: '剪刀',
+        // 第15课：學校（一）例句
+        schoolDefSchool: '这是学校。',
+        schoolDefClassroom: '这是教室。',
+        schoolDefComputer: '这是电脑。',
+        schoolDefChair: '这是椅子。',
+        schoolDefDesk: '这是桌子。',
+        schoolDefBook: '这是书本。',
+        schoolDefWhiteboard: '这是白板。',
+        schoolDefPencil: '这是铅笔。',
+        schoolDefEraser: '这是橡皮。',
+        schoolDefRuler: '这是尺子。',
+        schoolDefScissors: '这是剪刀。',
+        // 第18课：節日
+        festivalWordHoliday: '放假',
+        festivalWordDragonBoat: '端午节',
+        festivalWordSpring: '春节',
+        festivalWordHalloween: '万圣节',
+        festivalWordMidAutumn: '中秋节',
+        festivalWordChristmas: '圣诞节',
+        festivalWordEaster: '复活节',
+        // 第18课：節日例句
+        festivalDefHoliday: '这是放假。',
+        festivalDefDragonBoat: '这是端午节。',
+        festivalDefSpring: '这是春节。',
+        festivalDefHalloween: '这是万圣节。',
+        festivalDefMidAutumn: '这是中秋节。',
+        festivalDefChristmas: '这是圣诞节。',
+        festivalDefEaster: '这是复活节。',
+        // 第19课：食物
+        foodCharEat: '吃',
+        foodCharDrink: '喝',
+        foodWordMilk: '牛奶',
+        foodWordChocolate: '巧克力',
+        foodWordBread: '面包',
+        foodWordCookie: '饼干',
+        foodWordNoodles: '面条',
+        foodWordRice: '米饭',
+        foodWordCandy: '糖果',
+        foodWordCake: '蛋糕',
+        // 第19课：食物例句
+        foodDefEat: '这是吃。',
+        foodDefDrink: '这是喝。',
+        foodDefMilk: '这是牛奶。',
+        foodDefChocolate: '这是巧克力。',
+        foodDefBread: '这是面包。',
+        foodDefCookie: '这是饼干。',
+        foodDefNoodles: '这是面条。',
+        foodDefRice: '这是米饭。',
+        foodDefCandy: '这是糖果。',
+        foodDefCake: '这是蛋糕。',
+        // 第20课：水果
+        fruitWordMany: '多',
+        fruitWordFew: '少',
+        fruitWordCherry: '樱桃',
+        fruitWordStrawberry: '草莓',
+        fruitWordPeach: '桃子',
+        fruitWordOrange: '橙子',
+        fruitWordBlueberry: '蓝莓',
+        fruitWordPear: '梨',
+        fruitWordApple: '苹果',
+        fruitWordMango: '芒果',
+        fruitWordGrape: '葡萄',
+        fruitWordBanana: '香蕉',
+        fruitWordWatermelon: '西瓜',
+        fruitWordKiwi: '奇异果',
+        // 第20课：水果例句
+        fruitDefMany: '这是多。',
+        fruitDefFew: '这是少。',
+        fruitDefCherry: '这是樱桃。',
+        fruitDefStrawberry: '这是草莓。',
+        fruitDefPeach: '这是桃子。',
+        fruitDefOrange: '这是橙子。',
+        fruitDefBlueberry: '这是蓝莓。',
+        fruitDefPear: '这是梨。',
+        fruitDefApple: '这是苹果。',
+        fruitDefMango: '这是芒果。',
+        fruitDefGrape: '这是葡萄。',
+        fruitDefBanana: '这是香蕉。',
+        fruitDefWatermelon: '这是西瓜。',
+        fruitDefKiwi: '这是奇异果。',
+
         // 课程标题
         lesson11Title: '第11课：身体',
+
         
         // 按鈕文字
         playAudio: '播放发音',
@@ -1031,13 +1647,13 @@ const i18n = {
         
         // 章节名称
         chapter1: '数字',
-        chapter2: '幼儿园',
+        chapter2: '大自然（一）',
         chapter3: '数字',
         chapter4: '颜色',
         chapter5: '家人（一）',
         chapter6: '水果',
         chapter7: '动物（一）',
-        chapter8: '动物（二）',
+        chapter8: '動物（二）',
         chapter9: '动物（三）',
         chapter10: '食物',
         chapter11: '身体',
@@ -1372,6 +1988,214 @@ const i18n = {
         quiz19Q4Opt1: '吃东西',
         quiz19Q4Opt2: '跑步',
         quiz19Q4Opt3: '唱歌',
+        // 第2课课前提问
+        quiz2Q0: '我们住在哪里？',
+        quiz2Q0Opt0: '天上',
+        quiz2Q0Opt1: '地上',
+        quiz2Q0Opt2: '水里',
+        quiz2Q0Opt3: '火里',
+        quiz2Q1: '白天，天上最亮的是什么？',
+        quiz2Q1Opt0: '月亮',
+        quiz2Q1Opt1: '太阳',
+        quiz2Q1Opt2: '星星',
+        quiz2Q1Opt3: '云朵',
+        quiz2Q2: '晚上天上亮亮的是什么？',
+        quiz2Q2Opt0: '太阳',
+        quiz2Q2Opt1: '月亮',
+        quiz2Q2Opt2: '云朵',
+        quiz2Q2Opt3: '彩虹',
+        quiz2Q3: '小树长大需要什么？',
+        quiz2Q3Opt0: '火',
+        quiz2Q3Opt1: '水',
+        quiz2Q3Opt2: '石头',
+        quiz2Q3Opt3: '沙子',
+        quiz2Q4: '高高山上有什么？',
+        quiz2Q4Opt0: '很多汽车',
+        quiz2Q4Opt1: '草和树',
+        quiz2Q4Opt2: '火车',
+        quiz2Q4Opt3: '飞机',
+        quiz2Q5: '下雨天后，地上湿湿的，这是什么？',
+        quiz2Q5Opt0: '油',
+        quiz2Q5Opt1: '水',
+        quiz2Q5Opt2: '火',
+        quiz2Q5Opt3: '土',
+        quiz2Q6: '农夫在什么地方种稻子？',
+        quiz2Q6Opt0: '山上',
+        quiz2Q6Opt1: '海里',
+        quiz2Q6Opt2: '田里',
+        quiz2Q6Opt3: '天上',
+        quiz2Q7: '公园里绿绿软软的是什么？',
+        quiz2Q7Opt0: '石头',
+        quiz2Q7Opt1: '木头',
+        quiz2Q7Opt2: '草',
+        quiz2Q7Opt3: '火',
+        quiz2Q8: '河边有好多什么东西？（圆圆硬硬的）',
+        quiz2Q8Opt0: '花',
+        quiz2Q8Opt1: '石头',
+        quiz2Q8Opt2: '草',
+        quiz2Q8Opt3: '云',
+        quiz2Q9: '哪一个不是我们在大自然看到的？',
+        quiz2Q9Opt0: '花',
+        quiz2Q9Opt1: '山',
+        quiz2Q9Opt2: '飞机',
+        quiz2Q9Opt3: '水',
+        
+        // 第12课课前提问
+        quiz12Q0: '在铁轨上跑的是什么？',
+        quiz12Q0Opt0: '汽车',
+        quiz12Q0Opt1: '火车',
+        quiz12Q0Opt2: '飞机',
+        quiz12Q0Opt3: '船',
+        quiz12Q1: '很多座位，可以载很多人的是什么？',
+        quiz12Q1Opt0: '自行车',
+        quiz12Q1Opt1: '的士',
+        quiz12Q1Opt2: '巴士',
+        quiz12Q1Opt3: '飞机',
+        quiz12Q2: '早上上学，我们坐什么车？',
+        quiz12Q2Opt0: '校车',
+        quiz12Q2Opt1: '消防车',
+        quiz12Q2Opt2: '救护车',
+        quiz12Q2Opt3: '警车',
+        quiz12Q3: '过马路的时候要怎样？',
+        quiz12Q3Opt0: '唱歌',
+        quiz12Q3Opt1: '跑步',
+        quiz12Q3Opt2: '小心',
+        quiz12Q3Opt3: '睡觉',
+        quiz12Q4: '在地下跑的交通工具是什么？',
+        quiz12Q4Opt0: '巴士',
+        quiz12Q4Opt1: '地铁',
+        quiz12Q4Opt2: '飞机',
+        quiz12Q4Opt3: '船',
+        quiz12Q5: '爸爸妈妈开什么送你上学？',
+        quiz12Q5Opt0: '火车',
+        quiz12Q5Opt1: '汽车',
+        quiz12Q5Opt2: '飞机',
+        quiz12Q5Opt3: '船',
+        quiz12Q6: '可以在海上航行的交通工具是什么？',
+        quiz12Q6Opt0: '火车',
+        quiz12Q6Opt1: '巴士',
+        quiz12Q6Opt2: '飞机',
+        quiz12Q6Opt3: '船',
+        quiz12Q7: '两个轮子，要踩踏板的是什么？',
+        quiz12Q7Opt0: '汽车',
+        quiz12Q7Opt1: '自行车',
+        quiz12Q7Opt2: '飞机',
+        quiz12Q7Opt3: '船',
+        quiz12Q8: '爸爸开车的时候，手握着什么？',
+        quiz12Q8Opt0: '椅子',
+        quiz12Q8Opt1: '窗户',
+        quiz12Q8Opt2: '方向盘',
+        quiz12Q8Opt3: '门',
+        quiz12Q9: '哪一个不是在天上飞的？',
+        quiz12Q9Opt0: '飞机',
+        quiz12Q9Opt1: '小鸟',
+        quiz12Q9Opt2: '地铁',
+        quiz12Q9Opt3: '直升机',
+        
+        // 第18课课前提问
+        quiz18Q0: '春节时，中国人喜欢吃什么？',
+        quiz18Q0Opt0: '粽子',
+        quiz18Q0Opt1: '月饼',
+        quiz18Q0Opt2: '饺子',
+        quiz18Q0Opt3: '火鸡',
+        quiz18Q1: '中秋节晚上，我们会看什么？',
+        quiz18Q1Opt0: '太阳',
+        quiz18Q1Opt1: '月亮',
+        quiz18Q1Opt2: '星星',
+        quiz18Q1Opt3: '云朵',
+        quiz18Q2: '圣诞节时，谁会送礼物给小朋友？',
+        quiz18Q2Opt0: '嫦娥',
+        quiz18Q2Opt1: '圣诞老人',
+        quiz18Q2Opt2: '屈原',
+        quiz18Q2Opt3: '财神爷',
+        quiz18Q3: '端午节可以看什么比赛？',
+        quiz18Q3Opt0: '足球',
+        quiz18Q3Opt1: '篮球',
+        quiz18Q3Opt2: '龙舟',
+        quiz18Q3Opt3: '跑步',
+        quiz18Q4: '新年时，大人会给小朋友什么？',
+        quiz18Q4Opt0: '粽子',
+        quiz18Q4Opt1: '红包',
+        quiz18Q4Opt2: '月饼',
+        quiz18Q4Opt3: '南瓜',
+        quiz18Q5: '万圣节小朋友会穿上什么？',
+        quiz18Q5Opt0: '新衣服',
+        quiz18Q5Opt1: '鬼怪衣服',
+        quiz18Q5Opt2: '校服',
+        quiz18Q5Opt3: '泳衣',
+        quiz18Q6: '复活节可以找到什么东西？',
+        quiz18Q6Opt0: '粽子',
+        quiz18Q6Opt1: '月饼',
+        quiz18Q6Opt2: '彩蛋',
+        quiz18Q6Opt3: '饺子',
+        quiz18Q7: '放假不用上学的时候，你最想做什么？',
+        quiz18Q7Opt0: '写功课',
+        quiz18Q7Opt1: '出去玩',
+        quiz18Q7Opt2: '上学',
+        quiz18Q7Opt3: '考试',
+        quiz18Q8: '中秋节要吃什么圆圆的食物？',
+        quiz18Q8Opt0: '粽子',
+        quiz18Q8Opt1: '饺子',
+        quiz18Q8Opt2: '月饼',
+        quiz18Q8Opt3: '汤圆',
+        quiz18Q9: '哪一个不是中国传统节日？',
+        quiz18Q9Opt0: '春节',
+        quiz18Q9Opt1: '中秋节',
+        quiz18Q9Opt2: '圣诞节',
+        quiz18Q9Opt3: '端午节',
+        
+        // 第20课课前提问
+        quiz20Q0: '哪种水果是红色的，有绿色的叶子？',
+        quiz20Q0Opt0: '香蕉',
+        quiz20Q0Opt1: '西瓜',
+        quiz20Q0Opt2: '苹果',
+        quiz20Q0Opt3: '葡萄',
+        quiz20Q1: '哪种水果有很多小籽，是红色的？',
+        quiz20Q1Opt0: '苹果',
+        quiz20Q1Opt1: '草莓',
+        quiz20Q1Opt2: '橙子',
+        quiz20Q1Opt3: '芒果',
+        quiz20Q2: '哪种水果是黄色的，弯弯的像月亮？',
+        quiz20Q2Opt0: '苹果',
+        quiz20Q2Opt1: '橙子',
+        quiz20Q2Opt2: '香蕉',
+        quiz20Q2Opt3: '西瓜',
+        quiz20Q3: '哪种水果最大，切开里面是红色的？',
+        quiz20Q3Opt0: '苹果',
+        quiz20Q3Opt1: '西瓜',
+        quiz20Q3Opt2: '葡萄',
+        quiz20Q3Opt3: '樱桃',
+        quiz20Q4: '哪种水果是紫色的，一颗一颗连在一起？',
+        quiz20Q4Opt0: '苹果',
+        quiz20Q4Opt1: '香蕉',
+        quiz20Q4Opt2: '葡萄',
+        quiz20Q4Opt3: '橙子',
+        quiz20Q5: '哪种水果外皮是橙色的，剥开一瓣一瓣的？',
+        quiz20Q5Opt0: '苹果',
+        quiz20Q5Opt1: '西瓜',
+        quiz20Q5Opt2: '橙子',
+        quiz20Q5Opt3: '葡萄',
+        quiz20Q6: '哪种水果小小的，蓝色的？',
+        quiz20Q6Opt0: '草莓',
+        quiz20Q6Opt1: '蓝莓',
+        quiz20Q6Opt2: '西瓜',
+        quiz20Q6Opt3: '芒果',
+        quiz20Q7: '桌上有5个苹果和2个香蕉，哪个比较多？',
+        quiz20Q7Opt0: '苹果',
+        quiz20Q7Opt1: '香蕉',
+        quiz20Q7Opt2: '一样多',
+        quiz20Q7Opt3: '不知道',
+        quiz20Q8: '哪种水果是黄色的，有很多毛？',
+        quiz20Q8Opt0: '苹果',
+        quiz20Q8Opt1: '橙子',
+        quiz20Q8Opt2: '芒果',
+        quiz20Q8Opt3: '西瓜',
+        quiz20Q9: '哪一个不是水果？',
+        quiz20Q9Opt0: '苹果',
+        quiz20Q9Opt1: '香蕉',
+        quiz20Q9Opt2: '白菜',
+        quiz20Q9Opt3: '西瓜',
+        
         
         // 识图定义
         recDef1: '我的头在这里。',
@@ -1478,15 +2302,15 @@ const i18n = {
         storyIllustration: '故事插图',
         realPhoto: '真人照片',
         // 章节名称（续）
-        chapter12: '交通工具',
+        chapter12: '交通（一）',
         chapter13: '家庭成员',
-        chapter14: '颜色',
-        chapter15: '学校（一）',
+        chapter14: '顏色',
+        chapter15: '學校（一）',
         chapter16: '饮料',
         chapter17: '职业',
-        chapter18: '国家',
+        chapter18: '節日',
         chapter19: '食物',
-        chapter20: '情绪',
+        chapter20: '水果',
         chapter21: '服装',
         chapter22: '时间',
         chapter23: '自然',
@@ -1501,25 +2325,25 @@ const i18n = {
         
         // 单元歌曲名称
         unitSong1: '一家人',
-        unitSong2: '幼儿园',
+        unitSong2: '大自然（一）',
         unitSong3: '数字',
         unitSong4: '颜色',
         unitSong5: '家人（一）',
         unitSong6: '水果',
         unitSong7: '动物（一）',
-        unitSong8: '动物（二）',
+        unitSong8: '動物（二）',
         unitSong9: '动物（三）',
         unitSong10: '食物',
         unitSong11: '身体',
-        unitSong12: '交通工具',
+        unitSong12: '交通（一）',
         unitSong13: '家庭成员',
-        unitSong14: '颜色',
-        unitSong15: '学校（一）',
+        unitSong14: '顏色',
+        unitSong15: '學校（一）',
         unitSong16: '饮料',
         unitSong17: '职业',
-        unitSong18: '国家',
+        unitSong18: '節日',
         unitSong19: '食物',
-        unitSong20: '情绪',
+        unitSong20: '水果',
         unitSong21: '服装',
         unitSong22: '时间',
         unitSong23: '自然',
@@ -1527,6 +2351,14 @@ const i18n = {
         // 常用儿歌
         commonSong1: '上学歌',
         commonSong2: '天气歌',
+        commonSong3: '再见歌',
+        commonSong4: '星期歌',
+        commonSong5: '声母歌',
+        commonSong6: '韵母歌',
+        commonSong7: '声调歌',
+        commonSong8: '你好歌',
+        songCountSuffix: '首',
+        watchOnYouTube: '在 YouTube 观看',
         
         // 游戏活动
         gameMatching: '图案配对',
@@ -1998,6 +2830,11 @@ function showGuideCharacter(pageId) {
     if (currentPage) {
         currentPage.appendChild(guideContainer);
         
+        // 立刻套用視窗縮放，避免角色來不及比例縮放
+        if (typeof window.updateStageScale === 'function') {
+            window.updateStageScale('.guide-character-container', 1920, 1080);
+        }
+        
         // 綁定角色懸停事件：碰到角色重新顯示對話框
         const character = guideContainer.querySelector('.guide-character');
         if (character) {
@@ -2231,10 +3068,6 @@ function updateCatButtons() {
 
 // 根據語言更新唐詩列表頁圖片
 function updatePoemImages() {
-    const title = document.querySelector('.poems-title-img');
-    if (title) {
-        title.src = AppState.language === 'zh-CN' ? title.dataset.cn : title.dataset.tw;
-    }
     document.querySelectorAll('.poem-btn').forEach(btn => {
         const src = AppState.language === 'zh-CN' ? btn.dataset.cn : btn.dataset.tw;
         if (src) btn.src = src;
@@ -2282,6 +3115,22 @@ const introImages = {
     19: {
         tw: 'assets/images/courseware/課程介紹頁更新版/第19課進入學習繁體按鈕.png',
         cn: 'assets/images/courseware/課程介紹頁更新版/第19課進入學習簡體按鈕.png'
+    },
+    2: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第2課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第2課進入學習簡體按鈕.png'
+    },
+    12: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第12課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第12課進入學習簡體按鈕.png'
+    },
+    18: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第18課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第18課進入學習簡體按鈕.png'
+    },
+    20: {
+        tw: 'assets/images/courseware/課程介紹頁更新版/第20課進入學習繁體按鈕.png',
+        cn: 'assets/images/courseware/課程介紹頁更新版/第20課進入學習簡體按鈕.png'
     }
 };
 
@@ -2807,123 +3656,304 @@ function closeSongPage() {
     }
 }
 
-// ============================================
 // 兒歌數據
-// ============================================
 const commonSongData = [
-    { id: 1, name: '上學歌', videoId: '', cover: 'assets/images/songs/兒歌/上學歌.png' },
-    { id: 2, name: '天氣歌', videoId: '', cover: 'assets/images/songs/兒歌/天氣歌.png' },
+    { id: 1, name: '上學歌', videoId: '4VZyb3uQZDM', cover: 'assets/images/songs/兒歌/上學歌.jpg' },
+    { id: 2, name: '天氣歌', videoId: 'tyo3Rzbtl3w', cover: 'assets/images/songs/兒歌/天氣歌.jpg' },
+    { id: 3, name: '再見歌', videoId: 'wED_ZaR8l2U', cover: 'assets/images/songs/兒歌/再見歌.jpg' },
+    { id: 4, name: '星期歌', videoId: 'oWLT3XjDoNU', cover: 'assets/images/songs/兒歌/星期歌.jpg' },
+    { id: 5, name: '聲母歌', videoId: 'kaYp8TsSfA8', cover: 'assets/images/songs/兒歌/聲母歌.jpg' },
+    { id: 6, name: '韻母歌', videoId: 'ta6gOpZEReo', cover: 'assets/images/songs/兒歌/韻母歌.jpg' },
+    { id: 7, name: '聲調歌', videoId: 'r0pUOS09-JE', cover: 'assets/images/songs/兒歌/聲調歌.jpg' },
+    { id: 8, name: '你好歌', videoId: 'm_rDIzj6DRE', cover: 'assets/images/songs/兒歌/你好歌.jpg' }
 ];
 
 const unitSongData = [
-    // 上冊
-    { id: 1, name: '一家人', videoId: '' },
-    { id: 2, name: '幼兒園', videoId: '' },
-    { id: 3, name: '數字', videoId: '' },
-    { id: 4, name: '顏色', videoId: '' },
-    { id: 5, name: '家人（一）', videoId: '' },
-    { id: 6, name: '水果', videoId: '' },
-    { id: 7, name: '動物（一）', videoId: '' },
-    { id: 8, name: '動物（二）', videoId: '' },
-    { id: 9, name: '動物（三）', videoId: '' },
-    { id: 10, name: '食物', videoId: '' },
-    { id: 11, name: '身體', videoId: '' },
-    // 下冊
-    { id: 12, name: '交通工具', videoId: '' },
-    { id: 13, name: '家庭成員', videoId: '' },
-    { id: 14, name: '顏色', videoId: '' },
-    { id: 15, name: '學校（一）', videoId: '' },
-    { id: 16, name: '飲料', videoId: '' },
-    { id: 17, name: '職業', videoId: '' },
-    { id: 18, name: '國家', videoId: '' },
-    { id: 19, name: '食物', videoId: '' },
-    { id: 20, name: '情緒', videoId: '' },
-    { id: 21, name: '服裝', videoId: '' },
-    { id: 22, name: '時間', videoId: '' },
-    { id: 23, name: '自然', videoId: '' },
+    {
+        unit: { tw: '數字', cn: '数字' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '從一數到二十', cn: '从一数到二十' }, videoId: 'oQMOgmsj15c' },
+            { title: { tw: '從1數到10', cn: '从1数到10' }, videoId: '-tpTosF4dN8' }
+        ]
+    },
+    {
+        unit: { tw: '家庭（一）', cn: '家庭（一）' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '我的好媽媽', cn: '我的好妈妈' }, videoId: 'BRnt1wp1hdY' },
+            { title: { tw: '最棒的老爸', cn: '最棒的老爸' }, videoId: 'SUB7sIQxCZE' }
+        ]
+    },
+    {
+        unit: { tw: '家庭（二）', cn: '家庭（二）' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '家族歌', cn: '家族歌' }, videoId: 'UFciLs2hXPw' },
+            { title: { tw: '家族歌（與1不同）', cn: '家族歌（与1不同）' }, videoId: 'wKytQZgcABY' }
+        ]
+    },
+    {
+        unit: { tw: '動物（一）', cn: '动物（一）' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '動物歌', cn: '动物歌' }, videoId: 'N2F4mWg0GeY' }
+        ]
+    },
+    {
+        unit: { tw: '動物（二）', cn: '动物（二）' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '動物兒歌', cn: '动物儿歌' }, videoId: 'yGnuUqJvdm8' },
+            { title: { tw: '一起去動物園', cn: '一起去动物园' }, videoId: 'mUQpz1itMdQ' }
+        ]
+    },
+    {
+        unit: { tw: '身體', cn: '身体' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '頭兒肩膀膝腳趾', cn: '头儿肩膀膝脚趾' }, videoId: 'wfiOVibJ2GA' },
+            { title: { tw: '幸福的孩子愛唱歌', cn: '幸福的孩子爱唱歌' }, videoId: 'B2SPDR6orCg' }
+        ]
+    },
+    {
+        unit: { tw: '交通（一）', cn: '交通（一）' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '警車', cn: '警车' }, videoId: 'zhjXfbxf-g0' },
+            { title: { tw: '消防車', cn: '消防车' }, videoId: 'DauQIYCGzhc' }
+        ]
+    },
+    {
+        unit: { tw: '交通（二）', cn: '交通（二）' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '猜一猜誰最快', cn: '猜一猜谁最快' }, videoId: '9B2IMrLxNWQ' }
+        ]
+    },
+    {
+        unit: { tw: '學校（一）', cn: '学校（一）' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '這是什麼', cn: '这是什么' }, videoId: 'TyYQmyXLAgc' },
+            { title: { tw: '上學歌', cn: '上学歌' }, videoId: 'vulOTUcnMug' }
+        ]
+    },
+    {
+        unit: { tw: '學校（二）', cn: '学校（二）' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '我的朋友在哪裡', cn: '我的朋友在哪里' }, videoId: 'M6zhXla6iC8' },
+            { title: { tw: '老師老師', cn: '老师老师' }, videoId: 'R6DfeOC6_OM' }
+        ]
+    },
+    {
+        unit: { tw: '節日', cn: '节日' },
+        volume: 'lower',
+        songs: [
+            { title: { tw: '新年好', cn: '新年好' }, videoId: 'I2tUfWWYOkU' },
+            { title: { tw: '萬聖節', cn: '万圣节' }, videoId: 'o3WGZoW2DoU' },
+            { title: { tw: '復活節', cn: '复活节' }, videoId: 'l5xt2adTzsM' },
+            { title: { tw: '聖誕節', cn: '圣诞节' }, videoId: 'W2J0wQHhxpI' }
+        ]
+    },
+    {
+        unit: { tw: '顏色', cn: '颜色' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '顏色', cn: '颜色' }, videoId: '4iOv88MxB-I' },
+            { title: { tw: '顏色去哪裡啦', cn: '颜色去哪里啦' }, videoId: 'LK_4GyVyXcs' },
+            { title: { tw: '顏色歌', cn: '颜色歌' }, videoId: 'UulTlStNp5k' }
+        ]
+    },
+    {
+        unit: { tw: '食物', cn: '食物' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '零食吃太多肚子痛', cn: '零食吃太多肚子痛' }, videoId: 'f0Ac0SCMQPY' },
+            { title: { tw: '食物歌', cn: '食物歌' }, videoId: '6Iww4SZ7MgI' },
+            { title: { tw: '不可以說謊哦', cn: '不可以说谎哦' }, videoId: 'CFTtLCTARyw' }
+        ]
+    },
+    {
+        unit: { tw: '水果', cn: '水果' },
+        volume: 'upper',
+        songs: [
+            { title: { tw: '彩色水果歌', cn: '彩色水果歌' }, videoId: 'AN0KPLgW6i4' },
+            { title: { tw: '水果店', cn: '水果店' }, videoId: '4VKCEg5jMto' }
+        ]
+    }
 ];
 
 let currentSongBackPage = 'songs-menu';
+let currentUnitGroupIndex = null;
+
+function getSongTitle(song) {
+    if (!song) return '';
+    if (song.title) {
+        const lang = AppState.language || 'zh-TW';
+        return song.title[lang === 'zh-CN' ? 'cn' : 'tw'] || song.title.tw;
+    }
+    return song.name || '';
+}
+
+function getUnitName(group) {
+    if (!group || !group.unit) return '';
+    const lang = AppState.language || 'zh-TW';
+    return group.unit[lang === 'zh-CN' ? 'cn' : 'tw'] || group.unit.tw;
+}
+
+const SONG_LOGO = 'assets/images/pages/第二頁元素更新版/綠色華字logo.png';
+const SONG_BACK = 'assets/images/pages/第四頁元素更新版/綠色返回logo.png';
 
 function goToCommonSongs() {
     const container = document.getElementById('gameContainer');
     if (!container) return;
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     currentSongBackPage = 'common-songs';
+    currentUnitGroupIndex = null;
     const cells = commonSongData.map((song, idx) =>
-        `<button class="song-cell" onclick="goToSongPlayer('common', ${idx})">
-            <img class="song-cell-img" src="${song.cover}" alt="${t('commonSong'+song.id)}" onerror="this.style.display='none'">
-            <span class="song-cell-title">${t('commonSong'+song.id)}</span>
+        `<button class="song-card" onclick="goToSongPlayer('common', ${idx})">
+            <img class="song-card-img" src="${song.cover}" alt="${t('commonSong'+song.id)}" onerror="this.style.display='none'">
+            <span class="song-card-title">${t('commonSong'+song.id)}</span>
         </button>`
     ).join('');
     container.innerHTML = `
         <div class="song-list-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="${t('back')}">◀</button>
-            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
-            <div class="song-pill" data-i18n="commonSongs">常用歌曲</div>
-            <div class="song-grid">${cells}</div>
+            <div class="song-stage" style="--scale: ${scale}">
+                <img class="song-page-logo" src="${SONG_LOGO}" alt="logo">
+                <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="closeSongPage()">
+                <div class="song-pill" data-i18n="commonSongs">${t('commonSongs')}</div>
+                <div class="song-grid">${cells}</div>
+            </div>
         </div>
     `;
     container.style.display = 'block';
+}
+
+function renderUnitChapterBox(group, gIdx) {
+    const count = group.songs ? group.songs.length : 0;
+    return `
+        <button class="song-unit-chapter-box" onclick="goToUnitSongList(${gIdx})">
+            <span class="song-unit-chapter-label">
+                <span class="song-unit-chapter-title">${getUnitName(group)}</span>
+                <span class="song-unit-chapter-count">${count} ${t('songCountSuffix')}</span>
+            </span>
+        </button>
+    `;
 }
 
 function goToUnitSongs() {
     const container = document.getElementById('gameContainer');
     if (!container) return;
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     currentSongBackPage = 'unit-songs';
-    const upperCells = unitSongData.slice(0, 11).map((song, idx) =>
-        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx})"><span class="song-unit-title">${t('unitSong'+song.id)}</span></button>`
-    ).join('');
-    const lowerCells = unitSongData.slice(11).map((song, idx) =>
-        `<button class="song-unit-cell" onclick="goToSongPlayer('unit', ${idx + 11})"><span class="song-unit-title">${t('unitSong'+song.id)}</span></button>`
-    ).join('');
+    currentUnitGroupIndex = null;
+    const upperCells = unitSongData.map((group, gIdx) => group.volume === 'upper' ? renderUnitChapterBox(group, gIdx) : '').join('');
+    const lowerCells = unitSongData.map((group, gIdx) => group.volume === 'lower' ? renderUnitChapterBox(group, gIdx) : '').join('');
     container.innerHTML = `
         <div class="song-unit-page">
-            <button class="song-blue-btn song-back-btn" onclick="closeSongPage()" title="${t('back')}">◀</button>
-            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
-            <div class="song-pill" data-i18n="unitSongs">單元歌曲</div>
-            <div class="song-volume-tabs">
-                <button class="song-volume-tab active" onclick="switchSongVolume(1, event)">${t('volumeUpper')}</button>
-                <button class="song-volume-tab" onclick="switchSongVolume(2, event)">${t('volumeLower')}</button>
+            <div class="song-stage" style="--scale: ${scale}">
+                <img class="song-page-logo" src="${SONG_LOGO}" alt="logo">
+                <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="closeSongPage()">
+                <div class="song-unit-volume-bar">
+                    <div class="song-unit-volume-tab active" onclick="switchSongUnitVolume(1, event)"><span>${t('volumeUpper')}</span></div>
+                    <div class="song-unit-volume-tab" onclick="switchSongUnitVolume(2, event)"><span>${t('volumeLower')}</span></div>
+                </div>
+                <div class="song-unit-chapters-grid active" id="songUnitGridUpper">${upperCells}</div>
+                <div class="song-unit-chapters-grid" id="songUnitGridLower" style="display:none;">${lowerCells}</div>
             </div>
-            <div class="song-unit-grid" id="songUnitGridUpper">${upperCells}</div>
-            <div class="song-unit-grid" id="songUnitGridLower" style="display:none;">${lowerCells}</div>
         </div>
     `;
     container.style.display = 'block';
 }
 
-function switchSongVolume(vol, evt) {
-    document.querySelectorAll('.song-volume-tab').forEach(t => t.classList.remove('active'));
-    if (evt && evt.target) evt.target.classList.add('active');
+function switchSongUnitVolume(vol, evt) {
+    const tabs = document.querySelectorAll('.song-unit-volume-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    const target = evt && evt.currentTarget ? evt.currentTarget : (evt && evt.target ? evt.target.closest('.song-unit-volume-tab') : null);
+    if (target) target.classList.add('active');
     const upper = document.getElementById('songUnitGridUpper');
     const lower = document.getElementById('songUnitGridLower');
     if (upper) upper.style.display = vol === 1 ? 'grid' : 'none';
     if (lower) lower.style.display = vol === 2 ? 'grid' : 'none';
 }
 
-function goToSongPlayer(type, index) {
-    const song = type === 'common' ? commonSongData[index] : unitSongData[index];
-    if (!song.videoId) {
-        alert(t('videoPending'));
-        return;
-    }
+function goToUnitSongList(groupIndex) {
     const container = document.getElementById('gameContainer');
     if (!container) return;
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    currentSongBackPage = 'unit-songs-list';
+    currentUnitGroupIndex = groupIndex;
+    const group = unitSongData[groupIndex];
+    if (!group) return;
+    const cells = group.songs.map((song, sIdx) =>
+        `<button class="song-card" onclick="goToSongPlayer('unit', ${groupIndex}, ${sIdx})">
+            <span class="song-card-title">${getSongTitle(song)}</span>
+        </button>`
+    ).join('');
     container.innerHTML = `
-        <div class="song-player-page">
-            <button class="song-blue-btn song-back-btn" onclick="${currentSongBackPage === 'common-songs' ? 'goToCommonSongs()' : 'goToUnitSongs()'}" title="${t('back')}">◀</button>
-            <div class="song-blue-btn song-logo-btn">${t('logoChar')}</div>
-            <div class="song-pill">${type==='common'?t('commonSong'+song.id):t('unitSong'+song.id)}</div>
-            <div class="song-player-wrapper">
-                <iframe src="https://www.youtube.com/embed/${song.videoId}?rel=0"
-                    allowfullscreen
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                </iframe>
+        <div class="song-unit-page">
+            <div class="song-stage" style="--scale: ${scale}">
+                <img class="song-page-logo" src="${SONG_LOGO}" alt="logo">
+                <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="goToUnitSongs()">
+                <div class="song-pill">${getUnitName(group)}</div>
+                <div class="song-grid">${cells}</div>
             </div>
         </div>
     `;
     container.style.display = 'block';
 }
+
+function handleSongPlayerBack() {
+    if (currentSongBackPage === 'common-songs') {
+        goToCommonSongs();
+    } else if (currentSongBackPage === 'unit-songs-list') {
+        goToUnitSongList(currentUnitGroupIndex);
+    } else {
+        goToUnitSongs();
+    }
+}
+
+function goToSongPlayer(type, index1, index2) {
+    let song;
+    let title = '';
+    if (type === 'common') {
+        song = commonSongData[index1];
+        title = song ? t('commonSong' + song.id) : '';
+    } else if (type === 'unit') {
+        const group = unitSongData[index1];
+        song = group ? group.songs[index2] : null;
+        title = song ? getSongTitle(song) : '';
+    }
+    if (!song || !song.videoId) {
+        alert(t('videoPending'));
+        return;
+    }
+    const container = document.getElementById('gameContainer');
+    if (!container) return;
+    const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    container.innerHTML = `
+        <div class="song-player-page">
+            <div class="song-stage" style="--scale: ${scale}">
+                <img class="song-page-logo" src="${SONG_LOGO}" alt="logo">
+                <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="handleSongPlayerBack()">
+                <div class="song-pill">${title}</div>
+                <div class="song-player-wrapper">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.videoId}?rel=0&playsinline=1&origin=${encodeURIComponent(window.location.origin || '')}"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allowfullscreen
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    `;
+    container.style.display = 'block';
+}
+
 
 function showVideoModal(videoUrl) {
     console.log('Opening video:', videoUrl);
@@ -2966,6 +3996,409 @@ function checkWriting() {
 // ============================================
 
 const storyBooksByChapter = {
+    2: [
+        {
+            id: "lesson2-story1",
+            title: "小水滴變變變",
+            cover: "assets/images/stories/圖書封面/第2課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第2課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第2課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事1/page09.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事1/第2課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson2-story2",
+            title: "世界上最熱的東西",
+            cover: "assets/images/stories/圖書封面/第2課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第2課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第2課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page13.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page16.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page17.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page18.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page19.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page20.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page21.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page22.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事2/page23.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事2/第2課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson2-story3",
+            title: "月亮的味道",
+            cover: "assets/images/stories/圖書封面/第2課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第2課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第2課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page09.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page11.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第2課故事3/page12.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第2課故事3/第2課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    12: [
+        {
+            id: "lesson12-story1",
+            title: "汽車開往哪裡",
+            cover: "assets/images/stories/圖書封面/第12課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第12課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第12課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事1/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事1/第12課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson12-story2",
+            title: "我可以上車嗎",
+            cover: "assets/images/stories/圖書封面/第12課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第12課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第12課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事2/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事2/第12課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson12-story3",
+            title: "坐火車去旅行",
+            cover: "assets/images/stories/圖書封面/第12課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第12課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第12課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page06.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page13.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page16.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page17.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page18.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page19.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第12課故事3/page20.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第12課故事3/第12課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    18: [
+        {
+            id: "lesson18-story1",
+            title: "萬聖節快樂",
+            cover: "assets/images/stories/圖書封面/第18課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第18課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第18課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page09.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事1/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事1/第18課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson18-story2",
+            title: "聖誕節到啦",
+            cover: "assets/images/stories/圖書封面/第18課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第18課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第18課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page07.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page09.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事2/page10.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事2/第18課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson18-story3",
+            title: "農曆新年",
+            cover: "assets/images/stories/圖書封面/第18課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第18課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第18課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page05.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page11.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page13.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page14.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page15.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page16.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page17.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page18.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page19.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page20.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page21.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page22.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page23.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page24.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page25.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page26.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page27.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page28.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page29.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page30.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page31.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page32.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page33.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page34.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第18課故事3/page35.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第18課故事3/第18課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
+    20: [
+        {
+            id: "lesson20-story1",
+            title: "小蘋果",
+            cover: "assets/images/stories/圖書封面/第20課-故事1封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第20課-故事1封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第20課-故事1封面簡體.png",
+                width: 411.9,
+                height: 587.3,
+                x: 365.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事1/page01.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事1/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事1/page03.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事1/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事1/第20課-故事1問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson20-story2",
+            title: "水果朋友們的馬戲表演",
+            cover: "assets/images/stories/圖書封面/第20課-故事2封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第20課-故事2封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第20課-故事2封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 776.7,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page02.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page04.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page08.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page11.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事2/page12.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事2/第20課-故事2問題4簡體.png" } },
+            ]
+        },
+        {
+            id: "lesson20-story3",
+            title: "誰吃了我的蘋果",
+            cover: "assets/images/stories/圖書封面/第20課-故事3封面繁體.png",
+            card: {
+                tw: "assets/images/stories/圖書封面/第20課-故事3封面繁體.png",
+                cn: "assets/images/stories/圖書封面/第20課-故事3封面簡體.png",
+                width: 389.2,
+                height: 587.3,
+                x: 1165.4,
+                y: 247.5
+            },
+            pages: [
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page01.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page02.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題1繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題1簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page03.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page04.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page05.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page06.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page07.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page08.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page09.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page10.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page11.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page12.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page13.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page14.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題2繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題2簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page15.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題3繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題3簡體.png" } },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page16.png" },
+                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第20課故事3/page17.png" },
+                { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題4繁體.png", cn: "assets/images/stories/故事繪本頁面更新版/第20課故事3/第20課-故事3問題4簡體.png" } },
+            ]
+        }
+    ],
     1: [
         {
             id: 'lesson1-story1',
@@ -4727,7 +6160,7 @@ function getGameData() {
     if (AppState.currentChapter === 5) {
         return generateChapter9GameData();
     }
-    if ([8, 14, 15, 19].includes(AppState.currentChapter)) {
+    if ([2, 8, 12, 14, 15, 18, 19, 20].includes(AppState.currentChapter)) {
         return generateChapterPoolGameData(AppState.currentChapter);
     }
     return gameDataByChapter[11];
@@ -6342,6 +7775,454 @@ const quizDataByChapter = {
             ]
         }
     ],
+    2: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '我們住在哪裡？',
+            options: [
+                { icon: '☁️', label: '天上', correct: false },
+                { icon: '🌍', label: '地上', correct: true },
+                { icon: '💧', label: '水裡', correct: false },
+                { icon: '🔥', label: '火裡', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '白天，天上最亮的是什麼？',
+            options: [
+                { icon: '🌙', label: '月亮', correct: false },
+                { icon: '☀️', label: '太陽', correct: true },
+                { icon: '⭐', label: '星星', correct: false },
+                { icon: '☁️', label: '雲朵', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '晚上天上亮亮的是什麼？',
+            options: [
+                { icon: '☀️', label: '太陽', correct: false },
+                { icon: '🌙', label: '月亮', correct: true },
+                { icon: '☁️', label: '雲朵', correct: false },
+                { icon: '🌈', label: '彩虹', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '小樹長大需要什麼？',
+            options: [
+                { icon: '🔥', label: '火', correct: false },
+                { icon: '💧', label: '水', correct: true },
+                { icon: '🪨', label: '石頭', correct: false },
+                { icon: '🏖️', label: '沙子', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '高高山上有什麼？',
+            options: [
+                { icon: '🚗', label: '很多汽車', correct: false },
+                { icon: '🌿', label: '草和樹', correct: true },
+                { icon: '🚂', label: '火車', correct: false },
+                { icon: '✈️', label: '飛機', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '下雨天後，地上濕濕的，這是什麼？',
+            options: [
+                { icon: '🛢️', label: '油', correct: false },
+                { icon: '💧', label: '水', correct: true },
+                { icon: '🔥', label: '火', correct: false },
+                { icon: '🟫', label: '土', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '農夫在什麼地方種稻子？',
+            options: [
+                { icon: '⛰️', label: '山上', correct: false },
+                { icon: '🌊', label: '海裡', correct: false },
+                { icon: '🌾', label: '田裡', correct: true },
+                { icon: '☁️', label: '天上', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '公園裡綠綠軟軟的是什麼？',
+            options: [
+                { icon: '🪨', label: '石頭', correct: false },
+                { icon: '🪵', label: '木頭', correct: false },
+                { icon: '🌱', label: '草', correct: true },
+                { icon: '🔥', label: '火', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '河邊有好多什麼東西？（圓圓硬硬的）',
+            options: [
+                { icon: '🌸', label: '花', correct: false },
+                { icon: '🪨', label: '石頭', correct: true },
+                { icon: '🌱', label: '草', correct: false },
+                { icon: '☁️', label: '雲', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪一個不是我們在大自然看到的？',
+            options: [
+                { icon: '🌸', label: '花', correct: false },
+                { icon: '⛰️', label: '山', correct: false },
+                { icon: '✈️', label: '飛機', correct: true },
+                { icon: '💧', label: '水', correct: false }
+            ]
+        }
+    ],
+    12: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '在鐵軌上跑的是什麼？',
+            options: [
+                { icon: '🚗', label: '汽車', correct: false },
+                { icon: '🚂', label: '火車', correct: true },
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🚢', label: '船', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '很多座位，可以載很多人的是什麼？',
+            options: [
+                { icon: '🚲', label: '自行車', correct: false },
+                { icon: '🚕', label: '的士', correct: false },
+                { icon: '🚌', label: '巴士', correct: true },
+                { icon: '✈️', label: '飛機', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '早上上學，我們坐什麼車？',
+            options: [
+                { icon: '🚌', label: '校車', correct: true },
+                { icon: '🚒', label: '消防車', correct: false },
+                { icon: '🚑', label: '救護車', correct: false },
+                { icon: '🚓', label: '警車', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '過馬路的時候要怎樣？',
+            options: [
+                { icon: '🎤', label: '唱歌', correct: false },
+                { icon: '🏃', label: '跑步', correct: false },
+                { icon: '⚠️', label: '小心', correct: true },
+                { icon: '😴', label: '睡覺', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '在地下跑的交通工具是什麼？',
+            options: [
+                { icon: '🚌', label: '巴士', correct: false },
+                { icon: '🚇', label: '地鐵', correct: true },
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🚢', label: '船', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '爸爸媽媽開什麼送你上學？',
+            options: [
+                { icon: '🚂', label: '火車', correct: false },
+                { icon: '🚗', label: '汽車', correct: true },
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🚢', label: '船', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '可以在海上航行的交通工具是什麼？',
+            options: [
+                { icon: '🚂', label: '火車', correct: false },
+                { icon: '🚌', label: '巴士', correct: false },
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🚢', label: '船', correct: true }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '兩個輪子，要踩踏板的是什麼？',
+            options: [
+                { icon: '🚗', label: '汽車', correct: false },
+                { icon: '🚲', label: '自行車', correct: true },
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🚢', label: '船', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '爸爸開車的時候，手握著什麼？',
+            options: [
+                { icon: '🪑', label: '椅子', correct: false },
+                { icon: '🪟', label: '窗戶', correct: false },
+                { icon: '☸️', label: '方向盤', correct: true },
+                { icon: '🚪', label: '門', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪一個不是在天上飛的？',
+            options: [
+                { icon: '✈️', label: '飛機', correct: false },
+                { icon: '🐦', label: '小鳥', correct: false },
+                { icon: '🚇', label: '地鐵', correct: true },
+                { icon: '🚁', label: '直升機', correct: false }
+            ]
+        }
+    ],
+    18: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '春節時，中國人喜歡吃什麼？',
+            options: [
+                { icon: '🍃', label: '粽子', correct: false },
+                { icon: '🥮', label: '月餅', correct: false },
+                { icon: '🥟', label: '餃子', correct: true },
+                { icon: '🦃', label: '火雞', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '中秋節晚上，我們會看什麼？',
+            options: [
+                { icon: '☀️', label: '太陽', correct: false },
+                { icon: '🌕', label: '月亮', correct: true },
+                { icon: '⭐', label: '星星', correct: false },
+                { icon: '☁️', label: '雲朵', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '聖誕節時，誰會送禮物給小朋友？',
+            options: [
+                { icon: '🌙', label: '嫦娥', correct: false },
+                { icon: '🎅', label: '聖誕老人', correct: true },
+                { icon: '🛶', label: '屈原', correct: false },
+                { icon: '💰', label: '財神爺', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '端午節可以看什麼比賽？',
+            options: [
+                { icon: '⚽', label: '足球', correct: false },
+                { icon: '🏀', label: '籃球', correct: false },
+                { icon: '🐉', label: '龍舟', correct: true },
+                { icon: '🏃', label: '跑步', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '新年時，大人會給小朋友什麼？',
+            options: [
+                { icon: '🍃', label: '粽子', correct: false },
+                { icon: '🧧', label: '紅包', correct: true },
+                { icon: '🥮', label: '月餅', correct: false },
+                { icon: '🎃', label: '南瓜', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '萬聖節小朋友會穿上什麼？',
+            options: [
+                { icon: '👕', label: '新衣服', correct: false },
+                { icon: '👻', label: '鬼怪衣服', correct: true },
+                { icon: '🎒', label: '校服', correct: false },
+                { icon: '👙', label: '泳衣', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '復活節可以找到什麼東西？',
+            options: [
+                { icon: '🍃', label: '粽子', correct: false },
+                { icon: '🥮', label: '月餅', correct: false },
+                { icon: '🥚', label: '彩蛋', correct: true },
+                { icon: '🥟', label: '餃子', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '放假不用上學的時候，你最想做什麼？',
+            options: [
+                { icon: '📝', label: '寫功課', correct: false },
+                { icon: '🎡', label: '出去玩', correct: true },
+                { icon: '🏫', label: '上學', correct: false },
+                { icon: '📄', label: '考試', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '中秋節要吃什麼圓圓的食物？',
+            options: [
+                { icon: '🍃', label: '粽子', correct: false },
+                { icon: '🥟', label: '餃子', correct: false },
+                { icon: '🥮', label: '月餅', correct: true },
+                { icon: '🍡', label: '湯圓', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪一個不是中國傳統節日？',
+            options: [
+                { icon: '🧧', label: '春節', correct: false },
+                { icon: '🌕', label: '中秋節', correct: false },
+                { icon: '🎄', label: '聖誕節', correct: true },
+                { icon: '🐉', label: '端午節', correct: false }
+            ]
+        }
+    ],
+    20: [
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果是紅色的，有綠色的葉子？',
+            options: [
+                { icon: '🍌', label: '香蕉', correct: false },
+                { icon: '🍉', label: '西瓜', correct: false },
+                { icon: '🍎', label: '蘋果', correct: true },
+                { icon: '🍇', label: '葡萄', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果有很多小籽，是紅色的？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍓', label: '草莓', correct: true },
+                { icon: '🍊', label: '橙子', correct: false },
+                { icon: '🥭', label: '芒果', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果是黃色的，彎彎的像月亮？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍊', label: '橙子', correct: false },
+                { icon: '🍌', label: '香蕉', correct: true },
+                { icon: '🍉', label: '西瓜', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果最大，切開裡面是紅色的？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍉', label: '西瓜', correct: true },
+                { icon: '🍇', label: '葡萄', correct: false },
+                { icon: '🍒', label: '櫻桃', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果是紫色的，一顆一顆連在一起？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍌', label: '香蕉', correct: false },
+                { icon: '🍇', label: '葡萄', correct: true },
+                { icon: '🍊', label: '橙子', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果外皮是橙色的，剝開一瓣一瓣的？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍉', label: '西瓜', correct: false },
+                { icon: '🍊', label: '橙子', correct: true },
+                { icon: '🍇', label: '葡萄', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果小小的，藍色的？',
+            options: [
+                { icon: '🍓', label: '草莓', correct: false },
+                { icon: '🫐', label: '藍莓', correct: true },
+                { icon: '🍉', label: '西瓜', correct: false },
+                { icon: '🥭', label: '芒果', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '桌上有5個蘋果和2個香蕉，哪個比較多？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: true },
+                { icon: '🍌', label: '香蕉', correct: false },
+                { icon: '🟰', label: '一樣多', correct: false },
+                { icon: '❓', label: '不知道', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪種水果是黃色的，有很多毛？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍊', label: '橙子', correct: false },
+                { icon: '🥭', label: '芒果', correct: true },
+                { icon: '🍉', label: '西瓜', correct: false }
+            ]
+        },
+        {
+            type: 'choice',
+            mode: 'single',
+            question: '哪一個不是水果？',
+            options: [
+                { icon: '🍎', label: '蘋果', correct: false },
+                { icon: '🍌', label: '香蕉', correct: false },
+                { icon: '🥬', label: '白菜', correct: true },
+                { icon: '🍉', label: '西瓜', correct: false }
+            ]
+        }
+    ],
 };
 
 function getQuizData() {
@@ -7079,7 +8960,62 @@ const recognitionDataByChapter = {
         { hanziKey: 'foodWordCandy', pinyin: 'táng guǒ', defKey: 'foodDefCandy', color: '#FF69B4', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_糖果.png', audio: 'lessons/第19課/第19課-識圖部分錄音/糖果.mp3' },
         { hanziKey: 'foodWordCake', pinyin: 'dàn gāo', defKey: 'foodDefCake', color: '#FF8C00', image: 'lessons/第19課/第19課-識圖部分素材/lesson19_蛋糕.png', audio: 'lessons/第19課/第19課-識圖部分錄音/蛋糕.mp3' },
     ],
-};
+    2: [
+        { hanziKey: 'natureCharGrass', pinyin: 'cǎo', defKey: 'natureDefGrass', color: '#7CB342', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_草.png', audio: 'lessons/第2課/第2課-識圖部分錄音/草.mp3' },
+        { hanziKey: 'natureCharStone', pinyin: 'shí', defKey: 'natureDefStone', color: '#9E9E9E', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_石.png', audio: 'lessons/第2課/第2課-識圖部分錄音/石.mp3' },
+        { hanziKey: 'natureCharMountain', pinyin: 'shān', defKey: 'natureDefMountain', color: '#8D6E63', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_山.png', audio: 'lessons/第2課/第2課-識圖部分錄音/山.mp3' },
+        { hanziKey: 'natureCharFire', pinyin: 'huǒ', defKey: 'natureDefFire', color: '#FF5722', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_火.png', audio: 'lessons/第2課/第2課-識圖部分錄音/火.mp3' },
+        { hanziKey: 'natureCharFlower', pinyin: 'huā', defKey: 'natureDefFlower', color: '#F06292', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_花.png', audio: 'lessons/第2課/第2課-識圖部分錄音/花.mp3' },
+        { hanziKey: 'natureCharSun', pinyin: 'rì', defKey: 'natureDefSun', color: '#FFD54F', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_日.png', audio: 'lessons/第2課/第2課-識圖部分錄音/日.mp3' },
+        { hanziKey: 'natureCharEarth', pinyin: 'dì', defKey: 'natureDefEarth', color: '#795548', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_地.png', audio: 'lessons/第2課/第2課-識圖部分錄音/地.mp3' },
+        { hanziKey: 'natureCharWood', pinyin: 'mù', defKey: 'natureDefWood', color: '#A1887F', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_木.png', audio: 'lessons/第2課/第2課-識圖部分錄音/木.mp3' },
+        { hanziKey: 'natureCharField', pinyin: 'tián', defKey: 'natureDefField', color: '#66BB6A', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_田.png', audio: 'lessons/第2課/第2課-識圖部分錄音/田.mp3' },
+        { hanziKey: 'natureCharSoil', pinyin: 'tǔ', defKey: 'natureDefSoil', color: '#BCAAA4', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_土.png', audio: 'lessons/第2課/第2課-識圖部分錄音/土.mp3' },
+        { hanziKey: 'natureCharSky', pinyin: 'tiān', defKey: 'natureDefSky', color: '#42A5F5', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_天.png', audio: 'lessons/第2課/第2課-識圖部分錄音/天.mp3' },
+        { hanziKey: 'natureCharMoon', pinyin: 'yuè', defKey: 'natureDefMoon', color: '#BDBDBD', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_月.png', audio: 'lessons/第2課/第2課-識圖部分錄音/月.mp3' },
+        { hanziKey: 'natureCharHuman', pinyin: 'rén', defKey: 'natureDefHuman', color: '#FF8A65', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_人.png', audio: 'lessons/第2課/第2課-識圖部分錄音/人.mp3' },
+        { hanziKey: 'natureCharWater', pinyin: 'shuǐ', defKey: 'natureDefWater', color: '#29B6F6', image: 'lessons/第2課/第2課-識圖部分素材/lesson02_水.png', audio: 'lessons/第2課/第2課-識圖部分錄音/水.mp3' },
+    ],
+    12: [
+        { hanziKey: 'transportWordTrain', pinyin: 'huǒ chē', defKey: 'transportDefTrain', color: '#EF5350', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_火車.png', audio: 'lessons/第12課/第12課-識圖部分錄音/火车.mp3' },
+        { hanziKey: 'transportWordBus', pinyin: 'bā shì', defKey: 'transportDefBus', color: '#FFA726', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_巴士.png', audio: 'lessons/第12課/第12課-識圖部分錄音/巴士.mp3' },
+        { hanziKey: 'transportWordSubway', pinyin: 'dì tiě', defKey: 'transportDefSubway', color: '#42A5F5', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_地鐵.png', audio: 'lessons/第12課/第12課-識圖部分錄音/地铁.mp3' },
+        { hanziKey: 'transportWordCar', pinyin: 'qì chē', defKey: 'transportDefCar', color: '#66BB6A', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_汽車.png', audio: 'lessons/第12課/第12課-識圖部分錄音/汽车.mp3' },
+        { hanziKey: 'transportWordShip', pinyin: 'chuán', defKey: 'transportDefShip', color: '#29B6F6', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_船.png', audio: 'lessons/第12課/第12課-識圖部分錄音/船.mp3' },
+        { hanziKey: 'transportWordPlane', pinyin: 'fēi jī', defKey: 'transportDefPlane', color: '#AB47BC', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_飛機.png', audio: 'lessons/第12課/第12課-識圖部分錄音/飞机.mp3' },
+        { hanziKey: 'transportWordTaxi', pinyin: 'dí shì', defKey: 'transportDefTaxi', color: '#FFCA28', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_的士.png', audio: 'lessons/第12課/第12課-識圖部分錄音/的士.mp3' },
+        { hanziKey: 'transportWordBike', pinyin: 'zì xíng chē', defKey: 'transportDefBike', color: '#26A69A', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_自行車.png', audio: 'lessons/第12課/第12課-識圖部分錄音/自行车.mp3' },
+        { hanziKey: 'transportWordCareful', pinyin: 'xiǎo xīn', defKey: 'transportDefCareful', color: '#EF5350', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_小心.png', audio: 'lessons/第12課/第12課-識圖部分錄音/小心.mp3' },
+        { hanziKey: 'transportWordSchoolBus', pinyin: 'xiào chē', defKey: 'transportDefSchoolBus', color: '#FF7043', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_校車.png', audio: 'lessons/第12課/第12課-識圖部分錄音/校车.mp3' },
+        { hanziKey: 'transportWordRide', pinyin: 'qí', defKey: 'transportDefRide', color: '#8D6E63', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_騎.png', audio: 'lessons/第12課/第12課-識圖部分錄音/骑.mp3' },
+        { hanziKey: 'transportWordSit', pinyin: 'zuò', defKey: 'transportDefSit', color: '#78909C', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_坐.png', audio: 'lessons/第12課/第12課-識圖部分錄音/坐.mp3' },
+        { hanziKey: 'transportWordDrive', pinyin: 'kāi', defKey: 'transportDefDrive', color: '#7E57C2', image: 'lessons/第12課/第12課-識圖部分素材/lesson12_開.png', audio: 'lessons/第12課/第12課-識圖部分錄音/开.mp3' },
+    ],
+    18: [
+        { hanziKey: 'festivalWordHoliday', pinyin: 'fàng jià', defKey: 'festivalDefHoliday', color: '#FF7043', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_放假.png', audio: 'lessons/第18課/第18課-識圖部分錄音/放假.mp3' },
+        { hanziKey: 'festivalWordDragonBoat', pinyin: 'duān wǔ jié', defKey: 'festivalDefDragonBoat', color: '#66BB6A', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_端午節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/端午节.mp3' },
+        { hanziKey: 'festivalWordSpring', pinyin: 'chūn jié', defKey: 'festivalDefSpring', color: '#EF5350', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_春節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/春节.mp3' },
+        { hanziKey: 'festivalWordHalloween', pinyin: 'wàn shèng jié', defKey: 'festivalDefHalloween', color: '#FF9800', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_萬聖節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/万圣节.mp3' },
+        { hanziKey: 'festivalWordMidAutumn', pinyin: 'zhōng qiū jié', defKey: 'festivalDefMidAutumn', color: '#FFA726', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_中秋節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/中秋节.mp3' },
+        { hanziKey: 'festivalWordChristmas', pinyin: 'shèng dàn jié', defKey: 'festivalDefChristmas', color: '#42A5F5', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_聖誕節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/圣诞节.mp3' },
+        { hanziKey: 'festivalWordEaster', pinyin: 'fù huó jié', defKey: 'festivalDefEaster', color: '#AB47BC', image: 'lessons/第18課/第18課-識圖部分素材/lesson18_復活節.png', audio: 'lessons/第18課/第18課-識圖部分錄音/复活节.mp3' },
+    ],
+    20: [
+        { hanziKey: 'fruitWordMany', pinyin: 'duō', defKey: 'fruitDefMany', color: '#EF5350', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_多.png', audio: 'lessons/第20課/第20課-識圖部分錄音/多.mp3' },
+        { hanziKey: 'fruitWordFew', pinyin: 'shǎo', defKey: 'fruitDefFew', color: '#42A5F5', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_少.png', audio: 'lessons/第20課/第20課-識圖部分錄音/少.mp3' },
+        { hanziKey: 'fruitWordCherry', pinyin: 'yīng táo', defKey: 'fruitDefCherry', color: '#F06292', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_櫻桃.png', audio: 'lessons/第20課/第20課-識圖部分錄音/樱桃.mp3' },
+        { hanziKey: 'fruitWordStrawberry', pinyin: 'cǎo méi', defKey: 'fruitDefStrawberry', color: '#EF5350', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_草莓.png', audio: 'lessons/第20課/第20課-識圖部分錄音/草莓.mp3' },
+        { hanziKey: 'fruitWordPeach', pinyin: 'táo zi', defKey: 'fruitDefPeach', color: '#FF8A65', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_桃子.png', audio: 'lessons/第20課/第20課-識圖部分錄音/桃子.mp3' },
+        { hanziKey: 'fruitWordOrange', pinyin: 'chéng zi', defKey: 'fruitDefOrange', color: '#FF9800', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_橙子.png', audio: 'lessons/第20課/第20課-識圖部分錄音/橙子.mp3' },
+        { hanziKey: 'fruitWordBlueberry', pinyin: 'lán méi', defKey: 'fruitDefBlueberry', color: '#5C6BC0', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_藍莓.png', audio: 'lessons/第20課/第20課-識圖部分錄音/蓝莓.mp3' },
+        { hanziKey: 'fruitWordPear', pinyin: 'lí', defKey: 'fruitDefPear', color: '#CDDC39', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_梨.png', audio: 'lessons/第20課/第20課-識圖部分錄音/梨.mp3' },
+        { hanziKey: 'fruitWordApple', pinyin: 'píng guǒ', defKey: 'fruitDefApple', color: '#EF5350', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_蘋果.png', audio: 'lessons/第20課/第20課-識圖部分錄音/苹果.mp3' },
+        { hanziKey: 'fruitWordMango', pinyin: 'máng guǒ', defKey: 'fruitDefMango', color: '#FFB74D', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_芒果.png', audio: 'lessons/第20課/第20課-識圖部分錄音/芒果.mp3' },
+        { hanziKey: 'fruitWordGrape', pinyin: 'pú táo', defKey: 'fruitDefGrape', color: '#7E57C2', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_葡萄.png', audio: 'lessons/第20課/第20課-識圖部分錄音/葡萄.mp3' },
+        { hanziKey: 'fruitWordBanana', pinyin: 'xiāng jiāo', defKey: 'fruitDefBanana', color: '#FFCA28', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_香蕉.png', audio: 'lessons/第20課/第20課-識圖部分錄音/香蕉.mp3' },
+        { hanziKey: 'fruitWordWatermelon', pinyin: 'xī guā', defKey: 'fruitDefWatermelon', color: '#66BB6A', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_西瓜.png', audio: 'lessons/第20課/第20課-識圖部分錄音/西瓜.mp3' },
+        { hanziKey: 'fruitWordKiwi', pinyin: 'qí yì guǒ', defKey: 'fruitDefKiwi', color: '#8BC34A', image: 'lessons/第20課/第20課-識圖部分素材/lesson20_奇異果.png', audio: 'lessons/第20課/第20課-識圖部分錄音/奇异果.mp3' },
+    ],};
 
 function getRecognitionData() {
     return recognitionDataByChapter[AppState.currentChapter] || recognitionDataByChapter[11];
@@ -7600,7 +9536,62 @@ const writingDataByChapter = {
         { hanziKey: 'foodWordCandy', pinyin: 'táng guǒ', animationTraditional: ["lessons/第19課/第19課-識字部分gif/糖.gif", "lessons/第19課/第19課-識字部分gif/果.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/糖.gif", "lessons/第19課/第19課-識字部分gif/果.gif"], gifDuration: 5000 },
         { hanziKey: 'foodWordCake', pinyin: 'dàn gāo', animationTraditional: ["lessons/第19課/第19課-識字部分gif/蛋.gif", "lessons/第19課/第19課-識字部分gif/糕.gif"], animationSimplified: ["lessons/第19課/第19課-識字部分gif/蛋.gif", "lessons/第19課/第19課-識字部分gif/糕.gif"], gifDuration: 5000 },
     ],
-};
+    2: [
+        { hanziKey: 'natureCharGrass', pinyin: 'cǎo', animationTraditional: ["lessons/第2課/第2課-識字部分gif/草.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/草.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharStone', pinyin: 'shí', animationTraditional: ["lessons/第2課/第2課-識字部分gif/石.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/石.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharMountain', pinyin: 'shān', animationTraditional: ["lessons/第2課/第2課-識字部分gif/山.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/山.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharFire', pinyin: 'huǒ', animationTraditional: ["lessons/第2課/第2課-識字部分gif/火.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/火.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharFlower', pinyin: 'huā', animationTraditional: ["lessons/第2課/第2課-識字部分gif/花.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/花.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharSun', pinyin: 'rì', animationTraditional: ["lessons/第2課/第2課-識字部分gif/日.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/日.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharEarth', pinyin: 'dì', animationTraditional: ["lessons/第2課/第2課-識字部分gif/地.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/地.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharWood', pinyin: 'mù', animationTraditional: ["lessons/第2課/第2課-識字部分gif/木.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/木.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharField', pinyin: 'tián', animationTraditional: ["lessons/第2課/第2課-識字部分gif/田.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/田.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharSoil', pinyin: 'tǔ', animationTraditional: ["lessons/第2課/第2課-識字部分gif/土.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/土.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharSky', pinyin: 'tiān', animationTraditional: ["lessons/第2課/第2課-識字部分gif/天.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/天.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharMoon', pinyin: 'yuè', animationTraditional: ["lessons/第2課/第2課-識字部分gif/月.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/月.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharHuman', pinyin: 'rén', animationTraditional: ["lessons/第2課/第2課-識字部分gif/人.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/人.gif"], gifDuration: 5000 },
+        { hanziKey: 'natureCharWater', pinyin: 'shuǐ', animationTraditional: ["lessons/第2課/第2課-識字部分gif/水.gif"], animationSimplified: ["lessons/第2課/第2課-識字部分gif/水.gif"], gifDuration: 5000 },
+    ],
+    12: [
+        { hanziKey: 'transportWordTrain', pinyin: 'huǒ chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/火.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/火.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordBus', pinyin: 'bā shì', animationTraditional: ["lessons/第12課/第12課-識字部分gif/巴.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/巴.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordSubway', pinyin: 'dì tiě', animationTraditional: ["lessons/第12課/第12課-識字部分gif/地.gif", "lessons/第12課/第12課-識字部分gif/鐵.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/地.gif", "lessons/第12課/第12課-識字部分gif/铁.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordCar', pinyin: 'qì chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/汽.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/汽.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordShip', pinyin: 'chuán', animationTraditional: ["lessons/第12課/第12課-識字部分gif/船.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/船.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordPlane', pinyin: 'fēi jī', animationTraditional: ["lessons/第12課/第12課-識字部分gif/飛.gif", "lessons/第12課/第12課-識字部分gif/機.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/飛.gif", "lessons/第12課/第12課-識字部分gif/机.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordTaxi', pinyin: 'dí shì', animationTraditional: ["lessons/第12課/第12課-識字部分gif/的.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/的.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordBike', pinyin: 'zì xíng chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/自.gif", "lessons/第12課/第12課-識字部分gif/行.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/自.gif", "lessons/第12課/第12課-識字部分gif/行.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordCareful', pinyin: 'xiǎo xīn', animationTraditional: ["lessons/第12課/第12課-識字部分gif/小.gif", "lessons/第12課/第12課-識字部分gif/心.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/小.gif", "lessons/第12課/第12課-識字部分gif/心.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordSchoolBus', pinyin: 'xiào chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/校.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/校.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordRide', pinyin: 'qí', animationTraditional: ["lessons/第12課/第12課-識字部分gif/騎.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/骑.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordSit', pinyin: 'zuò', animationTraditional: ["lessons/第12課/第12課-識字部分gif/坐.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/坐.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordDrive', pinyin: 'kāi', animationTraditional: ["lessons/第12課/第12課-識字部分gif/開.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/开.gif"], gifDuration: 5000 },
+    ],
+    18: [
+        { hanziKey: 'festivalWordHoliday', pinyin: 'fàng jià', animationTraditional: ["lessons/第18課/第18課-識字部分gif/放.gif", "lessons/第18課/第18課-識字部分gif/假.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/放.gif", "lessons/第18課/第18課-識字部分gif/假.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordDragonBoat', pinyin: 'duān wǔ jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/端.gif", "lessons/第18課/第18課-識字部分gif/午.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/端.gif", "lessons/第18課/第18課-識字部分gif/午.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordSpring', pinyin: 'chūn jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/春.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/春.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordHalloween', pinyin: 'wàn shèng jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/萬.gif", "lessons/第18課/第18課-識字部分gif/聖.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/万.gif", "lessons/第18課/第18課-識字部分gif/圣.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordMidAutumn', pinyin: 'zhōng qiū jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/中.gif", "lessons/第18課/第18課-識字部分gif/秋.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/中.gif", "lessons/第18課/第18課-識字部分gif/秋.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordChristmas', pinyin: 'shèng dàn jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/聖.gif", "lessons/第18課/第18課-識字部分gif/誕.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/圣.gif", "lessons/第18課/第18課-識字部分gif/诞.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+        { hanziKey: 'festivalWordEaster', pinyin: 'fù huó jié', animationTraditional: ["lessons/第18課/第18課-識字部分gif/復.gif", "lessons/第18課/第18課-識字部分gif/活.gif", "lessons/第18課/第18課-識字部分gif/節.gif"], animationSimplified: ["lessons/第18課/第18課-識字部分gif/复.gif", "lessons/第18課/第18課-識字部分gif/活.gif", "lessons/第18課/第18課-識字部分gif/节.gif"], gifDuration: 5000 },
+    ],
+    20: [
+        { hanziKey: 'fruitWordMany', pinyin: 'duō', animationTraditional: ["lessons/第20課/第20課-識字部分gif/多.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/多.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordFew', pinyin: 'shǎo', animationTraditional: ["lessons/第20課/第20課-識字部分gif/少.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/少.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordCherry', pinyin: 'yīng táo', animationTraditional: ["lessons/第20課/第20課-識字部分gif/櫻.gif", "lessons/第20課/第20課-識字部分gif/桃.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/樱.gif", "lessons/第20課/第20課-識字部分gif/桃.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordStrawberry', pinyin: 'cǎo méi', animationTraditional: ["lessons/第20課/第20課-識字部分gif/草.gif", "lessons/第20課/第20課-識字部分gif/莓.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/草.gif", "lessons/第20課/第20課-識字部分gif/莓.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordPeach', pinyin: 'táo zi', animationTraditional: ["lessons/第20課/第20課-識字部分gif/桃.gif", "lessons/第20課/第20課-識字部分gif/子.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/桃.gif", "lessons/第20課/第20課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordOrange', pinyin: 'chéng zi', animationTraditional: ["lessons/第20課/第20課-識字部分gif/橙.gif", "lessons/第20課/第20課-識字部分gif/子.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/橙.gif", "lessons/第20課/第20課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordBlueberry', pinyin: 'lán méi', animationTraditional: ["lessons/第20課/第20課-識字部分gif/藍.gif", "lessons/第20課/第20課-識字部分gif/莓.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/蓝.gif", "lessons/第20課/第20課-識字部分gif/莓.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordPear', pinyin: 'lí', animationTraditional: ["lessons/第20課/第20課-識字部分gif/梨.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/梨.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordApple', pinyin: 'píng guǒ', animationTraditional: ["lessons/第20課/第20課-識字部分gif/蘋.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/苹.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordMango', pinyin: 'máng guǒ', animationTraditional: ["lessons/第20課/第20課-識字部分gif/芒.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/芒.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordGrape', pinyin: 'pú táo', animationTraditional: ["lessons/第20課/第20課-識字部分gif/葡.gif", "lessons/第20課/第20課-識字部分gif/萄.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/葡.gif", "lessons/第20課/第20課-識字部分gif/萄.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordBanana', pinyin: 'xiāng jiāo', animationTraditional: ["lessons/第20課/第20課-識字部分gif/香.gif", "lessons/第20課/第20課-識字部分gif/蕉.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/香.gif", "lessons/第20課/第20課-識字部分gif/蕉.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordWatermelon', pinyin: 'xī guā', animationTraditional: ["lessons/第20課/第20課-識字部分gif/西.gif", "lessons/第20課/第20課-識字部分gif/瓜.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/西.gif", "lessons/第20課/第20課-識字部分gif/瓜.gif"], gifDuration: 5000 },
+        { hanziKey: 'fruitWordKiwi', pinyin: 'qí yì guǒ', animationTraditional: ["lessons/第20課/第20課-識字部分gif/奇.gif", "lessons/第20課/第20課-識字部分gif/異.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], animationSimplified: ["lessons/第20課/第20課-識字部分gif/奇.gif", "lessons/第20課/第20課-識字部分gif/异.gif", "lessons/第20課/第20課-識字部分gif/果.gif"], gifDuration: 5000 },
+    ],};
 
 function getWritingData() {
     return writingDataByChapter[AppState.currentChapter] || writingDataByChapter[11];

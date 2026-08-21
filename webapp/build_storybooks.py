@@ -6,15 +6,16 @@ and print an app.js snippet for storyBooksByChapter.
 """
 import os, sys, glob, json, shutil, textwrap, subprocess, math
 
-# Allow system Python to import opencc from the venv
-sys.path.insert(0, '/private/tmp/opencc_venv/lib/python3.9/site-packages')
+BASE = '/Users/nadialo/Dadi_Teaching_Material'
+WEBAPP = os.path.join(BASE, 'dadi_teachingmaterial_design', 'webapp')
+
+# Allow system Python to import opencc from the local venv
+venv_site_packages = os.path.join(BASE, '.venv', 'lib', f'python{sys.version_info.major}.{sys.version_info.minor}', 'site-packages')
+sys.path.insert(0, venv_site_packages)
 import opencc
 
 from PIL import Image, ImageDraw, ImageFont
-
-BASE = '/Users/nadialo/Dadi_Teaching_Material'
-WEBAPP = os.path.join(BASE, 'dadi_teachingmaterial_design', 'webapp')
-SRC_ROOT = os.path.join(BASE, '第{ch}課', '第{ch}課-繪本部分素材')
+SRC_ROOT = os.path.join(WEBAPP, 'assets', 'images', 'stories', '故事繪本頁面更新版', '第{ch}課-繪本部分素材')
 DEST_PAGES = os.path.join(WEBAPP, 'assets', 'images', 'stories', '故事繪本頁面更新版', '第{ch}課故事{idx}')
 DEST_COVERS = os.path.join(WEBAPP, 'assets', 'images', 'stories', '圖書封面')
 FONT_PATH = os.path.join(WEBAPP, 'assets', 'fonts', '網頁字體', 'FZY3K.TTF')
@@ -208,11 +209,12 @@ def build_story(ch, story_spec):
             make_placeholder_page(dst, ch, idx, p)
         page_paths.append(dst)
 
-    # Generate covers
+    # Generate covers only if missing (preserve user-provided covers)
     cover_tw = os.path.join(DEST_COVERS, f'第{ch}課-故事{idx}封面繁體.png')
     cover_cn = os.path.join(DEST_COVERS, f'第{ch}課-故事{idx}封面簡體.png')
     os.makedirs(DEST_COVERS, exist_ok=True)
-    generate_cover(ch, idx, title_tw, title_cn, cover_tw, cover_cn)
+    if not os.path.exists(cover_tw) and not os.path.exists(cover_cn):
+        generate_cover(ch, idx, title_tw, title_cn, cover_tw, cover_cn)
 
     # Generate questions
     q_images_tw = []
@@ -263,7 +265,139 @@ def build_story(ch, story_spec):
     }
     return book
 
+# Chapters to build in this run (preserve existing 8/14/15/19 assets)
+BUILD_CHAPTERS = [2, 12, 18, 20]
+
 STORIES = {
+    2: [
+        {
+            'idx': 1, 'title': '小水滴變變變',
+            'breaks': [2, 6, 8, 9],
+            'questions': [
+                '小水滴們手拉手之後，先變成了什麼？',
+                '小水滴們鑽進大冰箱後，變成了什麼？',
+                '小水滴們鑽進大水壺裡之後，發生了什麼事？',
+                '小水滴最後為什麼會消失不見？',
+            ]
+        },
+        {
+            'idx': 2, 'title': '世界上最熱的東西',
+            'breaks': [3, 7, 17, 23],
+            'questions': [
+                '松鼠覺得世界上最熱的東西是什麼？',
+                '小狗覺得什麼東西最熱，還把腳都燙傷了？',
+                '青蛙說世界上最熱的東西在哪裡？',
+                '動物們抬起頭一看，發現最熱的東西是什麼？',
+            ]
+        },
+        {
+            'idx': 3, 'title': '月亮的味道',
+            'breaks': [3, 9, 11, 12],
+            'questions': [
+                '小海龜叫來了誰，疊在背上去夠月亮？',
+                '最後是哪一隻小動物咬下了一片月亮？',
+                '小動物們覺得月亮吃起來是什麼味道？',
+                '小魚覺得月亮在哪裡呢？',
+            ]
+        }
+    ],
+    12: [
+        {
+            'idx': 1, 'title': '汽車開往哪裡',
+            'breaks': [1, 4, 6, 8],
+            'questions': [
+                '公共汽車開往哪裡？',
+                '紅色的消防車要開去哪裡？',
+                '救護車要開去哪裡幫助病人？',
+                '飛機飛去哪裡？',
+            ]
+        },
+        {
+            'idx': 2, 'title': '我可以上車嗎',
+            'breaks': [2, 4, 6, 7],
+            'questions': [
+                '消防車為什麼不能讓安安上車？',
+                '垃圾車急著去做什麼？',
+                '公交車為什麼不能載安安去外婆家？',
+                '最後安安和媽媽坐了什麼車去外婆家？',
+            ]
+        },
+        {
+            'idx': 3, 'title': '坐火車去旅行',
+            'breaks': [6, 10, 16, 20],
+            'questions': [
+                '過去的火車用什麼來產生動力前進？',
+                '火車遇到高山的時候，會怎麼過去？',
+                '火車遇到河的時候，要怎麼過河呢？',
+                '火車快到車站的時候，速度會怎樣？',
+            ]
+        }
+    ],
+    18: [
+        {
+            'idx': 1, 'title': '萬聖節快樂',
+            'breaks': [3, 7, 9, 10],
+            'questions': [
+                '小老鼠打扮成了什麼樣子？',
+                '小豬用衛生紙打扮成了什麼？',
+                '動物們去奶奶家說什麼話來討糖果？',
+                '門口出現的骷髏原來是誰扮的？',
+            ]
+        },
+        {
+            'idx': 2, 'title': '聖誕節到啦',
+            'breaks': [4, 7, 9, 10],
+            'questions': [
+                '泰迪和爸爸為聖誕節做了什麼準備？',
+                '聖誕樹為什麼搬不進屋子裡？',
+                '聖誕樹弄壞了，爸爸怎麼安慰泰迪？',
+                '最後泰迪和爸爸怎樣讓聖誕樹重新變漂亮的？',
+            ]
+        },
+        {
+            'idx': 3, 'title': '農曆新年',
+            'breaks': [5, 11, 28, 35],
+            'questions': [
+                '年廿八這天，媽媽和哥哥在家做什麼？',
+                '年廿九這天，媽媽在大門上貼了什麼？',
+                '年夜飯要吃湯圓，代表什麼意思？',
+                '大年初一的時候，哥哥和妹妹向長輩說什麼祝福的話？',
+            ]
+        }
+    ],
+    20: [
+        {
+            'idx': 1, 'title': '小蘋果',
+            'breaks': [1, 2, 3, 4],
+            'questions': [
+                '桌上有哪兩種顏色的蘋果？',
+                '小女孩愛吃什麼顏色的蘋果？',
+                '媽媽說她愛吃什麼？',
+                '「臉上的小蘋果」指的是什麼？',
+            ]
+        },
+        {
+            'idx': 2, 'title': '水果朋友們的馬戲表演',
+            'breaks': [4, 8, 11, 12],
+            'questions': [
+                '橙子弟弟跳上舞台後，變成了什麼？',
+                '西瓜先生和朋友們一起變成了什麼？',
+                '害羞的火龍果妹妹最後變成了什麼？',
+                '故事裡出現了哪些水果？你能說出幾種？',
+            ]
+        },
+        {
+            'idx': 3, 'title': '誰吃了我的蘋果',
+            'breaks': [2, 14, 15, 17],
+            'questions': [
+                '蘋果掉進洞裡後，老鼠做了什麼？',
+                '老鼠還問了哪些動物有沒有吃蘋果？',
+                '蘋果蟲說他看到什麼樣的怪物吃了蘋果？',
+                '到底是誰吃了老鼠的蘋果？',
+            ]
+        }
+    ],
+
     8: [
         {
             'idx': 1, 'title': '小熊的野餐',
@@ -396,7 +530,8 @@ STORIES = {
 
 def build_all():
     manifest = {}
-    for ch, specs in STORIES.items():
+    for ch in BUILD_CHAPTERS:
+        specs = STORIES[ch]
         manifest[ch] = [build_story(ch, s) for s in specs]
     return manifest
 
