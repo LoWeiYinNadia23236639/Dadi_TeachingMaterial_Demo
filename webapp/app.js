@@ -2825,35 +2825,32 @@ function showGuideCharacter(pageId) {
         </div>
     `;
     
-    // 添加到當前頁面
-    const currentPage = document.getElementById('page-' + pageId);
-    if (currentPage) {
-        currentPage.appendChild(guideContainer);
-        
-        // 立刻套用視窗縮放，避免角色來不及比例縮放
-        if (typeof window.updateStageScale === 'function') {
-            window.updateStageScale('.guide-character-container', 1920, 1080);
-        }
-        
-        // 綁定角色懸停事件：碰到角色重新顯示對話框
-        const character = guideContainer.querySelector('.guide-character');
-        if (character) {
-            character.addEventListener('mouseenter', () => {
-                showGuideSpeech();
-            });
-            character.addEventListener('mouseleave', () => {
-                scheduleHideGuideSpeech();
-            });
-        }
-        
-        // 添加動畫效果
-        setTimeout(() => {
-            guideContainer.classList.add('show');
-        }, 50);
-        
-        // 15秒後自動隱藏對話框
-        scheduleHideGuideSpeech();
+    // 添加到 body，確保引導角色在所有頁面層（包含 gameContainer）之上
+    document.body.appendChild(guideContainer);
+    
+    // 立刻套用視窗縮放，避免角色來不及比例縮放
+    if (typeof window.updateStageScale === 'function') {
+        window.updateStageScale('.guide-character-container', 1920, 1080);
     }
+    
+    // 綁定角色懸停事件：碰到角色重新顯示對話框
+    const character = guideContainer.querySelector('.guide-character');
+    if (character) {
+        character.addEventListener('mouseenter', () => {
+            showGuideSpeech();
+        });
+        character.addEventListener('mouseleave', () => {
+            scheduleHideGuideSpeech();
+        });
+    }
+    
+    // 添加動畫效果
+    setTimeout(() => {
+        guideContainer.classList.add('show');
+    }, 50);
+    
+    // 15秒後自動隱藏對話框
+    scheduleHideGuideSpeech();
 }
 
 // 排程隱藏對話框

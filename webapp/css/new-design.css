@@ -1571,7 +1571,7 @@ body {
 .guide-character-container {
     position: fixed;
     bottom: 100px;
-    right: 5%;
+    right: 10%;
     width: 240px;
     height: 330px;
     z-index: 10000;
@@ -1686,7 +1686,7 @@ body {
 @media (max-width: 768px) {
     .guide-character-container {
         bottom: 80px;
-        right: 5%;
+        right: 10%;
     }
     
     .guide-character {
