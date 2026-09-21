@@ -7,7 +7,6 @@ const AppState = {
     currentPage: 'welcome',
     selectedChar: null,
     selectedLevel: null,
-    playerName: '',
     currentSection: 0,
     currentChar: '頭',
     currentPinyin: 'tóu',
@@ -296,7 +295,7 @@ const i18n = {
         colorCharBlack: '黑',
         colorCharBrown: '棕',
         colorCharGray: '灰',
-        colorWordPaint: '画画',
+        colorWordPaint: '畫畫',
         colorWordColor: '顏色',
         colorWordRainbow: '彩虹',
         // 第14課：顏色例句
@@ -309,7 +308,7 @@ const i18n = {
         colorDefBlack: '這是黑。',
         colorDefBrown: '這是棕。',
         colorDefGray: '這是灰。',
-        colorDefPaint: '這是画画。',
+        colorDefPaint: '這是畫畫。',
         colorDefColor: '這是顏色。',
         colorDefRainbow: '這是彩虹。',
         // 第15課：學校（一）
@@ -464,14 +463,14 @@ const i18n = {
         // 章節名稱
         chapter1: '數字',
         chapter2: '大自然（一）',
-        chapter3: '數字',
-        chapter4: '顏色',
-        chapter5: '家人（一）',
-        chapter6: '水果',
+        chapter3: '大自然（二）',
+        chapter4: '時間',
+        chapter5: '家庭（一）',
+        chapter6: '家庭（二）',
         chapter7: '動物（一）',
         chapter8: '動物（二）',
         chapter9: '動物（三）',
-        chapter10: '食物',
+        chapter10: '昆蟲',
         chapter11: '身體',
         
         // 引導頁
@@ -1119,16 +1118,16 @@ const i18n = {
         realPhoto: '真人照片',
         // 章節名稱（續）
         chapter12: '交通（一）',
-        chapter13: '家庭成員',
+        chapter13: '交通（二）',
         chapter14: '顏色',
         chapter15: '學校（一）',
-        chapter16: '飲料',
+        chapter16: '學校（二）',
         chapter17: '職業',
         chapter18: '節日',
         chapter19: '食物',
         chapter20: '水果',
-        chapter21: '服裝',
-        chapter22: '時間',
+        chapter21: '體育運動',
+        chapter22: '生活習慣',
         chapter23: '自然',
         
         // 課程標題前後綴
@@ -1140,28 +1139,28 @@ const i18n = {
         unitSongs: '單元歌曲',
         
         // 單元歌曲名稱
-        unitSong1: '一家人',
+        unitSong1: '數字',
         unitSong2: '大自然（一）',
-        unitSong3: '數字',
-        unitSong4: '顏色',
-        unitSong5: '家人（一）',
-        unitSong6: '水果',
+        unitSong3: '大自然（二）',
+        unitSong4: '時間',
+        unitSong5: '家庭（一）',
+        unitSong6: '家庭（二）',
         unitSong7: '動物（一）',
         unitSong8: '動物（二）',
         unitSong9: '動物（三）',
-        unitSong10: '食物',
+        unitSong10: '昆蟲',
         unitSong11: '身體',
         unitSong12: '交通（一）',
-        unitSong13: '家庭成員',
+        unitSong13: '交通（二）',
         unitSong14: '顏色',
         unitSong15: '學校（一）',
-        unitSong16: '飲料',
+        unitSong16: '學校（二）',
         unitSong17: '職業',
         unitSong18: '節日',
         unitSong19: '食物',
         unitSong20: '水果',
-        unitSong21: '服裝',
-        unitSong22: '時間',
+        unitSong21: '體育運動',
+        unitSong22: '生活習慣',
         unitSong23: '自然',
         
         // 常用兒歌
@@ -1192,6 +1191,20 @@ const i18n = {
         
         // 提示文字
         videoPending: '影片連結待補',
+
+        // 登入與權限
+        loginTitle: '老師登入',
+        loginUsername: '用戶名',
+        loginPassword: '密碼',
+        loginButton: '登入',
+        loginError: '用戶名或密碼錯誤，請重新輸入',
+        loginRequired: '請先登入',
+        loginCredentials: '請輸入用戶名和密碼',
+        zoomIn: '放大',
+        zoomOut: '縮小',
+        logoutButton: '登出',
+        noPermission: '您沒有權限使用此教材',
+        inProgressLabel: '製作中',
         selectStoryBook: '請選擇一本故事書',
         selectGameActivity: '請選擇一個遊戲活動',
         coverPlaceholder: '封面圖片待補',
@@ -1648,14 +1661,14 @@ const i18n = {
         // 章节名称
         chapter1: '数字',
         chapter2: '大自然（一）',
-        chapter3: '数字',
-        chapter4: '颜色',
-        chapter5: '家人（一）',
-        chapter6: '水果',
+        chapter3: '大自然（二）',
+        chapter4: '时间',
+        chapter5: '家庭（一）',
+        chapter6: '家庭（二）',
         chapter7: '动物（一）',
-        chapter8: '動物（二）',
+        chapter8: '动物（二）',
         chapter9: '动物（三）',
-        chapter10: '食物',
+        chapter10: '昆虫',
         chapter11: '身体',
         
         // 引导页
@@ -2303,16 +2316,16 @@ const i18n = {
         realPhoto: '真人照片',
         // 章节名称（续）
         chapter12: '交通（一）',
-        chapter13: '家庭成员',
-        chapter14: '顏色',
-        chapter15: '學校（一）',
-        chapter16: '饮料',
+        chapter13: '交通（二）',
+        chapter14: '颜色',
+        chapter15: '学校（一）',
+        chapter16: '学校（二）',
         chapter17: '职业',
-        chapter18: '節日',
+        chapter18: '节日',
         chapter19: '食物',
         chapter20: '水果',
-        chapter21: '服装',
-        chapter22: '时间',
+        chapter21: '体育运动',
+        chapter22: '生活习惯',
         chapter23: '自然',
         
         // 课程标题前后缀
@@ -2324,28 +2337,28 @@ const i18n = {
         unitSongs: '单元歌曲',
         
         // 单元歌曲名称
-        unitSong1: '一家人',
+        unitSong1: '数字',
         unitSong2: '大自然（一）',
-        unitSong3: '数字',
-        unitSong4: '颜色',
-        unitSong5: '家人（一）',
-        unitSong6: '水果',
+        unitSong3: '大自然（二）',
+        unitSong4: '时间',
+        unitSong5: '家庭（一）',
+        unitSong6: '家庭（二）',
         unitSong7: '动物（一）',
-        unitSong8: '動物（二）',
+        unitSong8: '动物（二）',
         unitSong9: '动物（三）',
-        unitSong10: '食物',
+        unitSong10: '昆虫',
         unitSong11: '身体',
         unitSong12: '交通（一）',
-        unitSong13: '家庭成员',
-        unitSong14: '顏色',
-        unitSong15: '學校（一）',
-        unitSong16: '饮料',
+        unitSong13: '交通（二）',
+        unitSong14: '颜色',
+        unitSong15: '学校（一）',
+        unitSong16: '学校（二）',
         unitSong17: '职业',
-        unitSong18: '節日',
+        unitSong18: '节日',
         unitSong19: '食物',
         unitSong20: '水果',
-        unitSong21: '服装',
-        unitSong22: '时间',
+        unitSong21: '体育运动',
+        unitSong22: '生活习惯',
         unitSong23: '自然',
         
         // 常用儿歌
@@ -2376,6 +2389,20 @@ const i18n = {
         
         // 提示文字
         videoPending: '影片链接待补',
+
+        // 登入與權限
+        loginTitle: '老师登录',
+        loginUsername: '用户名',
+        loginPassword: '密码',
+        loginButton: '登录',
+        loginError: '用户名或密码错误，请重新输入',
+        loginRequired: '请先登录',
+        loginCredentials: '请输入用户名和密码',
+        zoomIn: '放大',
+        zoomOut: '缩小',
+        logoutButton: '登出',
+        noPermission: '您没有权限使用此教材',
+        inProgressLabel: '制作中',
         selectStoryBook: '请选择一本故事书',
         selectGameActivity: '请选择一个游戏活动',
         coverPlaceholder: '封面图片待补',
@@ -2461,7 +2488,11 @@ function selectLanguage(lang) {
     
     // 重新渲染當前內容
     refreshCurrentContent();
-    
+
+    // 語言切換後刷新登入區塊 placeholder、鎖定狀態與「製作中」標籤文字
+    updateAuthLoginUI();
+    applyAuthLocks();
+
     // 保存語言偏好
     localStorage.setItem('preferredLanguage', lang);
 }
@@ -2528,12 +2559,6 @@ function updateSectionConfig() {
 
 // 更新所有文字
 function updateAllText() {
-    // 更新輸入框占位符
-    const nameInput = document.getElementById('playerName');
-    if (nameInput) {
-        nameInput.placeholder = t('inputName');
-    }
-    
     // 更新確定按鈕
     const confirmBtn = document.getElementById('confirmBtn');
     if (confirmBtn) {
@@ -2660,12 +2685,6 @@ function updateAllText() {
 
 // 更新頁面語言
 function updatePageLanguage() {
-    // 更新輸入框占位符
-    const nameInput = document.getElementById('playerName');
-    if (nameInput) {
-        nameInput.placeholder = t('inputName');
-    }
-    
     // 更新確定按鈕
     const confirmBtn = document.getElementById('confirmBtn');
     if (confirmBtn) {
@@ -2687,6 +2706,17 @@ function updatePageLanguage() {
 
 // 頁面加載時檢查語言偏好和角色
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化第二頁登入區塊（未登入顯示表單、已登入顯示用戶名）
+    if (typeof Auth !== 'undefined') {
+        updateAuthLoginUI();
+        ['loginUsername', 'loginPassword'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
+        });
+        const logoutBtn = document.getElementById('authLogoutBtn');
+        if (logoutBtn) logoutBtn.addEventListener('click', handleLogout);
+    }
+
     const savedLang = localStorage.getItem('preferredLanguage');
     if (savedLang && (savedLang === 'zh-TW' || savedLang === 'zh-CN')) {
         AppState.language = savedLang;
@@ -2709,13 +2739,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (langLabel) {
         langLabel.textContent = t('selectLanguage');
     }
-    
-    // 更新輸入框占位符
-    const nameInput = document.getElementById('playerName');
-    if (nameInput) {
-        nameInput.placeholder = t('inputName');
-    }
-    
+
     // 更新所有頁面文字
     updateAllText();
     
@@ -2749,6 +2773,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedChar) {
         AppState.selectedChar = JSON.parse(savedChar);
     }
+
+    // 依登入用戶權限套用唐詩與課程鎖定狀態
+    applyAuthLocks();
 });
 
 // ============================================
@@ -2955,6 +2982,103 @@ function updateCharacterImages(pageId) {
     });
 }
 
+// ============================================
+// 登入與權限（帳號與權限設定集中於 auth.js 的 AUTH_CONFIG）
+// ============================================
+
+function handleLogin() {
+    const usernameInput = document.getElementById('loginUsername');
+    const passwordInput = document.getElementById('loginPassword');
+    const errEl = document.getElementById('loginError');
+    const username = usernameInput ? usernameInput.value.trim() : '';
+    const password = passwordInput ? passwordInput.value : '';
+    const user = Auth.login(username, password);
+    if (!user) {
+        if (errEl) errEl.textContent = t('loginError');
+        return;
+    }
+    if (errEl) errEl.textContent = '';
+    if (passwordInput) passwordInput.value = '';
+    updateAuthLoginUI();
+    // 依新登入身份即時更新所有列表的鎖定狀態（不需重新整理）
+    applyAuthLocks();
+}
+
+function handleLogout() {
+    Auth.logout();
+    const errEl = document.getElementById('loginError');
+    if (errEl) errEl.textContent = '';
+    updateAuthLoginUI();
+    // 所有內容重新上鎖，並回到首頁
+    applyAuthLocks();
+    goTo('welcome');
+}
+
+// 切換第二頁登入區塊的顯示：未登入顯示表單，已登入顯示用戶名與登出
+function updateAuthLoginUI() {
+    const user = typeof Auth !== 'undefined' ? Auth.current() : null;
+    const form = document.getElementById('charLoginForm');
+    const info = document.getElementById('charLoginInfo');
+    const nameEl = document.getElementById('authUserName');
+    const userInput = document.getElementById('loginUsername');
+    const passInput = document.getElementById('loginPassword');
+    if (userInput) userInput.placeholder = t('loginUsername');
+    if (passInput) passInput.placeholder = t('loginPassword');
+    if (form) form.style.display = user ? 'none' : 'flex';
+    if (info) info.style.display = user ? 'flex' : 'none';
+    if (nameEl) nameEl.textContent = user ? user.username : '';
+    const bar = document.getElementById('charLoginBar');
+    if (bar) bar.classList.toggle('logged-in', !!user);
+}
+
+// 未登入點擊上鎖項目時：提示並把焦點帶到第二頁的登入區塊
+function redirectToLogin() {
+    goToChars();
+    const bar = document.getElementById('charLoginBar');
+    const userInput = document.getElementById('loginUsername');
+    if (userInput) {
+        userInput.focus();
+        userInput.select();
+    }
+    if (bar) {
+        bar.classList.remove('auth-flash');
+        void bar.offsetWidth; // 重新觸發動畫
+        bar.classList.add('auth-flash');
+    }
+}
+
+// 依目前登入狀態與用戶權限，更新唐詩與課程列表的鎖定狀態與「製作中」標籑。
+// 未登入時 canAccess* 全為 false，因此全部上鎖。
+function applyAuthLocks() {
+    if (typeof Auth === 'undefined') return;
+
+    // 唐詩按鈕：data-poem="n" 對應 poemData index n-1；鎖定 class 加在外層 wrap 上
+    document.querySelectorAll('.poem-btn').forEach(btn => {
+        const idx = parseInt(btn.dataset.poem, 10) - 1;
+        const wrap = btn.closest('.poem-btn-wrap') || btn;
+        wrap.classList.toggle('locked', !Auth.canAccessPoem(idx));
+    });
+
+    // 課程章節盒
+    document.querySelectorAll('.chapter-box').forEach(box => {
+        const m = (box.getAttribute('onclick') || '').match(/openChapter\((\d+)\)/);
+        if (!m) return;
+        const num = parseInt(m[1], 10);
+        box.classList.toggle('locked', !Auth.canAccessChapter(num));
+        let badge = box.querySelector('.in-progress-badge');
+        if (Auth.isAdmin() && Auth.isChapterInProgress(num)) {
+            if (!badge) {
+                badge = document.createElement('span');
+                badge.className = 'in-progress-badge';
+                box.appendChild(badge);
+            }
+            badge.textContent = t('inProgressLabel');
+        } else if (badge) {
+            badge.remove();
+        }
+    });
+}
+
 function goTo(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const page = document.getElementById('page-' + pageId);
@@ -3003,6 +3127,12 @@ function goTo(pageId) {
 
 function goToChars() {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // 清除可能殘留的全螢幕覆蓋層（例如從上鎖的唐詩播放器被導回時）
+    const gameContainer = document.getElementById('gameContainer');
+    if (gameContainer) {
+        gameContainer.innerHTML = '';
+        gameContainer.style.display = 'none';
+    }
     document.getElementById('page-chars').classList.add('active');
     AppState.currentPage = 'chars';
 }
@@ -3025,20 +3155,39 @@ function selectCharAuto(element, charId) {
 }
 
 function confirmChar() {
-    const nameInput = document.getElementById('playerName');
-    if (!nameInput.value.trim()) {
-        alert('Please enter your name!');
-        return;
-    }
     if (!AppState.selectedChar) {
         alert('Please choose a learning partner!');
         return;
     }
-    AppState.playerName = nameInput.value.trim();
-    
+
+    // 點擊角色即登入：未登入時以輸入框的帳號密碼登入，成功才繼續前進
+    if (typeof Auth !== 'undefined' && !Auth.isLoggedIn()) {
+        const usernameInput = document.getElementById('loginUsername');
+        const passwordInput = document.getElementById('loginPassword');
+        const errEl = document.getElementById('loginError');
+        const username = usernameInput ? usernameInput.value.trim() : '';
+        const password = passwordInput ? passwordInput.value : '';
+        if (!username || !password) {
+            if (errEl) errEl.textContent = t('loginCredentials');
+            if (!username && usernameInput) usernameInput.focus();
+            else if (passwordInput) passwordInput.focus();
+            return;
+        }
+        const user = Auth.login(username, password);
+        if (!user) {
+            if (errEl) errEl.textContent = t('loginError');
+            if (passwordInput) { passwordInput.value = ''; passwordInput.focus(); }
+            return;
+        }
+        if (errEl) errEl.textContent = '';
+        if (passwordInput) passwordInput.value = '';
+        updateAuthLoginUI();
+        applyAuthLocks();
+    }
+
     // 保存選擇的角色到本地存儲
     localStorage.setItem('selectedCharacter', JSON.stringify(AppState.selectedChar));
-    
+
     goTo('levels');
 }
 
@@ -3365,15 +3514,19 @@ function showVolume(vol, el) {
 
 // 章節標題數據
 const chapterTitles = {
-    1: '一家人', 2: '幼兒園', 3: '數字', 4: '顏色', 5: '家人（一）',
-    6: '水果', 7: '動物（一）', 8: '動物（二）', 9: '動物（三）', 10: '食物',
+    1: '數字', 2: '大自然（一）', 3: '大自然（二）', 4: '時間', 5: '家庭（一）',
+    6: '家庭（二）', 7: '動物（一）', 8: '動物（二）', 9: '動物（三）', 10: '昆蟲',
 
-    11: '身體', 12: '交通工具', 13: '家庭成員', 14: '顏色', 15: '學校（一）',
-    16: '飲料', 17: '職業', 18: '國家', 19: '食物', 20: '情緒',
-    21: '服裝', 22: '時間', 23: '自然'
+    11: '身體', 12: '交通（一）', 13: '交通（二）', 14: '顏色', 15: '學校（一）',
+    16: '學校（二）', 17: '職業', 18: '節日', 19: '食物', 20: '水果',
+    21: '體育運動', 22: '生活習慣', 23: '自然'
 };
 
 function openChapter(num) {
+    if (typeof Auth !== 'undefined' && !Auth.canAccessChapter(num)) {
+        Auth.deny();
+        return;
+    }
     AppState.currentChapter = num;
     updateIntroImage();
     goTo('intro');
@@ -3622,7 +3775,25 @@ const poemData = [
     { name: '詠鵝', videoId: 't7q70yhQ3Ro', cover: 'assets/images/poems/唐诗/咏鹅.png' },
 ];
 
+// 本機影片（已下載至 assets/videos/，播放無廣告）；無本機檔時回退 YouTube 嵌入
+const LOCAL_VIDEO_IDS = new Set(['-tpTosF4dN8', '19VrhE3WpSE', '4VKCEg5jMto', '4VZyb3uQZDM', '4iOv88MxB-I', '6Iww4SZ7MgI', '7nS5sXHPTMM', '81Q6wsX5gg8', '9B2IMrLxNWQ', 'AN0KPLgW6i4', 'B2SPDR6orCg', 'BRnt1wp1hdY', 'CFTtLCTARyw', 'DauQIYCGzhc', 'I2tUfWWYOkU', 'KXJTo_SVyF8', 'KpZkzQOdv0Q', 'LK_4GyVyXcs', 'M6zhXla6iC8', 'N2F4mWg0GeY', 'R6DfeOC6_OM', 'SUB7sIQxCZE', 'TyYQmyXLAgc', 'UFciLs2hXPw', 'UulTlStNp5k', 'W2J0wQHhxpI', 'WrngcrQHAkY', 'ayEPQu5o_X4', 'bgUqwi39ozk', 'f0Ac0SCMQPY', 'kaYp8TsSfA8', 'l5xt2adTzsM', 'lZG8gYtcDXM', 'mUQpz1itMdQ', 'm_rDIzj6DRE', 'o3WGZoW2DoU', 'oQMOgmsj15c', 'oWLT3XjDoNU', 'ofZypMlVeLQ', 'r0pUOS09-JE', 't7q70yhQ3Ro', 'ta6gOpZEReo', 'tyo3Rzbtl3w', 'vulOTUcnMug', 'wED_ZaR8l2U', 'wKytQZgcABY', 'wfiOVibJ2GA', 'yGnuUqJvdm8', 'z36Ib24Ggq0', 'zhjXfbxf-g0']);
+
+function videoEmbedHtml(videoId) {
+    if (LOCAL_VIDEO_IDS.has(videoId)) {
+        return `<video src="assets/videos/${videoId}.mp4" controls playsinline autoplay
+            style="width:100%;height:100%;object-fit:contain;background:#000;border:none;"></video>`;
+    }
+    return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?rel=0&playsinline=1&modestbranding=1"
+        title="YouTube video player" frameborder="0" allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>`;
+}
+
 function goToPoemPlayer(index) {
+    if (typeof Auth !== 'undefined' && !Auth.canAccessPoem(index)) {
+        Auth.deny();
+        return;
+    }
     const poem = poemData[index];
     const container = document.getElementById('gameContainer');
     if (!container) return;
@@ -3633,10 +3804,7 @@ function goToPoemPlayer(index) {
                 <img class="poem-player-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
                 <img class="poem-player-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="closePoemPlayer()">
                 <div class="poem-player-wrapper">
-                    <iframe src="https://www.youtube.com/embed/${poem.videoId}?rel=0"
-                        allowfullscreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                    </iframe>
+                    ${videoEmbedHtml(poem.videoId)}
                 </div>
             </div>
         </div>
@@ -3816,12 +3984,13 @@ function goToCommonSongs() {
     const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
     currentSongBackPage = 'common-songs';
     currentUnitGroupIndex = null;
-    const cells = commonSongData.map((song, idx) =>
-        `<button class="song-card" onclick="goToSongPlayer('common', ${idx})">
+    const cells = commonSongData.map((song, idx) => {
+        const locked = typeof Auth !== 'undefined' && !Auth.canAccessCommonSong(song.id);
+        return `<button class="song-card${locked ? ' locked' : ''}" onclick="goToSongPlayer('common', ${idx})">
             <img class="song-card-img" src="${song.cover}" alt="${t('commonSong'+song.id)}" onerror="this.style.display='none'">
             <span class="song-card-title">${t('commonSong'+song.id)}</span>
-        </button>`
-    ).join('');
+        </button>`;
+    }).join('');
     container.innerHTML = `
         <div class="song-list-page">
             <div class="song-stage" style="--scale: ${scale}">
@@ -3838,8 +4007,9 @@ function goToCommonSongs() {
 
 function renderUnitChapterBox(group, gIdx) {
     const count = group.songs ? group.songs.length : 0;
+    const locked = typeof Auth !== 'undefined' && !Auth.canAccessUnitSong(group.unit.tw);
     return `
-        <button class="song-unit-chapter-box" onclick="goToUnitSongList(${gIdx})">
+        <button class="song-unit-chapter-box${locked ? ' locked' : ''}" onclick="goToUnitSongList(${gIdx})">
             <span class="song-unit-chapter-label">
                 <span class="song-unit-chapter-title">${getUnitName(group)}</span>
                 <span class="song-unit-chapter-count">${count} ${t('songCountSuffix')}</span>
@@ -3893,6 +4063,10 @@ function goToUnitSongList(groupIndex) {
     currentUnitGroupIndex = groupIndex;
     const group = unitSongData[groupIndex];
     if (!group) return;
+    if (typeof Auth !== 'undefined' && !Auth.canAccessUnitSong(group.unit.tw)) {
+        Auth.deny();
+        return;
+    }
     const cells = group.songs.map((song, sIdx) =>
         `<button class="song-card" onclick="goToSongPlayer('unit', ${groupIndex}, ${sIdx})">
             <span class="song-card-title">${getSongTitle(song)}</span>
@@ -3928,10 +4102,18 @@ function goToSongPlayer(type, index1, index2) {
     if (type === 'common') {
         song = commonSongData[index1];
         title = song ? t('commonSong' + song.id) : '';
+        if (song && typeof Auth !== 'undefined' && !Auth.canAccessCommonSong(song.id)) {
+            Auth.deny();
+            return;
+        }
     } else if (type === 'unit') {
         const group = unitSongData[index1];
         song = group ? group.songs[index2] : null;
         title = song ? getSongTitle(song) : '';
+        if (group && typeof Auth !== 'undefined' && !Auth.canAccessUnitSong(group.unit.tw)) {
+            Auth.deny();
+            return;
+        }
     }
     if (!song || !song.videoId) {
         alert(t('videoPending'));
@@ -3947,13 +4129,7 @@ function goToSongPlayer(type, index1, index2) {
                 <img class="song-page-back" src="${SONG_BACK}" alt="${t('back')}" onclick="handleSongPlayerBack()">
                 <div class="song-pill">${title}</div>
                 <div class="song-player-wrapper">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${song.videoId}?rel=0&playsinline=1&modestbranding=1"
-                        title="YouTube video player"
-                        frameborder="0"
-                        allowfullscreen
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
-                    </iframe>
+                    ${videoEmbedHtml(song.videoId)}
                 </div>
             </div>
         </div>
@@ -5686,6 +5862,7 @@ function renderStoryReader() {
     container.innerHTML = `
         <div class="story-page">
             <div class="story-reader">
+                <button class="zoom-btn" onclick="zoomStoryPage(this)" title="${t('zoomIn')}">${ZOOM_ICON}</button>
                 ${contentHtml}
                 <div class="story-reader-nav">
                     <div class="story-reader-page-info">第 ${currentPageNum} / ${totalPages} 頁</div>
@@ -9033,6 +9210,95 @@ let recognitionState = {
     currentIndex: 0
 };
 
+// ============================================
+// 放大鏡（教材放大展示）
+// ============================================
+const ZOOM_ICON = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none"><circle cx="10.5" cy="10.5" r="6" stroke="#fff" stroke-width="2.4"/><line x1="15.2" y1="15.2" x2="20.5" y2="20.5" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/></svg>';
+let zoomState = null;
+
+// 識圖／識字：複製整個方框到 1920×1080 舞台再放大置中
+// （用複製而非移動，保留 .cw-page .cw-content 主題樣式；影片在副本重新自動播放）
+function zoomOpenBox(btn) {
+    const target = btn.parentElement;
+    if (!target || zoomState) return;
+    const dims = { w: target.offsetWidth, h: target.offsetHeight };
+    const cx = target.offsetLeft + target.offsetWidth / 2;
+    const cy = target.offsetTop + target.offsetHeight / 2;
+    const overlay = document.createElement('div');
+    overlay.className = 'zoom-overlay';
+    const stage = document.createElement('div');
+    stage.className = 'zoom-stage cw-page';
+    const content = document.createElement('div');
+    content.className = 'cw-content';
+    const clone = target.cloneNode(true);
+    clone.querySelectorAll('.zoom-btn').forEach(b => b.remove());
+    clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    // 鉛筆按鈕依賴原頁元素 id，放大副本中移除
+    clone.querySelectorAll('.writing-stroke-btns').forEach(el => el.remove());
+    content.appendChild(clone);
+    // 把方框中心移到舞台中心 (960, 540)
+    content.style.left = (960 - cx) + 'px';
+    content.style.top = (540 - cy) + 'px';
+    stage.appendChild(content);
+    overlay.appendChild(stage);
+    overlay.appendChild(makeZoomCloseBtn());
+    overlay.addEventListener('click', e => { if (e.target === overlay) zoomClose(); });
+    document.body.appendChild(overlay);
+    document.addEventListener('keydown', zoomEscHandler);
+    window.addEventListener('resize', zoomFit);
+    zoomState = { target: null, ph: null, overlay, holder: stage, dims };
+    requestAnimationFrame(zoomFit);
+}
+
+// 繪本：目前頁圖片全屏展示
+function zoomStoryPage(btn) {
+    const reader = btn.closest('.story-reader');
+    const img = reader && (reader.querySelector('.story-reader-image') || reader.querySelector('.story-reader-question'));
+    if (!img || !img.src || zoomState) return;
+    const overlay = document.createElement('div');
+    overlay.className = 'zoom-overlay';
+    const big = document.createElement('img');
+    big.className = 'zoom-story-img';
+    big.src = img.src;
+    overlay.appendChild(big);
+    overlay.appendChild(makeZoomCloseBtn());
+    overlay.addEventListener('click', e => { if (e.target === overlay) zoomClose(); });
+    document.body.appendChild(overlay);
+    document.addEventListener('keydown', zoomEscHandler);
+    zoomState = { target: null, ph: null, overlay, holder: null };
+}
+
+function makeZoomCloseBtn() {
+    const b = document.createElement('button');
+    b.className = 'zoom-close';
+    b.setAttribute('aria-label', t('zoomOut'));
+    b.innerHTML = '<svg viewBox="0 0 24 24" width="30" height="30" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>';
+    b.onclick = zoomClose;
+    return b;
+}
+
+function zoomFit() {
+    if (!zoomState || !zoomState.holder) return;
+    const { holder, dims } = zoomState;
+    const w = (dims && dims.w) || 1;
+    const h = (dims && dims.h) || 1;
+    const s = Math.min(window.innerWidth * 0.92 / w, window.innerHeight * 0.88 / h, 3);
+    holder.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+}
+
+function zoomClose() {
+    if (!zoomState) return;
+    const { target, ph, overlay } = zoomState;
+    if (target && ph && ph.parentNode) ph.parentNode.insertBefore(target, ph);
+    if (ph) ph.remove();
+    if (overlay) overlay.remove();
+    document.removeEventListener('keydown', zoomEscHandler);
+    window.removeEventListener('resize', zoomFit);
+    zoomState = null;
+}
+
+function zoomEscHandler(e) { if (e.key === 'Escape') zoomClose(); }
+
 function initRecognition() {
     recognitionState.currentIndex = 0;
     renderRecognition();
@@ -9083,6 +9349,7 @@ function renderRecognition() {
             <!-- 右側文字 -->
             <div class="rec-text-area">
                 <button class="rec-speaker" onclick="playPronunciation()" title="${t('playAudio')}">🔊</button>
+                <button class="zoom-btn" onclick="zoomOpenBox(this)" title="${t('zoomIn')}">${ZOOM_ICON}</button>
                 <div class="rec-pinyin">${item.pinyin}</div>
                 <div class="rec-hanzi ${hanziClass}">${hanzi}</div>
                 <div class="rec-definition">${t(item.defKey)}</div>
@@ -9495,13 +9762,13 @@ const writingDataByChapter = {
     ],
     8: [
         { hanziKey: 'animalWordMonkey', pinyin: 'hóu zi', animationTraditional: ["lessons/第8課/第8課-識字部分gif/猴.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/猴.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], gifDuration: 5000 },
-        { hanziKey: 'animalWordLion', pinyin: 'shī zi', animationTraditional: ["lessons/第8課/第8課-識字部分gif/獅.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/獅.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordLion', pinyin: 'shī zi', animationTraditional: ["lessons/第8課/第8課-識字部分gif/獅.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/狮.gif", "lessons/第8課/第8課-識字部分gif/子.gif"], gifDuration: 5000 },
         { hanziKey: 'animalWordMouse', pinyin: 'lǎo shǔ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/老.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/老.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], gifDuration: 5000 },
-        { hanziKey: 'animalWordTurtle', pinyin: 'wū guī', animationTraditional: ["lessons/第8課/第8課-識字部分gif/烏.gif", "lessons/第8課/第8課-識字部分gif/龜.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/烏.gif", "lessons/第8課/第8課-識字部分gif/龟.gif"], gifDuration: 5000 },
-        { hanziKey: 'animalWordPanda', pinyin: 'xióng māo', animationTraditional: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/貓.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/貓.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordTurtle', pinyin: 'wū guī', animationTraditional: ["lessons/第8課/第8課-識字部分gif/烏.gif", "lessons/第8課/第8課-識字部分gif/龜.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/乌.gif", "lessons/第8課/第8課-識字部分gif/龟.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordPanda', pinyin: 'xióng māo', animationTraditional: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/貓.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/熊.gif", "lessons/第8課/第8課-識字部分gif/猫.gif"], gifDuration: 5000 },
         { hanziKey: 'animalWordKangaroo', pinyin: 'dài shǔ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/袋.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/袋.gif", "lessons/第8課/第8課-識字部分gif/鼠.gif"], gifDuration: 5000 },
         { hanziKey: 'animalWordGiraffe', pinyin: 'cháng jǐng lù', animationTraditional: ["lessons/第8課/第8課-識字部分gif/長.gif", "lessons/第8課/第8課-識字部分gif/頸.gif", "lessons/第8課/第8課-識字部分gif/鹿.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/长.gif", "lessons/第8課/第8課-識字部分gif/颈.gif", "lessons/第8課/第8課-識字部分gif/鹿.gif"], gifDuration: 5000 },
-        { hanziKey: 'animalWordOwl', pinyin: 'māo tóu yīng', animationTraditional: ["lessons/第8課/第8課-識字部分gif/貓.gif", "lessons/第8課/第8課-識字部分gif/頭.gif", "lessons/第8課/第8課-識字部分gif/鷹.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/貓.gif", "lessons/第8課/第8課-識字部分gif/头.gif", "lessons/第8課/第8課-識字部分gif/鹰.gif"], gifDuration: 5000 },
+        { hanziKey: 'animalWordOwl', pinyin: 'māo tóu yīng', animationTraditional: ["lessons/第8課/第8課-識字部分gif/貓.gif", "lessons/第8課/第8課-識字部分gif/頭.gif", "lessons/第8課/第8課-識字部分gif/鷹.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/猫.gif", "lessons/第8課/第8課-識字部分gif/头.gif", "lessons/第8課/第8課-識字部分gif/鹰.gif"], gifDuration: 5000 },
         { hanziKey: 'animalWordBear', pinyin: 'xióng', animationTraditional: ["lessons/第8課/第8課-識字部分gif/熊.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/熊.gif"], gifDuration: 5000 },
         { hanziKey: 'animalWordZebra', pinyin: 'bān mǎ', animationTraditional: ["lessons/第8課/第8課-識字部分gif/斑.gif", "lessons/第8課/第8課-識字部分gif/馬.gif"], animationSimplified: ["lessons/第8課/第8課-識字部分gif/斑.gif", "lessons/第8課/第8課-識字部分gif/马.gif"], gifDuration: 5000 },
     ],
@@ -9566,7 +9833,7 @@ const writingDataByChapter = {
         { hanziKey: 'transportWordSubway', pinyin: 'dì tiě', animationTraditional: ["lessons/第12課/第12課-識字部分gif/地.gif", "lessons/第12課/第12課-識字部分gif/鐵.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/地.gif", "lessons/第12課/第12課-識字部分gif/铁.gif"], gifDuration: 5000 },
         { hanziKey: 'transportWordCar', pinyin: 'qì chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/汽.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/汽.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
         { hanziKey: 'transportWordShip', pinyin: 'chuán', animationTraditional: ["lessons/第12課/第12課-識字部分gif/船.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/船.gif"], gifDuration: 5000 },
-        { hanziKey: 'transportWordPlane', pinyin: 'fēi jī', animationTraditional: ["lessons/第12課/第12課-識字部分gif/飛.gif", "lessons/第12課/第12課-識字部分gif/機.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/飛.gif", "lessons/第12課/第12課-識字部分gif/机.gif"], gifDuration: 5000 },
+        { hanziKey: 'transportWordPlane', pinyin: 'fēi jī', animationTraditional: ["lessons/第12課/第12課-識字部分gif/飛.gif", "lessons/第12課/第12課-識字部分gif/機.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/飞.gif", "lessons/第12課/第12課-識字部分gif/机.gif"], gifDuration: 5000 },
         { hanziKey: 'transportWordTaxi', pinyin: 'dí shì', animationTraditional: ["lessons/第12課/第12課-識字部分gif/的.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/的.gif", "lessons/第12課/第12課-識字部分gif/士.gif"], gifDuration: 5000 },
         { hanziKey: 'transportWordBike', pinyin: 'zì xíng chē', animationTraditional: ["lessons/第12課/第12課-識字部分gif/自.gif", "lessons/第12課/第12課-識字部分gif/行.gif", "lessons/第12課/第12課-識字部分gif/車.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/自.gif", "lessons/第12課/第12課-識字部分gif/行.gif", "lessons/第12課/第12課-識字部分gif/车.gif"], gifDuration: 5000 },
         { hanziKey: 'transportWordCareful', pinyin: 'xiǎo xīn', animationTraditional: ["lessons/第12課/第12課-識字部分gif/小.gif", "lessons/第12課/第12課-識字部分gif/心.gif"], animationSimplified: ["lessons/第12課/第12課-識字部分gif/小.gif", "lessons/第12課/第12課-識字部分gif/心.gif"], gifDuration: 5000 },
@@ -9666,6 +9933,7 @@ function renderWriting() {
 
             <!-- 左邊筆順展示區域 -->
             <div class="writing-stroke-area">
+                <button class="zoom-btn" onclick="zoomOpenBox(this)" title="${t('zoomIn')}">${ZOOM_ICON}</button>
                 <div class="writing-model-box" id="writingModelBox">
                     ${riceGridSvg}
                     <div class="writing-model-char ${getHanziDisplayClass(currentChar)}">${currentChar}</div>
