@@ -362,38 +362,19 @@ body {
 .char2-card {
     position: absolute;
     left: 685.5px;
-    top: 179px;
+    top: 165px;
     width: 549.1px;
-    height: 316.9px;
+    height: 335px;
     background: #FFFFFF;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     z-index: 5;
 }
 
-/* 輸入名字框 */
-.char2-name {
-    position: absolute;
-    left: 731.5px;
-    top: 246.7px;
-    width: 457.1px;
-    height: 68.9px;
-    padding: 0 20px;
-    background: #F0F0F0;
-    border: none;
-    border-radius: 16px;
-    font-size: 22px;
-    text-align: center;
-    color: #333;
-    outline: none;
-    z-index: 6;
-}
-.char2-name::placeholder { color: #999; }
-
 /* 語言按鈕 */
 .char2-lang-btn {
     position: absolute;
-    top: 337.4px;
+    top: 366px;
     width: 228.6px;
     height: 90.7px;
     cursor: pointer;
@@ -628,29 +609,34 @@ body {
     z-index: 4;
 }
 
-.poem-btn {
+.poem-btn-wrap {
     position: absolute;
     cursor: pointer;
     transition: transform 0.2s;
     z-index: 5;
+}
+.poem-btn-wrap:hover { transform: scale(1.03); }
+.poem-btn-wrap:active { transform: scale(0.98); }
+
+.poem-btn {
     display: block;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
-.poem-btn:hover { transform: scale(1.03); }
-.poem-btn:active { transform: scale(0.98); }
 
-.poem-btn[data-poem="1"] { left: 320.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="2"] { left: 639.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="3"] { left: 960.3px; top: 265.8px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="4"] { left: 1281px; top: 264.5px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="5"] { left: 320.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="6"] { left: 639.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="7"] { left: 960.3px; top: 491.9px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="8"] { left: 1281px; top: 490.7px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="9"] { left: 320.6px; top: 718px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="10"] { left: 639.6px; top: 718px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="11"] { left: 960.3px; top: 718px; width: 298.7px; height: 206.9px; }
-.poem-btn[data-poem="12"] { left: 1281px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="1"] { left: 320.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="2"] { left: 639.6px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="3"] { left: 960.3px; top: 265.8px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="4"] { left: 1281px; top: 264.5px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="5"] { left: 320.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="6"] { left: 639.6px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="7"] { left: 960.3px; top: 491.9px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="8"] { left: 1281px; top: 490.7px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="9"] { left: 320.6px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="10"] { left: 639.6px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="11"] { left: 960.3px; top: 718px; width: 298.7px; height: 206.9px; }
+.poem-btn-wrap[data-poem="12"] { left: 1281px; top: 718px; width: 298.7px; height: 206.9px; }
 
 /* ============================================
    唐詩播放頁覆蓋層
@@ -702,16 +688,17 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    max-width: 900px;
-    padding-bottom: 39.375%;
+    width: 75%;
+    max-width: 1280px;
+    aspect-ratio: 16 / 9;
     background: #000;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
-.poem-player-wrapper iframe {
+.poem-player-wrapper iframe,
+.poem-player-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
@@ -1091,7 +1078,8 @@ body {
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
 }
 
-.song-player-wrapper iframe {
+.song-player-wrapper iframe,
+.song-player-wrapper video {
     position: absolute;
     top: 0;
     left: 0;

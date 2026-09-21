@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title data-i18n="siteTitle">大地幼教學材 - 學習平台</title>
+    <link rel="stylesheet" href="css/new-design.css?v=83">
+    <link rel="stylesheet" href="css/auth.css?v=3">
+    <script>
+        (function() {
+            function updateStageScale(selector, width, height) {
+                document.querySelectorAll(selector).forEach(stage => {
+                    const scale = Math.min(window.innerWidth / width, window.innerHeight / height);
+                    stage.style.setProperty('--scale', scale);
+                });
+            }
+            window.updateStageScale = updateStageScale;
+            function updateAllStages() {
+                updateStageScale('.home-page-new', 1920, 1080);
+                updateStageScale('.char-page-v2', 1920, 1080);
+                updateStageScale('.levels-page', 1920, 1080);
+                updateStageScale('.cats-page', 1920, 1080);
+                updateStageScale('.poems-page', 1920, 1080);
+                updateStageScale('.poem-player-stage', 1920, 1080);
+                updateStageScale('.songs-menu-page', 1920, 1080);
+                updateStageScale('.song-stage', 1920, 1080);
+                updateStageScale('.intro-page', 1920, 1080);
+                updateStageScale('.chapters-page', 1920, 1080);
+                updateStageScale('.cw-page', 1920, 1080);
+                updateStageScale('.unit-end-page', 1920, 1080);
+                updateStageScale('.guide-character-container', 1920, 1080);
+            }
+            window.addEventListener('DOMContentLoaded', updateAllStages);
+            window.addEventListener('resize', updateAllStages);
+        })();
+    </script>
+
+</head>
+<body>
+    <!-- PAGE 1: WELCOME -->
+    <section id="page-welcome" class="page active">
+        <div class="home-page-new">
+            <!-- 背景圖片 -->
+            <div class="home-background">
+                <img src="assets/images/pages/首頁更新版/首頁背景更新版.png?v=1" alt="大地幼教學材">
+            </div>
+
+            <!-- 開始學習按鈕 -->
+            <img class="start-learning-btn" src="assets/images/pages/第一頁元素更新版/首頁進入按鈕.png" alt="開始學習" onclick="goToChars()">
+        </div>
+    </section>
+
+    <!-- PAGE 2: CHARACTER SELECTION -->
+    <section id="page-chars" class="page">
+        <div class="char-page-v2">
+            <!-- 背景 -->
+            <img class="char2-bg" src="assets/images/pages/第二頁元素更新版/第二頁背景.png" alt="background">
+
+            <!-- 華字 Logo -->
+            <img class="char2-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="char2-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('welcome', event)">
+
+            <!-- 紅色「你好」提示 -->
+            <img class="char2-hint" src="assets/images/pages/第二頁元素更新版/第二頁選擇角色按鈕.png" alt="你好">
+
+            <!-- 名字與語言卡片 -->
+            <div class="char2-card"></div>
+
+            <!-- 老師登入區塊（位於原本 Enter your name 輸入框的位置，語言按鈕保留不變） -->
+            <div class="char2-login-embed" id="charLoginBar">
+                <div class="char2-login-form" id="charLoginForm">
+                    <input type="text" id="loginUsername" class="char2-login-input" data-i18n-ph="loginUsername" placeholder="用戶名" autocomplete="username">
+                    <input type="password" id="loginPassword" class="char2-login-input" data-i18n-ph="loginPassword" placeholder="密碼" autocomplete="current-password">
+                    <button class="char2-login-btn" id="loginBtn" data-i18n="loginButton">登入</button>
+                </div>
+                <div class="char2-login-info" id="charLoginInfo" style="display:none;">
+                    <span class="char2-login-user" id="authUserName"></span>
+                    <button class="char2-logout-btn" id="authLogoutBtn" data-i18n="logoutButton">登出</button>
+                </div>
+                <span class="char2-login-error" id="loginError"></span>
+            </div>
+
+            <!-- 語言按鈕（保留不變） -->
+            <img class="char2-lang-btn active" id="lang-TW" onclick="selectLanguage('zh-TW', event)" src="assets/images/pages/第二頁元素更新版/第二頁繁體中文按鈕.png" alt="繁體中文">
+            <img class="char2-lang-btn" id="lang-CN" onclick="selectLanguage('zh-CN', event)" src="assets/images/pages/第二頁元素更新版/第二頁簡體中文按鈕.png" alt="簡體中文">
+
+            <!-- 9個角色 -->
+            <div class="char2-characters">
+                <div class="char2-item" data-char="人1" onclick="selectCharAuto(this, '人1', event)"><img src="assets/images/characters/人1.png" alt="亞洲男孩"></div>
+                <div class="char2-item" data-char="人2" onclick="selectCharAuto(this, '人2', event)"><img src="assets/images/characters/人2.png" alt="中東男孩"></div>
+                <div class="char2-item" data-char="人3" onclick="selectCharAuto(this, '人3', event)"><img src="assets/images/characters/人3.png" alt="中國女孩"></div>
+                <div class="char2-item" data-char="人4" onclick="selectCharAuto(this, '人4', event)"><img src="assets/images/characters/人4.png" alt="黑人男孩"></div>
+                <div class="char2-item" data-char="人5" onclick="selectCharAuto(this, '人5', event)"><img src="assets/images/characters/人5.png" alt="粉紅頭髮女孩"></div>
+                <div class="char2-item" data-char="人6" onclick="selectCharAuto(this, '人6', event)"><img src="assets/images/characters/人6.png" alt="蘇格蘭男孩"></div>
+                <div class="char2-item" data-char="人7" onclick="selectCharAuto(this, '人7', event)"><img src="assets/images/characters/人7.png" alt="紅髮女孩"></div>
+                <div class="char2-item" data-char="人8" onclick="selectCharAuto(this, '人8', event)"><img src="assets/images/characters/人8.png" alt="綠衣女孩"></div>
+                <div class="char2-item" data-char="人9" onclick="selectCharAuto(this, '人9', event)"><img src="assets/images/characters/人9.png" alt="最右男孩"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 3: LEVEL SELECTION -->
+    <section id="page-levels" class="page">
+        <div class="levels-page">
+            <!-- 華字 Logo -->
+            <img class="levels-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="levels-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('chars', event)">
+
+            <!-- 三個學段按鈕 -->
+            <img class="level-btn" id="level-kindergarten"
+                 data-tw="assets/images/pages/第三頁元素更新版/幼兒園繁體按鈕.png"
+                 data-cn="assets/images/pages/第三頁元素更新版/幼兒園簡體按鈕.png"
+                 onclick="selectLevel('kindergarten', event)" alt="幼兒園">
+            <img class="level-btn" id="level-primary"
+                 data-tw="assets/images/pages/第三頁元素更新版/小學繁體按鈕.png"
+                 data-cn="assets/images/pages/第三頁元素更新版/小學簡體按鈕.png"
+                 onclick="selectLevel('primary', event)" alt="小學">
+            <img class="level-btn" id="level-secondary"
+                 data-tw="assets/images/pages/第三頁元素更新版/中學繁體按鈕.png"
+                 data-cn="assets/images/pages/第三頁元素更新版/中學簡體按鈕.png"
+                 onclick="selectLevel('secondary', event)" alt="中學">
+        </div>
+    </section>
+
+    <!-- PAGE 4: CATEGORY -->
+    <section id="page-cats" class="page">
+        <div class="cats-page">
+            <!-- 華字 Logo -->
+            <img class="cats-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="cats-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('levels', event)">
+
+            <!-- 三個內容類型按鈕 -->
+            <img class="cat-btn" id="cat-courseware" data-tw="assets/images/pages/第四頁元素更新版/第四頁課件繁體按鈕.png" data-cn="assets/images/pages/第四頁元素更新版/第四頁課件簡體按鈕.png" onclick="goTo('chapters', event)" alt="課件">
+            <img class="cat-btn" id="cat-poems" data-tw="assets/images/pages/第四頁元素更新版/第四頁唐詩繁體按鈕.png" data-cn="assets/images/pages/第四頁元素更新版/第四頁唐詩簡體按鈕.png" onclick="goTo('poems', event)" alt="唐詩">
+            <img class="cat-btn" id="cat-songs" data-tw="assets/images/pages/第四頁元素更新版/第四頁兒歌繁體按鈕.png" data-cn="assets/images/pages/第四頁元素更新版/第四頁兒歌簡體按鈕.png" onclick="goTo('songs', event)" alt="兒歌">
+        </div>
+    </section>
+
+    <!-- PAGE 5: POEMS -->
+    <section id="page-poems" class="page">
+        <div class="poems-page">
+            <!-- 華字 Logo -->
+            <img class="poems-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="poems-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('cats', event)">
+
+            <!-- 標題 -->
+            <div class="poems-pill" data-i18n="poems">唐詩</div>
+
+            <!-- 12個唐詩按鈕 -->
+            <div class="poems-grid">
+                <div class="poem-btn-wrap" data-poem="1"><img class="poem-btn" data-poem="1" data-tw="assets/images/poems/唐詩列表頁更新版/靜夜思繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/靜夜思簡體按鈕.png" onclick="goToPoemPlayer(0)" alt="靜夜思"></div>
+                <div class="poem-btn-wrap" data-poem="2"><img class="poem-btn" data-poem="2" data-tw="assets/images/poems/唐詩列表頁更新版/憫農繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/憫農簡體按鈕.png" onclick="goToPoemPlayer(1)" alt="憫農"></div>
+                <div class="poem-btn-wrap" data-poem="3"><img class="poem-btn" data-poem="3" data-tw="assets/images/poems/唐詩列表頁更新版/山村詠懷繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/山村詠懷簡體按鈕.png" onclick="goToPoemPlayer(2)" alt="山村詠懷"></div>
+                <div class="poem-btn-wrap" data-poem="4"><img class="poem-btn" data-poem="4" data-tw="assets/images/poems/唐詩列表頁更新版/詠柳繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/詠柳簡體按鈕.png" onclick="goToPoemPlayer(3)" alt="詠柳"></div>
+                <div class="poem-btn-wrap" data-poem="5"><img class="poem-btn" data-poem="5" data-tw="assets/images/poems/唐詩列表頁更新版/江南繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/江南簡體按鈕.png" onclick="goToPoemPlayer(4)" alt="江南"></div>
+                <div class="poem-btn-wrap" data-poem="6"><img class="poem-btn" data-poem="6" data-tw="assets/images/poems/唐詩列表頁更新版/遊子吟繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/遊子吟簡體按鈕.png" onclick="goToPoemPlayer(5)" alt="遊子吟"></div>
+                <div class="poem-btn-wrap" data-poem="7"><img class="poem-btn" data-poem="7" data-tw="assets/images/poems/唐詩列表頁更新版/登鶴雀樓繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/登鶴雀樓簡體按鈕.png" onclick="goToPoemPlayer(6)" alt="登鸛雀樓"></div>
+                <div class="poem-btn-wrap" data-poem="8"><img class="poem-btn" data-poem="8" data-tw="assets/images/poems/唐詩列表頁更新版/江雪繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/江雪簡體按鈕.png" onclick="goToPoemPlayer(7)" alt="江雪"></div>
+                <div class="poem-btn-wrap" data-poem="9"><img class="poem-btn" data-poem="9" data-tw="assets/images/poems/唐詩列表頁更新版/望廬山瀑布.png" data-cn="assets/images/poems/唐詩列表頁更新版/望廬山瀑布簡體按鈕.png" onclick="goToPoemPlayer(8)" alt="望廬山瀑布"></div>
+                <div class="poem-btn-wrap" data-poem="10"><img class="poem-btn" data-poem="10" data-tw="assets/images/poems/唐詩列表頁更新版/黃鶴樓繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/黃鶴樓簡體按鈕.png" onclick="goToPoemPlayer(9)" alt="黃鶴樓"></div>
+                <div class="poem-btn-wrap" data-poem="11"><img class="poem-btn" data-poem="11" data-tw="assets/images/poems/唐詩列表頁更新版/春曉繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/春曉簡體按鈕.png" onclick="goToPoemPlayer(10)" alt="春曉"></div>
+                <div class="poem-btn-wrap" data-poem="12"><img class="poem-btn" data-poem="12" data-tw="assets/images/poems/唐詩列表頁更新版/詠鵝繁體按鈕.png" data-cn="assets/images/poems/唐詩列表頁更新版/詠鵝簡體按鈕.png" onclick="goToPoemPlayer(11)" alt="詠鵝"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 6: SONGS 選項頁 -->
+    <section id="page-songs" class="page">
+        <div class="songs-menu-page">
+            <!-- 華字 Logo -->
+            <img class="songs-menu-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="songs-menu-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('cats', event)">
+
+            <!-- 兩個兒歌類型按鈕 -->
+            <img class="songs-type-btn" id="songs-common" data-tw="assets/images/songs/兒歌頁面更新版/兒歌按鈕繁體.png" data-cn="assets/images/songs/兒歌頁面更新版/兒歌按鈕簡體.png" onclick="goToCommonSongs()" alt="常用歌曲">
+            <img class="songs-type-btn" id="songs-unit" data-tw="assets/images/songs/兒歌頁面更新版/單元歌按鈕繁體.png" data-cn="assets/images/songs/兒歌頁面更新版/單元歌按鈕簡體.png" onclick="goToUnitSongs()" alt="單元歌曲">
+        </div>
+    </section>
+
+    <!-- PAGE 7: CHAPTERS -->
+    <section id="page-chapters" class="page">
+        <link rel="stylesheet" href="css/chapters-design.css?v=16">
+        <div class="chapters-page">
+            <div class="chapters-logo">
+                <img src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+            </div>
+            <div class="chapters-back" onclick="goTo('cats', event)">
+                <img src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回">
+            </div>
+            
+            <div class="volume-bar">
+                <div class="volume-tab active" onclick="showVolume(1, this)">
+                    <span data-i18n="volumeUpper">上冊</span>
+                </div>
+                <div class="volume-separator">/</div>
+                <div class="volume-tab" onclick="showVolume(2, this)">
+                    <span data-i18n="volumeLower">下冊</span>
+                </div>
+            </div>
+            
+            <div id="vol-content-1" class="volume-content active">
+                <div class="chapters-grid">
+                    <div class="chapter-box" onclick="openChapter(1)"><span class="chapter-label"><span class="chapter-num">1</span> <span class="chapter-title" data-i18n="chapter1">一家人</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(2)"><span class="chapter-label"><span class="chapter-num">2</span> <span class="chapter-title" data-i18n="chapter2">幼兒園</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(3)"><span class="chapter-label"><span class="chapter-num">3</span> <span class="chapter-title" data-i18n="chapter3">數字</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(4)"><span class="chapter-label"><span class="chapter-num">4</span> <span class="chapter-title" data-i18n="chapter4">顏色</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(5)"><span class="chapter-label"><span class="chapter-num">5</span> <span class="chapter-title" data-i18n="chapter5">家人（一）</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(6)"><span class="chapter-label"><span class="chapter-num">6</span> <span class="chapter-title" data-i18n="chapter6">水果</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(7)"><span class="chapter-label"><span class="chapter-num">7</span> <span class="chapter-title" data-i18n="chapter7">動物（一）</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(8)"><span class="chapter-label"><span class="chapter-num">8</span> <span class="chapter-title" data-i18n="chapter8">季節</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(9)"><span class="chapter-label"><span class="chapter-num">9</span> <span class="chapter-title" data-i18n="chapter9">動物（三）</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(10)"><span class="chapter-label"><span class="chapter-num">10</span> <span class="chapter-title" data-i18n="chapter10">食物</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(11)"><span class="chapter-label"><span class="chapter-num">11</span> <span class="chapter-title" data-i18n="chapter11">身體</span></span></div>
+                </div>
+            </div>
+            
+            <div id="vol-content-2" class="volume-content">
+                <div class="chapters-grid">
+                    <div class="chapter-box" onclick="openChapter(12)"><span class="chapter-label"><span class="chapter-num">12</span> <span class="chapter-title" data-i18n="chapter12">交通工具</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(13)"><span class="chapter-label"><span class="chapter-num">13</span> <span class="chapter-title" data-i18n="chapter13">家庭成員</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(14)"><span class="chapter-label"><span class="chapter-num">14</span> <span class="chapter-title" data-i18n="chapter14">顏色</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(15)"><span class="chapter-label"><span class="chapter-num">15</span> <span class="chapter-title" data-i18n="chapter15">蔬菜</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(16)"><span class="chapter-label"><span class="chapter-num">16</span> <span class="chapter-title" data-i18n="chapter16">飲料</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(17)"><span class="chapter-label"><span class="chapter-num">17</span> <span class="chapter-title" data-i18n="chapter17">職業</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(18)"><span class="chapter-label"><span class="chapter-num">18</span> <span class="chapter-title" data-i18n="chapter18">節日</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(19)"><span class="chapter-label"><span class="chapter-num">19</span> <span class="chapter-title" data-i18n="chapter19">節日</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(20)"><span class="chapter-label"><span class="chapter-num">20</span> <span class="chapter-title" data-i18n="chapter20">情緒</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(21)"><span class="chapter-label"><span class="chapter-num">21</span> <span class="chapter-title" data-i18n="chapter21">服裝</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(22)"><span class="chapter-label"><span class="chapter-num">22</span> <span class="chapter-title" data-i18n="chapter22">時間</span></span></div>
+                    <div class="chapter-box" onclick="openChapter(23)"><span class="chapter-label"><span class="chapter-num">23</span> <span class="chapter-title" data-i18n="chapter23">自然</span></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAGE 8: CHAPTER INTRO -->
+    <section id="page-intro" class="page">
+        <link rel="stylesheet" href="css/intro-design.css?v=13">
+        <div class="intro-page">
+            <!-- 華字 Logo -->
+            <img class="intro-logo" src="assets/images/pages/第二頁元素更新版/綠色華字logo.png" alt="logo">
+
+            <!-- 返回按鈕 -->
+            <img class="intro-back" src="assets/images/pages/第四頁元素更新版/綠色返回logo.png" alt="返回" onclick="goTo('chapters', event)">
+
+            <!-- 進入學習按鈕（根據語言與單元切換圖片） -->
+            <img class="intro-enter-btn"
+                 src="assets/images/courseware/課程介紹頁更新版/進入學習繁體按鈕.png"
+                 data-tw="assets/images/courseware/課程介紹頁更新版/進入學習繁體按鈕.png"
+                 data-cn="assets/images/courseware/課程介紹頁更新版/進入學習簡體按鈕.png"
+                 onclick="goTo('learning', event)"
+                 alt="進入學習">
+        </div>
+    </section>
+
+    <!-- PAGE 9: LEARNING MODULE - REDESIGNED -->
+    <section id="page-learning" class="page">
+        <link rel="stylesheet" href="css/learning-design.css?v=66">
+        <link rel="stylesheet" href="css/quiz-design.css?v=12">
+        <link rel="stylesheet" href="css/recognition-design.css?v=15">
+        <link rel="stylesheet" href="css/writing-design.css?v=10">
+        <link rel="stylesheet" href="css/game-design.css?v=34">
+        <div class="learning-page theme-pink" id="learningPage">
+            
+            <!-- 課前提問區域 -->
+            <div id="quizContainer" style="width:100%;height:100%;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 識圖區域 -->
+            <div id="recognitionContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 書寫練習區域 -->
+            <div id="writingContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- 故事繪本區域 -->
+            <div id="storyContainer" style="width:100%;height:100%;display:none;">
+                <!-- 由 JS 動態渲染 -->
+            </div>
+            
+            <!-- Main Content -->
+            <main class="learn-main" style="display:none;">
+                <!-- 右側導航欄 - 5個主要部分 -->
+                <div class="side-navigation">
+                    <button class="nav-section-btn active" data-section="intro" onclick="showSectionGroup('intro', event)">
+                        <span class="nav-sec-icon">❓</span>
+                        <span class="nav-sec-text" data-i18n="sectionIntro">課前提問</span>
+                    </button>
+                    <button class="nav-section-btn" data-section="learning" onclick="showSectionGroup('learning', event)">
+                        <span class="nav-sec-icon">👁️</span>
+                        <span class="nav-sec-text" data-i18n="sectionLearning">識圖</span>
+                    </button>
+                    <button class="nav-section-btn" data-section="writing" onclick="showSectionGroup('writing', event)">
+                        <span class="nav-sec-icon">✏️</span>
+                        <span class="nav-sec-text" data-i18n="sectionWriting">書寫練習</span>
+                    </button>
+                    <button class="nav-section-btn" data-section="story" onclick="showSectionGroup('story', event)">
+                        <span class="nav-sec-icon">📚</span>
+                        <span class="nav-sec-text" data-i18n="sectionStory">故事繪本</span>
+                    </button>
+                    <button class="nav-section-btn" data-section="games" onclick="showSectionGroup('games', event)">
+                        <span class="nav-sec-icon">🎮</span>
+                        <span class="nav-sec-text" data-i18n="sectionGames">遊戲活動</span>
+                    </button>
+                </div>
+                
+                <!-- Content Area -->
+                <div class="content-area">
+                    
+                    <!-- SECTION 0: 課前提問 -->
+                    <div class="section-content active" data-section="0">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            課前提問
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 1-5: 識圖 (待重新設計) -->
+                    <div class="section-content" data-section="1">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="2">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="3">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="4">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="5">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            識圖 - 待設計
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 6-8: 書寫練習 (待重新設計) -->
+                    <div class="section-content" data-section="6">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="7">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
+                        </div>
+                    </div>
+                    <div class="section-content" data-section="8">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            書寫練習 - 待設計
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 9: 故事繪本 (待重新設計) -->
+                    <div class="section-content" data-section="9">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            故事繪本 - 待設計
+                        </div>
+                    </div>
+                    
+                    <!-- SECTION 10: 遊戲活動 (待重新設計) -->
+                    <div class="section-content" data-section="10">
+                        <div style="display:flex;align-items:center;justify-content:center;height:100%;color:#999;font-size:24px;">
+                            遊戲活動 - 待設計
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+            
+            <!-- Footer -->
+            <footer class="learn-footer">
+                <button class="footer-nav-btn" onclick="prevSection()">◀</button>
+                <div class="footer-center">
+                    <div class="footer-indicators">
+                        <div class="footer-indicator active"></div>
+                        <div class="footer-indicator"></div>
+                        <div class="footer-indicator"></div>
+                    </div>
+                    <div class="page-number"><span id="currentPage">1</span> / 11</div>
+                </div>
+                <button class="footer-nav-btn" onclick="nextSection()">▶</button>
+            </footer>
+            
+        </div>
+    </section>
+
+    <!-- PAGE 10: UNIT END -->
+    <section id="page-unit-end" class="page">
+        <div class="unit-end-page">
+            <img class="unit-end-bg" src="assets/images/courseware/單元結束頁面更新版/單元結束頁面背景.png" alt="單元結束">
+            <img class="unit-end-btn-levels" src="assets/images/courseware/單元結束頁面更新版/返回學段選擇頁按鈕.png" alt="返回學段選擇頁" onclick="goTo('levels')">
+            <img class="unit-end-btn-prev" src="assets/images/courseware/單元結束頁面更新版/返回上一頁按鈕.png" alt="返回上一頁" onclick="unitEndBackToPrevious()">
+        </div>
+    </section>
+
+    <!-- PAGE 10: STORY READER -->
+    <section id="page-story" class="page">
+        <link rel="stylesheet" href="css/learning-design.css?v=66">
+        <div class="learning-page theme-green" id="storyPage">
+            <header class="learn-header">
+                <button class="header-btn" onclick="closeStory()">◀</button>
+                <div class="header-title-box">
+                    <h2 id="storyTitle" data-i18n="sectionStory">故事繪本</h2>
+                </div>
+                <div class="header-logo" data-i18n="logoChar">華</div>
+            </header>
+            
+            <main class="learn-main">
+                <div class="left-decor">
+                    <div class="decor-circle"></div>
+                </div>
+                <div class="side-progress">
+                    <div class="progress-dot active"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-dot"></div>
+                </div>
+                <div class="content-area">
+                    <div class="section-content active">
+                        <div class="story-reader-content" id="storyContent">
+                            <div class="story-page">
+                                <div class="story-illustration" id="storyIllustration">📖</div>
+                                <div class="story-text" id="storyText">
+                                    <h3>歡迎閱讀故事！</h3>
+                                    <p>這是一個關於身體的有趣故事...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <footer class="learn-footer">
+                <button class="footer-nav-btn" onclick="prevStoryPage()">◀</button>
+                <div class="footer-center">
+                    <div class="page-number"><span id="storyPageNum">1</span> / 4</div>
+                </div>
+                <button class="footer-nav-btn" onclick="nextStoryPage()">▶</button>
+            </footer>
+        </div>
+    </section>
+
+    <!-- 全站共用彈層容器（唐詩播放、遊戲活動等） -->
+    <div id="gameContainer" style="position:fixed;top:0;left:0;width:100vw;height:100vh;display:none;z-index:9999;">
+        <!-- 由 JS 動態渲染 -->
+    </div>
+
+    <script src="auth.js?v=2"></script>
+    <script src="app.js?v=20250920v115"></script>
+    <script>setTimeout(function(){ if(typeof switchLearningModule==='function') switchLearningModule('quiz'); }, 500);</script>
+</body>
+</html>

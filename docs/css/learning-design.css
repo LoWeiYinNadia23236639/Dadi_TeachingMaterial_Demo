@@ -957,3 +957,104 @@
     background: transparent;
     overflow: hidden;
 }
+
+/* ---------- 放大鏡 ---------- */
+.zoom-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #E85A9C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 6;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    padding: 0;
+    transition: transform .15s, background .2s;
+}
+.zoom-btn:hover {
+    background: #D13F82;
+    transform: scale(1.08);
+}
+/* 識圖：與喇叭按鈕完全同款 (60px, #0054a6，規則與 recognition-design 對齊) */
+.cw-page .cw-content .rec-text-area .zoom-btn {
+    width: 60px;
+    height: 60px;
+    background: #0054a6;
+}
+.cw-page .cw-content .rec-text-area .zoom-btn:hover {
+    background: #003d7a;
+}
+.cw-content .rec-text-area .zoom-btn {
+    right: 88px;
+}
+/* 識字：橙色主題 */
+.cw-theme-writing .zoom-btn {
+    background: #F5A623;
+}
+.cw-theme-writing .zoom-btn:hover {
+    background: #dd8f0e;
+}
+/* 繪本：綠色主題，位於白色書框右下角 */
+.cw-theme-story .zoom-btn {
+    background: #4CAF50;
+}
+.cw-theme-story .zoom-btn:hover {
+    background: #3d8b40;
+}
+.cw-content .story-reader .zoom-btn {
+    top: 841px;
+    left: 1571.9px;
+    right: auto;
+}
+.zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.78);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.zoom-stage {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center center;
+    pointer-events: none;
+}
+.zoom-stage .cw-content {
+    pointer-events: auto;
+}
+.zoom-close {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(60,60,60,.9);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    box-shadow: 0 2px 10px rgba(0,0,0,.4);
+    padding: 0;
+}
+.zoom-close:hover {
+    background: rgba(30,30,30,.95);
+}
+.zoom-story-img {
+    width: 94vw;
+    height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.5);
+}

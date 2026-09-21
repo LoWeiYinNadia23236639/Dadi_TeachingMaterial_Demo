@@ -1,0 +1,168 @@
+/* ============================================
+   第二頁內嵌登入區塊、鎖定狀態與製作中標籤樣式
+   ============================================ */
+
+/* ---------- 老師登入區塊（第二頁卡片內、兩行輸入框；點角色即登入） ---------- */
+.char2-login-embed {
+    position: absolute;
+    left: 731.5px;
+    top: 195px;
+    width: 457.1px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+}
+
+.char2-login-embed.logged-in {
+    justify-content: center;
+}
+
+.char2-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.char2-login-input {
+    height: 62px;
+    background: #F0F0F0;
+    border: 3px solid transparent;
+    border-radius: 16px;
+    padding: 0 20px;
+    font-size: 20px;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.char2-login-input:focus {
+    border-color: #E85A9C;
+}
+
+#loginUsername { width: 100%; }
+#loginPassword { width: 100%; }
+
+.char2-login-btn {
+    height: 58px;
+    padding: 0 34px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #E85A9C;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.char2-login-btn:hover { background: #D13F82; }
+.char2-login-btn:active { transform: scale(0.96); }
+
+.char2-login-error {
+    min-height: 20px;
+    font-size: 16px;
+    color: #E53935;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* 已登入狀態：用戶名 + 登出 */
+.char2-login-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.char2-login-user {
+    font-size: 22px;
+    font-weight: 700;
+    color: #4A4A4A;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.char2-logout-btn {
+    height: 50px;
+    padding: 0 26px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #9E9E9E;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.char2-logout-btn:hover { background: #757575; }
+.char2-logout-btn:active { transform: scale(0.96); }
+
+/* 點擊上鎖項目後，引導注意力到登入區塊的閃爍效果 */
+.char2-login-embed.auth-flash .char2-login-input,
+.char2-login-embed.auth-flash .char2-login-btn {
+    animation: authFlash 1.2s ease;
+}
+
+@keyframes authFlash {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(232, 90, 156, 0); }
+    30% { box-shadow: 0 0 0 8px rgba(232, 90, 156, 0.45); }
+}
+
+/* ---------- 鎖定狀態 ---------- */
+/* 注意：不要在此加 position: relative，會覆蓋掉 poem-btn-wrap / chapter-box /
+   song-unit-chapter-box 的 absolute 定位，導致項目錯位 */
+.poem-btn-wrap.locked,
+.chapter-box.locked,
+.song-unit-chapter-box.locked,
+.song-card.locked {
+    cursor: not-allowed;
+    filter: grayscale(0.35) opacity(0.8);
+}
+
+/* song-card 原本無定位，需要額外給予，鎖頭徽章才有錨點 */
+.song-card.locked {
+    position: relative;
+}
+
+/* 鎖頭圖示（內嵌 SVG，置於右上角，任何縮放下都清晰） */
+.poem-btn-wrap.locked::after,
+.chapter-box.locked::after,
+.song-unit-chapter-box.locked::after,
+.song-card.locked::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 34px;
+    height: 34px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5' fill='none' stroke='%23484848' stroke-width='2.6' stroke-linecap='round'/%3E%3Crect x='4.8' y='10.2' width='14.4' height='10' rx='2.8' fill='%23484848'/%3E%3Ccircle cx='12' cy='14.2' r='1.7' fill='%23ffffff'/%3E%3Crect x='11.1' y='14.6' width='1.8' height='3.2' rx='0.9' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* ---------- 製作中標籤（管理員） ---------- */
+/* .chapter-box 本身已是 absolute 定位，可直接作為徽章錨點，無需再設 relative */
+
+.chapter-box .in-progress-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #FFB300;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 3px 10px;
+    pointer-events: none;
+}

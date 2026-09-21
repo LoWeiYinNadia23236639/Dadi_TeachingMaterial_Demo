@@ -1,0 +1,199 @@
+/* ============================================
+   第二頁內嵌登入區塊、鎖定狀態與製作中標籤樣式
+   ============================================ */
+
+/* ---------- 老師登入區塊（角色選擇頁頂部） ---------- */
+.char2-login-bar {
+    position: absolute;
+    left: 340px;
+    top: 70px;
+    width: 1240px;
+    height: 100px;
+    background: #FFFFFF;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+}
+
+/* 已登入時縮成右側小膠囊，避免整條留白 */
+.char2-login-bar.logged-in {
+    left: auto;
+    right: 280px;
+    width: auto;
+    min-width: 380px;
+}
+
+.char2-login-form {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.char2-login-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #E85A9C;
+    white-space: nowrap;
+}
+
+.char2-login-input {
+    height: 58px;
+    background: #F0F0F0;
+    border: 3px solid transparent;
+    border-radius: 16px;
+    padding: 0 18px;
+    font-size: 22px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.char2-login-input:focus {
+    border-color: #E85A9C;
+}
+
+#loginUsername { width: 250px; }
+#loginPassword { width: 200px; }
+
+.char2-login-btn {
+    height: 58px;
+    padding: 0 34px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #E85A9C;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.char2-login-btn:hover { background: #D13F82; }
+.char2-login-btn:active { transform: scale(0.96); }
+
+.char2-login-error {
+    font-size: 20px;
+    color: #E53935;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 已登入狀態：用戶名 + 登出 */
+.char2-login-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 100%;
+}
+
+.char2-login-user {
+    font-size: 26px;
+    font-weight: 700;
+    color: #4A4A4A;
+}
+
+.char2-logout-btn {
+    height: 58px;
+    padding: 0 34px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #9E9E9E;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.char2-logout-btn:hover { background: #757575; }
+.char2-logout-btn:active { transform: scale(0.96); }
+
+/* 點擊上鎖項目後，引導注意力到登入區塊的閃爍效果 */
+.char2-login-bar.auth-flash {
+    animation: authFlash 1.2s ease;
+}
+
+@keyframes authFlash {
+    0%, 100% { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); }
+    30% { box-shadow: 0 0 0 8px rgba(232, 90, 156, 0.45), 0 10px 30px rgba(0, 0, 0, 0.12); }
+}
+
+/* ---------- 鎖定狀態 ---------- */
+.poem-btn-wrap.locked,
+.chapter-box.locked,
+.song-unit-chapter-box.locked,
+.song-card.locked {
+    position: relative;
+    cursor: not-allowed;
+}
+
+.poem-btn-wrap.locked {
+    filter: grayscale(0.9) opacity(0.55);
+}
+
+.chapter-box.locked,
+.song-unit-chapter-box.locked,
+.song-card.locked {
+    filter: grayscale(0.6) opacity(0.6);
+}
+
+/* 鎖頭圖示（CSS 繪製：鎖身 + 鎖樑，不依賴表情符號字體） */
+.poem-btn-wrap.locked::after,
+.chapter-box.locked::after,
+.song-unit-chapter-box.locked::after,
+.song-card.locked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 34px;
+    background: #4A4A4A;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    pointer-events: none;
+}
+
+/* 鎖樑 */
+.poem-btn-wrap.locked::before,
+.chapter-box.locked::before,
+.song-unit-chapter-box.locked::before,
+.song-card.locked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 27px));
+    width: 24px;
+    height: 20px;
+    border: 7px solid #4A4A4A;
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    pointer-events: none;
+}
+
+/* ---------- 製作中標籤（管理員） ---------- */
+.chapter-box {
+    position: relative;
+}
+
+.chapter-box .in-progress-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: #FFB300;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 3px 10px;
+    pointer-events: none;
+}
