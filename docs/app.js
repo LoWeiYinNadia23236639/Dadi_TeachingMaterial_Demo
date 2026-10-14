@@ -7234,7 +7234,7 @@ function getGameData() {
     if (AppState.currentChapter === 5) {
         return generateChapter9GameData();
     }
-    if ([2, 8, 12, 14, 15, 18, 19, 20].includes(AppState.currentChapter)) {
+    if ([2, 3, 4, 6, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22].includes(AppState.currentChapter)) {
         return generateChapterPoolGameData(AppState.currentChapter);
     }
     return gameDataByChapter[11];
