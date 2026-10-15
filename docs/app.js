@@ -4665,7 +4665,7 @@ const poemData = [
 ];
 
 // 本機影片（已下載至 assets/videos/，播放無廣告）；無本機檔時回退 YouTube 嵌入
-const LOCAL_VIDEO_IDS = new Set(['-tpTosF4dN8', '19VrhE3WpSE', '4VKCEg5jMto', '4VZyb3uQZDM', '4iOv88MxB-I', '6Iww4SZ7MgI', '7nS5sXHPTMM', '81Q6wsX5gg8', '9B2IMrLxNWQ', 'AN0KPLgW6i4', 'B2SPDR6orCg', 'BRnt1wp1hdY', 'CFTtLCTARyw', 'DauQIYCGzhc', 'I2tUfWWYOkU', 'KXJTo_SVyF8', 'KpZkzQOdv0Q', 'LK_4GyVyXcs', 'M6zhXla6iC8', 'N2F4mWg0GeY', 'R6DfeOC6_OM', 'SUB7sIQxCZE', 'TyYQmyXLAgc', 'UFciLs2hXPw', 'UulTlStNp5k', 'W2J0wQHhxpI', 'WrngcrQHAkY', 'ayEPQu5o_X4', 'bgUqwi39ozk', 'f0Ac0SCMQPY', 'kaYp8TsSfA8', 'l5xt2adTzsM', 'lZG8gYtcDXM', 'mUQpz1itMdQ', 'm_rDIzj6DRE', 'o3WGZoW2DoU', 'oQMOgmsj15c', 'oWLT3XjDoNU', 'ofZypMlVeLQ', 'r0pUOS09-JE', 't7q70yhQ3Ro', 'ta6gOpZEReo', 'tyo3Rzbtl3w', 'vulOTUcnMug', 'wED_ZaR8l2U', 'wKytQZgcABY', 'wfiOVibJ2GA', 'yGnuUqJvdm8', 'z36Ib24Ggq0', 'zhjXfbxf-g0']);
+const LOCAL_VIDEO_IDS = new Set(['0DLE98Z0xYs', '0eo52uCRJNc', '4xaMr0hcIAo', 'ALY-AsSQtAI', 'FYpDfFaheMc', 'I-uMU-9iRdM', 'LWcBVA33HPI', 'MjF0SHChJpc', 'S88rj8eNbtg', 'TFvcTlVlOoA', 'TW1Raue7IgY', 'Z18sMahl_Bc', 'a0HE2qY8NSo', 'crFAYjMXn7Q', 'jfoA81DB9Is', 'oUD7rfBoiAk', '-tpTosF4dN8', '19VrhE3WpSE', '4VKCEg5jMto', '4VZyb3uQZDM', '4iOv88MxB-I', '6Iww4SZ7MgI', '7nS5sXHPTMM', '81Q6wsX5gg8', '9B2IMrLxNWQ', 'AN0KPLgW6i4', 'B2SPDR6orCg', 'BRnt1wp1hdY', 'CFTtLCTARyw', 'DauQIYCGzhc', 'I2tUfWWYOkU', 'KXJTo_SVyF8', 'KpZkzQOdv0Q', 'LK_4GyVyXcs', 'M6zhXla6iC8', 'N2F4mWg0GeY', 'R6DfeOC6_OM', 'SUB7sIQxCZE', 'TyYQmyXLAgc', 'UFciLs2hXPw', 'UulTlStNp5k', 'W2J0wQHhxpI', 'WrngcrQHAkY', 'ayEPQu5o_X4', 'bgUqwi39ozk', 'f0Ac0SCMQPY', 'kaYp8TsSfA8', 'l5xt2adTzsM', 'lZG8gYtcDXM', 'mUQpz1itMdQ', 'm_rDIzj6DRE', 'o3WGZoW2DoU', 'oQMOgmsj15c', 'oWLT3XjDoNU', 'ofZypMlVeLQ', 'r0pUOS09-JE', 't7q70yhQ3Ro', 'ta6gOpZEReo', 'tyo3Rzbtl3w', 'vulOTUcnMug', 'wED_ZaR8l2U', 'wKytQZgcABY', 'wfiOVibJ2GA', 'yGnuUqJvdm8', 'z36Ib24Ggq0', 'zhjXfbxf-g0']);
 
 function videoEmbedHtml(videoId) {
     if (LOCAL_VIDEO_IDS.has(videoId)) {
@@ -6776,23 +6776,9 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page05.jpg" },
+                { type: 'video', videoId: 'Z18sMahl_Bc' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page11.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事1/page15.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事1/第4課-故事1問題3簡體.jpg" } },
             ]
         },
@@ -6809,26 +6795,11 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page04.jpg" },
+                { type: 'video', videoId: 'crFAYjMXn7Q' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page07.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page10.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page13.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題4簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事2/page16.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題5繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事2/第4課-故事2問題5簡體.jpg" } },
             ]
         },
@@ -6845,31 +6816,11 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page03.jpg" },
+                { type: 'video', videoId: 'ALY-AsSQtAI' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page11.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page12.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page16.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題4簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page17.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page18.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page19.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page20.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第4課故事3/page21.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題5繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第4課故事3/第4課-故事3問題5簡體.jpg" } },
             ]
         }
@@ -7190,27 +7141,11 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page04.jpg" },
+                { type: 'video', videoId: 'FYpDfFaheMc' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page06.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page10.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page14.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題4簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事1/page17.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題5繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事1/第13課-故事1問題5簡體.jpg" } },
             ]
         },
@@ -7227,25 +7162,9 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page04.jpg" },
+                { type: 'video', videoId: 'TW1Raue7IgY' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page09.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事2/page17.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事2/第13課-故事2問題3簡體.jpg" } },
             ]
         },
@@ -7262,21 +7181,9 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page02.jpg" },
+                { type: 'video', videoId: 'LWcBVA33HPI' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page08.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第13課故事3/page13.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第13課故事3/第13課-故事3問題3簡體.jpg" } },
             ]
         }
@@ -7295,21 +7202,10 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page04.jpg" },
+                { type: 'video', videoId: 'S88rj8eNbtg' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page08.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page11.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事1/page12.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事1/第16課-故事1問題4簡體.jpg" } },
             ]
         },
@@ -7326,24 +7222,10 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page05.jpg" },
+                { type: 'video', videoId: 'TFvcTlVlOoA' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page08.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page10.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事2/page15.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事2/第16課-故事2問題4簡體.jpg" } },
             ]
         },
@@ -7360,20 +7242,9 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page05.jpg" },
+                { type: 'video', videoId: 'a0HE2qY8NSo' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page08.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第16課故事3/page12.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第16課故事3/第16課-故事3問題3簡體.jpg" } },
             ]
         }
@@ -7428,28 +7299,10 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page05.jpg" },
+                { type: 'video', videoId: '0eo52uCRJNc' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page07.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page12.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題3簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page17.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page18.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事2/page19.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題4繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事2/第17課-故事2問題4簡體.jpg" } },
             ]
         },
@@ -7466,20 +7319,9 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page04.jpg" },
+                { type: 'video', videoId: 'oUD7rfBoiAk' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題1簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page09.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題2繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題2簡體.jpg" } },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第17課故事3/page12.jpg" },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題3繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第17課故事3/第17課-故事3問題3簡體.jpg" } },
             ]
         }
@@ -7519,25 +7361,7 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page17.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page18.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事2/page19.jpg" },
+                { type: 'video', videoId: '0DLE98Z0xYs' },
             ]
         },
         {
@@ -7553,42 +7377,7 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page17.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page18.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page19.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page20.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page21.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page22.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page23.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page24.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page25.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page26.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page27.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page28.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page29.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page30.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page31.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page32.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page33.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page34.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page35.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第21課故事3/page36.jpg" },
+                { type: 'video', videoId: '4xaMr0hcIAo' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第21課故事3/第21課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第21課故事3/第21課-故事3問題1簡體.jpg" } },
             ]
         }
@@ -7607,16 +7396,7 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事1/page10.jpg" },
+                { type: 'video', videoId: 'jfoA81DB9Is' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第22課故事1/第22課-故事1問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第22課故事1/第22課-故事1問題1簡體.jpg" } },
             ]
         },
@@ -7633,27 +7413,7 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page17.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page18.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page19.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page20.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事2/page21.jpg" },
+                { type: 'video', videoId: 'MjF0SHChJpc' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第22課故事2/第22課-故事2問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第22課故事2/第22課-故事2問題1簡體.jpg" } },
             ]
         },
@@ -7670,23 +7430,7 @@ const storyBooksByChapter = {
                 y: 247.5
             },
             pages: [
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page01.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page02.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page03.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page04.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page05.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page06.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page07.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page08.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page09.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page10.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page11.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page12.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page13.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page14.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page15.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page16.jpg" },
-                { type: 'image', image: "assets/images/stories/故事繪本頁面更新版/第22課故事3/page17.jpg" },
+                { type: 'video', videoId: 'I-uMU-9iRdM' },
                 { type: 'question', image: { tw: "assets/images/stories/故事繪本頁面更新版/第22課故事3/第22課-故事3問題1繁體.jpg", cn: "assets/images/stories/故事繪本頁面更新版/第22課故事3/第22課-故事3問題1簡體.jpg" } },
             ]
         }
@@ -7768,7 +7512,10 @@ function renderStoryReader() {
     const currentPageNum = storyState.currentPageIndex + 1;
 
     let contentHtml = '';
-    if (page.type === 'question') {
+    if (page.type === 'video') {
+        contentHtml = `<video class="story-reader-video" src="assets/videos/${page.videoId}.mp4" controls playsinline preload="metadata"
+            style="max-width:94%;max-height:74vh;background:#000;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.25);"></video>`;
+    } else if (page.type === 'question') {
         const src = AppState.language === 'zh-CN' ? page.image.cn : page.image.tw;
         contentHtml = `<img class="story-reader-question" src="${src}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'story-page-placeholder\\'><span class=\\'placeholder-icon\\'>🖼️</span><span>${t('pagePlaceholder')}</span></div>';">`;
     } else {
@@ -11618,6 +11365,8 @@ function zoomOpenBox(btn) {
 // 繪本：目前頁圖片全屏展示
 function zoomStoryPage(btn) {
     const reader = btn.closest('.story-reader');
+    const vid = reader && reader.querySelector('.story-reader-video');
+    if (vid) { if (vid.requestFullscreen) vid.requestFullscreen().catch(() => {}); return; }
     const img = reader && (reader.querySelector('.story-reader-image') || reader.querySelector('.story-reader-question'));
     if (!img || !img.src || zoomState) return;
     const overlay = document.createElement('div');
